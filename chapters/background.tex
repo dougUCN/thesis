@@ -1,0 +1,203 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introduction and background}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+An electric dipole moment (EDM), $\vv{d}$, is an intrinsic property of a particle that describes the effect of an external electric field on the particle. For a neutral particle, it may be naively considered as two point charges $+q$ and $-q$ separated by a distance $\vv{r}$, such that $\vv{d}=q\cdot \vv{r}$. For a general continuous charge distribution $\rho(\vv{r})$ this is written to be
+%
+\begin{gather}
+    \vv{d}=\int d^3r\,\,\vv{r}\rho(\vv{r})
+\end{gather}
+%
+If there is an asymmetry in the charge distribution within the particle, then there is a nonzero EDM. The existence of an EDM is a violation of the parity symmetry $P$ and time reversal symmetry $T$ (Sec.~\ref{sec:CP_violation}). Under the $CPT$ theorem, this implies $CP$ violation.
+
+A nonzero neutron electric dipole moment (\acrshort*{nedm}) has yet to be measured. The existing bound on the nEDM is $\gls*{d_n}\leq 1.8\times10^{-26}e\,\text{cm (90\% \acrshort{cl})}$ \cite{pdg2022}. A nEDM measurement is one of the most sensitive probes of $CP$ violation, and may give clues to the puzzle of the matter–antimatter asymmetry in the universe (Sec.~\ref{sec:CP_violation_SM}-\ref{sec:history_nedm}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{CP violation}\label{sec:CP_violation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A physical law, process, or quantity is symmetric under a certain operation if it remains unchanged by the operation. Three discrete symmetries play a critical role in fundamental physics: charge conjugation $C$, parity inversion $P$, and time reversal $T$.
+
+Charge conjugation transforms all charge quantum numbers of a particle. This includes electrical charge, color charge, lepton or baryon number, etc. $C$ converts a particle into its anti-particle. A process is symmetric under $C$ if one cannot distinguish the difference between anti-particles or particles with the corresponding conjugated fields in participation. For example, an electron in an electric field is indistinguishable from a positron in an electric field of equal magnitude and opposite direction \cite{schmidt-wellenburg_quest_2017}.
+
+Parity, or spatial inversion, changes the sign of all spatial Cartesian coordinates. A quantity such as classical linear momentum transforms as $\vv{p}\xrightarrow{T} -\vv{p}$. The transformation $P$ in 3 dimensions cannot be imitated by a set of rotations, which gives rise to the terms ``right-handed'' and ``left-handed'' symmetry. An example of a quantity invariant under $P$ is spin $1/2$. To provide intuition as to why this is true, consider the classical angular momentum definition $\vv{r} \times \vv{p}$. The cross product of two polar vectors is an axial vector (or pseudo vector) that does not change under $P$ (as seen by $(-\vv{p}) \times (-\hat{r}) = \vv{p} \times \vv{r}$).
+
+Parity violation in the weak interaction was proposed by Lee and Yang in 1956 to explain the $\theta$\textendash$\tau$ problem and subsequently observed by Wu \textit{et al.} \cite{wu_1956, cp_violation_wo_strangeness}. Wu and his collaborators polarized nuclear spins of $\ce{^{60}Co}$ with a magnetic field and measured the spectrum of the electrons from $\beta$ decay. They found that electrons were preferentially emitted in the direction opposite to the polarization of the spin (i.e., the $\beta$ distribution was dependent on $\vv{S}\cdot\vv{p}_e$), thus violating parity.
+
+Time reversal modifies a time dependent Hamiltonian $H(t)$ with the transformation $H(t)\xrightarrow{T} H(-t)$. An example of a process invariant under $T$ is a classical elastic collision of billiard balls, where watching a video of the process played backwards would be identical to the video in normal time. A quantity such as spin $1/2$, however, changes sign under $T$ similar to how the angular momentum vector of a gyroscope changes when the direction of rotation changes.
+
+\begin{table}
+\centering
+\caption[Transformations under $C$, $P$, and $T$ operations]{\label{tb:cpt_transform}Transformations under $C$, $P$, and $T$ operations}
+\begin{tabular}{lllll}
+\toprule
+& & $C$ & $P$ & $T$ \\ 
+\midrule
+$\vv{r}$ & Position & $+$ & $-$ & $+$ \\
+$t$ & Time & $+$ & $+$ & $-$ \\
+$\vv{p}$ & Momentum & $+$ & $-$ & $-$ \\
+$\vv{S}$ & Spin & $+$ & $+$ & $-$ \\
+$\vv{\mu}$ & Magnetic dipole moment  & $-$ & $+$ & $-$ \\
+$\vv{d}$ & Electric dipole moment  & $-$ & $+$ & $-$ \\
+$\vv{B}$ & Magnetic field  & $-$ & $+$ & $-$ \\
+$\vv{E}$ & Electric field & $-$ & $-$ & $+$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tab.~\ref{tb:cpt_transform} contains a summary of transformations under $C$, $P$, and $T$. ``$+$'' denotes that the quantity is even (invariant) under the transformation, and ``$-$'' denotes that the quantity is odd under the transformation.
+
+Let us examine the behavior of a particle with both electric ($\vv{d}$) and magnetic ($\vv{\mu}$) dipole moments in the presence of external magnetic ($\vv{B}$) and electric ($\vv{E}$) fields under transformations $P$ and $T$. In the nonrelativistic limit, the interaction Hamiltonian is 
+%
+\begin{gather}
+    H_\text{EDM} = -\vv{d}\,\vv{E}-\vv{\mu}\,\vv{B} \label{eq:edm_hamiltonian}
+\end{gather}
+%
+where by the Wigner-Ekart theorem, the EDM of a spin $1/2$ particle must be colinear to the spin $\vv{S}$. This allows us to write $\vv{\mu}=\mu\vv{S}$ and $\vv{d}=\delta\vv{S}$. Therefore, dipole moment operators transform under $P$ and $T$ the same as spin, an axial vector. 
+
+Under parity, the polar vector $\vv{E}$ changes sign when the locations of all charges are inverted. However, there is no explicit time dependence in $\vv{E}$, so under time reversal there is no change. In contrast, under $P$ the magnetic field does not change. Intuitively, we observe that the Biot-Savart Law defined by $d\vv{B}\propto I\,d\vec{l} \times \hat{r} /r^2$ contains a cross product, an axial vector. However, $\vv{B}$ changes under $T$ because the directions of all currents are reversed while the spatial configuration stays the same. 
+
+Applying $P$ to Eq.~(\ref{eq:edm_hamiltonian}) we immediately see
+%
+\begin{gather}
+    H_\text{EDM}\xrightarrow{P} -\vv{d}(-\vv{E}) - \vv{\mu}\,\vv{B} \neq H_\text{EDM}
+\end{gather}
+%
+and under $T$ we have
+%
+\begin{gather}
+    H_\text{EDM}\xrightarrow{T} -(-\vv{d})\vv{E} - (-\vv{\mu})(-\vv{B}) \neq H_\text{EDM}
+\end{gather}
+%
+The EDM interaction with external fields violates $T$ and $P$ symmetries. 
+
+The $CPT$ theorem states that any locally Lorentz-covariant field theory of a point like particle is $CPT$ invariant \cite{LUDERS19571, schmidt-wellenburg_quest_2017, cp_violation_wo_strangeness}. In other words, the $CPT$ theorem is based on Lorentz invariance and locality, and states that the Hamiltonian (\ref{eq:edm_hamiltonian}) must be invariant under the operations $C$, $P$, and $T$ combined. $CPT$ symmetry implies that when $T$ is violated, then $CP$ must also be violated. This means that the $T$\textendash odd EDM is directly related to $CP$ violation.
+
+In 1964, $CP$ violation was observed in $K^0$ decay~\cite{christenson_1964}, stimulating interests in EDMs and other $T$\textendash odd processes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{CP Violation and the nEDM in the Standard Model}\label{sec:CP_violation_SM}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Pospelov_strong_penguin.pdf}
+    \caption[The strong penguin diagram, the largest $CP$ violating phase contribution to the nEDM in the SM]
+    {The strong penguin diagram (crossed vertex), the largest $CP$ violating phase contribution to the nEDM in the SM. Image from \cite{pospelov_electric_2005}}
+    \label{fig:strong_penguin}
+\end{figure}
+
+There are two sources of $CP$ violation in the Standard Model (\acrshort*{sm}). The first is found in the electroweak sector, via the Cabbibo-Kobayashi-Maskawa (CKM) matrix \cite{ckm1973, ChauKeung1984, pdg2022}.
+%
+\begin{align}
+    V_\text{CKM} &= \left( \begin{matrix}
+    V_\text{ud} & V_\text{us} & V_\text{ub} \\
+    V_\text{cd} & V_\text{cs} & V_\text{cb} \\
+    V_\text{td} & V_\text{ts} & V_\text{tb} \\
+    \end{matrix} \right) \\
+    &= \left( \begin{matrix}
+    c_{12}c_{13} & s_{12}c_{13} & s_{13}e^{-i\delta} \\
+    -s_{12}c_{23}-c_{12}s_{23}s_{13}e^{i\delta} & c_{12}c_{23}-s_{12}s_{23}s_{13}e^{i\delta} & s_{23}c_{13} \\
+    s_{12}s_{23}-c_{12}c_{23}s_{13}e^{i\delta} & -c_{12}s_{23}s_{13}e^{i\delta} & c_{23}c_{13} \\
+    \end{matrix} \right)
+\end{align}
+%
+where $c_{ij}=\cos\theta_{ij}$, $s_{ij}=\sin\theta_{ij}$, and $\delta\approx1.2\text{ rad}$ is the $CP$ violating phase.
+
+$V_\text{CKM}$ is unitary $(V_\text{CKM}V_\text{CKM}^\dag=I)$. For a $3 \times 3$ matrix, this means that the nine unknown complex elements of $V_{ij}$ may be reduced to three real numbers (rotation angle $\theta_{ij}$) and one phase $\delta$, where the phase accounts for $CP$ violation.
+
+We now examine contributions to the nEDM in the SM, beginning with quark EDMs. The neutron is a composite object consisting of three valence quarks ($udd$) and a sea of gluons and mesons. At tree level, there is no diagram generating an EDM interaction of one quark of the neutron with an electric field. At one loop, each CKM matrix element comes with a complex conjugate, thus negating any $CP$ violating phase. At the two loop level, the sum over all quark flavors in intermediate states leads to a vanishing EDM \cite{schmidt-wellenburg_quest_2017, czarnecki2018}.
+
+In fact, the quark EDM appears only starting at the three loop level, with the largest effect from the exchange of two W bosons and one gluon. Taking a simplified valence approach to estimating the nEDM gives \cite{czarnecki2018}
+%
+\begin{gather}
+    \gls*{d_n}^\text{valence} = \frac{4}{3}d_d - \frac{1}{3}d_u \lesssim 10^{-34}\,e\text{ cm}
+\end{gather}
+
+The largest $CP$ violating phase contribution to the nEDM arises from the so-called strong penguin diagram (Fig.~\ref{fig:strong_penguin}) \cite{pospelov_electric_2005}. The contribution to a nEDM is enhanced by a long distance $\pi^-$ loop, and it is estimated to be
+%
+\begin{gather}
+    \gls*{d_n}^\text{penguin} \sim 10^{-32}\,e\text{ cm}
+\end{gather}
+%
+This is significantly lower than current experimental limits on the nEDM ($\sim 10^{-26}\,e\text{ cm}$ \cite{ABE20}). Further improvements to nEDM measurements are effective probes of beyond Standard Model (\acrshort*{bsm}) physics.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Strong CP problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The second source of $CP$ violation in the SM comes from the quantum chromodynamics (QCD) Lagrangian term for the strong interaction. The $CP$ violating dimension 4 operator is
+%
+\begin{gather}
+    \mathcal{L}_\text{QCD}^\text{CP\textendash odd}=\frac{g^2_s}{32\pi^2}\bar{\theta}G^a_{\mu\nu}\tilde{G}^{\mu\nu, a}
+\end{gather}
+%
+where $g_s$ is the strong interaction coupling, $\bar{\theta}$ is the $CP$ violating phase, and $G^a_{\mu\nu}$ is the QCD gluon field tensor. It provides an nEDM contribution on the order of \cite{cp_violation_wo_strangeness}
+%
+\begin{gather}
+    \gls*{d_n}^\text{QCD}\sim \bar{\theta}\times 10^{-16}\,e\text{ cm}
+\end{gather}
+%
+Current experimental limits imply that $\bar{\theta}\lesssim 10^{-10}$, an arbitrarily tiny number given that the phase $\bar{\theta}$ has a permissible range $[0, 2\pi]$. There is no inherent reasoning as to why $\bar{\theta}$ is so small, resulting in the ``strong $CP$ problem.''
+
+One proposed solution to the strong $CP$ problem is the axion \cite{peccei_quinn_axion}, a dark matter candidate. See Refs.~\cite{BAER20151, kim_gianpaolo_2010} for reviews on the topic.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Baryon asymmetry of the universe}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The $CPT$ theorem implies that for any particle there should be an antiparticle of equal mass, decay width, and opposite charge. Particles and antiparticles should have equal distributions at thermal equilibrium. By these symmetry arguments, one would reasonably expect that the universe should contain equal amounts of particles and antiparticles, or that particles and antiparticles mostly annihilated during the early universe and are now very sparse.
+
+In reality, this is not the case. Estimates of the expected baryon matter/anti-matter asymmetry in the universe (\acrshort*{bau}) is 8 orders of magnitude smaller than what is observed using the cosmic microwave background (CMB) \cite{Mor13, Dubbers2011}.
+
+Sakharov \cite{Sakharov_1991} first suggested 3 conditions for baryogenesis, the production of BAU from an initally symmetric state in the early universe. The Sakharov criteria are:
+%
+\begin{enumerate}
+    \item Baryon number violation: For some initial baryon number $B=0$ there must be some interaction that violates baryon number to proceed to a universe with $B>0$.
+    \item $C$ and $CP$ violation: If $C$ and $CP$ are exact symmetries, then the probability of converting matter to antimatter is the same as the reverse process, resulting in $B=0$.
+    \item Breaking of thermal equilibrium:  At thermal equilibrium, there is no preferred direction for time and $CPT$ invariance prevents baryon excess, negating the effect of any $CP$ violating processes.
+\end{enumerate}
+
+In the SM, there is an insufficient departure from thermal equilibrium and too little $CP$ violation for baryogenesis to be permitted. Reference~\cite{Dubbers2011} describes this in further detail.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Beyond standard model physics}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Physics beyond the SM (\acrshort{bsm}) is required for additional sources of $CP$ violation. Given the current sensitivities of EDM and nEDM experiments, $CP$ violating contributions from the SM are effectively background~\cite{CHU19}, 
+
+For reviews on new sources of time reversal symmetry violation see Refs.~\cite{Cir10, POS05, ENG13, CHU19}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{A brief history of nEDM experiments}\label{sec:history_nedm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=0.75 \textwidth]{figures/nEDM-history.jpg}
+    \caption[History of published nEDM measurements and the institutions involved.]{History of published nEDM measurements and the institutions involved. See Refs. \cite{ramsey_nedm_1950, ramsey_nedm_1957, miller_nedm_1967, baird_nedm_1969, cohen_nedm_1969, dress_nedm_1977, altarev_nedm_1980, altarev_nedm_1981, smith_nedm_1990, BAK06, ABE20}. Image from the nEDM collaboration at the Paul Scherrer Institute}
+    \label{fig:nEDM-history}
+\end{figure}
+
+The first nEDM experiment was begun by Ramsey in 1950 with the first result published in 1957 \cite{ramsey_nedm_1950, ramsey_nedm_1957}. The upper bound on $\gls*{d_n}$ has decreased steadily ever since (Fig.~\ref{fig:nEDM-history}). Early nEDM measurements \cite{miller_nedm_1967, baird_nedm_1969, cohen_nedm_1969, dress_nedm_1977} used thermal neutrons ($10\,000$ to $50\,000$ \unit{\micro \eV}) passing a meter-scale apparatus. The sensitivity of beam nEDM measurements was primarily limited by a $\vv{v}\times\vv{E}$ systematic effect (see Sec.~\ref{sec:magnetic_field_req}).
+
+By 1980, nEDM experiments \cite{altarev_nedm_1980, altarev_nedm_1981} used ultracold neutrons (\ucn), which have kinetic energies $\leq 300$ neV. This enabled measurements with neutrons stored in material bottles \cite{smith_nedm_1990}. \ucn properties are described in Chap.~\ref{chap:UCN}. Lower \ucn velocities and a population-averaged velocity of almost 0 avoided the largest systematic effects in the beam experiments. 
+
+nEDM experiments continued to improve with increased densities of stored \ucn, advances in magnetic shielding, and more sensitive magnetometry. One significant innovation was the introduction of a cohabitating comagnetomer, a population of $\ce{^{199}Hg}$ atoms that occupied the same space as \ucn, for monitoring magnetic field drifts within the storage volume~\cite{BAK06}. Most nEDM experiments (including beam measurements) use the same measurement principle, the Ramsey method of oscillatory fields \cite{ramsey_molecular_1950} (Chap.~\ref{chap:spinManipulation}). 
+
+The current upper limit on the nEDM has been set by an experiment performed at the Paul Scherrer Institute ($\gls*{d_n}\leq 1.8\times10^{-26}e\,\text{cm [90\% \acrshort{cl}]}$)~\cite{ABE20} and there are several efforts worldwide aimed at searching for the nEDM with improved sensitivity~\cite{Alarcon2022}. The nEDM experiment at \acrlong*{lanl} (\acrshort*{lanl}) will use the Ramsey method to search for the nEDM with an uncertainty goal of $\delta \gls*{d_n} = 2.7\times10^{-27}e\text{ cm (90\% \acrshort{cl})}$.
+

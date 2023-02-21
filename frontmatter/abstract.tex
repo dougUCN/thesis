@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not edit these lines unless you wish to customize
+% the template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newgeometry{left=1in}
+
+\begin{center}
+
+\yourName \par
+\thesisTitle
+
+\end{center}
+
+\vspace{1.5\baselineskip}
+
+%Insert your abstract here
+\comment{TODO: Abstract}
+
+
+
+% You may list your entire committee at the end of the abstract, with the committee members' names and the signature lines right justified, or you may leave the committee members' names off the abstract. The choice is yours. The abstract remains unsigned for inclusion in your dissertation.
+
+\ifdefined\committeeMemberFourTypedName
+
+\null\hfill \myRule \par
+\null\hfill \committeeChairpersonTypedName, \committeeChairpersonPostNominalInitials \par
+\null\hfill \myRule \par
+\null\hfill \committeeMemberTwoTypedName, \committeeMemberTwoPostNominalInitials \par
+\null\hfill \myRule \par
+\null\hfill \committeeMemberThreeTypedName, \committeeMemberThreePostNominalInitials \par
+\null\hfill \myRule \par
+\null\hfill \committeeMemberFourTypedName, \committeeMemberFourPostNominalInitials \par
+
+\ifdefined\committeeMemberFiveTypedName
+\null\hfill \myRule \par
+\null\hfill \committeeMemberFiveTypedName, \committeeMemberFivePostNominalInitials \par
+\fi
+
+\fi
+
+
+% DO NOT DELETE THIS \restoregeometry COMMAND!!!
+\restoregeometry

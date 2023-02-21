@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Add your bibliography file here
+\bibliography{bib/references.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Suppress "In:" in journal citations
+\renewbibmacro{in:}{}
+
+% prevent certain fields in references from printing in bibliography
+\AtEveryBibitem{\clearfield{issn}}
+\AtEveryBibitem{\clearlist{issn}}
+
+\AtEveryBibitem{\clearfield{isbn}}
+\AtEveryBibitem{\clearlist{isbn}}
+
+\AtEveryBibitem{\clearfield{language}}
+\AtEveryBibitem{\clearlist{language}}
+
+% \AtEveryBibitem{\clearfield{doi}}
+% \AtEveryBibitem{\clearlist{doi}}
+
+% \AtEveryBibitem{\clearfield{url}}
+% \AtEveryBibitem{\clearlist{url}}
+
+% Print URL if DOI is undefined
+\AtEveryBibitem{%
+  \iffieldundef{doi}
+    {}% if DOI is undefined
+    {\clearfield{url}\clearlist{url}}% if DOI is defined
+}
+
+\AtEveryBibitem{%
+    \ifentrytype{online}
+        {}
+        {\clearfield{urlyear}\clearfield{urlmonth}\clearfield{urlday}}}
+
+
+% Adds support for ``collaboration'' field in biber
+% \usepackage[backend=biber,datamodel=collab]{biblatex}
+% https://tex.stackexchange.com/a/427085
+\NewBibliographyString{the}
+\NewBibliographyString{collaborations}
+\NewBibliographyString{collaboration}
+\DefineBibliographyStrings{english}{
+  the            = {the},
+  collaboration  = {collaboration},
+  collaborations = {collaborations},
+}
+
+\renewbibmacro*{author}{%
+  \ifboolexpr{
+    test \ifuseauthor
+    and
+    not test {\ifnameundef{author}}
+  }
+    {\printnames{author}%
+     \iffieldundef{authortype}
+       {}
+       {\setunit{\printdelim{authortypedelim}}%
+        \usebibmacro{authorstrg}}%
+     \iflistundef{collaboration}
+       {}
+       {\setunit{\addspace}%
+        \printtext[parens]{%
+          \bibsentence
+          \bibstring{the}\addspace
+          \printlist{collaboration}%
+          \addspace
+          \ifboolexpr{
+            test {\ifnumgreater{\value{collaboration}}{1}}
+            or
+            test {\ifandothers{collaboration}}
+          }
+          {collaborations}
+          {collaboration}}}}
+    {}}

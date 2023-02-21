@@ -1,0 +1,170 @@
+\glsaddkey
+    {value}% new "value" key for symbols table
+    {}% default value if "value" isn't used in \newglossaryentry
+    {\glsentryvalue}% analogous to \glsentrytext
+    {\Glsentryvalue}% analogous to \Glsentrytext
+    {\glsvalue}% analogous to \glstext
+    {\Glsvalue}% analogous to \Glstext
+    {\GLSvalue}% analogous to \GLStext
+
+\newglossary*{doNotPrint}{Do Not Print} % For glossary entries we don't want printed
+
+% https://tex.stackexchange.com/questions/588051/glossary-entries-error
+% protect non-robust commands
+\newcommand{\glsvv}[1]{\protect\vv{#1}}
+
+% https://tex.stackexchange.com/questions/107536/how-do-i-sort-two-glossaries-list-of-acronyms-and-list-of-symbols-differently
+\makenoidxglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% List of symbols
+% "value" field is customized for the glossary style defined in this file
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newglossaryentry{T_fp}{
+    name=\ensuremath{T_\text{fp}},
+    description={Free precession period in the Ramsey method},
+}
+
+\newglossaryentry{alpha}{
+    name=\ensuremath{\alpha},
+    description={Spin contrast of a Ramsey fringe},
+}
+
+\newglossaryentry{d_n}{
+    name=\ensuremath{d_\text{n}},
+    description={Neutron electric dipole moment},
+}
+
+\newglossaryentry{adiab}{
+    name=\ensuremath{\eta},
+    description={Adiabaticity},
+}
+
+\newglossaryentry{hbar}{
+    name=\ensuremath{\hbar},
+    description={reduced Planck's constant},
+    value={$6.582\,119\,569...\times 10^{-16}\text{ eV s}$}
+}
+
+\newglossaryentry{mu_n}{
+    name=\ensuremath{\mu_\text{n}},
+    description={Neutron magnetic moment},
+    value={$-9.662\,365\,1(23)\times10^{-27}\text{ J}^{-1}\text{T}^{-1}$
+          \\ & & $60.307\,739(15)\text{ neV T}^{-1}$}
+}
+
+\newglossaryentry{gamma_n}{
+    name=\ensuremath{\gamma_\text{n}},
+    description={Neutron gryomagnetic ratio $2|\mu_\text{n}|/\hbar$},
+    value={$-1.832\,471\,71(43)\times10^8\text{ s}^{-1}\text{T}^{-1}$
+          \\ & & $29.164\,693\,1(69)\text{ MHz T}^{-1}$}
+}
+
+\newglossaryentry{m_n}{
+    name=\ensuremath{m_\text{n}},
+    description={Neutron mass},
+    value={$1.674\,927\,498\,04(95)\times 10^{-27}\text{ kg}$
+         \\ & & $939.565\,420\,52(54)\text{ MeV }c^{-2}$}
+}
+
+\newglossaryentry{mg}{
+    name=\ensuremath{m_\text{n}g_0},
+    description={Gravity acel. $g_0$ on neutron mass $m_\text{n}$},
+    value={$102.519\,445\,56(64)\text{ neV m}^{-1}$}
+}
+
+\newglossaryentry{tau_n}{
+    name=\ensuremath{\tau_\text{n}},
+    description={Neutron lifetime},
+    value={\ensuremath{878.4(5)\text{ s}}}
+}
+
+\newglossaryentry{q_n}{
+    name=\ensuremath{q_\text{n}},
+    description={Neutron charge limit},
+    value={\ensuremath{(-0.4 \pm 1.1 ) \times 10^{-21} e}}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% List of symbols not printed in glossary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newglossaryentry{bField}{
+    name=\ensuremath{\glsvv{B}},
+    description={Magnetic field},
+    type=doNotPrint,
+}
+
+\newglossaryentry{vspec}{
+    name=\ensuremath{a},
+    description={Exponent in velocity spectrum $v^a\,dv$},
+    type=doNotPrint,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acronyms
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newacronym{lanl}{LANL}{Los Alamos National Laboratory}
+
+\newacronym{nedm}{nEDM}{Neutron electric dipole moment}
+
+\newacronym{edm}{EDM}{Electric dipole moment}
+
+\newacronym{ucn}{UCN}{Ultracold neutron(s)}
+
+\newacronym{rf}{RF}{Radio frequency}
+
+\newacronym{cl}{CL}{Confidence level}
+
+\newacronym{iu}{IU}{Indiana University Bloomington}
+
+\newacronym{msr}{MSR}{Magnetically shielded room}
+
+\newacronym{nmr}{NMR}{Nuclear magnetic resonance}
+
+\newacronym{afp}{AFP}{Adiabatic fast passage}
+
+\newacronym{sm}{SM}{Standard Model}
+
+\newacronym{bsm}{BSM}{Beyond Standard Model}
+
+\newacronym{bau}{BAU}{Baryon matter/anti-matter asymmetry of the universe}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom glossary style for symbols
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Documentation found in [Documented Code for glossaries](https://ctan.math.illinois.edu/macros/latex/contrib/glossaries/glossaries-code.pdf)
+\newcommand*{\valuename}{{\bfseries{Value}} (Refs.~\cite{codata_2018, pdg2022})}% Name of the third column
+\def\glsvaluewidth{0.7\hsize} % width of the third column
+\newglossarystyle{symbolstyle}{%
+    \renewenvironment{theglossary}%
+    {%
+        % Definition of header row
+        \tablehead{\bfseries\entryname &
+        \bfseries\descriptionname &
+        \valuename \tabularnewline}% 
+        \tabletail{}%
+        \begin{supertabular}{lp{\glsdescwidth}p{\glsvaluewidth}}
+    }%
+    {\end{supertabular}}%
+
+    \renewcommand*{\glossaryheader}{}%
+    \renewcommand*{\glsgroupheading}[1]{}%
+    \renewcommand{\glossentry}[2]{%
+        \glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}} &
+        \glossentrydesc{##1} &
+        \glsentryvalue{##1}\tabularnewline
+    }%
+
+    \ifglsnogroupskip
+        \renewcommand*{\glsgroupskip}{}%
+    \else
+        \renewcommand*{\glsgroupskip}{& \tabularnewline}%
+    \fi
+
+    \renewcommand*{\entryname}{Symbol} % Change name of the first column
+    \setlength{\glsdescwidth}{0.5\hsize} % change width of description column
+}
