@@ -7,4 +7,57 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\cite{Hilborn1982}
+Let us estimate the power requirement of the \qty{254}{\nano\meter} laser required to optically pump the $\ce{^199Hg}$ comagnetometer.
+
+First we estimate the photon absorption cross section $\sigma_\gamma$ of $\ce{^199Hg}$. We estimate that the time $\ce{^199Hg}$ stays in the excited state is given by $\tau_\text{ex}\approx \qty{120}{\nano\s}=A_{21}^{-1}$, where $A_{21}$ is the Einstein coefficient \cite{Hilborn1982} of spontaneous emission. $A_{21}$ describes the probability per unit time that a molecule in state 2 with energy $E_2$ decays spontaneously to state 1 with energy $E_1$ via stimulated emission. The incident photon has energy $E_2-E_1=h\nu$.
+
+$\sigma_\gamma$ and $A_{21}$ for an electron are \cite{Hilborn1982}
+%
+\begin{align}
+    \sigma_\gamma&=\frac{e^2}{4\varepsilon_0 m_e c}f_{12}\phi_\nu \label{eq:199hg_pumping_1}\\
+    A_{21} &= \frac{2\pi \nu^2 e^2}{\varepsilon_0m_ec^3}\frac{g_1}{g_2}f_{12}\label{eq:199hg_pumping_2}
+\end{align}
+%
+where $e$ is electron charge, $m_e$ is the electron mass, $f_{12}$ is oscillator strength, $c$ is the speed of light, $\varepsilon_0$ is the permittivity of free space, and $g_i$ is the degeneracy of some state $i$. The nuclear spin of $\ce{^199Hg}$ is $1/2$ so the hyperfine levels $F=0$ and $F=1$ have only one and three states, respectively. $\phi_\nu$ is the normalized distribution function in frequency, given by
+%
+\begin{gather}
+    \phi(\nu)=\frac{1}{\Delta_\nu \sqrt{2\pi}}\exp \left( - \frac{(\nu-\nu_0)^2}{2\Delta^2_\nu}\right)
+\end{gather}
+%
+Letting $\nu=\nu_0$ and no frequency offset, we have
+%
+\begin{gather}
+    \phi(\nu_0)=\frac{1}{\Delta_\nu\sqrt{2\pi}}\label{eq:199hg_pumping_3}
+\end{gather}
+%
+The relationship of the standard deviation $\Delta_\nu$ to the full width half maximum (FWHM) for a Gaussian distribution is given by $\text{FWHM}\approx 2.355\Delta_\nu$. The doppler width of the \qty{254}{\nano\meter} line FWHM is on the order of \qty{2}{\giga\Hz}, giving $\Delta_\nu\approx \qty{1}{\giga\Hz}$.
+
+We now solve for $\sigma_\gamma$ using the definition $c=\lambda_\gamma \nu$ with Eqs.~(\ref{eq:199hg_pumping_1}), (\ref{eq:199hg_pumping_2}), and (\ref{eq:199hg_pumping_3})
+%
+\begin{align}
+    \sigma_\gamma &= \frac{g_2 c^2}{8\pi g_1 \nu^2}A_{21}\phi_\nu = \frac{g_2 \lambda_\gamma^2}{8\pi g_1 \tau_\text{ex}}\phi_\nu \\
+    &= \frac{g_2 \lambda_\gamma^2}{8\pi g_1 \tau_\text{ex}\Delta_\nu \sqrt{2\pi}} \approx \frac{3 (254\times 10^{-9} \text{ m})^2}{8\pi\sqrt{2\pi} (120\times 10^{-9}\text{ s})(10^9\text{ Hz})} \\
+    &\approx 2.5 \times 10^{-17} \text{ m}^2
+\end{align}
+%
+We now estimate the power requirement of the \qty{254}{\nano\meter} laser. We would like to interrogate each of $N$ atoms once with a photon during its spin lifetime ($\tau_\text{spin}\sim \qty{100}{\s}$ for $\ce{^199Hg}$). Therefore, the rate of photons from the laser should be equal to $N/\tau_\text{spin}$. We now write the power of the laser as
+%
+\begin{gather}
+    P_\text{laser}=h\nu \frac{\text{Number of photons}}{\text{s}}=h\nu\frac{N}{\tau_\text{spin}}\label{eq:199hg_pumping_4}
+\end{gather}
+%
+We let $N=\rho_N V$ for number density $\rho_N$ and cubical storage volume $V$, where the storage volume has edge length $x$.
+
+Recall the Beer-Lambert law (Sec.~\ref{sec:beer_lambert_law}), Eq.~(\ref{eq:beer_lambert_law_variant}). We make the assumption $\sigma \rho_N x=1$, such that a beam of initial intensity $I_0$ is reduced by a factor of $1/e$ after traveling a length $x$ through the cloud of atoms. Equation~(\ref{eq:199hg_pumping_4}) becomes
+%
+\begin{gather}
+    P_\text{laser}=h\nu \frac{V}{\sigma_\gamma x \tau_\text{spin}} = \frac{hcx^2}{\lambda_\gamma \sigma_\gamma \tau_\text{spin}}
+\end{gather}
+%
+For a storage volume of length $x=\qty{0.1}{\meter}$ and using our earlier estimate of $\sigma_\gamma=\qty{2.5e-17}{\meter^2}$, this gives
+%
+\begin{gather}
+    P_\text{laser}\approx \qty{3}{\micro\watt}
+\end{gather}
+%
+which is a fairly low power requirement.
