@@ -119,7 +119,7 @@ Neutrons may be absorbed (captured) by nuclei. When absorbed, a $\gamma$ ray or 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Chapter 2 of Ref.~\cite{golubUCN} provides a very thorough description of neutron interactions with matter. The interaction of a \ucn with some material is given by a complex optical potential, or pseudo-potential, of the form
+Chapter 2 of Ref.~\cite{golubUCN} provides a very thorough description of neutron interactions with matter. The interaction of \ucn with some material is given by a complex ``optical potential,'' or ``pseudo-potential,'' of the form
 %
 \begin{gather}
     U = V - iW = \frac{2\pi\hbar^2}{\gls{m_n}}\gls*{rho_N} b_c-i\frac{\hbar}{2}\gls*{rho_N} \sigma_\ell v \label{eq:optical_potential}
@@ -127,7 +127,7 @@ Chapter 2 of Ref.~\cite{golubUCN} provides a very thorough description of neutro
 %
 where \gls{m_n} is the neutron mass, $v$ is the velocity of the neutron, $b_c$ is the coherent neutron scattering length of the material, $\sigma_\ell$ is the loss cross section, and $\gls*{rho_N}$ is number density. Number density can be expressed in units~[\unit{\meter^{-3}}] by the relation $\gls*{rho_N}=\rho_\text{mat}N_A/w_\text{at}$, where $\rho_\text{mat}$ [\unit{\g\per\m^3}] is material density, $w_\text{at}$ [\unit{\g\per\mole}] is atomic weight, and $N_A$ [\unit{\mole^{-1}}] is Avogadro's number.
 
-The real component of optical potential $V$ describes the critical neutron energy that may be confined by a material (Sec~\ref{sec:ucn_transmission} and \ref{sec:ucn_reflection}), and the imaginary part $W$ describes absorption and upscattering (Sec~\ref{sec:ucn_absorption} and \ref{sec:ucn_reflection}). Table~\ref{tb:optical_potentials} lists the UCN optical potentials of commonly used materials in the LANL nEDM experiment.
+The real component of optical potential $V$ describes the critical neutron energy that may be confined by a material, and the imaginary part $W$ describes absorption and upscattering within the material. Table~\ref{tb:optical_potentials} lists the UCN optical potentials of commonly used materials in the LANL nEDM experiment.
 
 \begin{table}[bp]
 \centering
@@ -142,17 +142,42 @@ The real component of optical potential $V$ describes the critical neutron energ
 Material & {V [\unit{\nano\eV}]} & {W [\unit{\nano\eV}]} & Ref.\\ 
 \midrule
 Al & 54.1 & 0.00281 & \cite{atchison_transmission_2009}\\
-Cu & 170.747 & 0.0726 & \\
+$\ce{^{58}Ni}$ & 335 & 0.05025 & \cite{golubUCN} \\
+NiP & 213 & 2.3e-2 & \cite{pattie_jr_evaluation_2017} 
 \bottomrule
 \end{tabular}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Transmission}\label{sec:ucn_transmission}
+\subsection{Reflection and transmission}\label{sec:ucn_reflection_transmission}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Consider a neutron traveling in a material of potential $V$, with kinetic energy $K$. Let the neutron be incident on a second material of potential $V'$, with an energy component perpendicular to the surface of the second material $K_\perp$. The reflection probability $R$ is given by~\cite{golubUCN,schreyer_pentrack}
+%
+\begin{gather}
+    R = \begin{cases}
+        \left| \frac{\sqrt{K_\perp}-\sqrt{\K_\perp - (V'-V)}}{\sqrt{K_\perp} + \sqrt{\K_\perp - (V'-V)}}\right|^2 \quad \text{for } K_\perp > (V'-V) \\
+        \left| \frac{\sqrt{K_\perp}-\sqrt{\K_\perp - (V'-V) + iW}}{\sqrt{K_\perp} + \sqrt{\K_\perp - (V'-V) + iW}} \right|^2 \quad \text{for } K_\perp < (V'-V)
+    \end{cases}
+\end{gather}
+%
+Under the condition $K_\perp < (V'-V)$, the neutron cannot be transmitted, only reflected. However, the wavefunction of the \ucn undergoing reflection penetrates a small distance into the surface, where it may be lost by the interactions described in Sec.~\ref{sec:ucn_absorption}.
+
+If $K_\perp > (V'-V)$ and the neutron is not reflected, it undergoes refraction and is transmitted through the surface into the second material. The energy of the neutron within the second material is given by $K'=K-(V'-V)$. The refraction is analogous to Snell's law, where the velocity component in the first material perpendicular to the refraction surface $v_\perp$ is changed and the component parallel to the surface $v_\parallel$ is unaltered. The velocity in the second material $v'$ is given by
+%
+\begin{align}
+    \vv{v'} &= \vv{v_\parallel}+ \vv{v'_\perpendicular} \\
+    &= \vv{v_\parallel} + \left( \sqrt{\frac{K_\perp}{\K_\perp - (V'-V)}} \right)\vv{v_\perp} \\
+    &= \vv{v} + \left( \sqrt{\frac{K_\perp}{\K_\perp - (V'-V)}} - 1 \right)\vv{v_\perp}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Diffuse reflections}\label{sec:diffuse_reflections}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -160,15 +185,32 @@ Cu & 170.747 & 0.0726 & \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The absorption cross section $\sigma_\text{abs}$ is proportional to $1/v$
+The two main loss mechanisms for \ucn within a material are absorption and inelastic up-scattering. Absorption occurs when the neutron is captured by nuclei, and inelastic upscattering occurs when a thermally vibrating nucleus increases the energy of \ucn such that it may no longer be stored. The total loss cross section $\sigma_\ell$ is the sum of absorption $\sigma_\text{abs}$ and inelastic up-scattering $\sigma_\text{inel}$ cross sections.
+
+Absorption cross sections are well quantified (see Ref.~\cite{nist_neutron_cross_sections}), but up-scattering cross sections are mostly unknown. Among many other factors, surface impurities such as hydrogen ($\ce{H}$ has a large inelastic scattering cross section of $\sim \qty{80}{\barn}$ \cite{nist_neutron_cross_sections}) will heavily affect up-scattering probabilities. When simulating \ucn material interactions it is often easier to make the assumption $\sigma_\ell = \sigma_\text{abs}$, and to treat up-scattering as a separate effective loss per bounce parameter, as described in Sec.~\ref{sec:loss_per_bounce}.
+
+The absorption cross section $\sigma_\text{abs}$ is proportional to $1/v$. From the second term of Eq.~(\ref{eq:optical_potential}) it becomes apparent that $W$ is independent of neutron velocity in the material.
+
+% Loss probability may be expressed by non-conservation of current density $\vv{j}$ \cite{golubUCN}
+% %
+% \begin{gather}
+%     \frac{\partial \rho(\vv{r},t)}{\partial t} + \nabla \vv{j}(\vv{r}, t)=-\frac{2W}{\hbar}\rho(\vv{r}, t)
+% \end{gather}
+
+% This is an equivalent expression to attenuation via the Beer-Lambert law (Sec.~\ref{sec:beer_lambert_law}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Reflection}\label{sec:ucn_reflection}
+\subsection{Loss per bounce}\label{sec:loss_per_bounce}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\comment{Loss per bounce. Blue book Eq. 2.70. Refer to Pattie et al 2017 Loss Factor vs LPB}
+The average loss probability per bounce $\bar{\mu}(K)$ for a \ucn of kinetic energy $K$ is obtained by assuming ideal gas conditions and averaging over all angles of incidence. Equation~(2.70) in Ref.~\cite{golubUCN} gives
+%
+\bar{\mu} &= 2f \left[ \frac{V}{K} \sin^{-1}\left( \frac{K}{V}}\right)^{1/2} -\left( \frac{V}{K} - 1 \right)^{1/2} \right]\label{eq:lossPerBounce_golub}
+%
+The loss factor is $f=W/V$, for optical potential terms $V$ and $W$ from Eq.~(\ref{eq:optical_potential}). For a more phenomenological treatment of loss per bounce, Eq.~(\ref{eq:lossPerBounce_golub}) may be modified by replacing $f$ with a free parameter $\mu$, a velocity independent effective loss per bounce. See Secs.~\ref{subsec:storageCurves} and \ref{sec:1D_random_walk} for example applications.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -176,7 +218,7 @@ The absorption cross section $\sigma_\text{abs}$ is proportional to $1/v$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Neutron flux attenuation after passing through material may be described with the Beer-Lambert law. Here we demonstrate a way to model neutron absorption or scattering during transmission.
+Neutron flux attenuation after passing through material may be described with the Beer-Lambert law. Here we demonstrate a way to model neutron absorption or elastic scattering during transmission.
 
 Let a beam of neutrons be incident on a material with area $A$, thickness $dx$, and density of atoms (number density) $\gls*{rho_N}$. The number of atoms hit by the incident beam of intensity $I$ is given by $\gls*{rho_N} A\,dx$. The ``effective area'' of the atoms is given by $\sigma \gls*{rho_N} A \, dx$, where $\sigma$ is an absorption or scattering cross section of neutrons on the material.
 
@@ -202,7 +244,7 @@ Where $I_0$ is the beam density intensity at the entrance of the material. Defin
 %
  The Beer-Lambert law applies to neutrons, photons, and rarefied gases. See Appx.~\ref{appx:199hg_pumping} for an example application to the \qty{254}{\nano\meter} laser used for optical pumping of the $\ce{^199Hg}$ comagnetometer. 
  
- The probability $P_\text{elastic}$ of bulk elastic scattering after traversing a distance $x$ through a material is given by
+ We consider the process of bulk elastic scattering, when the neutron collides with the material and has its trajectory altered according to a Lambertian distribution. The probability $P_\text{elastic}$ after traversing a distance $x$ through a material is given by
 %
 \begin{gather}
     P_\text{elastic}=1-e^{-x \gls*{rho_N} \sigma_\text{inc}}
