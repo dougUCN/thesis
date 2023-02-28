@@ -143,7 +143,7 @@ Material & {V [\unit{\nano\eV}]} & {W [\unit{\nano\eV}]} & Ref.\\
 \midrule
 Al & 54.1 & 0.00281 & \cite{atchison_transmission_2009}\\
 $\ce{^{58}Ni}$ & 335 & 0.05025 & \cite{golubUCN} \\
-NiP & 213 & 2.3e-2 & \cite{pattie_jr_evaluation_2017} 
+NiP & 213 & 2.3e-2 & \cite{pattie_jr_evaluation_2017}  \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -158,8 +158,8 @@ Consider a neutron traveling in a material of potential $V$, with kinetic energy
 %
 \begin{gather}
     R = \begin{cases}
-        \left| \frac{\sqrt{K_\perp}-\sqrt{\K_\perp - (V'-V)}}{\sqrt{K_\perp} + \sqrt{\K_\perp - (V'-V)}}\right|^2 \quad \text{for } K_\perp > (V'-V) \\
-        \left| \frac{\sqrt{K_\perp}-\sqrt{\K_\perp - (V'-V) + iW}}{\sqrt{K_\perp} + \sqrt{\K_\perp - (V'-V) + iW}} \right|^2 \quad \text{for } K_\perp < (V'-V)
+        \left| \frac{\sqrt{K_\perp}-\sqrt{K_\perp - (V'-V)}}{\sqrt{K_\perp} + \sqrt{K_\perp - (V'-V)}}\right|^2 \quad \text{for } K_\perp > (V'-V) \\
+        \left| \frac{\sqrt{K_\perp}-\sqrt{K_\perp - (V'-V) + iW}}{\sqrt{K_\perp} + \sqrt{K_\perp - (V'-V) + iW}} \right|^2 \quad \text{for } K_\perp < (V'-V) 
     \end{cases}
 \end{gather}
 %
@@ -168,9 +168,9 @@ Under the condition $K_\perp < (V'-V)$, the neutron cannot be transmitted, only 
 If $K_\perp > (V'-V)$ and the neutron is not reflected, it undergoes refraction and is transmitted through the surface into the second material. The energy of the neutron within the second material is given by $K'=K-(V'-V)$. The refraction is analogous to Snell's law, where the velocity component in the first material perpendicular to the refraction surface $v_\perp$ is changed and the component parallel to the surface $v_\parallel$ is unaltered. The velocity in the second material $v'$ is given by
 %
 \begin{align}
-    \vv{v'} &= \vv{v_\parallel}+ \vv{v'_\perpendicular} \\
-    &= \vv{v_\parallel} + \left( \sqrt{\frac{K_\perp}{\K_\perp - (V'-V)}} \right)\vv{v_\perp} \\
-    &= \vv{v} + \left( \sqrt{\frac{K_\perp}{\K_\perp - (V'-V)}} - 1 \right)\vv{v_\perp}
+    \vv{v}' &= \vv{v}_\parallel+ \vv{v}'_\perp \\
+    &= \vv{v}_\parallel + \left( \sqrt{\frac{K_\perp}{K_\perp - (V'-V)}} \right)\vv{v}_\perp \\
+    &= \vv{v} + \left( \sqrt{\frac{K_\perp}{K_\perp - (V'-V)}} - 1 \right)\vv{v}_\perp
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -207,7 +207,9 @@ The absorption cross section $\sigma_\text{abs}$ is proportional to $1/v$. From 
 
 The average loss probability per bounce $\bar{\mu}(K)$ for a \ucn of kinetic energy $K$ is obtained by assuming ideal gas conditions and averaging over all angles of incidence. Equation~(2.70) in Ref.~\cite{golubUCN} gives
 %
-\bar{\mu} &= 2f \left[ \frac{V}{K} \sin^{-1}\left( \frac{K}{V}}\right)^{1/2} -\left( \frac{V}{K} - 1 \right)^{1/2} \right]\label{eq:lossPerBounce_golub}
+\begin{gather}
+    \bar{\mu} = 2f \left[ \frac{V}{K} \sin^{-1}\left( \frac{K}{V}\right)^{1/2} -\left( \frac{V}{K} - 1 \right)^{1/2} \right] \label{eq:lossPerBounce_golub}
+\end{gather}
 %
 The loss factor is $f=W/V$, for optical potential terms $V$ and $W$ from Eq.~(\ref{eq:optical_potential}). For a more phenomenological treatment of loss per bounce, Eq.~(\ref{eq:lossPerBounce_golub}) may be modified by replacing $f$ with a free parameter $\mu$, a velocity independent effective loss per bounce. See Secs.~\ref{subsec:storageCurves} and \ref{sec:1D_random_walk} for example applications.
 
@@ -233,13 +235,13 @@ where $dI$ is the change in intensity as the beam traverses the distance $dx$. I
 \begin{align}
     \int^I_{I_0}\frac{dI}{I} &= -\int^x_0 \sigma \gls*{rho_N} \,dx \\
     \ln \frac{I}{I_0} &= -\sigma \gls*{rho_N} x \\
-    \frac{I}{I_0} &= e^{-\sigma \gls*{rho_N} x} \label{eq:beer_lambert_law_variant}
+    \frac{I}{I_0} &= \exp(-\sigma \gls*{rho_N} x) \label{eq:beer_lambert_law_variant}
 \end{align}
 %
 Where $I_0$ is the beam density intensity at the entrance of the material. Defining the mean free path inside the material as $\lambda_\text{mfp}=1/(\gls*{rho_N} \sigma)$ we get the Beer-Lambert law, which describes flux attenuation.
 %
 \begin{gather}
-    I(x) = I_0 e^{-x/\lambda_\text{mfp}} \label{eq:beer_lambert_law}
+    I(x) = I_0 \exp(-x/\lambda_\text{mfp}) \label{eq:beer_lambert_law}
 \end{gather}
 %
  The Beer-Lambert law applies to neutrons, photons, and rarefied gases. See Appx.~\ref{appx:199hg_pumping} for an example application to the \qty{254}{\nano\meter} laser used for optical pumping of the $\ce{^199Hg}$ comagnetometer. 
@@ -247,13 +249,13 @@ Where $I_0$ is the beam density intensity at the entrance of the material. Defin
  We consider the process of bulk elastic scattering, when the neutron collides with the material and has its trajectory altered according to a Lambertian distribution. The probability $P_\text{elastic}$ after traversing a distance $x$ through a material is given by
 %
 \begin{gather}
-    P_\text{elastic}=1-e^{-x \gls*{rho_N} \sigma_\text{inc}}
+    P_\text{elastic}=1-\exp(-x \gls*{rho_N} \sigma_\text{inc})
 \end{gather}
 %
 where $\sigma_\text{inc}$ is the incoherent cross section for thermal neutrons (see Ref.~\cite{nist_neutron_cross_sections}). Similarly, the chance for absorption in a material for a \ucn with velocity $v$ may be described by
 %
 \begin{gather}
-    P_\text{abs}= 1-e^{-x \gls*{rho_N} \sigma_\text{abs}v_\text{thermal}/v}
+    P_\text{abs}= 1-\exp(-x \gls*{rho_N} \sigma_\text{abs}v_\text{thermal}/v)
 \end{gather}
 %
 where $\sigma_\text{abs}$ is the absorption cross section for thermal neutrons ($v_\text{thermal}=\qty{2200}{\meter\per \s}$) as listed in Ref.~\cite{nist_neutron_cross_sections}.
