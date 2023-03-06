@@ -209,7 +209,7 @@ where $\omega_0$ is the Larmor frequency (\ref{eq:larmor_freq}). We rewrite Eq.~
     \dot{\psi}_- &=\frac{i}{2}\left( \omega_0 \psi_- - \omega_\text{c} e^{i(\omega t + \phi)} \psi_+ \right)\label{eq:rabi_3}
 \end{align}
 %
-To solve these differential equations, we make the change of variables $\psi_+ = \psi'_+ e^{-i(\omega t + \phi)/2}$ and $\psi_- = \psi'_- e^{i(\omega t + \phi)/2}$, which gives
+Equations~(\ref{eq:rabi_2}) and (\ref{eq:rabi_3}) may be solved numerically, similarly to Appx.~\ref{appx:ramsey_numerical}. To obtain an analytical solution, we make the change of variables $\psi_+ = \psi'_+ e^{-i(\omega t + \phi)/2}$ and $\psi_- = \psi'_- e^{i(\omega t + \phi)/2}$, which gives
 %
 \begin{align}
     \dot{\psi}'_+ &= \frac{i}{2}((\omega - \omega_0)\psi'_+ - \omega_\text{c} \psi'_-)\label{eq:rabi_4}  \\
@@ -292,8 +292,8 @@ The integer $n$ describes how many spin flips the neutron undergoes while the \a
   \includegraphics[width=\textwidth]{figures/rabi_pi_px_py_pz.pdf}
 \end{subfigure}
 \caption
-[Plot of an on-resonance Rabi sequence (``$\pi$'' flip) that transitions a neutron from spin up to spin down.]
-{Plot of an on-resonance Rabi sequence (``$\pi$'' flip) that transitions a neutron from spin up to spin down. $P(x)$, $P(y)$, and $P(z)$ are the probabilities of measuring spin up along $x$, $y$, and $z$, given by Eqs.~(\ref{eq:rabi_circ_z})\textendash (\ref{eq:rabi_circ_y}). Here, $\omega=\omega_0=\qty{20}{\radian^{-1}\s^{-1}}$, $\omega_\text{c}=\qty{1.57}{\radian\s^{-1}}$, $\phi=\qty{0}{\radian}$, $\Ket{\psi(t=0)}=\left( \begin{matrix}
+[Plot of an on-resonance Rabi sequence (``$\pi$ flip'') that transitions a neutron from spin up to spin down.]
+{Plot of an on-resonance Rabi sequence (``$\pi$ flip'') that transitions a neutron from spin up to spin down. $P(x)$, $P(y)$, and $P(z)$ are the probabilities of measuring spin up along $x$, $y$, and $z$, given by Eqs.~(\ref{eq:rabi_circ_z}) \textendash ~(\ref{eq:rabi_circ_y}). Here, $\omega=\omega_0=\qty{20}{\radian^{-1}\s^{-1}}$, $\omega_\text{c}=\qty{1.57}{\radian\s^{-1}}$, $\phi=\qty{0}{\radian}$, $\Ket{\psi(t=0)}=\left( \begin{matrix}
     1 \\
     0
 \end{matrix}\right)$}
