@@ -4,13 +4,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This chapter introduces the spin manipulation techniques used in the \acrshort*{lanl} \acrshort*{nedm} experiment. Sections \ref{sec:larmor} -- \ref{sec:ramsey-method} discuss the main magnetic resonance techniques in the \acrshort*{lanl} \acrshort*{nedm} experiment. This includes Ramsey method of separated oscillatory fields, which is used for the measurement of the spin precession frequency of stored \ucn in a static magnetic field.   Section~\ref{sec:bloch_equations} is about the Bloch equations, which describes \ucn spin interactions in the semiclassical regime, and are often used in \ucn spin tracking simulations.
+Nuclear magnetic resonance (\acrshort*{nmr}) was first observed by Rabi in 1938 \cite{rabi_1938}, where he utilized a Stern-Gerlach experiment with a beam of nuclei traversing an inhomogenous magnetic field. He introduced an additional \acrshort{rf} magnetic field perpendicular to the static field. When the strength of the static field was tuned properly, there was a dip in beam intensity at the detector. This dip corresponded to a transition in the spin state of the nuclei, with the minimum at the resonance condition where the Larmor precession frequency of the nuclei in the static field matched the frequency of the \acrshort*{rf} field. Sweeping the strength of the static field to find the resonance enabled Rabi to measure the nuclear magnetic moment. Section~\ref{sec:rabi} describes the Rabi method in more detail, examining the more typical method where the static field is held constant and the \acrshort{rf} frequency is swept to find resonance.
 
-Nuclear magnetic resonance (\acrshort*{nmr}) was first observed by Rabi in 1938 \cite{rabi_1938}, where he utilized a Stern-Gerlach experiment with a beam of nuclei traversing an inhomogenous magnetic field. He introduced an additional \acrshort{rf} magnetic field perpendicular to the static field. When the strength of the static field was tuned properly, there was a dip in beam intensity at the detector. This dip corresponded to a transition in the spin state of the nuclei, with the minimum at the resonance condition where the Larmor precession frequency of the nuclei in the static field matched the frequency of the \acrshort*{rf} field. Sweeping the strength of the static field to find the resonance enabled Rabi to measure the nuclear magnetic moment. Section~\ref{sec:rabi} describes the Rabi method in more detail, examining the more typical experimental application methodology where \acrshort{rf} frequency is swept and the static field is held constant to find resonance.
+In 1949, Ramsey improved upon the Rabi method \cite{ramsey_molecular_1950} (Sec.~\ref{sec:ramsey-method}).  He divided the single oscillatory magnetic field at the center of the Rabi device into two shorter ones, one at the beginning of the beam and one at the end. This offers a number of advantages, the main one being that the peak near resonance is narrower than the peak from the Rabi method, giving higher resolution for determining the resonant frequency. The narrowing is analogous to the peaks in a double slit diffraction experiment, which are narrower than the peak from a single slit of equal width to the separation of the double slits \cite{Ekspong1993}.
 
-In 1949, Ramsey improved upon the Rabi method \cite{ramsey_molecular_1950}.  He divided the single oscillatory magnetic field at the center of the Rabi device into two shorter ones, one at the beginning of the beam and one at the end. This offers a number of advantages, the main one being that the peak near resonance is narrower than from the Rabi method, giving higher resolution for determining the resonant frequency. The narrowing is analogous to the peaks in a double slit diffraction experiment, which are narrower than the peak from a single slit of equal width to the separation of the double slits \cite{Ekspong1993}.
-
-Of course, even the most advanced NMR techniques are ineffective if neutrons are not effectively polarized and if the polarization cannot be maintained. Section~\ref{sec:ucn_polarizers} discusses neutron polarization methodology and Sec.~\ref{sec:spin_relaxation} covers spin coherence. Section~\ref{sec:adiabaticity} introduces the adiabaticity parameter commonly used to characterize the conditions of neutron spin transport. Section~\ref{sec:afp} discusses the mechanics of the adiabatic fast passage spin flipper that is located before the spin analyzer and neutron detector (see \comment{AFP description section}).
+Of course, even the most advanced NMR techniques are useless if neutrons are inffectively polarized and if the polarization cannot be maintained. Section~\ref{sec:ucn_polarizers} discusses neutron polarization methodology and Sec.~\ref{sec:spin_relaxation} covers spin coherence. Section~\ref{sec:adiabaticity} introduces the adiabaticity parameter commonly used to characterize the conditions of neutron spin transport.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -18,7 +16,32 @@ Of course, even the most advanced NMR techniques are ineffective if neutrons are
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ucn must first be polarized before being subjected to spin manipulation techniques. There are two main methods for \ucn polarization: \comment{(1)... (2)}
+\begin{figure}
+\centering
+%subfigure width gets "multiplied" by includegraphics width
+\begin{subfigure}{.5\textwidth} 
+  \centering
+  \includegraphics[width=\textwidth]{figures/ucn_polarization_1.pdf}
+  \caption{Polarization with a strong magnetic field \newline potential $V_B$}\label{subfig:polarization_solenoid}
+\end{subfigure}%DO NOT REMOVE THIS '%'
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{figures/ucn_polarization_2.pdf}
+  \caption{Polarization using $V_B$ and thin \newline material ``foil'' with optical potential $V_\text{foil}$}\label{subfig:polarization_foil}
+\end{subfigure}
+\caption
+{Two methods of UCN polarization. \legendbox{HFS-color} The lower line is the total potential experienced by a high field seeker. \legendbox{LFS-color} The upper line is the total potential experienced by a low field seeker.}
+\label{fig:polarization_methods}
+\end{figure}
+
+\ucn must first be polarized before being subjected to spin manipulation techniques. From Sec.~\ref{sec:ucn_grav_em}, neutrons entering a magnetic region experience a potential, where the coupling of the neutron spin with the magnetic field determines the sign of the potential. For positive $\vv{B}$, spin down neutrons (high field seekers) experience a negative potential, and spin up neutrons (low field seekers) experience a positive potential. The process of polarization requires the rejection of all low field seekers in a population of \ucn.
+
+There are two methods used in the LANL nEDM experiment for \ucn polarization (Fig.~\ref{fig:polarization_methods}): 
+%
+\begin{enumerate}
+    \item A superconducting solenoid produces a high magnetic field ($\sim \qty{5}{\tesla}$), which polarizes neutrons coming from the \ucn source for use in the experiment. This is described briefly in Sec.~\ref{sec:PM_description} and is characterized in Chap.~\ref{chap:north_beamline_paper}.
+    \item An analyzer (polarizer) is made of a thin Si or Al wafer upon which a layer of magnetic material is deposited. An external magnetic field generated by ferromagnets saturates the magnetic layer. The spin analyzer is used to restrict \ucn detection to high field seekers (Sec.~\ref{sec:spin_flipper_analyzer}).
+\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -233,9 +256,9 @@ $\Ket{\psi(t=0)}=\left( \begin{matrix}
 As before, the probability of measuring spin up along $x$, $y$, and $z$ are determined by using (\ref{eq:pauli_eigenvectors})
 %
 \begin{align}
-    \left| \Braket{S_z;+ | \psi(t)} \right|^2&= \psi_+(t)\psi_+^*(t) \\
-    \left| \Braket{S_x;+ | \psi(t)} \right|^2&= \frac{1}{2} + \frac{1}{2}( \psi_+(t)\psi_-^*(t)) \\
-    \left| \Braket{S_y;+ | \psi(t)} \right|^2&= \frac{1}{2} + \frac{i}{2}( \psi_-(t)\psi_+^*(t) - \psi_+(t)\psi_-^*(t) )
+    \left| \Braket{S_z;+ | \psi(t)} \right|^2&= \psi_+(t)\psi_+^*(t) \label{eq:rabi_circ_z} \\
+    \left| \Braket{S_x;+ | \psi(t)} \right|^2&= \frac{1}{2} + \frac{1}{2}( \psi_+(t)\psi_-^*(t)) \label{eq:rabi_circ_x} \\
+    \left| \Braket{S_y;+ | \psi(t)} \right|^2&= \frac{1}{2} + \frac{i}{2}( \psi_-(t)\psi_+^*(t) - \psi_+(t)\psi_-^*(t) ) \label{eq:rabi_circ_y}
 \end{align}
 %
 Let us consider the instance where the particle starts spin up along $z$ where $\psi_+(t=0)=a_0=1$ and $\psi_-(t=0)=b_0=0$. This reproduces Rabi's result \cite{rabi_1938} where
@@ -253,6 +276,29 @@ At the resonance condition, $\omega=\omega_0$ and $\left| \Braket{S_z;+ | \psi(t
 \end{gather}
 %
 The integer $n$ describes how many spin flips the neutron undergoes while the \acrshort*{rf} is applied for a duration $t$. A single spin flip from the Rabi method is often referred to as a ``$\pi$ flip,'' and an on-resonance application of the \acrshort*{rf} field induce the $\pi$ flip is called a ``$\pi$ pulse.''
+
+\begin{figure}
+\centering
+%subfigure width gets "multiplied" by includegraphics width
+\begin{subfigure}{.55\textwidth} 
+  \centering
+  \raisebox{5mm} % raise left side of the figure by a little bit
+  {
+    \includegraphics[width=\textwidth]{figures/rabi_pi.pdf}
+  }
+\end{subfigure}%DO NOT REMOVE THIS '%'
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{figures/rabi_pi_px_py_pz.pdf}
+\end{subfigure}
+\caption
+[Plot of an on-resonance Rabi sequence (``$\pi$'' flip) that transitions a neutron from spin up to spin down.]
+{Plot of an on-resonance Rabi sequence (``$\pi$'' flip) that transitions a neutron from spin up to spin down. $P(x)$, $P(y)$, and $P(z)$ are the probabilities of measuring spin up along $x$, $y$, and $z$, given by Eqs.~(\ref{eq:rabi_circ_z})\textendash (\ref{eq:rabi_circ_y}). Here, $\omega=\omega_0=\qty{20}{\radian^{-1}\s^{-1}}$, $\omega_\text{c}=\qty{1.57}{\radian\s^{-1}}$, $\phi=\qty{0}{\radian}$, $\Ket{\psi(t=0)}=\left( \begin{matrix}
+    1 \\
+    0
+\end{matrix}\right)$}
+\label{fig:rabi_circ_pi_pulse}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -275,7 +321,13 @@ We again let the frequency be $\omega_\ell=-\gamma B_\ell$. Following the proced
 %
 This is solved numerically, as described in Appx.~\ref{appx:ramsey_numerical}. \comment{Todo: insert images of linear RF flips}
 
-As per Ref.~\cite{rabi_1938}, Rabi flips from a linear \acrshort*{rf} behave similarly to the result from  Sec.~\ref{sec:rabi} by the substitution $\omega_\ell/2\approx\omega_\text{c}$ with an additional caveat. Section~\ref{sec:bloch-siegert} further describes this distinction between circular and linear \acrshort*{rf} $\pi$ flips.
+As per Ref.~\cite{rabi_1938}, Rabi flips from a linear \acrshort*{rf} behave similarly to the result from  Sec.~\ref{sec:rabi} by the substitution 
+%
+\begin{gather}
+    \frac{\omega_\ell}{2}\approx\omega_\text{c}
+\end{gather}
+%
+with a caveat. Section~\ref{sec:bloch-siegert} further describes this distinction between circular and linear \acrshort*{rf} $\pi$ flips.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -298,7 +350,11 @@ where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Nominal Ramsey sequence parameters for the LANL nEDM}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -377,7 +433,7 @@ As first described by Majorana \cite{Majorana1932}, neutrons will be depolarized
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=0.5\textwidth]{adiabatic_spin_flip.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/adiabatic_spin_flip.pdf}
     \caption[{Magnetic fields viewed in the frame of the neutron $\mathcal{R}_1$, which rotates at frequency $\omega_\text{RF}$ about $\vec{z}$}]
             {Magnetic fields viewed in the frame of the neutron $\mathcal{R}_1$, which rotates at frequency $\omega_\text{RF}$ about $\vv{z}$. $\vv{z}=\vv{z_1}$ and $\vv{y_1}=\vv{y_2}$}
     \label{fig:adiabatic_spin_flip}

@@ -12,7 +12,6 @@
 ]{geometry}
 \usepackage{graphicx}  %for images and plots
 \graphicspath{  
-    {figures/}
     {figures/northbeamline_paper}
 } 
 \usepackage{etoolbox}
@@ -21,10 +20,13 @@
 \usepackage[explicit]{titlesec}  %title control and formatting
 \usepackage[titles]{tocloft}  %table of contents control and formatting
 
-\usepackage{minted} % format code snippets
-\usepackage{xcolor}
-\usemintedstyle{material}
+\usepackage{xcolor} % define some colors
 \definecolor{material-bg}{HTML}{263238}
+\definecolor{HFS-color}{HTML}{219EBC}
+\definecolor{LFS-color}{HTML}{FB8500}
+
+\usepackage{minted} % format code snippets
+\usemintedstyle{material}
 \setminted
 {
     baselinestretch=1, % separation between lines of code
@@ -91,6 +93,7 @@
 \usepackage{booktabs}
 \usepackage[labelfont=bf]{caption} % bold the words "figure" and "table"
 \captionsetup[table]{aboveskip=10pt, belowskip=5pt}
+\usepackage{subcaption} % For subfigure environment
 
 \usepackage{xspace} % decides whether to insert a space or not (useful for shortcuts)
 
