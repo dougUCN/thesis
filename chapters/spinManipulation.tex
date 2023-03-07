@@ -282,22 +282,39 @@ The integer $n$ describes how many spin flips the neutron undergoes while the \a
 %subfigure width gets "multiplied" by includegraphics width
 \begin{subfigure}{.55\textwidth} 
   \centering
-  \raisebox{5mm} % raise left side of the figure by a little bit
-  {
-    \includegraphics[width=\textwidth]{figures/rabi_pi.pdf}
-  }
+  \includegraphics[width=\textwidth]{figures/rabi_pi.pdf}
 \end{subfigure}%DO NOT REMOVE THIS '%'
 \begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=\textwidth]{figures/rabi_pi_px_py_pz.pdf}
+  \includegraphics[width=0.9\textwidth]{figures/rabi_pi_px_py_pz.pdf}
 \end{subfigure}
 \caption
 [Plot of an on-resonance Rabi sequence (``$\pi$ flip'') that transitions a neutron from spin up to spin down.]
-{Plot of an on-resonance Rabi sequence (``$\pi$ flip'') that transitions a neutron from spin up to spin down. $P(x)$, $P(y)$, and $P(z)$ are the probabilities of measuring spin up along $x$, $y$, and $z$, given by Eqs.~(\ref{eq:rabi_circ_z}) \textendash ~(\ref{eq:rabi_circ_y}). Here, $\omega=\omega_0=\qty{20}{\radian^{-1}\s^{-1}}$, $\omega_\text{c}=\qty{1.57}{\radian\s^{-1}}$, $\phi=\qty{0}{\radian}$, $\Ket{\psi(t=0)}=\left( \begin{matrix}
+{Plot of an on-resonance Rabi sequence (``$\pi$ flip'') that transitions a neutron from spin up to spin down. $P(x)$, $P(y)$, and $P(z)$ are the probabilities of measuring spin up along $x$, $y$, and $z$, given by Eqs.~(\ref{eq:rabi_circ_z}) \textendash ~(\ref{eq:rabi_circ_y}). Parameters: $\omega=\omega_0=\qty{20}{\radian\ \s^{-1}}$, $\omega_\text{c}=\qty{1.57}{\radian\ \s^{-1}}$, $\phi=\qty{0}{\radian}$, $t=\qty{2}{\s}$, $\Ket{\psi(t=0)}=\left( \begin{matrix}
     1 \\
     0
 \end{matrix}\right)$}
 \label{fig:rabi_circ_pi_pulse}
+% \end{figure}
+
+% \begin{figure}
+% \centering
+%subfigure width gets "multiplied" by includegraphics width
+\begin{subfigure}{.55\textwidth} 
+  \centering
+  \includegraphics[width=\textwidth]{figures/rabi_linear.pdf}
+\end{subfigure}%DO NOT REMOVE THIS '%'
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/rabi_linear_px_py_pz.pdf}
+\end{subfigure}
+\caption
+[Plot of an on-resonance Rabi sequence with a linear RF]
+{Plot of an on-resonance Rabi sequence with a linear \gls{rf}. The spinor is solved with the numerical integration of Eqs.~(\ref{eq:rabi_linear_1}) and (\ref{eq:rabi_linear_2}). Parameters: $\omega=\omega_0=\qty{20}{\radian\ \s^{-1}}$, $\omega_\text{c}=\qty{0.785}{\radian\ \s^{-1}}$, $\phi=\qty{0}{\radian}$, $t=\qty{8}{\s}$, $\Ket{\psi(t=0)}=\left( \begin{matrix}
+    1 \\
+    0
+\end{matrix}\right)$}
+\label{fig:rabi_linear_pi_pulse}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -328,6 +345,8 @@ As per Ref.~\cite{rabi_1938}, Rabi flips from a linear \acrshort*{rf} behave sim
 \end{gather}
 %
 with a caveat. Section~\ref{sec:bloch-siegert} further describes this distinction between circular and linear \acrshort*{rf} $\pi$ flips.
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -420,8 +439,6 @@ An estimate of adiabaticity may also be written using the comparison of the Larm
 where we let the fractional rate of change of the field be $1/\tau = 1/ |\vv{B}|\,|d\vv{B}/dt|$.
 
 As first described by Majorana \cite{Majorana1932}, neutrons will be depolarized by regions when the magnetic field is zero. The estimated probability of a ``Majorana spin flip'' is given by $\exp(-\pi\eta)$ \cite{golubUCN}. In the limit that the field changes drastically and quickly ($\gls*{adiab}\ll 1$), the spin vector of the neutron tends keep its direction fixed in space via the sudden approximation \cite{rabi_1936_space_quant, golubUCN}.
-
-\comment{Plot comparisons between different adiabaticity estimates}
 
 
 
@@ -744,7 +761,4 @@ Eq.~(\ref{eq:adiab_derivation_16}) gives the chance of measuring a different spi
 \begin{gather}
     P=1-\frac{1}{1+\gls*{adiab}^{2}}\sin^{2}\left(\frac{\pi}{2}\sqrt{1+\gls*{adiab}^{2}}\right)
 \end{gather}
-
-
-\comment{TODO: Plot evolution of probability as a function of \gls*{adiab} (see Pierre thesis pg 53)}
 
