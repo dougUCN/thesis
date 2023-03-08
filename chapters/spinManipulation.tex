@@ -267,15 +267,16 @@ Let us consider the instance where the particle starts spin up along $z$ where $
     \left| \Braket{S_z;+ | \psi(t)} \right|^2 = 1-\left( \frac{\omega_\text{c}}{(\omega -\omega_0)^2+\omega_\text{c}^2} \right) \sin^2\Omega t \label{eq:rabi_7}
 \end{gather}
 %
-\comment{describe more qualitative behavior in the semi classical limit with more plots}
 
-At the resonance condition, $\omega=\omega_0$ and $\left| \Braket{S_z;+ | \psi(t)} \right|^2=0$. Equation~(\ref{eq:rabi_7}) simplifies into the expression
+At the resonance condition, $\omega=\omega_0$ and $\left| \Braket{S_z;+ | \psi(t)} \right|^2=0$. Equation~(\ref{eq:rabi_7}) now simplifies into the expression
 %
 \begin{gather}
-    \omega_\text{c}=\frac{(2n-1)\pi}{t}
+    \omega_\text{c}=\frac{(2n-1)\pi}{t} \label{eq:rabi_pi_pulse_time}
 \end{gather}
 %
-The integer $n$ describes how many spin flips the neutron undergoes while the \acrshort*{rf} is applied for a duration $t$. A single spin flip from the Rabi method is often referred to as a ``$\pi$ flip,'' and an on-resonance application of the \acrshort*{rf} field induce the $\pi$ flip is called a ``$\pi$ pulse.''
+The integer $n$ describes how many spin flips the neutron undergoes while the \acrshort*{rf} is applied for a duration $t$. A single spin flip ($n=1$) from the Rabi method is often referred to as a ``$\pi$ flip,'' and an on-resonance application of the \acrshort*{rf} field induce the $\pi$ flip is called a ``$\pi$ pulse.''
+
+Figure~\ref{fig:rabi_circ_pi_pulse} plots Eqs.~(\ref{eq:rabi-circ_z})\textendash (\ref{eq:rabi_circ_y}) for a $\pi$ pulse. Interpreted semi-classically, it plots the motion of the spin vector as it precesses and flips.
 
 \begin{figure}
 \centering
@@ -317,6 +318,7 @@ The integer $n$ describes how many spin flips the neutron undergoes while the \a
 \label{fig:rabi_linear_pi_pulse}
 \end{figure}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Rabi resonance with a linear RF field}
@@ -336,7 +338,7 @@ We again let the frequency be $\omega_\ell=-\gamma B_\ell$. Following the proced
     \dot{\psi}_- &=\frac{i}{2}\left( \omega_0 \psi_- - \omega_\ell \psi_+ \cos(\omega t + \phi)  \right)\label{eq:rabi_linear_2}
 \end{align}
 %
-This is solved numerically, as described in Appx.~\ref{appx:ramsey_numerical}. \comment{Todo: insert images of linear RF flips}
+This is solved numerically, as described in Appx.~\ref{appx:ramsey_numerical}.
 
 As per Ref.~\cite{rabi_1938}, Rabi flips from a linear \acrshort*{rf} behave similarly to the result from  Sec.~\ref{sec:rabi} by the substitution 
 %
@@ -344,9 +346,7 @@ As per Ref.~\cite{rabi_1938}, Rabi flips from a linear \acrshort*{rf} behave sim
     \frac{\omega_\ell}{2}\approx\omega_\text{c}
 \end{gather}
 %
-with a caveat. Section~\ref{sec:bloch-siegert} further describes this distinction between circular and linear \acrshort*{rf} $\pi$ flips.
-
-
+with a few caveats. Referring to a plot of a linear $\pi$ pulse (Fig.~\ref{fig:rabi_linear_pi_pulse}), the subplot for $P(z)=\left| \Braket{S_z;+ | \psi(t)} \right|^2 $ shows an oscillating artifact not present in Fig.~\ref{fig:rabi_circ_pi_pulse}. Section~\ref{sec:bloch-siegert} further describes this distinction between circular and linear \acrshort*{rf} $\pi$ flips.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -362,6 +362,12 @@ In 1940, Bloch and Siegert described an effect where using a linear \acrshort*{r
 \end{gather}
 %
 where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Rabi fringe}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
