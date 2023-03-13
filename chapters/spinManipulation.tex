@@ -350,23 +350,20 @@ with a few caveats. Referring to a plot of a linear $\pi$ pulse (Fig.~\ref{fig:r
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Rabi fringe}
+\subsection{Rabi fringe}\label{sec:rabi_fringe}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{figures/rabi_circ.pdf}
-    \caption[]
-    {$\omega_0=\qty{188}{\radian\ \s^{-1}}$, $\omega_\text{c}=\qty{\pi/2}{\radian\ \s^{-1}}$}
+    \caption
+    {A Rabi fringe, produced by integrating Eqs.~(\ref{eq:rabi_2})\textendash (\ref{eq:rabi_3}) for various RF frequencies $\omega$. Here, $\omega_0=\qty{188}{\radian\ \s^{-1}}$, $\omega_\text{c}=\qty{\pi/2}{\radian\ \s^{-1}}$, $t=\qty{2}{\s}$}
     \label{fig:rabi_fringe_circ}
 \end{figure}
 
-Given knowledge of the static $B_0$ field $(\omega_0)$ and the RF field strength $(\omega_\ell\text{ or }\omega_\text{c})$, performing a Rabi sequence for multiple RF frequencies $(\omega)$ and counting the number of spin up neutrons produces a Rabi fringe (Fig.~\ref{fig:rabi_fringe_circ}). The minimum of the Rabi fringe, or the resonance, gives the precession frequency for the neutron in the static field $\omega=\omega_0$.
+Given knowledge of the static $B_0$ field $(\omega_0)$ and the RF field strength $(\omega_\ell\text{ or }\omega_\text{c})$, performing a Rabi sequence for multiple RF frequencies $(\omega)$ and counting the number of spin up neutrons produces a ``Rabi fringe'' (Fig.~\ref{fig:rabi_fringe_circ}). The minimum of the Rabi fringe, or the resonance, gives the precession frequency for the neutron in the static field $\omega=\omega_0$. For Rabi sequences that do not satisfy Eq.~(\ref{eq:rabi_pi_pulse_time}), the Rabi fringe is considered to be unoptimized, and the resonance at $\omega=\omega_0$ will not be 0.
 
-For Rabi sequences that do not satisfy Eq.~(\ref{eq:rabi_pi_pulse_time}), the Rabi fringe is considered to be unoptimized, and the resonance at $\omega=\omega_0$ will not be 0.
-
-\comment{For control of B0 and RF refer to Sec......}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -398,27 +395,6 @@ where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Bloch equations}\label{sec:bloch_equations}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Spin relaxation}\label{sec:spin_relaxation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\comment{$T_1$, $T_2$ spin relaxation}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Bargmann-Michel-Telegdi equation}\label{sec:BMT_equations}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -782,3 +758,43 @@ Eq.~(\ref{eq:adiab_derivation_16}) gives the chance of measuring a different spi
     P=1-\frac{1}{1+\gls*{adiab}^{2}}\sin^{2}\left(\frac{\pi}{2}\sqrt{1+\gls*{adiab}^{2}}\right)
 \end{gather}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Bloch equations}\label{sec:bloch_equations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Thus far we have relied upon a quantum mechanical description of spin interacting with a magnetic field. In certain cases it is more convenient to consider the semi-classical limit. A magnetic field $\vv{B}$ exerts a torque on the spin of the neutron, which causes the evolution of spin over time. This motion is described by the Bloch equations
+%
+\begin{gather}
+    \frac{d\vv{S}}{dt}=\gls{gamma_n}\vv{S}\times \vv{B}
+    \label{eq:bloch_equations}
+\end{gather}
+%
+The results of Secs.~\ref{sec:larmor}\textendash \ref{sec:ramsey-method} and \ref{sec:spin_flipper_analyzer} may be reproduced by the Bloch equations.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Spin relaxation}\label{sec:spin_relaxation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The effects of spin relaxation can be introduced into Eq.~(\ref{eq:bloch_equations}) for some decaying polarization of the form $P(t)=P_0 \exp(-t/T_i)$. We let $T_1$ be the longitudinal $(z)$ relaxation time, which for \ucn is related mostly to depolarization from collision, and let $T_2$ be the transverse $(xy)$ depolarization time, related to inhomogeneities in the magnetic field. For an ensemble of spins, assuming the main field direction is along $z$, the Bloch equations become
+%
+\begin{align}
+    \frac{d\vv{S}_{x,y}}{dt} &= \gls{gamma_n} (\vv{S} \times \vv{B})_{x,y}-\frac{S_{x,y}}{T_2} \\
+    \frac{d\vv{S}_z}{dt} &= \gls{gamma_n} (\vv{S} \times \vv{B})_{z}-\frac{S_z-S_0}{T_1}
+\end{align}
+%
+where $S_0$ is the spin along axis $z$ at $t=0$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Bargmann-Michel-Telegdi equation}\label{sec:BMT_equations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The Bloch equations hold in the rest frame of the neutron, but transforming to the laboratory frame with relativistic corrections is more complicated. The motion of spin in the lab frame is described by the Bargmann-Michel-Telegdi (BMT) equation~\cite{bmt_equations} and implemented by \pentrack (Chap.~\ref{chap:simulations}})
+%
+%
+where $\gls*{lorentz}$ is the relativistic Lorentz factor in the lab frame
