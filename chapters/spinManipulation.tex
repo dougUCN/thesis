@@ -354,7 +354,19 @@ with a few caveats. Referring to a plot of a linear $\pi$ pulse (Fig.~\ref{fig:r
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Whether with a linear or circular RF, it is. For Rabi sequences that do not satisfy Eq.~(\ref{eq:rabi_pi_pulse_time}), the Rabi fringe is considered to be unoptimized. The strength of the RF is underpowered relative to the duration of the $\pi$
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/rabi_circ.pdf}
+    \caption[]
+    {$\omega_0=\qty{188}{\radian\ \s^{-1}}$, $\omega_\text{c}=\qty{\pi/2}{\radian\ \s^{-1}}$}
+    \label{fig:rabi_fringe_circ}
+\end{figure}
+
+Given knowledge of the static $B_0$ field $(\omega_0)$ and the RF field strength $(\omega_\ell\text{ or }\omega_\text{c})$, performing a Rabi sequence for multiple RF frequencies $(\omega)$ and counting the number of spin up neutrons produces a Rabi fringe (Fig.~\ref{fig:rabi_fringe_circ}). The minimum of the Rabi fringe, or the resonance, gives the precession frequency for the neutron in the static field $\omega=\omega_0$.
+
+For Rabi sequences that do not satisfy Eq.~(\ref{eq:rabi_pi_pulse_time}), the Rabi fringe is considered to be unoptimized, and the resonance at $\omega=\omega_0$ will not be 0.
+
+\comment{For control of B0 and RF refer to Sec......}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
