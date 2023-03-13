@@ -4,7 +4,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-An electric dipole moment (EDM), $\vv{d}$, is an intrinsic property of a particle that describes the effect of an external electric field on the particle. For a neutral particle, it may be naively considered as two point charges $+q$ and $-q$ separated by a distance $\vv{r}$, such that $\vv{d}=q\cdot \vv{r}$. For a general continuous charge distribution $\rho(\vv{r})$ this is written to be
+An electric dipole moment (EDM), $\vv{d}$, is an intrinsic property that describes the effect of an external electric field on the particle. For a neutral particle, it may be naively considered as two point charges $+q$ and $-q$ separated by a distance $\vv{r}$, such that $\vv{d}=q\cdot \vv{r}$. For a general continuous charge distribution $\rho(\vv{r})$ this is written to be
 %
 \begin{gather}
     \vv{d}=\int d^3r\,\,\vv{r}\rho(\vv{r})
@@ -51,15 +51,15 @@ $\vv{E}$ & Electric field & $-$ & $-$ & $+$ \\
 
 Tab.~\ref{tb:cpt_transform} contains a summary of transformations under $C$, $P$, and $T$. ``$+$'' denotes that the quantity is even (invariant) under the transformation, and ``$-$'' denotes that the quantity is odd under the transformation.
 
-Let us examine the behavior of a particle with both electric ($\vv{d}$) and magnetic ($\vv{\mu}$) dipole moments in the presence of external magnetic ($\vv{B}$) and electric ($\vv{E}$) fields under transformations $P$ and $T$. In the nonrelativistic limit, the interaction Hamiltonian is 
+Let us examine the behavior of a particle with both electric $(\vv{d})$ and magnetic $(\vv{\mu})$ dipole moments in the presence of external magnetic $(\vv{B})$ and electric $(\vv{E})$ fields under transformations $P$ and $T$. In the nonrelativistic limit, the interaction Hamiltonian is 
 %
 \begin{gather}
     H_\text{EDM} = -\vv{d}\,\vv{E}-\vv{\mu}\,\vv{B} \label{eq:edm_hamiltonian}
 \end{gather}
 %
-where by the Wigner-Ekart theorem, the EDM of a spin $1/2$ particle must be colinear to the spin $\vv{S}$. This allows us to write $\vv{\mu}=\mu\vv{S}$ and $\vv{d}=\delta\vv{S}$. Therefore, dipole moment operators transform under $P$ and $T$ the same as spin, an axial vector.
+where by the Wigner-Ekart theorem~\cite{sakurai_quantum}, the EDM of a spin $1/2$ particle must be colinear to the spin $\vv{S}$. This allows us to write $\vv{\mu}=\mu\vv{S}$ and $\vv{d}=\delta\vv{S}$. Therefore, dipole moment operators transform under $P$ and $T$ the same as spin, an axial vector.
 
-Under parity, the polar vector $\vv{E}$ changes sign when the locations of all charges are inverted. However, there is no explicit time dependence in $\vv{E}$, so under time reversal there is no change. In contrast, under $P$ the magnetic field does not change. Intuitively, we observe that the Biot-Savart Law defined by $d\vv{B}\propto I\,d\vec{l} \times \hat{r} /r^2$ contains a cross product, an axial vector. However, $\vv{B}$ changes under $T$ because the directions of all currents are reversed while the spatial configuration stays the same. 
+Under $P$, the polar vector $\vv{E}$ changes sign when the locations of all charges are inverted. However, there is no explicit time dependence in $\vv{E}$, so under $T$ there is no change. In contrast, under $P$ the magnetic field does not change. Intuitively, we observe that the Biot-Savart Law defined by $d\vv{B}\propto I\,d\vec{l} \times \hat{r} /r^2$ contains a cross product, an axial vector. However, $\vv{B}$ is $T$-odd because the directions of all currents are reversed while the spatial configuration stays the same. 
 
 Applying $P$ to Eq.~(\ref{eq:edm_hamiltonian}) we immediately see
 %
@@ -75,9 +75,19 @@ and under $T$ we have
 %
 The EDM interaction with external fields violates $T$ and $P$ symmetries. 
 
-The $CPT$ theorem states that any locally Lorentz-covariant field theory of a point like particle is $CPT$ invariant \cite{LUDERS19571, schmidt-wellenburg_quest_2017, cp_violation_wo_strangeness}. In other words, the $CPT$ theorem is based on Lorentz invariance and locality, and states that the Hamiltonian must be invariant under the operations $C$, $P$, and $T$ combined. $CPT$ symmetry implies that when $T$ is violated, then $CP$ must also be violated. This means that the $T$\textendash odd EDM is directly related to $CP$ violation.
+The $CPT$ theorem states that any locally Lorentz-covariant field theory of a point like particle is $CPT$ invariant \cite{LUDERS19571, schmidt-wellenburg_quest_2017, cp_violation_wo_strangeness}. In other words, the $CPT$ theorem is based on Lorentz invariance and locality, and states that the Hamiltonian must be invariant under the operations $C$, $P$, and $T$ combined. $CPT$ symmetry implies that when $T$ is violated, $CP$ must also be violated. Therefore the $T$-odd EDM is directly related to $CP$ violation. In 1964, $CP$ violation was observed in $K^0$ decay~\cite{christenson_1964}, stimulating interests in EDMs and other $T$-odd processes.
 
-In 1964, $CP$ violation was observed in $K^0$ decay~\cite{christenson_1964}, stimulating interests in EDMs and other $T$\textendash odd processes.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Induced nEDM}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Due to an internal charge distribution, a neutron subjected to an external electric field creates an induced nEDM given by $d_\text{induced}=4\pi \epsilon_0 \alpha_\text{n} E$. Unlike the permanent nEDM $\gls{d_n}$, the induced nEDM is not constrained by the Wigner-Eckhart theorem to be colinear to the spin vector.
+
+The neutron polarizability $\alpha_\text{n}$ is $(11.8\pm 1.1)\,10^{-4}\text{ fm}^3$~\cite{pdg2022}, giving a value $d_\text{induced}\sim 10^{-32}e\,\text{cm}$ for $E=\qty{10}{\kilo\volt}$. This is well below experimental limits (Sec.~\ref{fig:nEDM-history}). In addition, the spin dependent interactions described in Chap.~\ref{chap:spinManipulation} are independent of polarizability, such that typical nEDM measurement techniques (Sec.~\ref{sec:ramsey-method}) are insensitive to the induced nEDM. 
+
+Reference~\cite{baym_elementary_2016} examines the induced nEDM in further detail, including a derivation where the ratio $\gls*{d_n}/d_\text{induced}$ is related to a general $CP$ violating term.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -110,7 +120,7 @@ There are two sources of $CP$ violation in the Standard Model (\acrshort*{sm}). 
 %
 where $c_{ij}=\cos\theta_{ij}$, $s_{ij}=\sin\theta_{ij}$, and $\delta\approx1.2\text{ rad}$ is the $CP$ violating phase.
 
-$V_\text{CKM}$ is unitary $(V_\text{CKM}V_\text{CKM}^\dag=I)$. For a $3 \times 3$ matrix, this means that the nine unknown complex elements of $V_{ij}$ may be reduced to three real numbers (rotation angle $\theta_{ij}$) and one phase $\delta$, where the phase accounts for $CP$ violation.
+$V_\text{CKM}$ is unitary $(V_\text{CKM}V_\text{CKM}^\dag=I)$. For a $3 \times 3$ unitary matrix, the nine unknown complex elements of $V_{ij}$ may be reduced to three real numbers (rotation angle $\theta_{ij}$) and one phase ($\delta$), where the phase accounts for $CP$ violation.
 
 We now examine contributions to the nEDM in the SM, beginning with quark EDMs. The neutron is a composite object consisting of three valence quarks ($udd$) and a sea of gluons and mesons. At tree level, there is no diagram generating an EDM interaction of one quark of the neutron with an electric field. At one loop, each CKM matrix element comes with a complex conjugate, thus negating any $CP$ violating phase. At the two loop level, the sum over all quark flavors in intermediate states leads to a vanishing EDM \cite{schmidt-wellenburg_quest_2017, czarnecki2018}.
 
@@ -186,6 +196,8 @@ In the SM, there is an insufficient departure from thermal equilibrium and too l
 
 Physics beyond the SM (\acrshort{bsm}) is required for additional sources of $CP$ violation. For nEDM and EDM experiments, $CP$ violating contributions from the SM are effectively background, making EDMs very sensitive tests of BSM physics. Most SM extensions treat the SM as the low energy limit of a higher framework. $CP$\textendash odd parameters propagate from a $\sim$\unit{\tera\eV} scale down to a low energy observable (Fig.~\ref{fig:bsm_cp_violation}). Unfortunately, extracting a $CP$ violating phase from such an observable becomes difficult, requiring cross references of multiple EDM measurements. For reviews on new sources of $CP$ violation see Refs.~\cite{Cir10, POS05, ENG13, CHU19}.
 
+\comment{TODO: Add more diagrams}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{A brief history of nEDM experiments}\label{sec:history_nedm}
@@ -199,9 +211,9 @@ Physics beyond the SM (\acrshort{bsm}) is required for additional sources of $CP
     \label{fig:nEDM-history}
 \end{figure}
 
-The first nEDM experiment was begun by Ramsey in 1950 with the first result published in 1957 \cite{ramsey_nedm_1950, ramsey_nedm_1957}. The upper bound on $\gls*{d_n}$ has decreased steadily ever since (Fig.~\ref{fig:nEDM-history}). Early nEDM measurements \cite{miller_nedm_1967, baird_nedm_1969, cohen_nedm_1969, dress_nedm_1977} used thermal neutrons (\num{10000} to \qty{50000}{\micro \eV}) passing a meter-scale apparatus. The sensitivity of beam nEDM measurements was primarily limited by a $\vv{v}\times\vv{E}$ systematic effect (see Sec.~\ref{sec:magnetic_field_req}).
+The first nEDM experiment was begun by Ramsey in 1950, with the first result published in 1957 \cite{ramsey_nedm_1950, ramsey_nedm_1957}. The upper bound on $\gls*{d_n}$ has decreased steadily ever since (Fig.~\ref{fig:nEDM-history}). Early nEDM measurements \cite{miller_nedm_1967, baird_nedm_1969, cohen_nedm_1969, dress_nedm_1977} used thermal neutrons (\num{10000} to \qty{50000}{\micro \eV}) passing a meter-scale apparatus. The sensitivity of beam nEDM measurements was primarily limited by a $\vv{v}\times\vv{E}$ systematic effect (Sec.~\ref{sec:magnetic_field_req}).
 
-By 1980, nEDM experiments \cite{altarev_nedm_1980, altarev_nedm_1981} used ultracold neutrons (\ucn), which have kinetic energies $\leq \qty{300}{\nano\eV}$. This enabled measurements with neutrons stored in material bottles \cite{smith_nedm_1990}. \ucn properties are described in Chap.~\ref{chap:UCN}. Lower \ucn velocities and a population-averaged velocity of almost 0 avoided the largest systematic effects in the beam experiments. 
+By 1980, nEDM experiments \cite{altarev_nedm_1980, altarev_nedm_1981} used ultracold neutrons (\ucn), which have kinetic energies $\leq \qty{300}{\nano\eV}$. This enabled measurements with neutrons stored in material bottles \cite{smith_nedm_1990}. \ucn properties are described in Chap.~\ref{chap:UCN}. Lower \ucn velocities and a population-averaged velocity of almost zero mitigated $\vv{v}\times\vv{E}$ systematics. 
 
 nEDM experiments continued to improve with increased densities of stored \ucn, advances in magnetic shielding, and more sensitive magnetometry. One significant innovation was the introduction of a cohabitating comagnetomer, a population of $\ce{^{199}Hg}$ atoms that occupied the same space as \ucn, for monitoring magnetic field drifts within the storage volume~\cite{BAK06}. Most nEDM experiments (including beam measurements) use the same measurement principle, the Ramsey method of oscillatory fields \cite{ramsey_molecular_1950} (Chap.~\ref{chap:spinManipulation}). 
 

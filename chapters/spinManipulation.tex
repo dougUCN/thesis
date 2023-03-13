@@ -6,7 +6,7 @@
 
 Nuclear magnetic resonance (\acrshort*{nmr}) was first observed by Rabi in 1938 \cite{rabi_1938}, where he utilized a Stern-Gerlach experiment with a beam of nuclei traversing an inhomogenous magnetic field. He introduced an additional \acrshort{rf} magnetic field perpendicular to the static field. When the strength of the static field was tuned properly, there was a dip in beam intensity at the detector. This dip corresponded to a transition in the spin state of the nuclei, with the minimum at the resonance condition where the Larmor precession frequency of the nuclei in the static field matched the frequency of the \acrshort*{rf} field. Sweeping the strength of the static field to find the resonance enabled Rabi to measure the nuclear magnetic moment. Section~\ref{sec:rabi} describes the Rabi method in more detail, examining the more typical method where the static field is held constant and the \acrshort{rf} frequency is swept to find resonance.
 
-In 1949, Ramsey improved upon the Rabi method \cite{ramsey_molecular_1950} (Sec.~\ref{sec:ramsey-method}).  He divided the single oscillatory magnetic field at the center of the Rabi device into two shorter ones, one at the beginning of the beam and one at the end. This offers a number of advantages, the main one being that the peak near resonance is narrower than the peak from the Rabi method, giving higher resolution for determining the resonant frequency. The narrowing is analogous to the peaks in a double slit diffraction experiment, which are narrower than the peak from a single slit of equal width to the separation of the double slits \cite{Ekspong1993}.
+In 1949, Ramsey \cite{ramsey_molecular_1950} improved upon Rabi's technique with what is now called the Ramsey method of separated oscillatory fields (Sec.~\ref{sec:ramsey-method}).  He divided the single oscillatory magnetic field at the center of the Rabi device into two shorter ones, one at the beginning of the beam and one at the end. This offers a number of advantages, the main one being that the peak near resonance is narrower than the peak from the Rabi method, giving higher resolution for determining the resonant frequency. The narrowing is analogous to the peaks in a double slit diffraction experiment, which are narrower than the peak from a single slit of equal width to the separation of the double slits~\cite{Ekspong1993}.
 
 Of course, even the most advanced NMR techniques are useless if neutrons are inffectively polarized and if the polarization cannot be maintained. Section~\ref{sec:ucn_polarizers} discusses neutron polarization methodology and Sec.~\ref{sec:spin_relaxation} covers spin coherence. Section~\ref{sec:adiabaticity} introduces the adiabaticity parameter commonly used to characterize the conditions of neutron spin transport.
 
@@ -276,7 +276,7 @@ At the resonance condition, $\omega=\omega_0$ and $\left| \Braket{S_z;+ | \psi(t
 %
 The integer $n$ describes how many spin flips the neutron undergoes while the \acrshort*{rf} is applied for a duration $t$. A single spin flip ($n=1$) from the Rabi method is often referred to as a ``$\pi$ flip,'' and an on-resonance application of the \acrshort*{rf} field induce the $\pi$ flip is called a ``$\pi$ pulse.''
 
-Figure~\ref{fig:rabi_circ_pi_pulse} plots Eqs.~(\ref{eq:rabi-circ_z})\textendash (\ref{eq:rabi_circ_y}) for a $\pi$ pulse. Interpreted semi-classically, it plots the motion of the spin vector as it precesses and flips.
+Figure~\ref{fig:rabi_circ_pi_pulse} plots Eqs.~(\ref{eq:rabi_circ_z})\textendash (\ref{eq:rabi_circ_y}) for a $\pi$ pulse. Interpreted semi-classically, it plots the motion of the spin vector as it precesses and flips.
 
 \begin{figure}
 \centering
@@ -348,6 +348,13 @@ As per Ref.~\cite{rabi_1938}, Rabi flips from a linear \acrshort*{rf} behave sim
 %
 with a few caveats. Referring to a plot of a linear $\pi$ pulse (Fig.~\ref{fig:rabi_linear_pi_pulse}), the subplot for $P(z)=\left| \Braket{S_z;+ | \psi(t)} \right|^2 $ shows an oscillating artifact not present in Fig.~\ref{fig:rabi_circ_pi_pulse}. Section~\ref{sec:bloch-siegert} further describes this distinction between circular and linear \acrshort*{rf} $\pi$ flips.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Rabi fringe}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Whether with a linear or circular RF, it is. For Rabi sequences that do not satisfy Eq.~(\ref{eq:rabi_pi_pulse_time}), the Rabi fringe is considered to be unoptimized. The strength of the RF is underpowered relative to the duration of the $\pi$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -363,17 +370,15 @@ In 1940, Bloch and Siegert described an effect where using a linear \acrshort*{r
 %
 where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Rabi fringe}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{TODO: Bloch siegert numerical calc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Ramsey method of separated oscillatory fields\label{sec:ramsey-method}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\comment{Define spin contrast $\alpha$}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -383,26 +388,23 @@ where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Spin relaxation}\label{sec:spin_relaxation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{\texorpdfstring{$T_1$ spin relaxation}{T1 spin relaxation}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{\texorpdfstring{$T_2$ spin relaxation}{T2 spin relaxation}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Bloch equations}\label{sec:bloch_equations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Spin relaxation}\label{sec:spin_relaxation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\comment{$T_1$, $T_2$ spin relaxation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Bargmann-Michel-Telegdi equation}\label{sec:BMT_equations}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
