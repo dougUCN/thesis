@@ -357,12 +357,13 @@ with a few caveats. Referring to a plot of a linear $\pi$ pulse (Fig.~\ref{fig:r
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{figures/rabi_circ.pdf}
-    \caption
-    {A Rabi fringe, produced by integrating Eqs.~(\ref{eq:rabi_2})\textendash (\ref{eq:rabi_3}) for various RF frequencies $\omega$. Here, $\omega_0=\qty{188}{\radian\ \s^{-1}}$, $\omega_\text{c}=\qty{\pi/2}{\radian\ \s^{-1}}$, $t=\qty{2}{\s}$}
+    \caption{A Rabi fringe, produced by integrating Eqs.~(\ref{eq:rabi_2})\textendash (\ref{eq:rabi_3}) for various circular RF frequencies $\omega$. Here, $\omega_0=\qty{188}{\radian\ \s^{-1}}$, $\omega_\text{c}=\pi/\qty{2}{\radian\ \s^{-1}}$, and $t=\qty{2}{\s}$. The minimum is the resonant point where $\omega=\omega_0$}
     \label{fig:rabi_fringe_circ}
 \end{figure}
 
-Given knowledge of the static $B_0$ field $(\omega_0)$ and the RF field strength $(\omega_\ell\text{ or }\omega_\text{c})$, performing a Rabi sequence for multiple RF frequencies $(\omega)$ and counting the number of spin up neutrons produces a ``Rabi fringe'' (Fig.~\ref{fig:rabi_fringe_circ}). The minimum of the Rabi fringe, or the resonance, gives the precession frequency for the neutron in the static field $\omega=\omega_0$. For Rabi sequences that do not satisfy Eq.~(\ref{eq:rabi_pi_pulse_time}), the Rabi fringe is considered to be unoptimized, and the resonance at $\omega=\omega_0$ will not be 0.
+Given knowledge of the static $B_0$ field ($\omega_0$) and the RF field strength ($\omega_\ell\text{ or }\omega_\text{c}$), performing a Rabi sequence for multiple RF frequencies ($\omega$) and counting the number of spin up neutrons produces a ``Rabi fringe'' (Fig.~\ref{fig:rabi_fringe_circ}). The minimum of the Rabi fringe, or the resonance, gives the precession frequency for the neutron in the static field $\omega=\omega_0$. 
+
+For Rabi sequences that do not satisfy Eq.~(\ref{eq:rabi_pi_pulse_time}), the Rabi fringe is considered to be unoptimized, and the resonance at $\omega=\omega_0$ will not be 0.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -794,7 +795,7 @@ where $S_0$ is the spin along axis $z$ at $t=0$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The Bloch equations hold in the rest frame of the neutron, but transforming to the laboratory frame with relativistic corrections is more complicated. The motion of spin in the lab frame is described by the Bargmann-Michel-Telegdi (BMT) equation~\cite{bmt_equations} and implemented by \pentrack (Chap.~\ref{chap:simulations}})
+The Bloch equations hold in the rest frame of the neutron, but transforming to the laboratory frame with relativistic corrections is more complicated. The motion of spin in the lab frame is described by the Bargmann-Michel-Telegdi (BMT) equation~\cite{bmt_equations} and implemented by \pentrack (Chap.~\ref{chap:simulations})
 %
 %
 where $\gls*{lorentz}$ is the relativistic Lorentz factor in the lab frame
