@@ -343,7 +343,7 @@ This is solved numerically, as described in Appx.~\ref{appx:ramsey_numerical}.
 As per Ref.~\cite{rabi_1938}, Rabi flips from a linear \acrshort*{rf} behave similarly to the result from  Sec.~\ref{sec:rabi} by the substitution 
 %
 \begin{gather}
-    \frac{\omega_\ell}{2}\approx\omega_\text{c}
+    \frac{\omega_\ell}{2}\approx\omega_\text{c} \label{eq:linear_vs_circular_w}
 \end{gather}
 %
 with a few caveats. Referring to a plot of a linear $\pi$ pulse (Fig.~\ref{fig:rabi_linear_pi_pulse}), the subplot for $P(z)=\left| \Braket{S_z;+ | \psi(t)} \right|^2 $ shows an oscillating artifact not present in Fig.~\ref{fig:rabi_circ_pi_pulse}. Section~\ref{sec:bloch-siegert} further describes this distinction between circular and linear \acrshort*{rf} $\pi$ flips.
@@ -357,13 +357,13 @@ with a few caveats. Referring to a plot of a linear $\pi$ pulse (Fig.~\ref{fig:r
 \begin{figure}
     \centering
     \includegraphics[width=0.6\textwidth]{figures/rabi_circ.pdf}
-    \caption{A Rabi fringe, produced by integrating Eqs.~(\ref{eq:rabi_2})\textendash (\ref{eq:rabi_3}) for various circular RF frequencies $\omega$. Here, $\omega_0=\qty{188}{\radian\ \s^{-1}}$, $\omega_\text{c}=\pi/\qty{2}{\radian\ \s^{-1}}$, and $t=\qty{2}{\s}$. The minimum is the resonant point where $\omega=\omega_0$}
+    \caption{A Rabi fringe, produced by repeatedly integrating Eqs.~(\ref{eq:rabi_2})\textendash (\ref{eq:rabi_3}) for various circular RF frequencies $\omega$. Here, $\omega_0=\qty{188}{\radian\ \s^{-1}}$, $\omega_\text{c}=\pi/\qty{2}{\radian\ \s^{-1}}$, and $t=\qty{2}{\s}$. The minimum is the resonant point where $\omega=\omega_0$}
     \label{fig:rabi_fringe_circ}
 \end{figure}
 
 Given knowledge of the static $B_0$ field ($\omega_0$) and the RF field strength ($\omega_\ell\text{ or }\omega_\text{c}$), performing a Rabi sequence for multiple RF frequencies ($\omega$) and counting the number of spin up neutrons produces a ``Rabi fringe'' (Fig.~\ref{fig:rabi_fringe_circ}). The minimum of the Rabi fringe, or the resonance, gives the precession frequency for the neutron in the static field $\omega=\omega_0$. 
 
-For Rabi sequences that do not satisfy Eq.~(\ref{eq:rabi_pi_pulse_time}), the Rabi fringe is considered to be unoptimized, and the resonance at $\omega=\omega_0$ will not be 0.
+For Rabi sequences that do not satisfy Eq.~(\ref{eq:rabi_pi_pulse_time}), the Rabi fringe is considered to be unoptimized, and the probability of measuring spin up along $z$ at the resonance point will not be 0.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -396,6 +396,16 @@ where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+The Ramsey sequence parameters utilized in the LANL nEDM experiment match those used in the measurement by Ref.~\cite{ABE20}, with the goal of producing the narrowest central fringe possible while also satisfying the stringent magnetic field stability and uniformity requirements defined in Sec.~\ref{sec:magnetic_field_req}
+%
+\begin{alignat}{3}
+    B_0 &= 1\text{ \textmu T} \quad (\omega_0 \approx -183.247\,172 &&\text{ rad s}^{-1} ) \\
+    B_\ell &= 4 \text{ nT} \quad (\omega_\ell \approx -0.732\,989 &&\text{ rad s}^{-1} ) \\
+    \gls{T_fp} &= 180\text{ s} \\
+    t_{\pi/2} &= 4.286\text{ s}
+\end{alignat}
+%
+The $\pi/2$ pulse width $t_{\pi/2}$, is determined by obtaining the $\pi$ pulse width $t_\pi$ from Eqs.~(\ref{eq:rabi_pi_pulse_time}) and (\ref{eq:linear_vs_circular_w}), then dividing $t_\pi$ by two.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -780,7 +790,7 @@ The results of Secs.~\ref{sec:larmor}\textendash \ref{sec:ramsey-method} and \re
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The effects of spin relaxation can be introduced into Eq.~(\ref{eq:bloch_equations}) for some decaying polarization of the form $P(t)=P_0 \exp(-t/T_i)$. We let $T_1$ be the longitudinal $(z)$ relaxation time, which for \ucn is related mostly to depolarization from collision, and let $T_2$ be the transverse $(xy)$ depolarization time, related to inhomogeneities in the magnetic field. For an ensemble of spins, assuming the main field direction is along $z$, the Bloch equations become
+The effects of spin relaxation can be introduced into Eq.~(\ref{eq:bloch_equations}) for some decaying polarization of the form $P(t)=P_0 \exp(-t/T_i)$. We let $T_1$ be the longitudinal $(z)$ relaxation time, which for \ucn is related to depolarization from collision, and let $T_2$ be the transverse $(xy)$ depolarization time, related to inhomogeneities in the magnetic field. For an ensemble of spins, assuming the main field direction is along $z$, the Bloch equations become
 %
 \begin{align}
     \frac{d\vv{S}_{x,y}}{dt} &= \gls{gamma_n} (\vv{S} \times \vv{B})_{x,y}-\frac{S_{x,y}}{T_2} \\
@@ -795,7 +805,14 @@ where $S_0$ is the spin along axis $z$ at $t=0$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The Bloch equations hold in the rest frame of the neutron, but transforming to the laboratory frame with relativistic corrections is more complicated. The motion of spin in the lab frame is described by the Bargmann-Michel-Telegdi (BMT) equation~\cite{bmt_equations} and implemented by \pentrack (Chap.~\ref{chap:simulations})
+The Bloch equations hold in the rest frame of the neutron, but transforming to the laboratory frame with relativistic corrections is more complicated. The motion of spin in the lab frame is described by the Bargmann-Michel-Telegdi (BMT) equation~\cite{bmt_equations}.
 %
+\begin{align}
+    \frac{d\vv{S}}{dt} &= \left( \frac{\gamma}{\gls*{lorentz}}\vv{B'}+\vv{\omega_\text{T}}\right)\times \vv{S}\\
+    \vv{B'} &= \vv{B}_\parallel + \gls*{lorentz}\vv{B}_\perp - \frac{\gls*{lorentz}}{c^2}\frac{d\vv{x}}{dt}\times\vv{E}\\
+    \vv{\omega_\text{T}}&=\frac{\gls*{lorentz}^2}{c^2(1+\gls*{lorentz})}\frac{d^2\vv{x}}{dt^2}\times\frac{d\vv{x}}{dt}
+\end{align}
 %
-where $\gls*{lorentz}$ is the relativistic Lorentz factor in the lab frame
+where $\omega_\text{T}$ is the Thomas precession frequency, $B'$ is the magnetic field in the rest frame of the particle, $\gamma$ is the gyromagnetic ratio, and the Lorenz factor $\gls*{lorentz}=1/\sqrt{1-v^2/c^2}$. The transverse and longitudinal magnetic field components in the laboratory frame $B_\parallel$ and $B_\perp$ are defined with respect to the particle traveling along $x$.
+
+While relativistic corrections are not necessarily required for spin tracking simulations of \ucn, which have low velocities, \pentrack (Chap.~\ref{chap:simulations}) implements this formulation as it also supports other particles such as electrons and protons.
