@@ -175,7 +175,7 @@ This corresponds to the particle precessing about $\vv{z}$ at the Larmor frequen
 We now consider the case with a field $\vv{B_\text{c}}$ (which we will refer to as a ``circular \acrshort{rf}'') rotating at a frequency $\omega$ in the $x$ -- $y$ plane with an initial phase $\phi$ relative to $x$. The total field $\vv{B}$ becomes
 %
 \begin{gather}
-    \vv{B}(t)=\vv{B_\text{c}}(t) + \vv{B_0}=B_\text{c}\left[ \cos (\omega t + \phi) \vv{x} + \sin (\omega t + \phi) \vv{y}\right] + B_0 \vv{z}
+    \vv{B}(t)=\vv{B_\text{c}}(t) + \vv{B_0}=B_\text{c}\left[ \cos (\omega t + \phi) \vv{x} + \sin (\omega t + \phi) \vv{y}\right] + B_0 \vv{z}\label{eq:B0_with_circular_rf}
 \end{gather}
 %
 with the condition that $B_\text{c} \ll B_0$. The Hamiltonian operator from Eq.~\ref{eq:hamiltonian_operator} becomes
@@ -328,7 +328,7 @@ Figure~\ref{fig:rabi_circ_pi_pulse} plots Eqs.~(\ref{eq:rabi_circ_z})\textendash
 In an experimental setting it is more practical to generate a linear \acrshort*{rf} field. For a linear \acrshort*{rf} field $\vv{B_\ell}$ under the condition $B_\ell \ll B_0$, the magnetic field is now written as
 %
 \begin{gather}
-    \vv{B}(t)=\vv{B_\ell}(t) + \vv{B_0}=B_\ell \cos (\omega t + \phi) \vv{x} + B_0 \vv{z}
+    \vv{B}(t)=\vv{B_\ell}(t) + \vv{B_0}=B_\ell \cos (\omega t + \phi) \vv{x} + B_0 \vv{z}\label{eq:B0_with_linear_rf}
 \end{gather}
 %
 We again let the frequency be $\omega_\ell=-\gamma B_\ell$. Following the procedure in Sec.~\ref{sec:rabi}, we use the \schrodinger equation to get
@@ -378,9 +378,7 @@ In 1940, Bloch and Siegert described an effect where using a linear \acrshort*{r
     \Delta\omega_\text{Bloch}= \frac{(\gamma B_\text{cr})^2}{4\omega_0} = \frac{\omega_\ell^2}{16\omega_0}
 \end{gather}
 %
-where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s.
-
-\comment{TODO: Bloch siegert numerical calc}
+where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s. Figure~\comment{fig:bloch-sigert-rabi} plots the numerically calculated $\Delta\omega_\text{Bloch}$ (Appx.~\ref{appx:ramsey_numerical}) as a function of pulse width $t_\pi$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -388,7 +386,50 @@ where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\comment{Define spin contrast $\alpha$}
+The Ramsey method produces a narrower central peak than the Rabi method, allowing for more accurate determination of the resonant frequency. The procedure for a Ramsey sequence is as follows:
+%
+\begin{enumerate}
+    \item Beginning with a polarized population of \ucn, a magnetic field of the form (\ref{eq:B0_with_circular_rf}) or (\ref{eq:B0_with_linear_rf}) is applied for some time $t_{\pi/2}$ and a chosen RF frequency $\omega$. This is called a ``$\pi/2$ pulse.'' The optimized $\pi/2$ pulse width $t_{\pi/2}$, is determined by obtaining the $\pi$ pulse width $t_\pi$ from Eqs.~(\ref{eq:rabi_pi_pulse_time}) and (\ref{eq:linear_vs_circular_w}), then dividing $t_\pi$ by two.
+    \item For a period \gls{T_fp}, the RF magnetic field ($B_\text{c}$ or $B_\ell$) is turned off. The \ucn are allowed to freely precess in the remaining static $B_0$ field.
+    \item The magnetic RF field is switched on again for a duration $t_{\pi/2}$. This second $\pi/2$ pulse is in phase with the one described in the first step, such that $\phi = \omega t_{\pi/2} + \omega \gls*{T_fp}$
+\end{enumerate}
+%
+The Ramsey sequence is then repeated for multiple RF frequencies $\omega$ to produce a Ramsey fringe, as portrayed in Fig.~\comment{ref:ramsey_sequence}. 
+
+In practice, it is unnecessary to generate an entire Ramsey fringe for the determination of the resonant frequency. Four evenly-distributed points ($i=1,2,3,4$) along the central fringe are chosen where the slope is maximal, and are fitted with a function of the form~\cite{may_thesis}
+%
+\begin{gather}
+    N(\omega_i)=N_\text{min} + (N_\text{max}-N_\text{min})\sin^2\left(\frac{\pi}{2\Gamma_\text{r}}(\omega_i-\omega_\text{r}) \right)
+\end{gather}
+%
+where $\omega_\text{r}$ and $\Gamma_\text{r}$ are free parameters of the fit. As in Fig.~\comment{ref:ramsey_sequence}, $N_\text{max}$ is the number of neutrons measured at an \acrshort*{rf} frequency far from the resonance, and $N_\text{min}$ is the number measured at the resonance (which can be taken from a previous measurement cycle).
+
+The spin contrast of a Ramsey fringe \gls*{alpha} is defined as
+%
+\begin{gather}
+    \alpha = \frac{N_\text{max} - N_\text{min}} {N_\text{max} + N_\text{min}} \label{eq:alpha}
+\end{gather}
+%
+The spin contrast should be as close as possible to its maximum allowed value of $1$ to optimize statistical sensitivity (see Sec.~\ref{sec:figure_of_merit}).
+
+A large number of systematic effects, mostly related to magnetic field uniformity and stability, may alter the accuracy of the Ramsey method. See Sec.~\ref{sec:magnetic_field_req} and ref.~\cite{abel_magnetic-field_2019}.
+
+For a linear RF magnetic field, the Ramsey method is also subject to the Bloch-Siegert shift (Sec.~\ref{sec:bloch-siegert}). Figure~\comment{fig:bloch-sigert-ramsey} plots the numerically calculated $\Delta\omega_\text{Bloch}$ (Appx.~\ref{appx:ramsey_numerical}) as a function of pulse width $t_{\pi/2}$.
+
+% # Ramsey fringe params
+% PULSE_1_TIME = pi        # [seconds]
+% PULSE_2_TIME = pi        # [seconds]
+% RK_STEP = 0.001       # [seconds]
+% PRECESS_TIME = 10      # [seconds]
+
+% # Some initial parameters
+% W_STEP = 0.01    #[rad s^-1]    Step value of w to make ramsey fringes
+% W_VAL = 186   #[rad s^-1]    What w to start with
+% W_MAX  = 190      #[rad s^-1]    What w to end with
+
+% W0_VAL = 188  #[rad s^-1]    Static field strength
+% WC_VAL = 0.5   #[rad s^-1]   Rotating field strength
+% PHI_VAL_1 = 0  #[rad]        RF pulse inital phase for first pulse
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -404,8 +445,6 @@ The Ramsey sequence parameters utilized in the LANL nEDM experiment match those 
     \gls{T_fp} &= 180\text{ s} \\
     t_{\pi/2} &= 4.286\text{ s}
 \end{alignat}
-%
-The $\pi/2$ pulse width $t_{\pi/2}$, is determined by obtaining the $\pi$ pulse width $t_\pi$ from Eqs.~(\ref{eq:rabi_pi_pulse_time}) and (\ref{eq:linear_vs_circular_w}), then dividing $t_\pi$ by two.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
