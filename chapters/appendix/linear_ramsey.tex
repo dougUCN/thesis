@@ -4,13 +4,34 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The repository located at [\url{https://github.com/dougUCN/ramseyCPP}] contains additional documentation, a CMake file, an example of a Rabi flip, and an example parameter sweep of the Bloch Sigert shift caused by a linear \acrshort*{rf} in a Ramsey sequence. 
+Here we include C++ code for numerical generation of a Ramsey fringe, utilized in Chap.~\ref{chap:spinManipulation}. The repository located at [\url{https://github.com/dougUCN/ramseyCPP}] contains additional documentation, a CMake file, examples of Rabi and Ramsey sequences, and Bloch-Siegert shift estimations. 
 
-\comment{Todo: Linear RF differential equations and larmor prec equations written out}
-
-\comment{Todo: Describe runge kutta as per }\cite{numerical_recipes}
-
-\comment{Todo: change code comment to change reference to the correct equations in thesis}
+The function \mintinline[bgcolor=white, style=sas, fontsize=\small]{cpp}{void neutron::larmorPrecess} is based on the analytical solution for Larmor precession, Eq.~(\ref{eq:larmor_solution}), with the substitution
+%
+\begin{align}
+    a_0 &= \text{Re}(a_0)+i\text{Im}(a_0)\label{eq:a0_Re_Im}\\
+    b_0 &= \text{Re}(b_0)+i\text{Im}(b_0)\label{eq:b0_Re_Im}
+\end{align}
+%
+which gives 
+%
+\begin{align}
+    \text{Re}(a(t)) &= \text{Re}(a)\cos\left(\frac{i\omega_0 t}{2}\right)+\text{Im}(a_0)\sin\left(\frac{i\omega_0 t}{2}\right)\\
+    \text{Im}(a(t)) &= \text{Im}(a)\cos\left(\frac{i\omega_0 t}{2}\right)-\text{Re}(a_0)\sin\left(\frac{i\omega_0 t}{2}\right)\\
+    \text{Re}(b(t)) &= \text{Re}(b)\cos\left(\frac{i\omega_0 t}{2}\right)-\text{Im}(b_0)\sin\left(\frac{i\omega_0 t}{2}\right)\\
+    \text{Im}(b(t)) &= \text{Im}(b)\cos\left(\frac{i\omega_0 t}{2}\right)+\text{Re}(b_0)\sin\left(\frac{i\omega_0 t}{2}\right)
+\end{align}
+%
+Similarly, the function \mintinline[bgcolor=white, style=sas, fontsize=\small]{cpp}{vector<double> neutron::derivs} is based on Eqs.~(\ref{eq:rabi_linear_1})--(\ref{eq:rabi_linear_2}) in combination with (\ref{eq:a0_Re_Im})--(\ref{eq:b0_Re_Im}), giving
+%
+\begin{align}
+    \text{Re}(\dot{a}) &= \frac{1}{2}\left(\omega_0\text{Im}(a) +\omega_\ell\cos(\omega t +\phi)\text{Im}(b) \right) \\
+    \text{Im}(\dot{a}) &= \frac{1}{2}\left(-\omega_0\text{Re}(a)-\omega_\ell\cos(\omega t+\phi)\text{Re}(b) \right) \\
+    \text{Re}(\dot{b}) &= \frac{1}{2}\left(-\omega_0\text{Im}(b)-\omega_\ell\cos(\omega t+\phi)\text{Im}(a) \right) \\
+    \text{Im}(\dot{b}) &= \frac{1}{2}\left(\omega_0\text{Re}(b) +\omega_\ell\cos(\omega t +\phi)\text{Re}(a) \right)
+\end{align}
+%
+The coupled ODEs are solved with a 4th-order Runge-Kutta integration method, as per Ref.~\cite{numerical_recipes}.
 
 \section{ramsey.cpp}
 
