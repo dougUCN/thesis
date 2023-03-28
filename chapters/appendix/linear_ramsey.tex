@@ -4,7 +4,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Here we include C++ code for numerical generation of a Ramsey fringe, utilized in Chap.~\ref{chap:spinManipulation}. The repository located at [\url{https://github.com/dougUCN/ramseyCPP}] contains additional documentation, a CMake file, examples of Rabi and Ramsey sequences, and Bloch-Siegert shift estimations. 
+In this appendix we include C++ code for numerical generation of a Ramsey fringe, utilized in Chap.~\ref{chap:spinManipulation}. The repository located at [\url{https://github.com/dougUCN/ramseyCPP}] contains additional documentation, a CMake file, examples of Rabi and Ramsey sequences, and Bloch-Siegert shift estimations. Here we summarize numerical evaluation of equations from Chap.~\ref{chap:spinManipulation} for \ucn spin motion in static and time dependent magnetic fields.
 
 The function \mintinline[bgcolor=white, style=sas, fontsize=\small]{cpp}{void neutron::larmorPrecess} is based on the analytical solution for Larmor precession, Eq.~(\ref{eq:larmor_solution}), with the substitution
 %
@@ -22,7 +22,7 @@ which gives
     \text{Im}(b(t)) &= \text{Im}(b)\cos\left(\frac{i\omega_0 t}{2}\right)+\text{Re}(b_0)\sin\left(\frac{i\omega_0 t}{2}\right)
 \end{align}
 %
-Similarly, the function \mintinline[bgcolor=white, style=sas, fontsize=\small]{cpp}{vector<double> neutron::derivs} is based on Eqs.~(\ref{eq:rabi_linear_1})--(\ref{eq:rabi_linear_2}) in combination with (\ref{eq:a0_Re_Im})--(\ref{eq:b0_Re_Im}), giving
+Similarly, the function \mintinline[bgcolor=white, style=sas, fontsize=\small]{cpp}{vector<double> neutron::derivs} describes spin in a linear Rabi sequence. Combining Eqs.~(\ref{eq:rabi_linear_1})--(\ref{eq:rabi_linear_2}) with (\ref{eq:a0_Re_Im})--(\ref{eq:b0_Re_Im}), giving
 %
 \begin{align}
     \text{Re}(\dot{a}) &= \frac{1}{2}\left(\omega_0\text{Im}(a) +\omega_\ell\cos(\omega t +\phi)\text{Im}(b) \right) \\
@@ -31,7 +31,16 @@ Similarly, the function \mintinline[bgcolor=white, style=sas, fontsize=\small]{c
     \text{Im}(\dot{b}) &= \frac{1}{2}\left(\omega_0\text{Re}(b) +\omega_\ell\cos(\omega t +\phi)\text{Re}(a) \right)
 \end{align}
 %
-The coupled ODEs are solved with a 4th-order Runge-Kutta integration method, as per Ref.~\cite{numerical_recipes}.
+This can be expanded to the case with a static magnetic field with a circular Rabi sequence, by numerically integrating  Eqs.~(\ref{eq:rabi_2}) and (\ref{eq:rabi_3}). 
+%
+\begin{align}
+    \text{Re}(\dot{a}) &= \frac{1}{2}\left(\omega_0\text{Im}(a) +\omega_\ell\cos(\omega t +\phi)\text{Im}(b) -\omega_\ell\sin(\omega t +\phi)\text{Re}(b) \right)\\
+    \text{Im}(\dot{a}) &= \frac{1}{2}\left(-\omega_0\text{Re}(a)-\omega_\ell\cos(\omega t+\phi)\text{Re}(b) -\omega_\ell\sin(\omega t+\phi)\text{Im}(b) \right) \\
+    \text{Re}(\dot{b}) &= \frac{1}{2}\left(-\omega_0\text{Im}(b)-\omega_\ell\cos(\omega t+\phi)\text{Im}(a) +\omega_\ell\sin(\omega t+\phi)\text{Re}(a) \right) \\
+    \text{Im}(\dot{b}) &= \frac{1}{2}\left(\omega_0\text{Re}(b) +\omega_\ell\cos(\omega t +\phi)\text{Re}(a) +\omega_\ell\sin(\omega t+\phi)\text{Im}(a) \right)
+\end{align}
+%
+Coupled ODEs are solved with a 4th-order Runge-Kutta integration method, as per Ref.~\cite{numerical_recipes}. Integration accuracy may be determined via comparison to analytical solutions, such as Eq.~\ref{eq:rabi_probZ} for a circular Rabi sequence, or by the normalization requirement $\Braket{\psi(t) | \psi(t)} - 1 = 0$.
 
 \section{ramsey.cpp}
 

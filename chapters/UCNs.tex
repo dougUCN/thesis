@@ -106,7 +106,7 @@ Reference~\cite{Young2014} provides a review of the $\beta$ decay experimental p
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Neutrons and protons are bound in nuclei via the strong interaction. In the low energy limit the strong force between the proton and neutron can be approximated by attractive square-well potential of depth \qty{40}{\mega\eV} with radius $2\times10^{-5}\text{ m}$. A more accurate representation is the Fermi potential, a square well with rounded corners. This Fermi potential is not to be confused with the optical potential (also proposed by Fermi) described in Sec.~\ref{sec:ucn_matter_int}. The force between a neutron and a nucleus is also approximated by a square well with $r=r_0A_m^{1/3}$ for mass number $A_m$ and the constant $r_0=1.2\times10^{-15}\text{ m}$ \cite{golubUCN}.
+Neutrons and protons are bound in nuclei via the strong interaction. In the low energy limit the strong force between the proton and neutron can be approximated by attractive square-well potential of depth \qty{40}{\mega\eV} with radius $2\times10^{-5}\text{ m}$. A more accurate representation is the Fermi potential, a square well with rounded corners. This Fermi potential is not to be confused with the optical potential, also proposed by Fermi, described in Sec.~\ref{sec:ucn_matter_int}. The force between a neutron and a nucleus is also approximated by a square well with $r=r_0A_m^{1/3}$ for mass number $A_m$ and the constant $r_0=1.2\times10^{-15}\text{ m}$ \cite{golubUCN}.
 
 Neutrons may be absorbed (captured) by nuclei. When absorbed, a $\gamma$ ray or charged particle ($[\text{n},\text{p}]$ or $[\text{n},\alpha]$) is released. Absorption cross sections are further discussed in Sec.~\ref{sec:ucn_absorption}.
 
@@ -119,10 +119,10 @@ Neutrons may be absorbed (captured) by nuclei. When absorbed, a $\gamma$ ray or 
 Chapter 2 of Ref.~\cite{golubUCN} provides a very thorough description of neutron interactions with matter. The interaction of \ucn with some material is given by a complex ``optical potential,'' or ``pseudo-potential,'' of the form
 %
 \begin{gather}
-    U = V - iW = \frac{2\pi\hbar^2}{\gls{m_n}}\gls*{rho_N} b_\text{c}-i\frac{\hbar}{2}\gls*{rho_N} \sigma_t v \label{eq:optical_potential}
+    U = V - iW = \frac{2\pi\hbar^2}{\gls{m_n}}\gls*{rho_N} b_\text{c}-i\frac{\hbar}{2}\gls*{rho_N} \sigma_{\text{t}} v \label{eq:optical_potential}
 \end{gather}
 %
-where \gls{m_n} is the neutron mass, $v$ is the velocity of the neutron, $b_\text{c}$ is the coherent neutron scattering length of the material, $\sigma_t$ is the total loss cross section, and $\gls*{rho_N}$ is number density. Number density can be expressed in units~[\unit{\meter^{-3}}] by the relation $\gls*{rho_N}=\rho_\text{mat}N_A/w_\text{at}$, where $\rho_\text{mat}$ [\unit{\g\per\m^3}] is material density, $w_\text{at}$ [\unit{\g\per\mole}] is atomic weight, and $N_A$ [\unit{\mole^{-1}}] is Avogadro's number.
+where \gls{m_n} is the neutron mass, $v$ is the velocity of the neutron, $b_\text{c}$ is the coherent neutron scattering length of the material, $\sigma_{\text{t}}$ is the total loss cross section, and $\gls*{rho_N}$ is number density. Number density can be expressed in units~[\unit{\meter^{-3}}] by the relation $\gls*{rho_N}=\rho_\text{mat}N_A/w_\text{at}$, where $\rho_\text{mat}$ [\unit{\g\per\m^3}] is material density, $w_\text{at}$ [\unit{\g\per\mole}] is atomic weight, and $N_A$ [\unit{\mole^{-1}}] is Avogadro's number.
 
 The real component of optical potential $V$ describes the critical neutron energy that may be confined by a material, and the imaginary part $W$ describes absorption and upscattering within the material. Table~\ref{tb:optical_potentials} lists the UCN optical potentials of commonly used materials in nEDM experiments.
 
@@ -157,18 +157,18 @@ Stainless Steel & \acrshort{ss} & 183 & 0.055 & \cite{akatsuka_characterization_
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Consider a neutron traveling in a material of potential $V$, with kinetic energy $K$. Let the neutron be incident on a second material of potential $V'$ and imaginary potential $W$, with an energy component perpendicular to the surface of the second material $K_\perp$. The incident neutron may be considered to be a propagating wave function $\psi = \exp (ikx)$ with wave vector $k=\sqrt{2\gls{m_n}K/\hbar^2}$.
+Consider a neutron traveling in a material of potential $V$, with kinetic energy $K$. Let the neutron be incident on a second material of potential $V'$ and imaginary potential $W$, with an energy component perpendicular to the surface of the second material $K_\perp$. The incident neutron may be treated as a propagating wave function $\psi = \exp (ikx)$ with wave vector $k=\sqrt{2\gls{m_n}K/\hbar^2}$.
 
-Reflection probability $R$ arises from continuity requirements, and is given by~\cite{golubUCN, schreyer_thesis}
+Reflection probability $R$ arises from continuity requirements at the incidence boundary, and is given by~\cite{golubUCN, schreyer_thesis}
 %
 \begin{gather}
     R = \begin{cases}
         \left| \frac{\sqrt{K_\perp}-\sqrt{K_\perp - (V'-V)}}{\sqrt{K_\perp} + \sqrt{K_\perp - (V'-V)}}\right|^2 \quad \text{for } K_\perp > (V'-V) \\
-        \left| \frac{\sqrt{K_\perp}-\sqrt{K_\perp - (V'-V) + iW}}{\sqrt{K_\perp} + \sqrt{K_\perp - (V'-V) + iW}} \right|^2 \quad \text{for } K_\perp < (V'-V) 
+        \left| \frac{\sqrt{K_\perp}-\sqrt{K_\perp - (V'-V) + iW}}{\sqrt{K_\perp} + \sqrt{K_\perp - (V'-V) + iW}} \right|^2 \quad \text{for } K_\perp < (V'-V) \label{eq:loss_on_reflection}
     \end{cases}
 \end{gather}
 %
-Under the condition $K_\perp < (V'-V)$, the neutron cannot be transmitted, only reflected. However, the wavefunction of the \ucn undergoing reflection penetrates a small distance into the surface, where it may be lost via the interactions described in Sec.~\ref{sec:ucn_absorption}.
+Under the condition $K_\perp < (V'-V)$, the neutron cannot be transmitted, only reflected. However, as per Eq.~\ref{eq:loss_on_reflection}, there is a reflection loss probability. The wave function of a reflected \ucn penetrates a small distance into the incidence surface, where it may be lost by the interactions described in Sec.~\ref{sec:ucn_absorption}.
 
 If $K_\perp > (V'-V)$ and the neutron is not reflected, it undergoes refraction and is transmitted through the surface into the second material. The energy of the neutron within the second material is given by $K'=K-(V'-V)$. The refraction is analogous to Snell's law, where the velocity component in the first material perpendicular to the refraction surface $v_\perp$ is changed and the component parallel to the surface $v_\parallel$ is unaltered. The velocity in the second material $v'$ is given by
 %
@@ -184,9 +184,9 @@ If $K_\perp > (V'-V)$ and the neutron is not reflected, it undergoes refraction 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The two main loss mechanisms for \ucn within a material are absorption and inelastic up-scattering. Absorption occurs when the neutron is captured by nuclei, and inelastic upscattering occurs when a thermally vibrating nucleus increases the energy of \ucn such that it may no longer be stored. The total loss cross section $\sigma_t$ (from Eq.~\ref{eq:optical_potential}) is the sum of absorption cross section $\sigma_\text{abs}$ and inelastic up-scattering cross section $\sigma_\text{inel}$.
+The two main loss mechanisms for \ucn within a material are absorption and inelastic up-scattering. Absorption occurs when the neutron is captured by nuclei, and inelastic upscattering occurs when a thermally vibrating nucleus increases the energy of \ucn such that it may no longer be stored. The total loss cross section $\sigma_{\text{t}}$ (from Eq.~\ref{eq:optical_potential}) is the sum of absorption cross section $\sigma_\text{abs}$ and inelastic up-scattering cross section $\sigma_\text{inel}$.
 
-Absorption cross sections are well quantified (see Ref.~\cite{nist_neutron_cross_sections}), but up-scattering cross sections are mostly unknown. Among many other factors, surface impurities such as hydrogen ($\ce{H}$ has a large inelastic scattering cross section of $\sim \qty{80}{\barn}$ \cite{nist_neutron_cross_sections}) will heavily affect up-scattering probabilities. When simulating \ucn material interactions it is often easier to make the assumption $\sigma_t \cong \sigma_\text{abs}$, and to treat up-scattering as a separate effective loss per bounce parameter, as described in Sec.~\ref{sec:loss_per_bounce}.
+Absorption cross sections are well quantified (see Ref.~\cite{nist_neutron_cross_sections}), but up-scattering cross sections are mostly unknown. Among many other factors, surface impurities with large inelastic scattering cross sections (e.g. hydrogen, $\sigma_\text{inel} \sim \qty{80}{\barn}$ \cite{nist_neutron_cross_sections}), will heavily affect up-scattering probabilities. When simulating \ucn material interactions it is often easier to make the assumption $\sigma_{\text{t}} \cong \sigma_\text{abs}$, and to treat up-scattering as a separate effective loss per bounce parameter, as described in Sec.~\ref{sec:loss_per_bounce}.
 
 The absorption cross section $\sigma_\text{abs}$ is proportional to $1/v$. From the second term of Eq.~(\ref{eq:optical_potential}) it becomes apparent that $W$ is independent of neutron velocity in the material.
 
