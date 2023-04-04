@@ -11,9 +11,9 @@ With the upgrade, a new UCN beamline (called the North Beamline) was constructed
 
  The statistical uncertainty of each such measurement is given by 
 %
-\begin{gather}
+\begin{gather*}
     \sigma_{\gls*{d_n}} = \frac{\hbar}{2\gls*{alpha} E \gls*{T_fp} \sqrt{N}}
-\end{gather}
+\end{gather*}
 %
 where $\hbar$ is Planck’s constant, \gls*{alpha} is a factor describing the spin contrast of a Ramsey fringe, $N$ is the number of the detected UCN, and $E$ is the strength of the applied electric field. $N$ is affected by UCN density at the location of the experiment, a result of UCN source performance and UCN transport. Both $N$ and \gls*{T_fp} depend on the UCN storage property of the precession cell (i.e., how the number of stored UCN depends on the time over which UCN are stored in the precession cell), which is in turn affected by the input UCN energy spectrum as well as the wall loss properties of the cell. The operating condition (i.e., how long to load the cell, how long to store the UCN, and how long to unload the cell, etc) is optimized to minimize the uncertainty of the experiment. Therefore our measurements were focused on characterizing the UCN density and energy spectrum at the location of the experiment, as well as the UCN storage property of the precession cell. 
 
@@ -27,9 +27,9 @@ In this paper, we describe the measurements performed, present the results and a
 
 The schematic diagram of the experimental setup mounted on the North Beamline is shown in Fig.~\ref{fig:NorthBeamlineLayout}. There were two gate valves (GV) located on the beamline, with a \qty{6.35}{\mm}-diameter ``monitor port'' located in between. UCN that traveled through the monitor port were counted with a $\ce{^{10}B}$ coated ZnS:Ag detector \cite{jeph_b10_2011}. The rate of UCN through the monitor port is proportional to the UCN density in the guides (in the case of an isotropic distribution, the rate $R$ through the monitor port hole with an area $A$ and the UCN density $\rho$ are related via  $R = \frac{1}{4} \bar{v} \rho A$, where $\bar{v}$ is the average UCN speed, {\it i.e.} $\bar{v} = \int vf(v)dv$, with $f$ describing the UCN velocity distribution). Hence, the rate of the monitor detector gives the approximate density of the UCN in the guide.
 
-A 5-T, horizontal warm bore, superconducting magnet by American Magnetics Inc. was used as a polarizing magnet (PM). The strong magnetic field from the PM interacts with the neutron magnetic moment creating a potential given by $-\vv{\gls{mu_n}} \cdot \gls*{bField}$, where $\vv{\gls{mu_n}}$ is the neutron magnetic moment and \gls{bField} is the magnetic field. The PM field is effectively a UCN spin filter, acting as a potential barrier that rejects low-field seeking UCN below \qty{300}{\nano\eV} and a potential well that passes high-field seeking UCN. For the measurements described in this paper, we varied $ |\gls*{bField} |$ for the purpose of obtaining information on the UCN spectrum.
+\comment{PPM and PPM window paragraph.} For the measurements described in this paper, we varied $ |\gls*{bField} |$ for the purpose of obtaining information on the UCN spectrum.
 
-A 0.1-mm thick Al97 Mg3 alloy foil (similar in tensile strength to 6061-T6), termed the ``PM window", is located in the beamline at the center of the PM field region. This is used to separate the UCN source vacuum from the measurement apparatus vacuum, as the source vacuum can be routinely filled with D$_2$ gas ({\it e.g.} while D$_2$ is being drawn from a storage tank to be frozen or while SD$_2$ is being reconditioned). The magnetic potential of the PM overwhelms the neutron optical potential of the window (\qty{54}{\nano\eV} \cite{golubUCN}). The effect of the window on the transmission of UCN is discussed in detail in Sec.~\ref{sec:analysis}.
+
 
 \begin{figure}[htp]
     \centering
@@ -46,7 +46,7 @@ All guide sections downstream of the PM had a 50-${\mu}$m-thick electroless nick
 
 On both the monitor and the drop-detector, $\ce{^{10}B}$ coated ZnS:Ag scintillator films were used for UCN detection \cite{jeph_b10_2011}. UCN were captured on the top layer of $\ce{^{10}B}$, and reaction products ($^4$He and/or $^7$Li) from the $\ce{^{10}B}(\text{n},\alpha)^7\text{Li}$ neutron capture reaction were detected in the ZnS:Ag layer. The resulting scintillation light was then detected by a photomultiplier tube (PMT). The photocathode diameters of the drop-detector and monitor detector PMTs were \qty{76.2}{\mm} and \qty{28.6}{\mm}, respectively.
 
-A neutron spin analyzer that consisted of a 10 layer polarizer made of iron and silicon was located immediately above the drop detector (see Ref.~\cite{ThorstenThesis} for layer structure details). When magnetized with a 10-mT field from permanent magnets, the multi-layer polarizer preferentially transmitted high-field seeking UCN and rejected low-field seeking UCN with an analyzing power of $99.3^{+0.7}_{-2.4}\%$ \cite{ThorstenThesis}. [Note that it is not clear if the neutron energy spectrum under which Ref.~\cite{ThorstenThesis} is consistent with our neutron spectrum. Reference~\cite{afach_device_2015} quotes an analyzing power of 95\% for a different but similar analyzing foil for an energy range of 90~neV to 330~neV, which includes the energy range of the UCN at the analyzing foil for the experiment reported in Sec.~\ref{sec:analysis}. The main conclusion of the results reported here does not depend on the exact value of the analyzing power. We use the value reported by Ref.~\cite{ThorstenThesis}.   Additionally, an adiabatic fast passage (\acrshort{afp}) spin flipper coil, located upstream of the spin analyzer, was used to provide the option of spin flipping UCN \cite{holley_afp_2012}. A schematic of the analyzer system is illustrated in Fig.~\ref{fig:SpinAnalyzer}.]
+The main conclusion of the results reported here does not depend on the exact value of the analyzing power. We use the value reported by Ref.~\cite{ThorstenThesis}.
 
 UCN were stored in a prototype nEDM precession chamber (hereafter simply referred to as ``the cell"). The cell was a cylinder with an inner diameter of \qty{50}{\cm} and a height of \qty{10}{\cm}, giving a total volume of \qty{19.6}{\liter}. Several different configurations for the cell were used in the measurements for this paper and are discussed in further detail in Sec.~\ref{subsec:holdingTimeMeasurement}. The bottom of the cell was located approximately \qty{10}{\cm} above beamline guide height.
 
@@ -58,13 +58,6 @@ UCN were stored in a prototype nEDM precession chamber (hereafter simply referre
     \caption[Photograph and schematic of rotary switcher]{Left: A photograph of the rotary switcher. Right: Top-down schematic of the rotary switcher}\label{fig:NewSwitcher}
 \end{figure}
 
-
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=5cm]{spinAnalyzer.pdf}
-    \caption{Schematic of the adiabatic fast passage (\acrshort{afp}) spin flipper, spin analyzer, and UCN drop detector}
-    \label{fig:SpinAnalyzer}
-\end{figure}
 
 \begin{figure}[htp]
     \centering
