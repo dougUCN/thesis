@@ -217,11 +217,11 @@
 \clearpage
 \setlength{\glsdescwidth}{0.8\textwidth}
 \phantomsection
-\renewcommand{\glsgroupskip}{} % Stop grouping acronyms together by starting letter
-% \begin{singlespace}
-% \setlength\cftbeforefigskip{\baselineskip}  %manually set spacing between entries
+% \renewcommand{\glsgroupskip}{} % Stop grouping acronyms together by starting letter (requires single space environment to be disabled
+\begin{singlespace}
+\setlength\cftbeforefigskip{\baselineskip}  %manually set spacing between entries
 \printnoidxglossary[type=\acronymtype,nonumberlist,sort=letter]
-% \end{singlespace}
+\end{singlespace}
 \clearpage
 
 \phantomsection
