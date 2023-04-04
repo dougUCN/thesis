@@ -9,38 +9,38 @@ In this appendix we include C++ code for numerical generation of a Ramsey fringe
 The function \mintinline[bgcolor=white, style=sas, fontsize=\small]{cpp}{void neutron::larmorPrecess} is based on the analytical solution for Larmor precession, Eq.~(\ref{eq:larmor_solution}), with the substitution
 %
 \begin{align}
-    a_0 &= \text{Re}(a_0)+i\text{Im}(a_0)\label{eq:a0_Re_Im}\\
-    b_0 &= \text{Re}(b_0)+i\text{Im}(b_0)\label{eq:b0_Re_Im}
+    a &= \text{Re}(a)+i\text{Im}(a)\label{eq:a0_Re_Im}\\
+    b &= \text{Re}(b)+i\text{Im}(b)\label{eq:b0_Re_Im}
 \end{align}
 %
 which gives 
 %
 \begin{align}
-    \text{Re}(a(t)) &= \text{Re}(a)\cos\left(\frac{i\omega_0 t}{2}\right)+\text{Im}(a_0)\sin\left(\frac{i\omega_0 t}{2}\right)\\
-    \text{Im}(a(t)) &= \text{Im}(a)\cos\left(\frac{i\omega_0 t}{2}\right)-\text{Re}(a_0)\sin\left(\frac{i\omega_0 t}{2}\right)\\
-    \text{Re}(b(t)) &= \text{Re}(b)\cos\left(\frac{i\omega_0 t}{2}\right)-\text{Im}(b_0)\sin\left(\frac{i\omega_0 t}{2}\right)\\
-    \text{Im}(b(t)) &= \text{Im}(b)\cos\left(\frac{i\omega_0 t}{2}\right)+\text{Re}(b_0)\sin\left(\frac{i\omega_0 t}{2}\right)
+    \text{Re}(a(t)) &= \text{Re}(a)\cos\left(\frac{i\omega_0 t}{2}\right)+\text{Im}(a)\sin\left(\frac{i\omega_0 t}{2}\right)\\
+    \text{Im}(a(t)) &= \text{Im}(a)\cos\left(\frac{i\omega_0 t}{2}\right)-\text{Re}(a)\sin\left(\frac{i\omega_0 t}{2}\right)\\
+    \text{Re}(b(t)) &= \text{Re}(b)\cos\left(\frac{i\omega_0 t}{2}\right)-\text{Im}(b)\sin\left(\frac{i\omega_0 t}{2}\right)\\
+    \text{Im}(b(t)) &= \text{Im}(b)\cos\left(\frac{i\omega_0 t}{2}\right)+\text{Re}(b)\sin\left(\frac{i\omega_0 t}{2}\right)
 \end{align}
 %
-Similarly, the function \mintinline[bgcolor=white, style=sas, fontsize=\small]{cpp}{vector<double> neutron::derivs} describes spin in a linear Rabi sequence. Combining Eqs.~(\ref{eq:rabi_linear_1})--(\ref{eq:rabi_linear_2}) with (\ref{eq:a0_Re_Im})--(\ref{eq:b0_Re_Im}), giving
+Similarly, the function \mintinline[bgcolor=white, style=sas, fontsize=\small]{cpp}{vector<double> neutron::derivs} describes spinor evolution in a Rabi sequence with either linear or circular RFs. For the linear case, combining Eqs.~(\ref{eq:rabi_linear_1})--(\ref{eq:rabi_linear_2}) with (\ref{eq:a0_Re_Im})--(\ref{eq:b0_Re_Im}) gives
 %
 \begin{align}
-    \text{Re}(\dot{a}) &= \frac{1}{2}\left(\omega_0\text{Im}(a) +\omega_\ell\cos(\omega t +\phi)\text{Im}(b) \right) \\
-    \text{Im}(\dot{a}) &= \frac{1}{2}\left(-\omega_0\text{Re}(a)-\omega_\ell\cos(\omega t+\phi)\text{Re}(b) \right) \\
-    \text{Re}(\dot{b}) &= \frac{1}{2}\left(-\omega_0\text{Im}(b)-\omega_\ell\cos(\omega t+\phi)\text{Im}(a) \right) \\
-    \text{Im}(\dot{b}) &= \frac{1}{2}\left(\omega_0\text{Re}(b) +\omega_\ell\cos(\omega t +\phi)\text{Re}(a) \right)
+    \text{Re}(\dot{a}) &= \frac{1}{2}\left[\omega_0\text{Im}(a) +\omega_\ell\cos(\omega t +\phi)\text{Im}(b) \right] \\
+    \text{Im}(\dot{a}) &= \frac{1}{2}\left[-\omega_0\text{Re}(a)-\omega_\ell\cos(\omega t+\phi)\text{Re}(b) \right] \\
+    \text{Re}(\dot{b}) &= \frac{1}{2}\left[-\omega_0\text{Im}(b)-\omega_\ell\cos(\omega t+\phi)\text{Im}(a) \right] \\
+    \text{Im}(\dot{b}) &= \frac{1}{2}\left[\omega_0\text{Re}(b) +\omega_\ell\cos(\omega t +\phi)\text{Re}(a) \right]
 \end{align}
 %
-This can be expanded to the case with a static magnetic field with a circular Rabi sequence, by numerically integrating  Eqs.~(\ref{eq:rabi_2}) and (\ref{eq:rabi_3}). 
+This can be expanded to the circular RF case, by numerically integrating  Eqs.~(\ref{eq:rabi_2}) and (\ref{eq:rabi_3}). Following the notation of this appendix, this is written as
 %
 \begin{align}
-    \text{Re}(\dot{a}) &= \frac{1}{2}\left(\omega_0\text{Im}(a) +\omega_\ell\cos(\omega t +\phi)\text{Im}(b) -\omega_\ell\sin(\omega t +\phi)\text{Re}(b) \right)\\
-    \text{Im}(\dot{a}) &= \frac{1}{2}\left(-\omega_0\text{Re}(a)-\omega_\ell\cos(\omega t+\phi)\text{Re}(b) -\omega_\ell\sin(\omega t+\phi)\text{Im}(b) \right) \\
-    \text{Re}(\dot{b}) &= \frac{1}{2}\left(-\omega_0\text{Im}(b)-\omega_\ell\cos(\omega t+\phi)\text{Im}(a) +\omega_\ell\sin(\omega t+\phi)\text{Re}(a) \right) \\
-    \text{Im}(\dot{b}) &= \frac{1}{2}\left(\omega_0\text{Re}(b) +\omega_\ell\cos(\omega t +\phi)\text{Re}(a) +\omega_\ell\sin(\omega t+\phi)\text{Im}(a) \right)
+    \text{Re}(\dot{a}) &= \frac{1}{2}\left[\omega_0\text{Im}(a) +\omega_\ell\cos(\omega t +\phi)\text{Im}(b) -\omega_\ell\sin(\omega t +\phi)\text{Re}(b) \right]\\
+    \text{Im}(\dot{a}) &= \frac{1}{2}\left[-\omega_0\text{Re}(a)-\omega_\ell\cos(\omega t+\phi)\text{Re}(b) -\omega_\ell\sin(\omega t+\phi)\text{Im}(b) \right] \\
+    \text{Re}(\dot{b}) &= \frac{1}{2}\left[-\omega_0\text{Im}(b)-\omega_\ell\cos(\omega t+\phi)\text{Im}(a) +\omega_\ell\sin(\omega t+\phi)\text{Re}(a) \right] \\
+    \text{Im}(\dot{b}) &= \frac{1}{2}\left[\omega_0\text{Re}(b) +\omega_\ell\cos(\omega t +\phi)\text{Re}(a) +\omega_\ell\sin(\omega t+\phi)\text{Im}(a) \right]
 \end{align}
 %
-Coupled ODEs are solved with a 4th-order Runge-Kutta integration method, as per Ref.~\cite{numerical_recipes}. Integration accuracy may be determined via comparison to analytical solutions, such as Eq.~\ref{eq:rabi_probZ} for a circular Rabi sequence, or by the normalization requirement $\Braket{\psi(t) | \psi(t)} - 1 = 0$.
+Coupled ODEs are solved with a 4th-order Runge-Kutta integration method, which is described in Ref.~\cite{numerical_recipes}. Integration accuracy may be determined via comparison to analytical solutions, such as Eq.~\ref{eq:rabi_probZ} for a Rabi $\pi$ flip using a circular RF, or by the normalization requirement of the spinor $\Braket{\psi(t) | \psi(t)} - 1 = 0$.
 
 \section{ramsey.cpp}
 
