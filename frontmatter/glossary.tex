@@ -44,7 +44,7 @@
 \newglossaryentry{hbar}{
     name=\ensuremath{\hbar},
     description={reduced Planck's constant},
-    value={$6.582\,119\,569...\times 10^{-16}\text{ eV s}$}
+    value={\ensuremath{6.582\,119\,569...\times 10^{-16}\text{ eV s}}}
 }
 
 \newglossaryentry{mu_n}{
@@ -71,7 +71,7 @@
 \newglossaryentry{mg}{
     name=\ensuremath{m_\text{n}g_0},
     description={Gravity acel. $g_0$ on neutron mass $m_\text{n}$},
-    value={$102.519\,445\,56(64)\text{ neV m}^{-1}$}
+    value={\ensuremath{102.519\,445\,56(64)\text{ neV m}^{-1}}}
 }
 
 \newglossaryentry{tau_n}{
@@ -86,6 +86,12 @@
     value={\ensuremath{(-0.4 \pm 1.1 ) \times 10^{-21} e}}
 }
 
+\newglossaryentry{lorentz}{
+    name=\ensuremath{\gamma_\ell},
+    description={Relativistic Lorentz factor in the lab frame},
+    value={\ensuremath{1/\sqrt{1-v^2/c^2}}}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % List of symbols not printed in glossary
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -93,12 +99,6 @@
 \newglossaryentry{bField}{
     name=\ensuremath{\glsvv{B}},
     description={Magnetic field},
-    type=doNotPrint,
-}
-
-\newglossaryentry{lorentz}{
-    name=\ensuremath{\Gamma},
-    description={Relativistic Lorentz factor in the lab frame, $1/\sqrt{1-v^2/c^2}$},
     type=doNotPrint,
 }
 
