@@ -86,8 +86,10 @@
 
 % siunitx setup
 \usepackage{siunitx}
-\sisetup{per-mode = symbol} % Use "/" for \per
-\sisetup{detect-all=true} % Match body text font
+\sisetup{per-mode = symbol, % Use "/" for \per
+        detect-all=true, % Match body text font
+        list-final-separator = {, and }, % Oxford comma on lists
+}
 \DeclareSIUnit\barn{b}
 
  % Table/figure customization options

@@ -19,6 +19,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % List of symbols
 % "value" field is customized for the glossary style defined in this file
+%
+% Entries here are displayed in order of definition (see main.tex)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newglossaryentry{T_fp}{
@@ -39,6 +41,12 @@
 \newglossaryentry{adiab}{
     name=\ensuremath{\eta},
     description={Adiabaticity},
+}
+
+\newglossaryentry{lorentz}{
+    name=\ensuremath{\gamma_\ell},
+    description={Relativistic Lorentz factor},
+    value={\ensuremath{1/\sqrt{1-v^2/c^2}}}
 }
 
 \newglossaryentry{hbar}{
@@ -86,12 +94,6 @@
     value={\ensuremath{(-0.4 \pm 1.1 ) \times 10^{-21} e}}
 }
 
-\newglossaryentry{lorentz}{
-    name=\ensuremath{\gamma_\ell},
-    description={Relativistic Lorentz factor in the lab frame},
-    value={\ensuremath{1/\sqrt{1-v^2/c^2}}}
-}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % List of symbols not printed in glossary
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,6 +118,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Acronyms
+%
+% Entries here are displayed alphabetically (see main.tex)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newacronym{lanl}{LANL}{Los Alamos National Laboratory}
@@ -154,6 +158,8 @@
 
 \newacronym{dps}{dPS}{Deuterated polystyrene}
 
+\newacronym{pmma}{PMMA}{poly(methyl methacrylate)}
+
 \newacronym{dlc}{DLC}{Diamond-like carbon}
 
 \newacronym{pm}{PM}{Polarizing magnet (Sec.~\ref{sec:PM_description})}
@@ -161,6 +167,8 @@
 \newacronym{pmt}{PMT}{Photomultiplier tube}
 
 \newacronym{sipm}{SiPM}{Silicon photomultiplier}
+
+\newacronym{gv}{GV}{Gate valve}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Custom glossary style for symbols
