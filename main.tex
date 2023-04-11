@@ -49,7 +49,7 @@
 \usepackage[bookmarks=true,hidelinks,breaklinks]{hyperref}
 \usepackage{appendix}
 
-\usepackage[acronym,style=super,nonumberlist,toc]{glossaries} % for glossaries
+\usepackage[acronym,style=long,nonumberlist,toc]{glossaries} % for glossaries
 
 \usepackage{url} % Link fonts in bibliography
 \urlstyle{same}
@@ -203,7 +203,6 @@
 \setlength\cftbeforetabskip{\baselineskip}  %manually set spacing between entries
 \listoftables
 \end{singlespace}
-
 \clearpage
 
 \phantomsection
@@ -212,12 +211,13 @@
 \setlength\cftbeforefigskip{\baselineskip}  %manually set spacing between entries
 \listoffigures
 \end{singlespace}
+\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Acronyms and List of symbols
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
 \setlength{\glsdescwidth}{0.8\textwidth}
+
 \phantomsection
 % \renewcommand{\glsgroupskip}{} % Stop grouping acronyms together by starting letter 
 \begin{singlespace}
@@ -231,7 +231,7 @@
 [
     type=main,
     nonumberlist,
-    title={List of Symbols},
+    title={Symbols and Constants},
     style=symbolstyle,
     sort=def,
 ]
@@ -275,11 +275,11 @@
 \input{chapters/UCNs.tex}
 \input{chapters/spinManipulation.tex}
 \input{chapters/nEDM.tex}
-\input{chapters/monteCarlo.tex}
 \input{chapters/ramsey2017.tex}
 \input{chapters/northbeamline.tex}
 \input{chapters/fall2021.tex}
 \input{chapters/dec2022.tex}
+\input{chapters/monteCarlo.tex}
 \input{chapters/daq.tex}
 \input{chapters/conclusion.tex}
 
