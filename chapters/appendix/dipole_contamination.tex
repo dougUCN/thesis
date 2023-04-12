@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Characterization of magnetic contamination}\label{appx:magnetic_contamination}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Magnetic impurities detected by the scanner (Sec.~\ref{sec:magnetic_impurity_scanner}) to first order may be treated as a dipole. In this appendix we describe the method used to determine the magnetic moment $\vv{m}$ of such a dipole. The magnetic field produced by a dipole is given by \cite{chow2006introduction}
+%
+\begin{gather}
+    \vv{B}_m({\vv{r}}) = \frac{\mu_{0}}{4\pi}\left(\frac{3\vv{r}(\vv{m}\cdot\vv{r})}{r^{5}} - \frac{{\vv{m}}}{r^{3}}\right)
+\end{gather}
+
+For dipoles, the magnetic field falls off $\propto 1/r^3$. Let $B_\text{low}(r)$ be the field read by the magnetometer closer to dipole and $B_\text{up}(r)$ be the field read by the further one. When the contamination on the turntable is directly beneath the magnetometers ($r=r_\text{min}$), we write the expression
+%
+\begin{gather}
+    B_\text{up}(r_\text{min})\,(r_\text{min} + x_\text{sep})^3 = B_\text{low}(r_\text{min})\,(r_\text{min})^3 \label{eq:magnetic_contamination_1}
+\end{gather}
+%
+where $x_\text{sep}=\qty{0.75}{in}=\qty{0.01905}{m}$ is the separation between the magnetometers. Using the data from Fig.~\ref{fig:magnetic_contamination_example} as an example, we solve Eq.~(\ref{eq:magnetic_contamination_1}) for $r_\text{min}$.
+%
+\comment{Finish after discussion with Tito}

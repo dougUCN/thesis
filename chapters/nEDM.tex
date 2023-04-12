@@ -482,9 +482,9 @@ The external compensation coils, or ``field cage,'' (Fig.~\ref{fig:lanl-field-ca
 
 The LANL nEDM $B_0$ holding coil is a split solenoid consisting of 8 octagonal sections (Fig.~\ref{fig:lanl-b0-coil}). Each section comprises of printed circuit boards (PCBs) and custom 3D-printed connections. The gaps between each section serve the purpose of accomodating neutron guides, comagnetometer lasers, \acrshort*{hv} cables, vacuum pump lines, etc. The modularized $B_0$ design allows removal of PCB segments from the octagon for access to the experiment. The $B_0$ coil is coupled to the innermost layer of the MSR for purposes of flux return. 
 
-The uniformity of the field is adjusted by tuning the currents in each section of the coil. Characterization of field uniformity and the design of additional correction coils for gradient minimization is ongoing~\comment{Amara thesis}.
+The uniformity of the field is adjusted by tuning the currents in each section of the coil. Characterization of field uniformity and the design of additional correction coils for gradient minimization is ongoing~\comment{amara-thesis}.
 
-The $B_0$ coil has undergone several prototyping stages. A prototype was constructed for the Ramsey demonstration in 2017 (Chap.~\ref{chap:lanl_ramsey_demonstration}), and a half scale prototype was tested at LANL in a spare MSR~\comment{Jared thesis}.
+The $B_0$ coil has undergone several prototyping stages. A prototype was constructed for the Ramsey demonstration in 2017 (Chap.~\ref{chap:lanl_ramsey_demonstration}), and a half scale prototype was tested at LANL in a 2-layer MSR~\comment{jared-thesis}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -492,15 +492,42 @@ The $B_0$ coil has undergone several prototyping stages. A prototype was constru
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\comment{Contact Amara}
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/transport_coil_mockup.jpg}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/transport_coil.jpg}
+\end{minipage}
+    \caption
+    {Double layer $\cos\theta$ coil for transport from Earth's field to the $B_0$ field in the MSR. Figure from Ref.~\comment{amara-thesis}}
+    \label{fig:transport-coils}
+\end{figure}
+
+A set of spin transport coils are used to adiabatically transport UCNs from the ambient external magnetic field ($\sim\qty{20}{\micro T}$) through multiple layers of MSR shielding to the $B_0$ holding field ($\sim\qty{1}{\micro T}$. The design is a modified double layer $\cos\theta$ coil, which provides self-shielding to limit the magnetization of surrounding MuMetal. The innermost transport coil segment interfaces directly with a $B_0$ PCB panel with a hole to avoid possible field zeros that would depolarize \ucn. Reference~\comment{amara-thesis} describes the design, construction, implementation, and characterization of the transport coils.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Magnetic Impurity Scanner}
+\section{Magnetic Impurity Scanner}\label{sec:magnetic_impurity_scanner}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\comment{c.1.5}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/magnetic_contamination_example.pdf}
+    \caption
+      {Example of magnetic impurities on a rejected experimental component found by the scanning setup in Sec.~\ref{sec:magnetic_impurity_scanner}. The component is mounted on a slowly-moving turntable, and the periodic spike is correlated to when the part passes beneath the magnetometers. The QuSpin magnetometers are in a gradiometer configuration, such that there is a vertical separation between sensors of \qty{0.75}{in}}
+    \label{fig:magnetic_contamination_example}
+\end{figure}
+
+Localized magnetic sources (``contamination'') embedded within the precession cell and other experimental components create volume-averaged gradients that would lead to a false EDM signal. Any component installed within the MSR was subject to a scanning procedure to screen for contamination. Parts were mounted on a wooden turntable located in a 2-layer MSR at LANL. The turntable was actuated by a belt system connecting to a motor outside the MSR. The parts were slowly passed beneath two Rb SERF magnetometers in a gradiometer configuration, where the vertical separation between sensors was \qty{0.75}{in}. Components with nonzero magnetic signal were subjected to additional cleaning procedures, and, failing that, were rejected from use within the MSR.
+
+The current magnetic impurity scanner can detect contamination on the order $\sim\qty{0.1}{nT}$ (Fig.~\ref{fig:magnetic_contamination_example}). The magnetometers are QuSpin Total-Field Magnetometers, which have a sensitivity of $<\qty{1}{pT\per\sqrt{Hz}}$ in the 0.1--\qty{100}{\hertz} range. The use of these magnetometers required a large helmholtz coil installed around the turntable to provide a small bias field. With improvements to the quality of the magnetic environment (e.g. extra shielding, reduced ambient magnetic noise) it will be possible to switch to QuSpin Zero-Field Magnetometers, which have a sensitivity $<\qty{1}{pT\per\sqrt{Hz}}$ for 1--\qty{100}{\hertz}.
+
+Appendix~\ref{appx:magnetic_contamination} demonstrates the characterization process for a source of magnetic contamination found on a rejected component.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -613,8 +640,12 @@ The cell valves (Fig.~\ref{fig:cell_valve}) consist of Nickel Molybdenum (\acrsh
   \includegraphics[width=0.57\textwidth]{figures/dPS_jig.jpg}
 \end{subfigure}
 \caption
-{Precession cell wall coating jig, as described in Sec.~\ref{sec:dPS_coating}}
+{Precession cell wall dPS-coating jig, as described in Sec.~\ref{sec:dPS_coating}}
 \label{fig:dPS_coating_jig}
 \end{figure}
 
-\cite{bodek_storage_2008}
+Two types of dPS-coated PMMA precession cell walls coating methods were used. The first was a manual coating procedure, where the cell wall (oriented such that its central axis was horizontal) was slowly rotated over the course of an hour while a dPS/d-toulene mixture was applied with a brush (that was nonsolvent in toulene). 
+
+The second coating method was the ``rotating lake'' described in Ref.~\cite{bodek_storage_2008}. The cell wall was clamped between two aluminum rings (Fig.~\ref{fig:dPS_coating_jig}), onto which the dPS/d-toulene mixture was poured. This was rotated slowly by a jig at roughly \qty{10}{rpm} for the entirety of the coating and drying process.
+
+For both coating methodologies, \qty{1.5}{\gram} of dPS was dissolved into \qty{0.225}{\liter} d-toulene. The coated cell wall was allowed to dry in a fume hood for \qty{24}{\hour} and then outgassed under vacuum over the course of several days.
