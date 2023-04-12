@@ -9,6 +9,21 @@
 % Suppress "In:" in journal citations
 \renewbibmacro{in:}{}
 
+% Change text of "DOI:" and "URL:" 
+% https://tex.stackexchange.com/a/508980
+\DeclareFieldFormat{doi}{%
+  doi\addcolon\space
+  \ifhyperref
+    {\href{https://doi.org/#1}{\nolinkurl{#1}}}
+    {\nolinkurl{#1}}}
+
+\DeclareFieldFormat{url}{URL\addcolon\addspace\url{#1}}
+
+% Leftalign the number label
+% https://tex.stackexchange.com/a/390334
+\AtBeginBibliography{\renewcommand*{\makelabel}[1]{#1\hss}}
+\setlength{\biblabelsep}{0pt} % https://tex.stackexchange.com/a/411370
+
 % prevent certain fields in references from printing in bibliography
 \AtEveryBibitem{\clearfield{issn}}
 \AtEveryBibitem{\clearlist{issn}}
@@ -36,7 +51,6 @@
     \ifentrytype{online}
         {}
         {\clearfield{urlyear}\clearfield{urlmonth}\clearfield{urlday}}}
-
 
 % Adds support for ``collaboration'' field in biber
 % \usepackage[backend=biber,datamodel=collab]{biblatex}
