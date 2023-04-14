@@ -350,7 +350,7 @@ For nEDM measurements that use the measured ratio $|\omega_\text{n}/\omega_\text
     \centering
     \includegraphics[width=\textwidth]{figures/chupp_msr_data.pdf}
     \caption
-    {Shielding factor of the LANL nEDM MSR for various orientations excitation signal directions of an infinitely sized coil. See Sec.~\ref{sec:MSR} for methodology.}
+    {Calculated shielding factor of the LANL nEDM MSR (Tab.~\ref{tb:lanl_msr_shielding_factor}) for various orientations excitation signal directions of an infinitely sized coil. See Sec.~\ref{sec:MSR} for methodology.}
     \label{fig:MSR-shielding-factor}
 \end{figure}
 
@@ -384,7 +384,7 @@ From the offset-corrected field values, the measured gradient upper limit was fo
 
 Shielding factor was determined by using the LANL field cage (Sec.~\ref{sec:field-cage}) to provide excitation signals. The resulting amplitude was measured with a fluxgate at the center of the MSR both before the start of MSR construction and after construction was completed. Excitation signals of amplitude \qty{1}{\micro\tesla} were used for frequencies \qty{0.01}{\hertz} and \qty{0.1}{\hertz}, \qty{10}{\micro\tesla} for \qty{1}{\hertz}, and \qty{30}{\micro\tesla} for 10--\qty{1000}{\hertz}.
 
-To account for the finite size of the excitation coil and the iron floor of the experimental area, finite-element physics simulations in COMSOL were used to obtain a scaling constant that related the field cage geometry shielding factor to an infinitely sized coil shielding factor. Shielding factors are shown in Fig.~\ref{fig:MSR-shielding-factor}. \comment{Is my understanding of this calculation correct??}
+To account for the finite size of the excitation coil and the iron floor of the experimental area, finite-element physics simulations in COMSOL were used to obtain a relation between the measured shielding factor and the shielding factor with an ideal infinitely sized coil. Shielding factors are shown in Fig.~\ref{fig:MSR-shielding-factor} and Tab~\ref{tb:lanl_msr_shielding_factor}. \comment{Is my understanding of this calculation correct??}
 
 \begin{table}
 \centering
@@ -411,7 +411,7 @@ Layer		& Thickness      & Material                        & \multicolumn{5}{c}{E
 \bottomrule
 \end{tabular}
 % \end{table}
-\vspace{\baselineskip}
+\vspace{\baselineskip}\vspace{\baselineskip}
 % \begin{table}
 % \centering
 \caption{Residual DC fields in degaussed MSR}\label{tb:lanl_msr_dc_residuals}
@@ -434,6 +434,29 @@ Point		& $x$				& $y$				& $z$				& $|B|$	\\
 6			& 40                & 39                & -23	            & 0.93\\
 \bottomrule
 \end{tabular}
+
+% \end{table}
+\vspace{\baselineskip}\vspace{\baselineskip}
+% \begin{table}
+% \centering
+\caption{MSR shielding factors, measured and calculated (as per Sec.~\ref{sec:MSR})}\label{tb:lanl_msr_shielding_factor}
+\begin{tabular}{
+    c
+    S[exponent-mode = scientific, table-format = 1.2e1]
+    S[exponent-mode = scientific, table-format = 1.2e1]
+}
+\toprule
+{Frequency}		& {Shielding factor}			& {Shielding factor}\\
+{\scriptsize[Hz]}	& {\scriptsize(Measured)}	& {\scriptsize(corrected for geometry)} \\
+\midrule
+0.01    & 2.82e4    & 1.55e5 \\
+0.1     & 4.55e4    & 2.50e5 \\
+1       & 1.05e5    & 1.05e5 \\
+10      & 7.72e4    & 4.25e5 \\
+100     & 1.16e4    & 4.64e5 \\
+\bottomrule
+\end{tabular}
+
 \end{table}
 
 
@@ -519,11 +542,19 @@ A set of spin transport coils are used to adiabatically transport UCNs from the 
     \centering
     \includegraphics[width=0.7\textwidth]{figures/magnetic_contamination_example.pdf}
     \caption
-      {Example of magnetic impurities on a rejected experimental component found by the scanning setup in Sec.~\ref{sec:magnetic_impurity_scanner}. The component is mounted on a slowly-moving turntable, and the periodic spike is correlated to when the part passes beneath the magnetometers. The QuSpin magnetometers are in a gradiometer configuration, such that there is a vertical separation between sensors of \qty{0.75}{in}}
+      {Example of magnetic impurities on a rejected experimental component found by the scanning setup in Sec.~\ref{sec:magnetic_impurity_scanner}. The component is mounted on a slowly-moving turntable, and the periodic spike is correlated to when the part passes beneath the magnetometers. The QuSpin magnetometers are in a gradiometer configuration, such that there is a vertical separation between sensors of \qty{0.75}{in}.}
     \label{fig:magnetic_contamination_example}
 \end{figure}
 
-Localized magnetic sources (``contamination'') embedded within the precession cell and other experimental components create volume-averaged gradients that would lead to a false EDM signal. Any component installed within the MSR was subject to a scanning procedure to screen for contamination. Parts were mounted on a wooden turntable located in a 2-layer MSR at LANL. The turntable was actuated by a belt system connecting to a motor outside the MSR. The parts were slowly passed beneath two Rb SERF magnetometers in a gradiometer configuration, where the vertical separation between sensors was \qty{0.75}{in}. Components with nonzero magnetic signal were subjected to additional cleaning procedures, and, failing that, were rejected from use within the MSR.
+\begin{figure}
+    \centering
+    \includegraphics[height=3.5in]{figures/magnetic_impurity_scanner.png}
+    \caption
+      {Magnetic impurity scanner at LANL. In a 2-layer MSR, a nonmagnetic turntable passes parts beneath two QuSpin Total-Field Magnetometers.}
+    \label{fig:magnetic_impurity_scanner}
+\end{figure}
+
+Localized magnetic sources (``contamination'') embedded within the precession cell and other experimental components create volume-averaged gradients that would lead to a false EDM signal. Any component installed within the MSR was subject to a scanning procedure to screen for contamination. Parts were mounted on a nonmagnetic turntable located in a 2-layer MSR at LANL (Fig~\ref{fig:magnetic_impurity_scanner}). The turntable was actuated by a belt system connecting to a motor outside the MSR. The parts were slowly passed beneath two Rb SERF magnetometers in a gradiometer configuration, where the vertical separation between sensors was \qty{0.75}{in}. Components with nonzero magnetic signal were subjected to additional cleaning procedures, and, failing that, were rejected from use within the MSR.
 
 The current magnetic impurity scanner can detect contamination on the order $\sim\qty{0.1}{nT}$ (Fig.~\ref{fig:magnetic_contamination_example}). The magnetometers are QuSpin Total-Field Magnetometers, which have a sensitivity of $<\qty{1}{pT\per\sqrt{Hz}}$ in the 0.1--\qty{100}{\hertz} range. The use of these magnetometers required a large helmholtz coil installed around the turntable to provide a small bias field. With improvements to the quality of the magnetic environment (e.g. extra shielding, reduced ambient magnetic noise) it will be possible to switch to QuSpin Zero-Field Magnetometers, which have a sensitivity $<\qty{1}{pT\per\sqrt{Hz}}$ for 1--\qty{100}{\hertz}.
 
