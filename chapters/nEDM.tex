@@ -59,7 +59,7 @@ In the case where $B_0$ and $E$ differ between configurations,
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.7 \textwidth]{figures/envisioned_lanl_nedm.pdf}
+    \includegraphics[width=0.9\textwidth]{figures/envisioned_lanl_nedm.pdf}
     \caption{Model of the LANL nEDM experiment}
     \label{fig:envisioned_lanl_nedm}
 \end{figure}
@@ -139,7 +139,7 @@ With an assumed data taking efficiency of 50\% (for experiment down time, calibr
     \centering
     \includegraphics[width=0.6 \textwidth]{figures/lanl_ucn_source.pdf}
     \caption[Cutaway view of the LANL UCN source]
-    {Cutaway view of the LANL UCN source. Image from Ref.~\cite{ito_performance_2018}}
+    {Cutaway view of the LANL UCN source. Image adapted from Ref.~\cite{ito_performance_2018}}
     \label{fig:lanl_ucn_source}
 \end{figure}
 
@@ -392,6 +392,8 @@ Shielding factor was determined by using the LANL field cage (Sec.~\ref{sec:fiel
 
 To account for the finite size of the excitation coil and the iron floor of the experimental area, finite-element physics simulations in COMSOL were used to obtain a relation between the measured shielding factor and a calculated shielding factor with an ideal infinitely sized coil. This scaling was performed because the proximity of the field cage coils to the outer MSR layer resulted in localized saturation of the $\mu$-metal, artificially lowering the shielding factor. Shielding factors are shown in Fig.~\ref{fig:MSR-shielding-factor} and Tab~\ref{tb:lanl_msr_shielding_factor}. 
 
+In the latter half of 2022, issues with the electrical contacts for the degaussing wires on the innermost MSR layer developed. This has delayed additional characterization of MSR performance.
+
 \begin{table}
 \centering
 \caption{MSR layer composition}\label{tb:lanl_msr_layers}
@@ -493,8 +495,26 @@ Point		& $x$				& $y$				& $z$				& $|B|$	\\
     \centering
     \includegraphics[height=4in]{figures/b0_zoom_in.jpg}
     \caption
-    {Installed $B_0$ coil (Sec.~\ref{sec:B0_coil})}
+    {Installed $B_0$ coil}
     \label{fig:lanl-b0-coil}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/B0-model.png}
+    \caption
+    {Model of $B_0$ coil (Sec.~\ref{sec:B0_coil})}
+    \label{fig:b0-coil-model}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/half-scale-B0.png}
+    \caption
+    {Half-scale $B_0$ coil prototype in the 2-layer MSR}
+    \label{fig:b0-half-scale}
 \end{minipage}
 \end{figure}
 
@@ -509,11 +529,11 @@ The external compensation coils, or ``field cage,'' (Fig.~\ref{fig:lanl-field-ca
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The LANL nEDM $B_0$ holding coil is a split solenoid consisting of 8 octagonal sections (Fig.~\ref{fig:lanl-b0-coil}). Each section comprises of printed circuit boards (PCBs) and custom 3D-printed connections. The gaps between each section serve the purpose of accomodating neutron guides, comagnetometer lasers, \acrshort*{hv} cables, vacuum pump lines, etc. The modularized $B_0$ design allows removal of PCB segments from the octagon for access to the experiment. The $B_0$ coil is coupled to the innermost layer of the MSR for purposes of flux return. 
+The LANL nEDM $B_0$ holding coil is a split solenoid consisting of 8 octagonal sections (Figs.~\ref{fig:lanl-b0-coil}, \ref{fig:b0-coil-model}). Each section comprises of printed circuit boards (PCBs) and custom 3D-printed connections. The gaps between each section serve the purpose of accomodating neutron guides, comagnetometer lasers, \acrshort*{hv} cables, vacuum pump lines, etc. The modularized $B_0$ design allows removal of PCB segments from the octagon for access to the experiment. The $B_0$ coil is coupled to the innermost layer of the MSR for purposes of flux return. 
 
-The uniformity of the field is adjusted by tuning the currents in each section of the coil. Characterization of field uniformity and the design of additional correction coils for gradient minimization is ongoing~\comment{amara-thesis}.
+The uniformity of the field is adjusted by tuning the currents in each section of the coil. While initial measurements with fluxgates indicate that the vertical gradient meets specifications $(\partial B_0/\partial dz < \qty{1}{nT \per m})$, further $B_0$ field uniformity measurements have been delayed due to the issue with the degaussing loop contacts (Sec.~\ref{sec:MSR}).
 
-The $B_0$ coil has undergone several prototyping stages. A prototype was constructed for the Ramsey demonstration in 2017 (Chap.~\ref{chap:lanl_ramsey_demonstration}), and a half scale prototype was tested at LANL in a 2-layer MSR~\comment{jared-thesis}.
+The $B_0$ coil has undergone several prototyping stages. An initial prototype was constructed for the Ramsey demonstration in 2017 (Chap.~\ref{chap:lanl_ramsey_demonstration}). A half scale prototype was also tested at LANL in a 2-layer MSR (Fig.~\ref{fig:b0-half-scale}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -532,11 +552,11 @@ The $B_0$ coil has undergone several prototyping stages. A prototype was constru
     \includegraphics[width=\textwidth]{figures/transport_coil.jpg}
 \end{minipage}
     \caption
-    {Double layer $\cos\theta$ coil for transport from Earth's field to the $B_0$ field in the MSR. Figure from Ref.~\comment{amara-thesis}}
+    {Double layer $\cos\theta$ coil for transport from Earth's field to the $B_0$ field in the MSR. Figure provided by Piya Amara Palamure.}
     \label{fig:transport-coils}
 \end{figure}
 
-A set of spin transport coils are used to adiabatically transport UCNs from the ambient external magnetic field ($\sim\qty{20}{\micro T}$) through multiple layers of MSR shielding to the $B_0$ holding field ($\sim\qty{1}{\micro T}$. The design is a modified double layer $\cos\theta$ coil, which provides self-shielding to limit the magnetization of surrounding MuMetal. The innermost transport coil segment interfaces directly with a $B_0$ PCB panel with a hole to avoid possible field zeros that would depolarize \ucn. Reference~\comment{amara-thesis} describes the design, construction, implementation, and characterization of the transport coils.
+A set of spin transport coils are used to adiabatically transport UCNs from the ambient external magnetic field ($\sim\qty{20}{\micro T}$) through multiple layers of MSR shielding to the $B_0$ holding field ($\sim\qty{1}{\micro T}$. The design is a modified double layer $\cos\theta$ coil, which provides self-shielding to limit the magnetization of surrounding MuMetal. The innermost transport coil segment interfaces directly with a $B_0$ PCB panel with a hole to avoid possible field zeros that would depolarize \ucn. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -655,7 +675,7 @@ The two precession cells, responsible for storage of polarized \ucn and \hg atom
 
 Each precession chamber has an inner diameter of \qty{50}{cm} and a height of \qty{10}{cm}. The final nEDM experiment will use electrodes coated in diamond-like carbon (\acrshort*{dlc}), though the measurements presented in this dissertation primarily use \acrshort{nip}-coated prototype electrodes (see discussion in Sec.~\ref{subsec:holdingTimeMeasurement}).
 
-The precession cells are enclosed by a custom fiberglass vacuum chamber\comment{from what company?} (Fig.~\ref{fig:vacuum_chamber}). The material was selected to avoid attenuation of the RF $\pi/2$ pulse.
+The precession cells are enclosed by a custom fiberglass vacuum chamberfrom Augusta Fiberglass Coating Inc. (Fig.~\ref{fig:vacuum_chamber}). The material was selected to avoid attenuation of the RF $\pi/2$ pulse.
 
 The cell valves (Fig.~\ref{fig:cell_valve}) consist of Nickel Molybdenum (\acrshort*{nimo}) coated parts and NiP-coated guide segments mounted on G-10 fiberglass plates. The actuation system is hydraulic and routed outside the MSR to a STM23Q motor that controls a piston. This prevents the generation of undesired magnetic fields during cell valve actuation. The moving faces of the cell valve are sealed with PTFE-coated o-rings for maintenance of a separate vacuum from the vacuum chamber.
 
