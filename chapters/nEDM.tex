@@ -12,7 +12,7 @@ The envisioned LANL nEDM experiment (Fig.~\ref{fig:envisioned_lanl_nedm}) will i
     \item Two precession cells (Sec.~\ref{sec:precession_cells})
     \item Simultaneous spin analyzers (Sec.~\ref{sec:spin_flipper_analyzer})
     \item An external array of optically pumped magnetometers (Sec.~\ref{sec:magnetic_field_req})
-    \item A $\ce{^{199}Hg}$ comagnetometer (Sec.~\ref{sec:199hg_comag}) and external $\ce{^{199}Hg}$ magnetometers
+    \item A \hg comagnetometer (Sec.~\ref{sec:199hg_comag}) and external \hg magnetometers
 \end{itemize}
 
 In this chapter we provide an overview of LANL nEDM instrumentation, and review some of the main systematic effects limiting the sensitivity of nEDM measurements.
@@ -143,7 +143,7 @@ With an assumed data taking efficiency of 50\% (for experiment down time, calibr
     \label{fig:lanl_ucn_source}
 \end{figure}
 
-At LANL, neutrons are produced by a pulsed \qty{800}{M\eV} proton beam incident on a tungsten target, which is surrounded by ambient temperature beryllium and graphite. The spallation neutrons are cooled by polyethylene bead moderators to cold neutrons, and are then converted to UCN by downscattering within an SD$_2$ crystal~\cite{saunders_performance_2013}.
+At LANL, neutrons are produced by a pulsed \qty{800}{M\eV} proton beam incident on a tungsten target, which is surrounded by ambient temperature beryllium and graphite. The spallation neutrons are converted to cold neutrons by polyethylene bead moderators, then converted to UCN by downscattering within an SD$_2$ crystal~\cite{saunders_performance_2013}.
 
 As in Fig.~\ref{fig:lanl_ucn_source}, UCN leaving the SD$_2$ crystal are directed upwards along a \qty{1}{\meter} vertical guide coated in $\ce{^{58}Ni}$, to account for a Snell's law \qty{100}{\nano\eV} boost (Sec.~\ref{sec:ucn_reflection_transmission}). The UCN are then transported \qty{6}{\meter} along a horizontal NiP coated stainless steel guide to the exit of the biological shield~\cite{ito_performance_2018}.
 
@@ -163,7 +163,7 @@ With the upgrade, a new UCN beamline (called the North Beamline) was constructed
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Design requirements on magnetic shielding and magnetic uniformity requirements of the $B_0$ field (from Sec.~\ref{sec:LANL_nEDM_ramsey_params}) were based on two main requirements. The first requirement was the suppression of $v\times E$ motional effects, in particular the geometric phase (examined further in Sec.~\ref{sec:v_cross_E}). A $\sim\qty{1}{pT\per cm}$ (or $\qty{0.1}{nT\per m}$) gradient creates a geometric phase false EDM in UCN of magnitude $|d_\text{false}|\sim 10^{-28}\,e\text{ cm}$~\cite{lamoreaux_geometric_phase_2005}, with the effect amplified in the faster moving Hg comagnetometer atoms (Sec.~\ref{sec:199hg_comag}). The second requirement was sufficiently long spin relaxation times $T_1$ and $T_2$ (Sec.~\ref{sec:spin_relaxation}) for the completion of a Ramsey sequence. See Ref.~\cite{mcgregor_transverse_1990} for details regarding the relationship of magnetic field gradients to spin relaxation. Table~\ref{tb:lanl_magnetic_design} summarizes the specifications for the magnetic environment of the LANL nEDM.
+Magnetic shielding and magnetic uniformity specifications for the LANL nEDM were based on two main requirements. The first requirement was the suppression of $v\times E$ motional effects, in particular the geometric phase (examined further in Sec.~\ref{sec:v_cross_E}). A $\sim\qty{1}{pT\per cm}$ (or $\qty{0.1}{nT\per m}$) gradient creates a geometric phase false EDM in UCN of magnitude $|d_\text{false}|\sim 10^{-28}\,e\text{ cm}$~\cite{lamoreaux_geometric_phase_2005}, with the effect amplified in the faster moving \hg comagnetometer atoms (Sec.~\ref{sec:199hg_comag}). The second requirement was sufficiently long spin relaxation times $T_1$ and $T_2$ (Sec.~\ref{sec:spin_relaxation}) for the completion of a Ramsey sequence. Reference~\cite{mcgregor_transverse_1990} details the relationship of magnetic field gradients to spin relaxation. Table~\ref{tb:lanl_magnetic_design} summarizes the design specifications for the magnetic environment of the LANL nEDM. 
 
 \begin{table}
 \centering
@@ -186,7 +186,7 @@ Shielding factor & $>10^4$ for $f>\qty{0.01}{Hz}$ & Temporal drift \\
 
 \subsection
 {
-    \texorpdfstring{$\ce{^{199}Hg}$ Comagnetometer}
+    \texorpdfstring{\hg Comagnetometer}
                     {199Hg Comagnetometer}\label{sec:199hg_comag}
 }
 
@@ -194,13 +194,13 @@ Shielding factor & $>10^4$ for $f>\qty{0.01}{Hz}$ & Temporal drift \\
 
 A comagnetometer is a polarized population of atoms occupying the same precession cell as \ucn. It provides information regarding the volume averaged magnetic field $\langle B_0 \rangle$ over the course of the free precession period. Comagnetometers must have a low \ucn absorption cross section, sufficiently long spin polarization lifetimes, a small EDM that does not mask the nEDM, and must be compatible with \ucn-friendly surfaces~\cite{golubUCN}.
 
-$\ce{^{199}Hg}$ offers additional advantages: it can be optically pumped, the precession frequency can be extracted optically, and has been used successfully in previous nEDM measurements (Refs.~\cite{BAK06, ABE20}). However, it suffers from the drawback of sensitivity to high voltage (\acrshort*{hv}), which can reduce the spin relaxation time. This limits the magnitude of $E$ that may be applied across the electrodes. (Depolarization-inducing hydrogen is released in micro-discharges with the application of high voltage, that can be cleaned by flowing oxygen~\cite{baker_apparatus_2014}.)
+\hg offers additional advantages: it can be optically pumped, the precession frequency can be extracted optically, and has been used successfully in previous nEDM measurements (Refs.~\cite{BAK06, ABE20}). However, it suffers from the drawback of sensitivity to high voltage (\acrshort*{hv}), which can reduce the spin relaxation time. This limits the magnitude of $E$ that may be applied across the electrodes. (Depolarization-inducing hydrogen is released in micro-discharges with the application of high voltage, that can be cleaned by flowing oxygen~\cite{baker_apparatus_2014}.)
 
-Due to higher velocities, when compared to \ucn in the storage cell $\ce{^{199}Hg}$ experiences a larger geometric phase shift and has a slightly higher center of mass. As per Ref.~\cite{pendlebury_revised_2015} the geometric-phase false EDM contribution from Hg is $\sim 50$ times larger than the contribution from \ucn. 
+Due to higher velocity, compared to \ucn in the storage cell \hg experiences a larger geometric phase shift and has a slightly higher center of mass. As per Ref.~\cite{pendlebury_revised_2015} the geometric-phase false EDM contribution from \hg is $\sim 50$ times larger than the contribution from \ucn. 
 
-One method to account for the geometric phase effect was utilized in the nEDM measurement by Baker et al.~\cite{BAK06}. The ratio of measured neutron and Hg frequencies $|\omega_\text{n}/\omega_\text{Hg}|$ was compared to the expected value $|\gls{gamma_n}/\gamma_\text{Hg}|$ in order to determine the volume averaged gradient $\langle \partial B_z/\partial z \rangle$ (and consequently the geometric phase shift).
+One method to account for the geometric phase effect was utilized in the nEDM measurement by Baker et al.~\cite{BAK06}. The ratio of the measured neutron and \hg frequency $|\omega_\text{n}/\omega_\text{Hg}|$ was compared to the expected value $|\gls{gamma_n}/\gamma_\text{Hg}|$ in order to determine the volume averaged gradient $\langle \partial B_z/\partial z \rangle$ (and consequently the geometric phase shift).
 
-The LANL nEDM has acquired a \qty{254}{\nano\meter} Toptica laser for the development of the comagnetometer system, with the intention of adding external $\ce{^{199}Hg}$ cells to be used for magnetic gradient readout.
+The LANL nEDM has acquired a \qty{254}{\nano\meter} Toptica laser for the development of the comagnetometer system, with the intention of adding external \hg cells to be used for magnetic gradient readout.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -211,7 +211,13 @@ The LANL nEDM has acquired a \qty{254}{\nano\meter} Toptica laser for the develo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\comment{???}
+Noise from magnetic field fluctuation must be smaller than the counting statistics for a measurement period $T$~\cite{baker_apparatus_2014}
+%
+\begin{gather}
+    \left| \frac{dB_0}{dt}\right| \frac{\gls*{gamma_n}T}{2\pi} < \frac{1}{2\pi\gls*{alpha}T\sqrt{N}}
+\end{gather}
+%
+\comment{Contact Tim Chupp}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -232,7 +238,7 @@ A particle with velocity $\vv{v}$ moving in fields $\vv{E}$ and $\vv{B}_0$ sees 
 %
 where the Lorentz factor $\gls*{lorentz}=\glsvalue*{lorentz}\approx 1$ for \ucn and cold neutron velocities. When compounded with other factors described in this section, this gives rise to false EDM signals.
 
-Again borrowing the form of Eq.~(\ref{eq:delta_omega_dipole_relation}), false EDMs are generated from $E$-odd components of the frequency shifts do not disappear upon reversal of the $E$ field.
+Again borrowing the form of Eq.~(\ref{eq:delta_omega_dipole_relation}), we see that $E$-odd terms create a false EDM because they do not disappear upon reversal of the $E$ field.
 %
 \begin{gather}
     d_\text{false}=\frac{\hbar}{4E}(\Delta\omega(E)-\Delta\omega(-E))
@@ -261,7 +267,7 @@ where in the last line we use $B_{v\times E} \ll B_0$ and $\sin\theta\approx\the
 %
 For cold neutron beam nEDM experiments (Sec.~\ref{sec:history_nedm}) this systematic was quite substantial. For reference, the uncertainty of the most accurate beam nEDM experiment to date \cite{dress_nedm_1977} constrained $\theta_{EB}$ to $<\qty{1.1e-4}{rad}$, but was still limited by an uncertainty of $\sim 10^{-24}\,e\text{ cm}$. (To reduce the $v\times E$ effect, the experiment was even built on a naval gun turret mount to enable the reversal of $\vv{v}$ through the apparatus!) 
 
-In contrast, nEDM experiments using stored \ucn gain the benefit of $\langle v \rangle =0$ for the neutron population. Assuming there is no persistent overall motion of the \ucn caused by the storage geometry, filling procedure, etc., the systematic effects of nonparallel $E$ and $B$ fields are negligible at current sensitivities. Demands on field alignment are significantly relaxed if \ucn reflections off the internal surface of the storage cell are sufficiently nonspecular~\cite{pendlebury_revised_2015}.
+In contrast, nEDM experiments using stored \ucn gain the benefit of $\langle v \rangle =0$ for the neutron population. Assuming there is no persistent overall motion of the \ucn caused by the storage geometry, filling procedure, etc., the systematic effects of nonparallel $E$ and $B$ fields are negligible at current sensitivities. Demands on field alignment are particularly relaxed if \ucn reflections off the internal surface of the storage cell are sufficiently nonspecular~\cite{pendlebury_revised_2015}.
 
 \subsection*{Motional effect quadratic term}
 
@@ -289,7 +295,7 @@ The gradient and $v\times E$ effect produce a rotating field in the rest frame o
     \Delta\omega_\text{false} = \frac{v^2_{xy}}{2 B_0^2 c^2}\frac{\partial B_z}{\partial z}E
 \end{gather}
 %
-and the faster Hg comagetometer atoms (nonadiabatic) see
+and the faster \hg comagetometer atoms (nonadiabatic) see
 %
 \begin{gather}
     \Delta\omega_\text{false} = \frac{\gamma^2 D^2}{16  c^2}\frac{\partial B_z}{\partial z}E
@@ -328,13 +334,13 @@ With the application of \acrshort{hv} through the electrodes, small leakage curr
     | d_\text{false} | = 0.1\frac{\gls*{mu_n}}{E}\frac{\mu_0 I}{2r}f \sim \num{1e-28}\,e\text{ cm}
 \end{gather}
 %
-where $r$ is insulator radius and $f$ is the fraction of a complete loop about the insulator that the current $I$ takes. The factor of $0.1$ is present because the Hg comagnetometer is approximated to compensate for the leakage current frequency shift at a 90\% level.
+where $r$ is insulator radius and $f$ is the fraction of a complete loop about the insulator that the current $I$ takes. The factor of $0.1$ is present because the \hg comagnetometer is approximated to compensate for the leakage current frequency shift at a 90\% level.
 
 See Refs.~\cite{baker_apparatus_2014, pendlebury_revised_2015} for examination of higher order effects caused by high voltage, such as sparking or induced RF fields from ripples.
 
 \subsection*{Earth's rotation}
 
-For nEDM measurements that use the measured ratio $|\omega_\text{n}/\omega_\text{Hg}|$ (Sec.~\ref{sec:199hg_comag}), the rotation of the Earth shifts the ratio value down (up) by 1.33 ppm when $\vv{B}_0$ is upwards (downwards). See Refs.~\cite{lamoreaux_earth_rotation_comment, baker_reply_to_lamoreaux, pendlebury_revised_2015}.
+For nEDM measurements that use the measured ratio $|\omega_\text{n}/\omega_\text{Hg}|$ (Sec.~\ref{sec:199hg_comag}), the rotation of the Earth shifts the ratio value down (up) by $\sim\qty{1}{ppm}$ when $\vv{B}_0$ is upwards (downwards). See Refs.~\cite{lamoreaux_earth_rotation_comment, baker_reply_to_lamoreaux, pendlebury_revised_2015}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -382,9 +388,9 @@ The absolute magnetic field values for an axis ($i=x,y,z$) were then calculated 
 %
 From the offset-corrected field values, the measured gradient upper limit was found to be $\qty{0.51}{nT\per m}$.
 
-Shielding factor was determined by using the LANL field cage (Sec.~\ref{sec:field-cage}) to provide excitation signals. The resulting amplitude was measured with a fluxgate at the center of the MSR both before the start of MSR construction and after construction was completed. Excitation signals of amplitude \qty{1}{\micro\tesla} were used for frequencies \qty{0.01}{\hertz} and \qty{0.1}{\hertz}, \qty{10}{\micro\tesla} for \qty{1}{\hertz}, and \qty{30}{\micro\tesla} for 10--\qty{1000}{\hertz}.
+Shielding factor was determined by using the LANL field cage (Sec.~\ref{sec:field-cage}) to provide excitation signals. The resulting amplitude was measured with a fluxgate at the center of the MSR both before the start of MSR construction and after construction was completed. The measured shielding factor was calculated from the ratio of the two amplitudes. Excitation signals of amplitude \qty{1}{\micro\tesla} were used for frequencies \qty{0.01}{\hertz} and \qty{0.1}{\hertz}, \qty{10}{\micro\tesla} for \qty{1}{\hertz}, and \qty{30}{\micro\tesla} for 10--\qty{1000}{\hertz}. 
 
-To account for the finite size of the excitation coil and the iron floor of the experimental area, finite-element physics simulations in COMSOL were used to obtain a relation between the measured shielding factor and the shielding factor with an ideal infinitely sized coil. Shielding factors are shown in Fig.~\ref{fig:MSR-shielding-factor} and Tab~\ref{tb:lanl_msr_shielding_factor}. \comment{Is my understanding of this calculation correct??}
+To account for the finite size of the excitation coil and the iron floor of the experimental area, finite-element physics simulations in COMSOL were used to obtain a relation between the measured shielding factor and a calculated shielding factor with an ideal infinitely sized coil. This scaling was performed because the proximity of the field cage coils to the outer MSR layer resulted in localized saturation of the $\mu$-metal, artificially lowering the shielding factor. Shielding factors are shown in Fig.~\ref{fig:MSR-shielding-factor} and Tab~\ref{tb:lanl_msr_shielding_factor}. 
 
 \begin{table}
 \centering
@@ -414,7 +420,7 @@ Layer		& Thickness      & Material                        & \multicolumn{5}{c}{E
 \vspace{\baselineskip}\vspace{\baselineskip}
 % \begin{table}
 % \centering
-\caption{Residual DC fields in degaussed MSR}\label{tb:lanl_msr_dc_residuals}
+\caption{Residual DC fields in degaussed MSR. The measured gradient upper limit was found to be $\qty{0.51}{nT\per m}$}\label{tb:lanl_msr_dc_residuals}
 \begin{tabular}{
     c
     S[table-format = 2.0]
@@ -645,7 +651,7 @@ The LANL nEDM uses two switchers for neutron transport, one per precession cell.
 \end{minipage}
 \end{figure}
 
-The two precession cells, responsible for storage of polarized \ucn and $\ce{^{199}Hg}$ atoms, are formed by parallel-plate electrodes sandwiching a poly(methyl methacrylate) (\acrshort*{pmma}) insulator. The PMMA cell walls are coated with deuterated polystyrene (\acrshort*{dps}) (Sec.~\ref{sec:dPS_coating}). The chambers are designed with the ground electrodes on the top and bottom of the apparatus, and the HV electrodes in the middle (connected to a HV feedthrough). This enables simultaneous measurement of $\vv{B}_0\uparrow\uparrow\vv{E}$ and $\vv{B}_0\uparrow\downarrow\vv{E}$ configurations, cancellation of temporal field drifts to first order, and roughly doubles neutron counting statistics per cycle (see Sec.~\ref{sec:north_beamline_discussion}).
+The two precession cells, responsible for storage of polarized \ucn and \hg atoms, are formed by parallel-plate electrodes sandwiching a poly(methyl methacrylate) (\acrshort*{pmma}) insulator. The PMMA cell walls are coated with deuterated polystyrene (\acrshort*{dps}) (Sec.~\ref{sec:dPS_coating}). The chambers are designed with the ground electrodes on the top and bottom of the apparatus, and the HV electrodes in the middle (connected to a HV feedthrough). This enables simultaneous measurement of $\vv{B}_0\uparrow\uparrow\vv{E}$ and $\vv{B}_0\uparrow\downarrow\vv{E}$ configurations, cancellation of temporal field drifts to first order, and roughly doubles neutron counting statistics per cycle (see Sec.~\ref{sec:north_beamline_discussion}).
 
 Each precession chamber has an inner diameter of \qty{50}{cm} and a height of \qty{10}{cm}. The final nEDM experiment will use electrodes coated in diamond-like carbon (\acrshort*{dlc}), though the measurements presented in this dissertation primarily use \acrshort{nip}-coated prototype electrodes (see discussion in Sec.~\ref{subsec:holdingTimeMeasurement}).
 
