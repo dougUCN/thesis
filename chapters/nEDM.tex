@@ -6,6 +6,8 @@
 
 At the Los Alamos National Laboratory (LANL), a solid deuterium (SD$_2$) based superthermal UCN source coupled to a spallation target has been providing UCN to experiments for the last 20 years (Fig.~\ref{fig:AreaB_schematic}). The UCN source (Sec.~\ref{sec:lanl_ucn_source}) was upgraded to host a new nEDM experiment that will use Ramsey's method of separated oscillatory fields to search for the nEDM with an uncertainty goal of $\delta \gls*{d_n} = 2.7\times 10^{-27}$~$e\cdot\text{cm}$ (Sec.~\ref{sec:lanl_nedm_uncertainty}).
 
+In this chapter we provide an overview of LANL nEDM instrumentation, and review some of the main systematic effects limiting the sensitivity of nEDM measurements. Section~\ref{sec:principles_nEDM} outlines the general nEDM measurement procedure. Sections~\ref{sec:figure_of_merit}--\ref{sec:lanl_ucn_source} discuss statistical uncertainty and how the UCN source at LANL enables a competitive nEDM measurement. Section~\ref{sec:magnetic_field_req} explains the requirements of the magnetic design and Sec.~\ref{sec:v_cross_E} provides background on the systematic effects that necessitate such specifications. The remainder of the chapter reviews key components in the construction of the LANL nEDM experiment.
+
 The envisioned LANL nEDM experiment (Fig.~\ref{fig:envisioned_lanl_nedm}) will include features such as:
 %
 \begin{itemize}
@@ -14,8 +16,6 @@ The envisioned LANL nEDM experiment (Fig.~\ref{fig:envisioned_lanl_nedm}) will i
     \item An external array of optically pumped magnetometers (Sec.~\ref{sec:magnetic_field_req})
     \item A \hg comagnetometer (Sec.~\ref{sec:199hg_comag}) and external \hg magnetometers
 \end{itemize}
-
-In this chapter we provide an overview of LANL nEDM instrumentation, and review some of the main systematic effects limiting the sensitivity of nEDM measurements.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -53,20 +53,22 @@ In the case where $B_0$ and $E$ differ between configurations,
 \begin{figure}
     \centering
     \includegraphics[width=0.6 \textwidth]{AreaB_v3.pdf}
-    \caption{Schematic of the experimental area at the LANL UCN facility}
+    \caption[Schematic of the experimental area at the LANL UCN facility.]
+    {Schematic of the experimental area at the LANL UCN facility. Rendering by Chris O'Shaughnessy.}
     \label{fig:AreaB_schematic}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{figures/envisioned_lanl_nedm.pdf}
-    \caption{Model of the LANL nEDM experiment}
+    \caption[Model of the LANL nEDM experiment.]
+    {Model of the LANL nEDM experiment. Rendering by Chris O'Shaughnessy.}
     \label{fig:envisioned_lanl_nedm}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Statistical uncertainty figure of merit}\label{sec:figure_of_merit}
+\section{Statistical uncertainty}\label{sec:figure_of_merit}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -76,7 +78,7 @@ Equation~7.28 from Ref.~\cite{golubUCN} gives the number of neutrons counted in 
     N_\text{R}(\Delta \omega) = N \left( 1 - \gls*{alpha} \cos \,\Delta \omega \, \gls*{T_fp} \right)/2
 \end{gather}
 %
-where \gls*{alpha} is the spin contrast of a Ramsey fringe, defined by Eq.~(\ref{eq:alpha}), and $\gls*{T_fp}$ is the free precession period of the Ramsey method. A nonzero nEDM causes an interaction with $\vv{E}$ that produces a precession frequency shift $\Delta\omega=\omega-\omega_0$, where $\omega$ is the applied RF frequency and $\omega_0$ is defined by Eq.~(\ref{eq:larmor_freq}). 
+where \gls*{alpha} is the spin contrast of a Ramsey fringe, defined by Eq.~(\ref{eq:alpha}), and $\gls*{T_fp}$ is the free precession period of the Ramsey method. A nonzero nEDM causes an interaction with $\vv{E}$ that produces a precession frequency shift $\Delta\omega=\omega-\omega_0$, where $\omega$ is the applied RF frequency and $\omega_0$ is the Larmor precession frequency. 
 
 To maximize sensitivity to small shifts in the resonant frequency, we examine where the slope of the central fringe is largest
 %
@@ -123,7 +125,7 @@ Using Eq.~(\ref{eq:figure_of_merit}), the uncertainty per cell per run is $7.8 \
     \sigma_{\gls*{d_n}}=2.71\times10^{-27}e\cdot\text{cm (90\% \acrshort{cl})}
 \end{gather}
 %
-With an assumed data taking efficiency of 50\% (for experiment down time, calibration and systematic studies) and the accelerator production schedule at LANL, this uncertainty would be reached in 5 calendar years.
+With the accelerator production schedule at LANL and an assumed data taking efficiency of 50\% (for experiment down time, calibration and systematic studies), this uncertainty would be reached in 5 calendar years.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -137,19 +139,19 @@ With an assumed data taking efficiency of 50\% (for experiment down time, calibr
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6 \textwidth]{figures/lanl_ucn_source.pdf}
+    \includegraphics[height=4in]{figures/lanl_ucn_source.pdf}
     \caption[Cutaway view of the LANL UCN source]
     {Cutaway view of the LANL UCN source. Image adapted from Ref.~\cite{ito_performance_2018}}
     \label{fig:lanl_ucn_source}
 \end{figure}
 
-At LANL, neutrons are produced by a pulsed \qty{800}{M\eV} proton beam incident on a tungsten target, which is surrounded by ambient temperature beryllium and graphite. The spallation neutrons are converted to cold neutrons by polyethylene bead moderators, then converted to UCN by downscattering within an SD$_2$ crystal~\cite{saunders_performance_2013}.
+At LANL, neutrons are produced by a pulsed \qty{800}{M\eV} proton beam incident on a tungsten target. The spallation neutrons are moderated by room temperature beryllium and graphite, then converted to cold neutrons by polyethylene bead moderators, and finally become UCN by downscattering within an SD$_2$ crystal~\cite{saunders_performance_2013}.
 
 As in Fig.~\ref{fig:lanl_ucn_source}, UCN leaving the SD$_2$ crystal are directed upwards along a \qty{1}{\meter} vertical guide coated in $\ce{^{58}Ni}$, to account for a Snell's law \qty{100}{\nano\eV} boost (Sec.~\ref{sec:ucn_reflection_transmission}). The UCN are then transported \qty{6}{\meter} along a horizontal NiP coated stainless steel guide to the exit of the biological shield~\cite{ito_performance_2018}.
 
 A butterfly valve near the bottom of the vertical guide reduces the probability of UCN returning to the SD$_2$ and being absorbed. The valve is open while proton beam pulses are delivered to the spallation target and closed otherwise. The proton current from the accelerator is delivered in packets of 10 pulses, of pulse width \qty{625}{\micro\s} at \qty{20}{\hertz}, with a gap between packets of \qty{5}{\s}. The average current delivered to the target is $\sim\qty{9}{\micro A}$.
 
-In a 2017 source upgrade, the cryogenic insert, which housed the SD$_2$ converter as well as the cold neutron moderator, was replaced with an improved design. The upgrade produced a factor of four increase in UCN density. UCN density measured at the exit of the biological shield was $\qty{184(32)}{UCN\per \cm^3}$, and polarized UCN density stored in an external cell was $\qty{39(7)}{UCN\per \cm^3}$~\cite{ito_performance_2018}.
+In a 2017 source upgrade, the cryogenic insert, which housed the SD$_2$ converter as well as the cold neutron moderator, was replaced with an improved design. The upgrade produced a factor of four increase in UCN density. UCN density measured at the exit of the biological shield was $\qty{184(32)}{UCN\per \cm^3}$, and the polarized UCN density stored in an external cell was $\qty{39(7)}{UCN\per \cm^3}$~\cite{ito_performance_2018}.
 
 With the upgrade, a new UCN beamline (called the North Beamline) was constructed for the new nEDM experiment (Fig.~\ref{fig:AreaB_schematic}). Measurements and analysis characterizing the performance of the North Beamline are presented in Chap.~\ref{chap:north_beamline_paper}.
 
@@ -163,7 +165,23 @@ With the upgrade, a new UCN beamline (called the North Beamline) was constructed
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Magnetic shielding and magnetic uniformity specifications for the LANL nEDM were based on two main requirements. The first requirement was the suppression of $v\times E$ motional effects, in particular the geometric phase (examined further in Sec.~\ref{sec:v_cross_E}). A $\sim\qty{1}{pT\per cm}$ (or $\qty{0.1}{nT\per m}$) gradient creates a geometric phase false EDM in UCN of magnitude $|d_\text{false}|\sim 10^{-28}\,e\text{ cm}$~\cite{lamoreaux_geometric_phase_2005}, with the effect amplified in the faster moving \hg comagnetometer atoms (Sec.~\ref{sec:199hg_comag}). The second requirement was sufficiently long spin relaxation times $T_1$ and $T_2$ (Sec.~\ref{sec:spin_relaxation}) for the completion of a Ramsey sequence. Reference~\cite{mcgregor_transverse_1990} details the relationship of magnetic field gradients to spin relaxation. Table~\ref{tb:lanl_magnetic_design} summarizes the design specifications for the magnetic environment of the LANL nEDM. 
+Magnetic shielding and magnetic uniformity specifications for the LANL nEDM were based on two main requirements. The first requirement was the suppression of $v\times E$ motional effects, the largest of which is the geometric phase (examined further in Sec.~\ref{sec:v_cross_E}). A $\sim\qty{1}{pT\per cm}$ (or $\qty{0.1}{nT\per m}$) gradient creates a geometric phase false EDM in UCN of magnitude $|d_\text{false}|\sim 10^{-28}\,e\text{ cm}$~\cite{lamoreaux_geometric_phase_2005}, with the effect amplified in the faster moving \hg comagnetometer atoms (Sec.~\ref{sec:199hg_comag}). The second requirement was sufficiently long spin relaxation times $T_1$ and $T_2$ (Sec.~\ref{sec:spin_relaxation}) for the completion of a Ramsey sequence. Table~\ref{tb:lanl_magnetic_design} summarizes the design specifications for the magnetic environment of the LANL nEDM.
+
+Stability requirements are based on the reasoning that noise from magnetic field fluctuation must be smaller than the counting statistics for a single measurement cycle~\cite{baker_apparatus_2014}
+%
+\begin{gather}
+    \left| \frac{dB_0}{dt}\right| \frac{\gls*{gamma_n}\gls*{T_fp}}{2\pi} < \frac{1}{2\pi\gls*{alpha}\gls*{T_fp}\sqrt{N}} \label{eq:magnetic_stability}
+\end{gather}
+%
+The constraint imposed by Eq.~(\ref{eq:magnetic_stability}) is harsher than necessary because of corrections from the \hg comagnetometer and the insensitivity of the Ramsey method to fluctuations on time scales $\ll \gls*{T_fp}$. However, Ref.~\cite{baker_apparatus_2014} states that the condition of $|dB_0/dt|<\qty{8}{fT\per s}$ was typically satisfied.
+
+Homogeneity requirements is derived by estimating the phase difference accumulated during the free precession period by \ucn with divergent paths in a field gradient. The absolute homogeneity requirement is ~\cite{baker_apparatus_2014}
+%
+\begin{gather}
+    \Delta B_0 < \frac{1}{\gls*{gamma_n}}\sqrt{\frac{\bar{v}}{\bar{l}_0 \gls*{T_fp}}}
+\end{gather}
+%
+where $\bar{l}_0$ is the average distance between wall collisions and $\bar{v}$ is the average \ucn velocity. The relative homogeneity is expressed as $\Delta B_0/B_0$.
 
 \begin{table}
 \centering
@@ -194,9 +212,9 @@ Shielding factor & $>10^4$ for $f>\qty{0.01}{Hz}$ & Temporal drift \\
 
 A comagnetometer is a polarized population of atoms occupying the same precession cell as \ucn. It provides information regarding the volume averaged magnetic field $\langle B_0 \rangle$ over the course of the free precession period. Comagnetometers must have a low \ucn absorption cross section, sufficiently long spin polarization lifetimes, a small EDM that does not mask the nEDM, and must be compatible with \ucn-friendly surfaces~\cite{golubUCN}.
 
-\hg offers additional advantages: it can be optically pumped, the precession frequency can be extracted optically, and has been used successfully in previous nEDM measurements (Refs.~\cite{BAK06, ABE20}). However, it suffers from the drawback of sensitivity to high voltage (\acrshort*{hv}), which can reduce the spin relaxation time. This limits the magnitude of $E$ that may be applied across the electrodes. (Depolarization-inducing hydrogen is released in micro-discharges with the application of high voltage, that can be cleaned by flowing oxygen~\cite{baker_apparatus_2014}.)
+\hg offers several advantages: it can be optically pumped, the precession frequency can be extracted optically, and has been used successfully in previous nEDM measurements (Refs.~\cite{BAK06, ABE20}). However, it suffers from the drawback of sensitivity to high voltage (\acrshort*{hv}), which can reduce the spin relaxation time. This limits the magnitude of $E$ that may be applied across the electrodes. (Depolarization-inducing hydrogen is released in micro-discharges with the application of high voltage, which must be cleaned by flowing oxygen through the precession cell~\cite{baker_apparatus_2014}.)
 
-Due to higher velocity, compared to \ucn in the storage cell \hg experiences a larger geometric phase shift and has a slightly higher center of mass. As per Ref.~\cite{pendlebury_revised_2015} the geometric-phase false EDM contribution from \hg is $\sim 50$ times larger than the contribution from \ucn. 
+Due to its higher velocity, \hg experiences a larger geometric phase shift and has a slightly higher center of mass compared to \ucn in the precession cell. As per Ref.~\cite{pendlebury_revised_2015} the geometric-phase false EDM contribution from \hg is $\sim 50$ times larger than the contribution from \ucn. 
 
 One method to account for the geometric phase effect was utilized in the nEDM measurement by Baker et al.~\cite{BAK06}. The ratio of the measured neutron and \hg frequency $|\omega_\text{n}/\omega_\text{Hg}|$ was compared to the expected value $|\gls{gamma_n}/\gamma_\text{Hg}|$ in order to determine the volume averaged gradient $\langle \partial B_z/\partial z \rangle$ (and consequently the geometric phase shift).
 
@@ -211,12 +229,6 @@ The LANL nEDM has acquired a \qty{254}{\nano\meter} Toptica laser for the develo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Noise from magnetic field fluctuation must be smaller than the counting statistics for a measurement period $T$~\cite{baker_apparatus_2014}
-%
-\begin{gather}
-    \left| \frac{dB_0}{dt}\right| \frac{\gls*{gamma_n}T}{2\pi} < \frac{1}{2\pi\gls*{alpha}T\sqrt{N}}
-\end{gather}
-%
 \comment{Contact Tim Chupp}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -267,7 +279,7 @@ where in the last line we use $B_{v\times E} \ll B_0$ and $\sin\theta\approx\the
 %
 For cold neutron beam nEDM experiments (Sec.~\ref{sec:history_nedm}) this systematic was quite substantial. For reference, the uncertainty of the most accurate beam nEDM experiment to date \cite{dress_nedm_1977} constrained $\theta_{EB}$ to $<\qty{1.1e-4}{rad}$, but was still limited by an uncertainty of $\sim 10^{-24}\,e\text{ cm}$. (To reduce the $v\times E$ effect, the experiment was even built on a naval gun turret mount to enable the reversal of $\vv{v}$ through the apparatus!) 
 
-In contrast, nEDM experiments using stored \ucn gain the benefit of $\langle v \rangle =0$ for the neutron population. Assuming there is no persistent overall motion of the \ucn caused by the storage geometry, filling procedure, etc., the systematic effects of nonparallel $E$ and $B$ fields are negligible at current sensitivities. Demands on field alignment are particularly relaxed if \ucn reflections off the internal surface of the storage cell are sufficiently nonspecular~\cite{pendlebury_revised_2015}.
+In contrast, nEDM experiments using stored \ucn gain the benefit of $\langle v \rangle =0$ for the neutron population. Assuming there is no persistent overall motion of the \ucn caused by the storage geometry, filling procedure, etc., the systematic effects of nonparallel $E$ and $B$ fields are negligible at current sensitivities. Demands on field alignment are particularly relaxed if \ucn reflections off the internal surface of the precession cell are sufficiently nonspecular~\cite{pendlebury_revised_2015}.
 
 \subsection*{Motional effect quadratic term}
 
@@ -283,13 +295,13 @@ As discussed in Ref.~\cite{lamoreaux_experimental_2009}, even if $\langle v \ran
 
 Inhomogenous magnetic fields transverse to $\vv{B}_0$ in combination with the $v\times E$ effect gives rise to the geometric phase effect, a large false EDM signal at current sensitivities. 
 
-Reference~\cite{pendlebury_geometric-phase-induced_2004} considers the often-cited example of a  magnetic ``barrel'' gradient with cylindrical symmetry and particles in roughly circular orbits about a storage cell.
+Reference~\cite{pendlebury_geometric-phase-induced_2004} considers the often-cited example of a  magnetic ``barrel'' gradient with cylindrical symmetry and particles in roughly circular orbits about a precession cell.
 %
 \begin{gather}
     B_r(r)=\frac{r}{2}\frac{\partial B_z}{\partial z}
 \end{gather}
 %
-The gradient and $v\times E$ effect produce a rotating field in the rest frame of the particle, resulting in a variant of the Bloch-Siegert shift (Sec.~\ref{sec:bloch-siegert}). The magnitude of the geometric phase shift is dependent on the ratio of the orbital-trajectory frequency of a particle to its Larmor precession frequency. Thus, slow moving \ucn (adiabatic) see a shift given by~\cite{pendlebury_geometric-phase-induced_2004, afach_measurement_2015}
+The gradient and $v\times E$ effect produce a rotating field in the rest frame of the particle, resulting in a variant of the Bloch-Siegert shift (Sec.~\ref{sec:bloch-siegert}). The magnitude of the geometric phase shift is dependent on the ratio of the orbital-trajectory frequency of a particle to its Larmor precession frequency. Slow moving \ucn (adiabatic) see a shift given by~\cite{pendlebury_geometric-phase-induced_2004, afach_measurement_2015}
 %
 \begin{gather}
     \Delta\omega_\text{false} = \frac{v^2_{xy}}{2 B_0^2 c^2}\frac{\partial B_z}{\partial z}E
@@ -301,15 +313,15 @@ and the faster \hg comagetometer atoms (nonadiabatic) see
     \Delta\omega_\text{false} = \frac{\gamma^2 D^2}{16  c^2}\frac{\partial B_z}{\partial z}E
 \end{gather}
 %
-where $v_{xy}$ is the average transverse particle velocity, $\gamma$ is the gyromagnetic ratio of the particle, and $D$ is the diameter of the storage cell. 
+where $v_{xy}$ is the average transverse particle velocity, $\gamma$ is the gyromagnetic ratio of the particle, and $D$ is the diameter of the precession cell. 
 
-Of course, particles are not limited to strictly circular orbits about a cylindrical storage cell. In addition to using Monte Carlos simulations (such as in Ref.~\cite{pignol_magic_2019}), more general expressions for geometric phase have been derived. References~\cite{pignol_geometric_phase_2012, pignol_geometric_phase_2015} use a perturbative treatment of transverse field inhomogeneities in the nonadiabatic limit to obtain
+Of course, particles are not limited to strictly circular orbits about a cylindrical precession cell. In addition to using Monte Carlos simulations (such as in Ref.~\cite{pignol_magic_2019}), more general expressions for geometric phase have been derived. References~\cite{pignol_geometric_phase_2012, pignol_geometric_phase_2015} use a perturbative treatment of transverse field inhomogeneities in the nonadiabatic limit to obtain
 %
 \begin{gather}
     \Delta\omega_\text{false} = \frac{\gamma^2}{c^2}\langle xB_x + yB_y \rangle E
 \end{gather}
 %
-where $\langle ... \rangle$ denotes a volume average over a storage cell of arbitrary geometry.
+where $\langle ... \rangle$ denotes a volume average over a precession cell of arbitrary geometry.
 
 A formalism of geometric phase shift in terms of velocity autocorrelation functions can be found in Refs.~\cite{lamoreaux_geometric_phase_2005, barabanov_geometric_phase_2006, swank_geometric_phase_2009}.
 %
@@ -388,11 +400,13 @@ The absolute magnetic field values for an axis ($i=x,y,z$) were then calculated 
 %
 From the offset-corrected field values, the measured gradient upper limit was found to be $\qty{0.51}{nT\per m}$.
 
-Shielding factor was determined by using the LANL field cage (Sec.~\ref{sec:field-cage}) to provide excitation signals. The resulting amplitude was measured with a fluxgate at the center of the MSR both before the start of MSR construction and after construction was completed. The measured shielding factor was calculated from the ratio of the two amplitudes. Excitation signals of amplitude \qty{1}{\micro\tesla} were used for frequencies \qty{0.01}{\hertz} and \qty{0.1}{\hertz}, \qty{10}{\micro\tesla} for \qty{1}{\hertz}, and \qty{30}{\micro\tesla} for 10--\qty{1000}{\hertz}. 
+Shielding factor was determined by using the LANL field cage (Sec.~\ref{sec:field-cage}) to provide excitation signals. The resulting amplitude was measured with a fluxgate at the center of the field cage both before the start of MSR construction and after construction was completed. The measured shielding factor was calculated from the ratio of the two amplitudes. Excitation signals of amplitude \qty{1}{\micro\tesla} were used for frequencies \qty{0.01}{\hertz} and \qty{0.1}{\hertz}, \qty{10}{\micro\tesla} for \qty{1}{\hertz}, and \qty{30}{\micro\tesla} for 10--\qty{1000}{\hertz}. 
 
 To account for the finite size of the excitation coil and the iron floor of the experimental area, finite-element physics simulations in COMSOL were used to obtain a relation between the measured shielding factor and a calculated shielding factor with an ideal infinitely sized coil. This scaling was performed because the proximity of the field cage coils to the outer MSR layer resulted in localized saturation of the $\mu$-metal, artificially lowering the shielding factor. Shielding factors are shown in Fig.~\ref{fig:MSR-shielding-factor} and Tab~\ref{tb:lanl_msr_shielding_factor}. 
 
 In the latter half of 2022, issues with the electrical contacts for the degaussing wires on the innermost MSR layer developed. This has delayed additional characterization of MSR performance.
+
+\comment{MSR temperature stability plots}
 
 \begin{table}
 \centering
@@ -472,6 +486,7 @@ Point		& $x$				& $y$				& $z$				& $|B|$	\\
     \centering
     \includegraphics[width=\textwidth]{figures/L5-papercube.pdf}
     \caption
+    [Simplified papercraft model of the four L-shaped degaussing coil sets on the innermost MSR layer and resulting flux contributions.]
     {Simplified papercraft model of the four L-shaped degaussing coil sets on the innermost MSR layer and resulting flux contributions. Figure courtesy of Austin Reid.}
     \label{fig:degaussing-paper-cube}
 \end{figure}
@@ -495,7 +510,7 @@ Point		& $x$				& $y$				& $z$				& $|B|$	\\
     \centering
     \includegraphics[height=4in]{figures/b0_zoom_in.jpg}
     \caption
-    {Installed $B_0$ coil}
+    {Installed $B_0$ coil (Sec.~\ref{sec:B0_coil})}
     \label{fig:lanl-b0-coil}
 \end{minipage}
 \end{figure}
@@ -506,7 +521,7 @@ Point		& $x$				& $y$				& $z$				& $|B|$	\\
     \centering
     \includegraphics[width=0.9\textwidth]{figures/B0-model.png}
     \caption
-    {Model of $B_0$ coil (Sec.~\ref{sec:B0_coil})}
+    {Model of $B_0$ coil}
     \label{fig:b0-coil-model}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
@@ -518,7 +533,7 @@ Point		& $x$				& $y$				& $z$				& $|B|$	\\
 \end{minipage}
 \end{figure}
 
-The external compensation coils, or ``field cage,'' (Fig.~\ref{fig:lanl-field-cage}) provide up to \qty{32}{\micro\tesla} to offset ambient fields. The field cage was used for the determination of the MSR shielding factor (Sec.~\ref{sec:MSR}). In the eventual LANL nEDM experiment a PID controller will enable active reduction of external field drifts.
+The external compensation coils, or ``field cage,'' (Fig.~\ref{fig:lanl-field-cage}) provide up to \qty{32}{\micro\tesla} to offset ambient fields. The coil dimensions of the field cage are $\qty{5.3}{m}\times\qty{5.3}{m}\times\qty{5.3}{m}$. In the eventual LANL nEDM experiment a PID controller will enable active reduction of external field drifts.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -552,11 +567,12 @@ The $B_0$ coil has undergone several prototyping stages. An initial prototype wa
     \includegraphics[width=\textwidth]{figures/transport_coil.jpg}
 \end{minipage}
     \caption
+    [Double layer $\cos\theta$ coil for transport from Earth's field to the $B_0$ field in the MSR.]
     {Double layer $\cos\theta$ coil for transport from Earth's field to the $B_0$ field in the MSR. Figure provided by Piya Amara Palamure.}
     \label{fig:transport-coils}
 \end{figure}
 
-A set of spin transport coils are used to adiabatically transport UCNs from the ambient external magnetic field ($\sim\qty{20}{\micro T}$) through multiple layers of MSR shielding to the $B_0$ holding field ($\sim\qty{1}{\micro T}$. The design is a modified double layer $\cos\theta$ coil, which provides self-shielding to limit the magnetization of surrounding MuMetal. The innermost transport coil segment interfaces directly with a $B_0$ PCB panel with a hole to avoid possible field zeros that would depolarize \ucn. 
+A set of spin transport coils are used to adiabatically transport UCNs from the ambient external magnetic field ($\sim\qty{20}{\micro T}$) through multiple layers of MSR shielding to the $B_0$ holding field ($\sim\qty{1}{\micro T}$). The design is a modified double layer $\cos\theta$ coil, which generates a field along $z$ and provides self-shielding to limit the magnetization of surrounding $\mu$-Metal. The MSR feed throughs each contain 4 segments of transport coils, which incrementally decrease in field magnitude. The innermost transport coil segments interface directly with $B_0$ PCB panels with a hole to avoid possible field zeros that would depolarize \ucn. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -568,7 +584,8 @@ A set of spin transport coils are used to adiabatically transport UCNs from the 
     \centering
     \includegraphics[width=0.7\textwidth]{figures/magnetic_contamination_example.pdf}
     \caption
-      {Example of magnetic impurities on a rejected experimental component found by the scanning setup in Sec.~\ref{sec:magnetic_impurity_scanner}. The component is mounted on a slowly-moving turntable, and the periodic spike is correlated to when the part passes beneath the magnetometers. The QuSpin magnetometers are in a gradiometer configuration, such that there is a vertical separation between sensors of \qty{0.75}{in}.}
+    [Example of magnetic impurities on a rejected part found by the scanning setup in Sec.~\ref{sec:magnetic_impurity_scanner}. In this case, the aluminum  component contained threaded holes tapped with contaminated tooling.]
+      {Example of magnetic impurities on a rejected part found by the scanning setup in Sec.~\ref{sec:magnetic_impurity_scanner}. In this case, the aluminum  component contained threaded holes tapped with contaminated tooling. The component is mounted on a slowly-moving turntable, and the periodic spike in the figure is correlated to when the part passes beneath the magnetometers. The QuSpin magnetometers are in a gradiometer configuration, such that there is a vertical separation between sensors of \qty{0.75}{in}.}
     \label{fig:magnetic_contamination_example}
 \end{figure}
 
@@ -580,9 +597,9 @@ A set of spin transport coils are used to adiabatically transport UCNs from the 
     \label{fig:magnetic_impurity_scanner}
 \end{figure}
 
-Localized magnetic sources (``contamination'') embedded within the precession cell and other experimental components create volume-averaged gradients that would lead to a false EDM signal. Any component installed within the MSR was subject to a scanning procedure to screen for contamination. Parts were mounted on a nonmagnetic turntable located in a 2-layer MSR at LANL (Fig~\ref{fig:magnetic_impurity_scanner}). The turntable was actuated by a belt system connecting to a motor outside the MSR. The parts were slowly passed beneath two Rb SERF magnetometers in a gradiometer configuration, where the vertical separation between sensors was \qty{0.75}{in}. Components with nonzero magnetic signal were subjected to additional cleaning procedures, and, failing that, were rejected from use within the MSR.
+Localized magnetic sources (``contamination'') embedded within the precession cell and other experimental components create volume-averaged gradients that would lead to a false EDM signal. Any component installed within the MSR was subject to a scanning procedure to screen for contamination. Parts were mounted on a nonmagnetic turntable located in a 2-layer MSR at LANL (Fig~\ref{fig:magnetic_impurity_scanner}). The turntable was actuated by a belt system connecting to a motor outside the MSR. The parts were slowly passed beneath two Rb SERF magnetometers in a gradiometer configuration, where the vertical separation between sensors was \qty{0.75}{in}. Components with nonzero magnetic signal underwent additional cleaning procedures, and, failing the re-screening procedure, were rejected from use within the MSR.
 
-The current magnetic impurity scanner can detect contamination on the order $\sim\qty{0.1}{nT}$ (Fig.~\ref{fig:magnetic_contamination_example}). The magnetometers are QuSpin Total-Field Magnetometers, which have a sensitivity of $<\qty{1}{pT\per\sqrt{Hz}}$ in the 0.1--\qty{100}{\hertz} range. The use of these magnetometers required a large helmholtz coil installed around the turntable to provide a small bias field. With improvements to the quality of the magnetic environment (e.g. extra shielding, reduced ambient magnetic noise) it will be possible to switch to QuSpin Zero-Field Magnetometers, which have a sensitivity $<\qty{1}{pT\per\sqrt{Hz}}$ for 1--\qty{100}{\hertz}.
+The current magnetic impurity scanner can detect contamination on the order of $\sim\qty{0.1}{nT}$. The magnetometers are QuSpin Total-Field Magnetometers, which have a sensitivity of $<\qty{1}{pT\per\sqrt{Hz}}$ in the 0.1--\qty{100}{\hertz} range. The use of these magnetometers required a large coil installed above the turntable to provide a small bias field. With improvements to the quality of the magnetic environment (e.g. extra shielding, reduced ambient magnetic noise) it will be possible to switch to QuSpin Zero-Field Magnetometers, which have a sensitivity $<\qty{1}{pT\per\sqrt{Hz}}$ for 1--\qty{100}{\hertz}.
 
 Appendix~\ref{appx:magnetic_contamination} demonstrates the characterization process for a source of magnetic contamination found on a rejected component.
 
@@ -608,11 +625,23 @@ Note that it is not clear if the neutron energy spectrum under which Ref.~\cite{
 
 Additionally, an adiabatic fast passage (\acrshort{afp}) spin flipper coil, located upstream of the spin analyzer, is used to provide the option of spin flipping UCN (Sec.~\ref{sec:afp}). A schematic of the analyzer system is illustrated in Fig.~\ref{fig:SpinAnalyzer}.
 
+Figure~\ref{fig:spin_flipper_efficiency} shows spin flipper performance (assuming perfect spin analyzing power) as a function of RF frequency. The minimum at \qty{20}{kHz}, \qty{10}{Vpp} is 0.12. The RF solenoid has a length of \qty{4}{in} and a diameter of $4\frac{7}{16}\text{ in}$. This corresponds to approximately 220 turns with 25 gauge wire. The inductance is \qty{4}{mH}. The solenoid is driven by a SRS DS345 function generator.
+
+
 \begin{figure}
     \centering
     \includegraphics[width=5cm]{spinAnalyzer.pdf}
     \caption{Schematic of the adiabatic fast passage (\acrshort{afp}) spin flipper, spin analyzer, and UCN drop detector}
     \label{fig:SpinAnalyzer}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[height=3.5in]{figures/spin_flipper_efficiency.pdf}
+    \caption
+    [Spin flipper efficiency as a function of the RF frequency and amplitude.]
+    {Spin flipper efficiency as a function of the RF frequency and amplitude. The count rate on the y-axis is normalized to a monitor upstream on the beamline (Fig.~\ref{fig:NorthBeamlineLayout}), then divided by the baseline count rate with the spin flipper off. Error bars are smaller than the points on the plot. The minimum at \qty{20}{kHz}, \qty{10}{Vpp} is 0.12.}
+    \label{fig:spin_flipper_efficiency}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -635,10 +664,10 @@ We use $\ce{^{10}B}$ coated ZnS:Ag scintillator films for UCN detection \cite{je
     \hspace{1em}
     % \includegraphics[width=0.5\textwidth]{North_Beamline_Switcher_Figure.pdf}
     \includegraphics[width=0.5\textwidth]{figures/switcher_schematic.pdf}
-    \caption[Photograph and schematic of rotary switcher]{Left: A photograph of the switcher. Right: Top-down schematic of the rotary switcher}\label{fig:NewSwitcher}
+    \caption[Photograph and schematic of rotary switcher]{Left: A photograph of the switcher, with the top removed. Right: Top-down schematic of the rotary switcher (courtesy of Chris O'Shaughnessy) }\label{fig:NewSwitcher}
 \end{figure}
 
-The LANL nEDM uses two switchers for neutron transport, one per precession cell. Each switcher has a cylindrical housing and four evenly spaced guide ports. These guide ports can be connected internally by either a straight guide section or \ang{90} bend sections. The internal guide sections are mounted on a rotating turntable and actuated by a Parker CM232DX servo-motor. The internal guide surfaces are coated with NiP and the interface of guide ports to the turntable-mounted guide sections is lined with PTFE to allow for minimal gaps between guide segments (see Tab.~\ref{tb:optical_potentials} for optical potentials). An image of the ``rotary switcher'' as well as a schematic of the guide segments within it are shown in Fig.~\ref{fig:NewSwitcher}. A study comparing the performance of this switcher design to a different prototype is performed in Chap.~\ref{chap:north_beamline_paper}.
+The LANL nEDM uses two switchers for neutron transport, one per precession cell. Each switcher has a cylindrical housing and four evenly spaced guide ports. These guide ports can be connected internally by either a straight guide section or \ang{90} bend sections. The internal guide sections are mounted on a rotating turntable and actuated by a Parker CM232DX servo-motor. The internal guide surfaces are coated with NiP and the interface of guide ports to the turntable-mounted guide sections is lined with PTFE to allow for minimal gaps between guide segments (see Tab.~\ref{tb:optical_potentials} for optical potentials). An image of the ``rotary switcher'' and a schematic of the guide segments within it are shown in Fig.~\ref{fig:NewSwitcher}. A study comparing the performance of this switcher design to a different prototype is performed in Chap.~\ref{chap:north_beamline_paper}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -671,13 +700,11 @@ The LANL nEDM uses two switchers for neutron transport, one per precession cell.
 \end{minipage}
 \end{figure}
 
-The two precession cells, responsible for storage of polarized \ucn and \hg atoms, are formed by parallel-plate electrodes sandwiching a poly(methyl methacrylate) (\acrshort*{pmma}) insulator. The PMMA cell walls are coated with deuterated polystyrene (\acrshort*{dps}) (Sec.~\ref{sec:dPS_coating}). The chambers are designed with the ground electrodes on the top and bottom of the apparatus, and the HV electrodes in the middle (connected to a HV feedthrough). This enables simultaneous measurement of $\vv{B}_0\uparrow\uparrow\vv{E}$ and $\vv{B}_0\uparrow\downarrow\vv{E}$ configurations, cancellation of temporal field drifts to first order, and roughly doubles neutron counting statistics per cycle (see Sec.~\ref{sec:north_beamline_discussion}).
+The two precession cells, responsible for storage of polarized \ucn and \hg atoms, are each formed by parallel-plate electrodes sandwiching a poly(methyl methacrylate) (\acrshort*{pmma}) insulator. The PMMA cell walls are coated with deuterated polystyrene (\acrshort*{dps}) (Sec.~\ref{sec:dPS_coating}). The cells are designed with the ground electrodes on the top and bottom of the apparatus. The HV electrodes are concentrated in the middle, connected to a HV feedthrough. This enables simultaneous measurement of $\vv{B}_0\uparrow\uparrow\vv{E}$ and $\vv{B}_0\uparrow\downarrow\vv{E}$ configurations, cancellation of temporal field drifts to first order, and roughly doubles neutron counting statistics per cycle (see Sec.~\ref{sec:north_beamline_discussion}).
 
-Each precession chamber has an inner diameter of \qty{50}{cm} and a height of \qty{10}{cm}. The final nEDM experiment will use electrodes coated in diamond-like carbon (\acrshort*{dlc}), though the measurements presented in this dissertation primarily use \acrshort{nip}-coated prototype electrodes (see discussion in Sec.~\ref{subsec:holdingTimeMeasurement}).
+Each precession cell has an inner diameter \qty{50}{cm} and a height \qty{10}{cm}. The final nEDM experiment will use electrodes coated in diamond-like carbon (\acrshort*{dlc}), though the measurements presented in this dissertation primarily use \acrshort{nip}-coated prototype electrodes (see discussion in Sec.~\ref{subsec:holdingTimeMeasurement}). The precession cells are enclosed by a custom fiberglass vacuum chamber from Augusta Fiberglass Coating Inc. (Fig.~\ref{fig:vacuum_chamber}). The material was selected to avoid attenuation of the RF $\pi/2$ pulse.
 
-The precession cells are enclosed by a custom fiberglass vacuum chamberfrom Augusta Fiberglass Coating Inc. (Fig.~\ref{fig:vacuum_chamber}). The material was selected to avoid attenuation of the RF $\pi/2$ pulse.
-
-The cell valves (Fig.~\ref{fig:cell_valve}) consist of Nickel Molybdenum (\acrshort*{nimo}) coated parts and NiP-coated guide segments mounted on G-10 fiberglass plates. The actuation system is hydraulic and routed outside the MSR to a STM23Q motor that controls a piston. This prevents the generation of undesired magnetic fields during cell valve actuation. The moving faces of the cell valve are sealed with PTFE-coated o-rings for maintenance of a separate vacuum from the vacuum chamber.
+The cell valves (Fig.~\ref{fig:cell_valve}) consist of Nickel Molybdenum (\acrshort*{nimo}) coated parts and NiP-coated guide segments mounted on G-10 fiberglass plates. The actuation system is hydraulic and routed outside the MSR to a piston controlled by STM23Q motor. This limits the production of undesired magnetic fields during cell valve actuation. The moving faces of the cell valve are sealed with PTFE-coated o-rings for maintenance of a separate vacuum from the vacuum chamber.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -701,8 +728,8 @@ The cell valves (Fig.~\ref{fig:cell_valve}) consist of Nickel Molybdenum (\acrsh
 \label{fig:dPS_coating_jig}
 \end{figure}
 
-Two types of dPS-coated PMMA precession cell walls coating methods were used. The first was a manual coating procedure, where the cell wall (oriented such that its central axis was horizontal) was slowly rotated over the course of an hour while a dPS/d-toulene mixture was applied with a brush (that was nonsolvent in toulene). 
+Two types of dPS coating methods were used for the PMMA precession cell walls. The first was a manual coating procedure, where the cell wall (oriented such that its central axis was horizontal) was slowly rotated over the course of an hour while a dPS/d-toulene mixture was applied with a brush (that was nonsolvent in toulene). This coating was tested in the prototype cell measurements in Chap.~\ref{chap:north_beamline_paper}.
 
-The second coating method was the ``rotating lake'' described in Ref.~\cite{bodek_storage_2008}. The cell wall was clamped between two aluminum rings (Fig.~\ref{fig:dPS_coating_jig}), onto which the dPS/d-toulene mixture was poured. This was rotated slowly by a jig at roughly \qty{10}{rpm} for the entirety of the coating and drying process.
+The second coating method was the ``rotating lake'' described in Ref.~\cite{bodek_storage_2008}. The cell wall was clamped between two aluminum rings (Fig.~\ref{fig:dPS_coating_jig}), onto which the dPS/d-toulene mixture was poured. This was rotated slowly by a jig at roughly \qty{10}{rpm} for the entirety of the coating and drying process. This coating was used for measurements in Chap.~\ref{chap:nEDM_commissioning_dec2022}.
 
-For both coating methodologies, \qty{1.5}{\gram} of dPS was dissolved into \qty{0.225}{\liter} d-toulene. The coated cell wall was allowed to dry in a fume hood for \qty{24}{\hour} and then outgassed under vacuum over the course of several days.
+For both coating methodologies, \qty{1.5}{\gram} of dPS was dissolved into \qty{0.225}{\liter} d-toulene. The coated cell wall was allowed to dry in a fume hood for \qty{24}{\hour} and then outgassed under vacuum for a minimum of 2 weeks.

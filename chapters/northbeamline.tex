@@ -5,7 +5,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The content in this chapter is adapted from Ref.~\cite{wong_north_beamline_2023}. We demonstrate successful instrumentation of a prototype precession cell, single-channel spin analyzer, spin flipper, UCN detector, and rotary switcher for UCN transport in preparation for the LANL nEDM experiment. Approximately 60,000 UCN, sufficient to obtain a statistical uncertainty of $\delta \gls*{d_n} = 2\times 10^{-27}$~$e\cdot\text{cm}$ for the nEDM have been stored in a prototype cell with dPS-coated PMMA walls and NiP-coated Al electrode plates. 
+The content in this chapter is adapted from Ref.~\cite{wong_north_beamline_2023}. The measurements presented were taken in 2019 and 2020, prior to the construction of the large MSR in the experimental area.
+
+We demonstrate successful instrumentation of a prototype precession cell, single-channel spin analyzer, spin flipper, UCN detector, and rotary switcher for UCN transport in preparation for the LANL nEDM experiment. Approximately 60,000 UCN, sufficient to obtain a statistical uncertainty of $\delta \gls*{d_n} = 2\times 10^{-27}$~$e\cdot\text{cm}$ for the nEDM have been stored in a prototype cell with dPS-coated PMMA walls and NiP-coated Al electrode plates. 
 
 We also introduce an analytical model that describes various properties of the UCN exiting the PM that affect the performance of experiments that use UCN. These properties include depolarization in the beamline upstream of the PM, the UCN velocity spectrum, and the angular distribution of the UCN. We have successfully applied this model to the analysis of a series of UCN storage curves taken with prototype precession cells of the LANL nEDM experiment and data on UCN transmission through the PM. The extracted UCN velocity spectrum can be used to analyze and optimize the performance of the LANL nEDM experiment. 
 
@@ -21,11 +23,11 @@ where $\hbar$ is Planck’s constant, \gls*{alpha} is a factor describing the sp
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{\label{sec:northBeamlineSetup}Description of experimental setup}
+\section{\label{sec:northBeamlineSetup}Description of experimental setup (2019 and 2020)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The schematic diagram of the experimental setup mounted on the North Beamline is shown in Fig.~\ref{fig:NorthBeamlineLayout}. There were two gate valves (\acrshort*{gv}) located on the beamline, with a \qty{6.35}{\mm}-diameter ``monitor port'' located in between. The rate of UCN through the monitor port is proportional to the UCN density in the guides (as derived in Appx.~\ref{appx:ucn_effusion}, for an isotropic distribution the rate $R$ through the monitor port hole with an area $A$ and the UCN density $\rho$ are related via  $R = \frac{1}{4} \bar{v} \rho A$, where $\bar{v}$ is the average UCN speed, i.e. $\bar{v} = \int vf(v)dv$, with $f$ describing the UCN velocity distribution). Hence, the rate of the monitor detector gives the approximate density of the UCN in the guide.
+The schematic diagram of the experimental setup mounted on the North Beamline (2019 and 2020) is shown in Fig.~\ref{fig:NorthBeamlineLayout}. There were two gate valves (\acrshort*{gv}) located on the beamline, with a \qty{6.35}{\mm}-diameter ``monitor port'' located in between. The rate of UCN through the monitor port is proportional to the UCN density in the guides (as derived in Appx.~\ref{appx:ucn_effusion}, for an isotropic distribution the rate $R$ through the monitor port hole with an area $A$ and the UCN density $\rho$ are related via  $R = \frac{1}{4} \bar{v} \rho A$, where $\bar{v}$ is the average UCN speed, i.e. $\bar{v} = \int vf(v)dv$, with $f$ describing the UCN velocity distribution). Hence, the rate of the monitor detector gives the approximate density of the UCN in the guide.
 
 Refer to Sec.~\ref{sec:PM_description} for a description of the superconducting polarizing magnet (\acrshort*{pm}) and PM window. For the measurements in this chapter, we varied the strength of the PM field $ |\gls*{bField} |$ for the purpose of obtaining information on the UCN spectrum.
 
@@ -34,7 +36,7 @@ Refer to Sec.~\ref{sec:PM_description} for a description of the superconducting 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=14cm]{NorthBeamline.pdf}
-    \caption[Layout of the North Beamline.]{Layout of the North Beamline. Two types of switchers were tested, see Sec.~\ref{sec:northBeamlineSetup} for description}
+    \caption[Layout of the North Beamline (2019 and 2020).]{Layout of the North Beamline (2019 and 2020). Two types of switchers were tested, see Sec.~\ref{sec:northBeamlineSetup} for description}
     \label{fig:NorthBeamlineLayout}
 \end{figure}
 
@@ -347,7 +349,7 @@ In the above equation, the first term describes low-field seekers downstream of 
 
 Following Ref.~\cite{ThorstenThesis}, we assume a spin analyzing power of $\varepsilon_A=0.99$ for UCN in the energy range of the LANL nEDM experiment and a magnetized iron foil spin analyzer.
 
-Spin flipping efficiency $\varepsilon_S$ can be estimated as follows. With UCN in a flow-through mode from the source to the detector and with the PM at \qty{5}{\tesla}, when the spin flipper was turned on, detected UCN rate was reduced to $12\%$ compared to when the spin flipper was off, which corresponds to the ratio of Eq.~(\ref{eq:dN_on/dv}) to Eq.~(\ref{eq:dN_off/dv}). Assuming negligible depolarization downstream of the PM, this means $f_{\ell D} = 0$ and $f_{hD} = 1/2$. Letting $\varepsilon_A=0.99$ and solving for $\varepsilon_S$ yields a spin flipping efficiency of $\varepsilon_S=0.89$.
+Spin flipping efficiency $\varepsilon_S$ can be estimated as follows. With UCN in a flow-through mode from the source to the detector and with the PM at \qty{5}{\tesla}, when the spin flipper was turned on, detected UCN rate was reduced to $12\%$ compared to when the spin flipper was off (Fig.~\ref{fig:spin_flipper_efficiency}), which corresponds to the ratio of Eq.~(\ref{eq:dN_on/dv}) to Eq.~(\ref{eq:dN_off/dv}). Assuming negligible depolarization downstream of the PM, this means $f_{\ell D} = 0$ and $f_{hD} = 1/2$. Letting $\varepsilon_A=0.99$ and solving for $\varepsilon_S$ yields a spin flipping efficiency of $\varepsilon_S=0.89$.
 
 The spin-flipper-off and spin-flipper-on curves were fit using an integral of $dN_\text{off}/dv$ and $dN_\text{on}/dv$, respectively, with limits of integration from \qtyrange{0}{7.58}{\meter\per\s} (the velocity equivalent of UCN in a \qty{5}{\tesla} field). This fit is shown in Fig.~\ref{fig:pmRampFit}, with the fit parameters from Tab. \ref{tb:pmRampFit}. 
 

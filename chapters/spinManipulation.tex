@@ -175,7 +175,7 @@ This corresponds to the particle precessing about $\vv{z}$ at the Larmor frequen
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We now consider the case with a field $\vv{B_\text{c}}$ (which we will refer to as a ``circular \acrshort{rf}'') rotating at a frequency $\omega$ in the $x$--$y$ plane with an initial phase $\phi$ relative to $x$. The total field $\vv{B}$ is written as
+Following Ref.~\cite{may_thesis}, we now consider the case with a field $\vv{B_\text{c}}$ (which we will refer to as a ``circular \acrshort{rf}'') rotating at a frequency $\omega$ in the $x$--$y$ plane with an initial phase $\phi$ relative to $x$. The total field $\vv{B}$ is written as
 %
 \begin{gather}
     \vv{B}(t)=\vv{B_\text{c}}(t) + \vv{B_0}=B_\text{c}\left[ \cos (\omega t + \phi) \vv{x} + \sin (\omega t + \phi) \vv{y}\right] + B_0 \vv{z}\label{eq:B0_with_circular_rf}
@@ -395,7 +395,7 @@ where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s. Fig
     \centering
     \includegraphics[width=0.7\textwidth]{figures/bloch-siegert-lanl-params.pdf}
     \caption
-    {Bloch-Siegert shift as a function of initial phase angle $\phi$ (Eq.~(\ref{eq:B0_with_linear_rf})) for a Ramsey fringe using the parameters in Sec.~\ref{sec:LANL_nEDM_ramsey_params}.}
+    {Bloch-Siegert shift as a function of initial phase angle $\phi$ (\ref{eq:B0_with_linear_rf}) for a Ramsey fringe using the parameters in Sec.~\ref{sec:LANL_nEDM_ramsey_params}.}
     \label{fig:bloch-siegert-phase}
 \end{figure}
 
@@ -448,7 +448,7 @@ A large number of systematic effects, mostly related to magnetic field uniformit
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The Ramsey sequence parameters utilized in the LANL nEDM experiment mirror those used in the measurement by Ref.~\cite{ABE20}, with the goal of producing the narrowest central fringe possible while also satisfying the magnetic field stability and uniformity requirements defined in Sec.~\ref{sec:magnetic_field_req}. By convention, The primary uniform holding field along $\vv{z}$ for the Ramsey method is denoted as \gls*{b_0}.
+The Ramsey sequence parameters utilized in the LANL nEDM experiment mirror those used in the measurement by Ref.~\cite{ABE20}, with the goal of producing the narrowest central fringe possible while also satisfying the magnetic field stability and uniformity requirements defined in Sec.~\ref{sec:magnetic_field_req}.
 %
 \begin{alignat}{3}
     B_0 &= 1\text{ \textmu T} \quad (\omega_0 \approx -183.247\,172 &&\text{ rad s}^{-1} ) \\
@@ -462,6 +462,8 @@ The full width half maximum (\acrshort*{fwhm}) of the resonant peak is approxima
 \begin{gather}
     \frac{1}{2 \gls*{T_fp}+8 t_{\pi/2} / \pi} \approx \frac{1}{2\gls*{T_fp}}
 \end{gather}
+
+By convention, The primary uniform holding field along $\vv{z}$ for the Ramsey method is denoted as \gls*{b_0}. The strength of  $B_0$ is largely chosen based on requirements for field uniformity and spin polarization lifetimes (Sec.~\ref{sec:magnetic_field_req}). If the primary contribution non-uniformity comes from the $B_0$ coils, then smaller fields cause smaller gradients. Conversely, a stronger $B_0$ field improves adiabaticity (Sec.~\ref{sec:adiabaticity}), which leads to higher quality transport of \ucn spin into the experimental apparatus.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -854,6 +856,29 @@ The effects of spin relaxation can be introduced into Eq.~(\ref{eq:bloch_equatio
 \end{align}
 %
 where $S_0$ is the spin along axis $z$ at $t=0$.
+
+Reference~\cite{mcgregor_transverse_1990} details the relationship of magnetic field gradients to spin relaxation. The formalism can be adapted to describe longitudinal relaxation time as a function of the vertical field gradient in a precession cell
+%
+\begin{gather}
+    \frac{1}{T_1}=\frac{\gls{gamma_n} \bar{v}^2 \tau_\text{c}}{2\omega_0^2(1+\omega_0^2\tau_\text{c}^2)}\left(\frac{\partial B_0}{\partial z}\right)^2 \label{eq:T1_dBdZ_mcgregor}
+\end{gather}
+%
+where $\tau_\text{c}$ is the average time between wall collisions, $\bar{v}$ is the average velocity in the cell, $\omega_0$ is the Larmor precession frequency of the particle in $B_0\vv{z}$, and $\partial B/\partial z$ is the vertical gradient of the magnetic field. We make the assumption in (\ref{eq:T1_dBdZ_mcgregor}) that the $x$ and $y$ gradients are equal, and use $\vv{\nabla}\cdot \vv{B}_0=0$ to rewrite the formalism in terms of vertical gradient.
+
+Transverse relaxation time for a cylindrical cell of height $H$ and radius $R$ is written as~\cite{mcgregor_transverse_1990}
+%
+\begin{gather}
+    \frac{1}{T_2}=\frac{1}{2T_1}+\frac{\gls{gamma_n}^2 H^4}{120\,D}\left(\frac{\partial B_z}{\partial x}\right)^2 + \frac{7\gls{gamma_n}^2 R^4}{96\,D}\left( \frac{\partial B_z}{\partial y} \right)^2
+    \label{eq:T2_mcgregor}
+\end{gather}
+%
+for some diffusion constant $D$. For \ucn, Eq.~(4.71) in Ref.~\cite{golubUCN} gives the estimate
+%
+\begin{gather}
+    D_\text{ucn}=\frac{\bar{v}\bar{l}_0^2}{2\bar{\lambda}}\label{eq:ucn_diffusion_constant}
+\end{gather}
+%
+where $\bar{\lambda}$ is the mean free path for diffuse collisions and $\bar{l}_0$ is the average distance between wall collisions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

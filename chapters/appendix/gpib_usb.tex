@@ -1,0 +1,26 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Pulse sequence control (2017)}\label{appx:gpib_usb_pulse_sequence}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this appendix we include python code that enables communication with SRS DS345 and DG535 devices via Prologix GPIB USB. The Prologix GPIB USB device circumvents the requirement of adding GPIB ports to the control computer, and also supports daisy-chaining of multiple GPIB devices as long as each device has its own GPIB address.
+
+We also provide the pulse sequence code utilized in Chap.~\ref{chap:lanl_ramsey_demonstration} that controlled the Ramsey and Rabi sequences. The repository located at [\url{https://github.com/dougUCN/gpibUSB}] contains documentation and additional code that controls a BNC577 Pulse Gate Generator.
+
+\section{ds345.py}
+
+\inputminted{python}{code_snippets/ds345.py}
+
+\section{dg535.py}
+
+\inputminted{python}{code_snippets/dg535.py}
+
+\section{rabiDS345.py}
+
+\inputminted{python}{code_snippets/rabiDS345.py}
+
+\section{ramseyCtrl.py}
+
+\inputminted{python}{code_snippets/ramseyCtrl.py}
+

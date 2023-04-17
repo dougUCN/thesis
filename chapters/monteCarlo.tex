@@ -37,3 +37,49 @@
 \section{1D random walk}\label{sec:1D_random_walk}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The probability for a neutron to be lost in the bulk of the aluminum window in a single pass can be described by
+
+\begin{gather}
+   P_\text{abs} = 1 - \exp \left( - \frac{\ell_\text{window} }{ \ell_\text{mfp} } \right)
+\end{gather}
+
+where $\ell_\text{window}$ is the thickness of the window (0.003 in. \comment{clearly wrong}), and $\ell_\text{mfp} = 1 / (N\sigma_\text{abs})$ is the mean free path of absorption. $N$ is number density and $\sigma_\text{abs}$ is the velocity-dependent neutron absorption cross section of the material. 
+
+It should be noted that high-field seeking UCN gain approximately 300 neV from the PM field, so neutrons that encounter the window will be in the 300 neV to 515 neV regime. $P_\text{abs}$ can be approximated as 0.03 for this energy range. This single pass loss probability is lower than the observed value of ($10.3\pm 2.8$)\% described in section subsec:windowLoss. However, nonspecularity of the UCN transport pipe can lead UCN to pass through the window region multiple times, increasing transmission loss. 
+
+The loss from multiple window passes is estimated using a simple monte carlo simulation, where neutron transmission into the precession chamber is modeled as a 1D random walk. Each step in the random walk corresponds to the distance traveled between non-specular bounces. 
+
+From eq. 4.79, eq. 4.70, and eq. 4.48 in reference \cite{golubUCN}, we write the step size between non-specular bounces as
+
+\begin{gather}
+    L_\text{spec} = 2 R\sqrt{\frac{2(2-d)}{3d} }
+\end{gather}
+
+
+where $R$ is the radius of the cylinder and $d$ is the chance for a diffuse bounce
+
+Nonspecularity is approximately 0.05 for NiPh pipes (as measured by Ref. \cite{pattie_jr_evaluation_2017}). {\color{blue}Guide is stainless steel coated in NiPh, we know nonspecularity of stainless steel tubing (find manufacturer spec). Maybe Andy's paper. Adding NiPh may increase nonspecularity by a few percent. Basically it's a free parameter} therefore we let $N_\text{specular bounces} = 20$. For a pipe ID of 3 inches and total pipe length of 12 meters, step size = 0.75 meters.
+
+Neutrons that return to the source are considered lost and removed from simulation. We also assume that neutrons which make it to the chamber do not leave
+
+When a neutron reaches the end of the 1D pipe, the odds of it getting into the cell is modeled as
+
+\begin{align}
+    \text{cellChance} &= \left(1 - \left( 1 - \frac{ \text{openingArea} } {\text{total inner surface area of last segment}} \right) ^ {N_\text{spec}} \right)^2 \\
+    &= \left(1 - \left( 1 - \frac{ (\text{cellEntranceID}/2)^{2} } {\text{pipeID}\times\text{step size}} \right) ^ {N_\text{spec}} \right) ^2 \\
+    &\approx \left( \frac{ (\text{cellEntranceID}/2)^{2} \times N_\text{spec} } {\text{pipeID}\times\text{step size}} \right)^2
+\end{align}
+
+There is an extra factor of 2 because a nonspecular ``rejection'' step gives the neutron a second chance to enter the chamber. For a cellEntranceID of 74.5 mm (2.933 in) we estimate that cellChance = 43\%
+
+In our 1D random walk monte carlo, We also include loss per bounce (NiPh = $10^{-4}$) \cite{pattie_jr_evaluation_2017}. The loss per 1D step is then given by
+
+\begin{align}
+    \text{lossPerStep} &= 1 - \left(1 - \text{lossPerBounce} \right)^{N_\text{spec}}\\
+    &\approx N_\text{spec} \times \text{lossPerBounce}
+\end{align}
+
+\subsubsection{Results of 1D random walk monte carlo simulation}
+
+Of $1\,000\,000$ simulated neutrons, $366\,465$ neutrons make it into the precession chamber, averaging 5.41 window passes per neutron. In comparison, the monte carlo simulation with window loss turned off yields $437\,694$ neutrons that make it into the chamber. Therefore we estimate a 16.3\% loss factor due to the presence of the window (need error propagation)

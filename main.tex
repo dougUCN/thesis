@@ -28,14 +28,14 @@
 \definecolor{burnt-orange-color}{HTML}{CA6702}
 
 \usepackage{minted} % format code snippets
-\usemintedstyle{material}
-% \usemintedstyle{vs}
+% \usemintedstyle{material}
+\usemintedstyle{vs}
 \setminted
 {
     baselinestretch=1, % separation between lines of code
     fontsize=\scriptsize,
-    % bgcolor=white,
-    bgcolor=material-bg,
+    bgcolor=white,
+    % bgcolor=material-bg,
 }
 
 \begin{filecontents*}{collab.dbx}
@@ -278,8 +278,8 @@
 \input{chapters/UCNs.tex}
 \input{chapters/spinManipulation.tex}
 \input{chapters/nEDM.tex}
-\input{chapters/ramsey2017.tex}
 \input{chapters/northbeamline.tex}
+\input{chapters/ramsey2017.tex}
 \input{chapters/fall2021.tex}
 \input{chapters/dec2022.tex}
 \input{chapters/monteCarlo.tex}
@@ -304,8 +304,9 @@
 
 \input{chapters/appendix/ucn_effusion.tex}
 \input{chapters/appendix/optical_pumping.tex}
-\input{chapters/appendix/linear_ramsey.tex}
 \input{chapters/appendix/dipole_contamination.tex}
+\input{chapters/appendix/linear_ramsey.tex}
+\input{chapters/appendix/gpib_usb.tex}
 \input{chapters/appendix/zmq.tex}
 
 \end{appendices}
