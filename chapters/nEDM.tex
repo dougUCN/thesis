@@ -12,9 +12,9 @@ The envisioned LANL nEDM experiment (Fig.~\ref{fig:envisioned_lanl_nedm}) will i
 %
 \begin{itemize}
     \item Two precession cells (Sec.~\ref{sec:precession_cells})
-    \item Simultaneous spin analyzers (Sec.~\ref{sec:spin_flipper_analyzer})
-    \item An external array of optically pumped magnetometers (Sec.~\ref{sec:magnetic_field_req})
-    \item A \hg comagnetometer (Sec.~\ref{sec:199hg_comag}) and external \hg magnetometers
+    \item Simultaneous spin analyzers (Chap.~\ref{chap:fall2021})
+    \item An external array of optically pumped magnetometers (Sec.~\ref{sec:external_magnetometry})
+    \item A \hg comagnetometer and external \hg magnetometers (Sec.~\ref{sec:199hg_comag})
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -75,7 +75,7 @@ In the case where $B_0$ and $E$ differ between configurations,
 Equation~7.28 from Ref.~\cite{golubUCN} gives the number of neutrons counted in a single Ramsey sequence as
 %
 \begin{gather}
-    N_\text{R}(\Delta \omega) = N \left( 1 - \gls*{alpha} \cos \,\Delta \omega \, \gls*{T_fp} \right)/2
+    N_\text{R}(\Delta \omega) = N \left( 1 - \gls*{alpha} \cos \,\Delta \omega \, \gls*{T_fp} \right)/2 \label{eq:neutrons_in_ramsey_seq}
 \end{gather}
 %
 where \gls*{alpha} is the spin contrast of a Ramsey fringe, defined by Eq.~(\ref{eq:alpha}), and $\gls*{T_fp}$ is the free precession period of the Ramsey method. A nonzero nEDM causes an interaction with $\vv{E}$ that produces a precession frequency shift $\Delta\omega=\omega-\omega_0$, where $\omega$ is the applied RF frequency and $\omega_0$ is the Larmor precession frequency. 
@@ -222,10 +222,7 @@ The LANL nEDM has acquired a \qty{254}{\nano\meter} Toptica laser for the develo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection
-{
-    External magnetometry
-}
+\subsection{External magnetometry}\label{sec:external_magnetometry}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -384,9 +381,7 @@ At LANL, a large magnetically shielded room (\acrshort*{msr}) (Fig.~\ref{fig:MSR
 
 The MSR consists of 4 Mumetal\textsuperscript{\textregistered} layers and one copper layer (Tab.~\ref{tb:lanl_msr_layers}). Mumetal\textsuperscript{\textregistered} is a magnetic shielding alloy ($\mu$-metal grade ASTM A753 Alloy 4, UNS N14080, 80NiFe) from the Magnetic Shield Corporation. The MSR utilizes a bolted construction to avoid welds that create magnetic domains. The frame of the MSR is stainless steel, which supports the load of the layers without deflection. The foundation consists of high density aggregate precast blocks, minimizing the transmission of ambient external vibrations.
 
-For optimized shielding performance, the ferromagnetic layers are degaussed periodically. Degaussing is done by applying an alternating field with large amplitude, which drives the material to saturation, and then slowly decreasing the amplitude to zero. Each $\mu$-metal layer contains multiple L-shaped coil sets, activated sequentially, for complete degaussing coverage (see Fig.~\ref{fig:degaussing-paper-cube} for the layout of coils on the innermost layer).
-
-\comment{Add LANL nEDM degaussing current amplitude}
+For optimized shielding performance, the ferromagnetic layers are degaussed periodically. Degaussing is done by applying an alternating field with large amplitude, which drives the material to saturation, and then slowly decreasing the amplitude to zero. Each $\mu$-metal layer contains multiple L-shaped coil sets, activated sequentially, for complete degaussing coverage (see Fig.~\ref{fig:degaussing-paper-cube} for the layout of coils on the innermost layer). An amplifier designed and built specifically for the LANL nEDM allows application of up to \qty{75}{A} of current for degaussing.
 
 Residual magnetic fields in the degaussed \acrshort*{msr} were measured with a low noise 3-axis Bartington fluxgate probe (Tab.~\ref{tb:lanl_msr_dc_residuals}). The fluxgate was mounted on a glass fiber structure, and was inserted through the large neutron guide access tubes of the MSR. At each position, a \qty{10}{\second} measurement per fluxgate axis was taken in addition to a corresponding measurement where the fluxgate was rotated by \qty{180}{\degree}.
 
@@ -406,7 +401,7 @@ To account for the finite size of the excitation coil and the iron floor of the 
 
 In the latter half of 2022, issues with the electrical contacts for the degaussing wires on the innermost MSR layer developed. This has delayed additional characterization of MSR performance.
 
-\comment{MSR temperature stability plots}
+\comment{Should I put in MSR temperature stability plots?}
 
 \begin{table}
 \centering
@@ -552,7 +547,7 @@ The $B_0$ coil has undergone several prototyping stages. An initial prototype wa
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Transport coils}
+\section{Transport coils}\label{sec:transport_coils}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -597,7 +592,7 @@ A set of spin transport coils are used to adiabatically transport UCNs from the 
     \label{fig:magnetic_impurity_scanner}
 \end{figure}
 
-Localized magnetic sources (``contamination'') embedded within the precession cell and other experimental components create volume-averaged gradients that would lead to a false EDM signal. Any component installed within the MSR was subject to a scanning procedure to screen for contamination. Parts were mounted on a nonmagnetic turntable located in a 2-layer MSR at LANL (Fig~\ref{fig:magnetic_impurity_scanner}). The turntable was actuated by a belt system connecting to a motor outside the MSR. The parts were slowly passed beneath two Rb SERF magnetometers in a gradiometer configuration, where the vertical separation between sensors was \qty{0.75}{in}. Components with nonzero magnetic signal underwent additional cleaning procedures, and, failing the re-screening procedure, were rejected from use within the MSR.
+Localized magnetic sources (``contamination'') embedded within the precession cell and other experimental components create volume-averaged gradients that would lead to a false EDM signal. Any component installed within the MSR was subject to a scanning procedure to screen for contamination. Parts were mounted on a nonmagnetic turntable located in a 2-layer MSR at LANL (Fig~\ref{fig:magnetic_impurity_scanner}). The 2-layer MSR reduces the ambient magnetic field magnitude to $\leq \qty{50}{nT}$. The turntable was actuated by a belt system connecting to a motor outside the MSR. The parts were slowly passed beneath two Rb SERF magnetometers in a gradiometer configuration, where the vertical separation between sensors was \qty{0.75}{in}. Components with nonzero magnetic signal underwent additional cleaning procedures, and, failing the re-screening procedure, were rejected from use within the MSR.
 
 The current magnetic impurity scanner can detect contamination on the order of $\sim\qty{0.1}{nT}$. The magnetometers are QuSpin Total-Field Magnetometers, which have a sensitivity of $<\qty{1}{pT\per\sqrt{Hz}}$ in the 0.1--\qty{100}{\hertz} range. The use of these magnetometers required a large coil installed above the turntable to provide a small bias field. With improvements to the quality of the magnetic environment (e.g. extra shielding, reduced ambient magnetic noise) it will be possible to switch to QuSpin Zero-Field Magnetometers, which have a sensitivity $<\qty{1}{pT\per\sqrt{Hz}}$ for 1--\qty{100}{\hertz}.
 
@@ -625,7 +620,7 @@ Note that it is not clear if the neutron energy spectrum under which Ref.~\cite{
 
 Additionally, an adiabatic fast passage (\acrshort{afp}) spin flipper coil, located upstream of the spin analyzer, is used to provide the option of spin flipping UCN (Sec.~\ref{sec:afp}). A schematic of the analyzer system is illustrated in Fig.~\ref{fig:SpinAnalyzer}.
 
-Figure~\ref{fig:spin_flipper_efficiency} shows spin flipper performance (assuming perfect spin analyzing power) as a function of RF frequency. The minimum at \qty{20}{kHz}, \qty{10}{Vpp} is 0.12. The RF solenoid has a length of \qty{4}{in} and a diameter of $4\frac{7}{16}\text{ in}$. This corresponds to approximately 220 turns with 25 gauge wire. The inductance is \qty{4}{mH}. The solenoid is driven by a SRS DS345 function generator.
+Figure~\ref{fig:spin_flipper_efficiency} shows spin flipper performance (assuming perfect spin analyzing power) as a function of RF frequency. The minimum at \qty{20}{kHz}, \qty{10}{Vpp} is 0.12. The RF solenoid has a length of \qty{4}{in} and a diameter of $4\frac{7}{16}\text{ in}$. This corresponds to approximately 220 turns with 25 AWG wire. The inductance is \qty{4}{mH}. The solenoid is driven by a SRS DS345 function generator.
 
 
 \begin{figure}
@@ -732,4 +727,4 @@ Two types of dPS coating methods were used for the PMMA precession cell walls. T
 
 The second coating method was the ``rotating lake'' described in Ref.~\cite{bodek_storage_2008}. The cell wall was clamped between two aluminum rings (Fig.~\ref{fig:dPS_coating_jig}), onto which the dPS/d-toulene mixture was poured. This was rotated slowly by a jig at roughly \qty{10}{rpm} for the entirety of the coating and drying process. This coating was used for measurements in Chap.~\ref{chap:nEDM_commissioning_dec2022}.
 
-For both coating methodologies, \qty{1.5}{\gram} of dPS was dissolved into \qty{0.225}{\liter} d-toulene. The coated cell wall was allowed to dry in a fume hood for \qty{24}{\hour} and then outgassed under vacuum for a minimum of 2 weeks.
+For both coating methodologies, \qty{1.5}{\gram} of dPS was dissolved into \qty{0.225}{\liter} d-toulene. The coated cell wall was allowed to dry in a fume hood for \qty{24}{\hour} and then outgassed under vacuum for a minimum of 2 weeks. When required, precession cells were vented with either dry nitrogen or argon to limit exposure of the cell wall to moisture.

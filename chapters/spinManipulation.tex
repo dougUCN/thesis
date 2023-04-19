@@ -419,7 +419,7 @@ The Ramsey sequence is then repeated for multiple RF frequencies $\omega$ to pro
 In practice, it is unnecessary to generate an entire Ramsey fringe for the determination of the resonant frequency. Four evenly-distributed points ($i=1,2,3,4$) along the central fringe are chosen where the slope is maximal, and are fitted with a function of the form~\cite{may_thesis}
 %
 \begin{gather}
-    N(\omega_i)=N_\text{min} + (N_\text{max}-N_\text{min})\sin^2\left(\frac{\pi}{2\Gamma_\text{r}}(\omega_i-\omega_\text{r}) \right)
+    N(\omega_i)=N_\text{min} + (N_\text{max}-N_\text{min})\sin^2\left(\frac{\pi}{2\Gamma_\text{r}}(\omega_i-\omega_\text{r}) \right) \label{eq:four_point_ramsey_fringe_fit}
 \end{gather}
 %
 where $\omega_\text{r}$ and $\Gamma_\text{r}$ are free parameters of the fit. As in Fig.~\ref{fig:ramsey-sequence}, $N_\text{max}$ is the number of neutrons measured at an \acrshort*{rf} frequency far from the resonance, and $N_\text{min}$ is the number measured at the resonance (which can be taken from a previous measurement cycle).
