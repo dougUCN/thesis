@@ -386,8 +386,8 @@ where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s. Fig
     \centering
     \includegraphics[width=0.7\textwidth]{figures/bloch-siegert-rabi.pdf}
     \caption
-    [Bloch-Siegert shift as a function of pulse width $t_\pi$ for an optimized Rabi $\pi$ pulse. The \legendbox{burnt-orange-color} orange line corresponds to the prediction by Bloch and Siegert, Eq.~(\ref{eq:bloch-siegert-prediction}).]
-    {Bloch-Siegert shift as a function of pulse width $t_\pi$ for an optimized Rabi $\pi$ pulse. The \legendbox{burnt-orange-color} orange line corresponds to the prediction by Bloch and Siegert, Eq.~(\ref{eq:bloch-siegert-prediction}). $\omega_0 \approx -183.247\,172 \text{ rad s}^{-1}$, where $\omega_\ell$ is determined by Eqs.~(\ref{eq:rabi_pi_pulse_time}) and (\ref{eq:linear_vs_circular_w})}
+    [Bloch-Siegert shift as a function of pulse width $t_\pi$ for an optimized Rabi $\pi$ pulse. The \legendbox{burnt-orange-color} orange line corresponds to the prediction by Bloch and Siegert, Eq.~(\ref{eq:bloch-siegert-prediction}). The \legendbox{dark-blue-color} points are numerically calculated (Appx.~\ref{appx:ramsey_numerical})]
+    {Bloch-Siegert shift as a function of pulse width $t_\pi$ for an optimized Rabi $\pi$ pulse. The \legendbox{burnt-orange-color} orange line corresponds to the prediction by Bloch and Siegert, Eq.~(\ref{eq:bloch-siegert-prediction}).  The \legendbox{dark-blue-color} points are numerically calculated (Appx.~\ref{appx:ramsey_numerical}). $\omega_0 \approx -183.247\,172 \text{ rad s}^{-1}$, where $\omega_\ell$ is determined by Eqs.~(\ref{eq:rabi_pi_pulse_time}) and (\ref{eq:linear_vs_circular_w})}
     \label{fig:bloch-siegert-t}
 \end{figure}
 
@@ -535,7 +535,6 @@ where in $\mathcal{R}_1$ we write $\vv{B_\text{RF}}=B_\text{RF}(t)\vv{x_1}$. The
 %
 \begin{enumerate}
     \item The static field term $\vv{B_\text{stat}}(t)$ gains a ficticious force field term, $-\omega_\text{RF}/\gls{gamma_n}$ that arises from acceleration due to the rotation of the coordinate frame. At the resonance condition, $\vv{B_\text{stat}} = \vv{B_\text{RF}}$, the first two terms of Eq.~(\ref{eq:adiab_derivation_1}) cancel
-    \item $\vv{B_\text{RF}}$ is no longer oscillating
     \item The neutron spin $\vv{S}(t)$ begins precession about $\vv{B_\text{RF}}$ (and effectively begins to follow $\vv{B_\text{e}}$ adiabatically)
 \end{enumerate}
 %
@@ -550,14 +549,14 @@ Referring to Fig.~\ref{fig:adiabatic_spin_flip}, $\vv{B_\text{e}}(t)$ makes an a
 %
 \begin{align}
     \vv{B_\text{e}}(t) &= B_\text{e}(t)\big(\sin\,\theta(t),\,0,\,\cos\,\theta(t) \big) \\
-    \Rightarrow \hat{H} &= -\gls{gamma_n}\frac{\hbar}{2}B_{e}(t)\left[\left(\begin{matrix}
+    \Rightarrow \hat{H} &= -\gls{gamma_n}\frac{\hbar}{2}B_\text{e}(t)\left[\left(\begin{matrix}
                 0 & \sin \, \theta(t)\\
                 \sin \, \theta(t) & 0
                 \end{matrix}\right)+0+\left(\begin{matrix}
                 \cos \, \theta(t) & 0\\
                 0 & -\cos \, \theta(t)
                 \end{matrix}\right)\right] \nonumber \\
-    &= -\gls{gamma_n} \frac{\hbar}{2}B_{e}(t)\left(\begin{matrix}
+    &= -\gls{gamma_n} \frac{\hbar}{2}B_\text{e}(t)\left(\begin{matrix}
                 \cos \, \theta(t) & \sin \, \theta(t)\\
                 \sin \, \theta(t) & -\cos \, \theta(t)
                 \end{matrix}\right) \label{eq:adiab_derivation_2}
@@ -573,7 +572,7 @@ $\Ket{\psi(t)}=\Ket{\begin{matrix}
     \left(\begin{matrix}
     \dot{\psi_{+}}\\
     \dot{\psi_{-}}
-    \end{matrix}\right)=\frac{i}{2}\gamma B_{e}(t)\left(\begin{matrix}
+    \end{matrix}\right)=\frac{i}{2}\gamma B_\text{e}(t)\left(\begin{matrix}
     \cos\, \theta(t) & \sin\, \theta(t)\\
     \sin\, \theta(t) & -\cos\, \theta(t)
     \end{matrix}\right)\left(\begin{matrix}
@@ -826,6 +825,8 @@ Eq.~(\ref{eq:adiab_derivation_16}) gives the chance of measuring a different spi
 \begin{gather}
     P=1-\frac{1}{1+\gls*{adiab}^{2}}\sin^{2}\left(\frac{\pi}{2}\sqrt{1+\gls*{adiab}^{2}}\right)
 \end{gather}
+
+The resonant frequency for optimized spin flipping is given by $\gls{gamma_n} B_\text{stat}(\ell_0/2)$, where $B_\text{stat}(\ell_0/2)$ is the static field at the center of the RF coil and $\gls{gamma_n} \approx \qty{30}{MHz \per T}$ (see Eq.~\ref{eq:adiab_derivation_1}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

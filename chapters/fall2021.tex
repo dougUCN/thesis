@@ -12,18 +12,19 @@ In 2021, the ongoing construction of the large \acrshort{msr} (Sec.~\ref{sec:MSR
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-UCN tau roundhouse. A buffer volume called the ``roundhouse'' was introduced in 2018 that precleans the loaded UCNs and smooths over any temporal fluctuations in the UCN production rate while loading
+UCN tau roundhouse. A buffer volume called the ``roundhouse'' was introduced in 2018 that  smooths over any temporal fluctuations in the UCN production rate while loading
 
 New Y. NiP coated Vertical separation (center to center of beamline) $\qty{18.85}{in}\approx\qty{0.48}{m}$. Corresponds to a $\sim \qty{25}{neV}$ potential step for upper switcher and a boost to the lower switcher. 
 
-Coils and solenoids (depicted in Fig.~\ref{subfig:west_beamline_switchers}) again keep everything under $\sim \qty{1}{mT}$ field
+Coils and solenoids (depicted in Fig.~\ref{subfig:west_beamline_switchers}) again keep everything under $\sim \qty{1}{mT}$ field. Describe roundhouse field coil
 
-A second switcher had been constructed for this measurement cycle, was placed on the lower side of the switcher stand. Off this side was the single channel spin analyzer used in Chap.~\ref{chap:north_beamline_paper} and \ref{chap:lanl_ramsey_demonstration}. On the other side was a simultaneous spin analyzer (SSA)
+A second switcher had been constructed for this measurement cycle, was placed on the lower side of the switcher stand. Off this side was the single channel spin analyzer used in Chap.~\ref{chap:north_beamline_paper} and \ref{chap:lanl_ramsey_demonstration}. On the higher switcher was a simultaneous spin analyzer (SSA). Be clear about which switcher is new, which switcher is higher, which switcher has what spin analyzer (maybe use a table?)
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/westbeamline_2021.pdf}
-    \caption{Caption}\label{fig:west_beamline_2021}
+    \caption[West beamline configuration for measurements in 2021.]
+    {West beamline configuration for measurements in 2021. A single channel spin analyzer was located on the lower switcher, and simultaneous spin analyzer was located on the upper switcher. Beam height detectors were rearranged for different measurements as per Sec.~\ref{sec:2021_ucn_transport_switchers}.}\label{fig:west_beamline_2021}
 \end{figure}
 
 \begin{figure}
@@ -31,7 +32,7 @@ A second switcher had been constructed for this measurement cycle, was placed on
 %subfigure width gets "multiplied" by includegraphics width
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=\textwidth]{figures/west_beamline_switcher_tests.jpg}
+  \includegraphics[width=\textwidth]{figures/2021_west_beamline_image.pdf}
   \vspace{5pt}
   \caption{}\label{subfig:west_beamline_switchers}
 \end{subfigure}%DO NOT REMOVE THIS '%'
@@ -41,7 +42,7 @@ A second switcher had been constructed for this measurement cycle, was placed on
   \caption{}\label{subfig:switcher_mockup}
 \end{subfigure}
 \caption
-{Caption}
+{\textbf{(\subref{subfig:west_beamline_switchers})} Image of the experimental setup on the West beamline. \textbf{(\subref{subfig:switcher_mockup})} Rendering of the switcher wye, switcher stand, and switcher, depicted here with simultaneous spin analyzers attached.}
 \label{fig:west_beamline_switchers}
 \end{figure}
 
@@ -49,7 +50,7 @@ A second switcher had been constructed for this measurement cycle, was placed on
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{UCN transport measurements}
+\section{UCN transport measurements}\label{sec:2021_ucn_transport_switchers}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -72,7 +73,8 @@ A second switcher had been constructed for this measurement cycle, was placed on
   \caption{}\label{subfig:single_arm_no_foil_adc}
 \end{subfigure}
 \caption
-{Caption}
+[Peak height spectra from \BZnS scintillator and PMT detectors (additional data acqusition details in Chap.~\ref{chap:daq}).  Data cuts selected as per Ref.~\cite{jeph_multilayer_2015}.]
+{Peak height spectra from \BZnS scintillator and PMT detectors (additional data acqusition details in Chap.~\ref{chap:daq}). Data cuts selected as per Ref.~\cite{jeph_multilayer_2015}. \textbf{(\subref{subfig:beam_det_1_adc})}--\textbf{(\subref{subfig:beam_det_2_adc})} Beam height detectors. \textbf{(\subref{subfig:single_arm_no_foil_adc})} Single arm spin analyzer with polarizing foil removed. The largest bin in the histogram $x$-axis ($2^{14}-1$) includes counts of pulse heights greater than the range of the histogram}
 \label{fig:2021_detector_adc}
 \end{figure}
 
@@ -124,15 +126,30 @@ While a factor of 1.5 is unintuitive, PENTrack simulations indicate this is achi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Spin asymmetry measurement with single arm spin analyzer}
+\section{Spin asymmetry measurement with single arm spin analyzer}\label{sec:single_arm_flow_through_west_2021}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Single arm spin analyzer on the lower detector. Upper switcher had the SSA. 
 
-Low contrast observed in a flow through mode measurement from the source to previously-proven the single arm detector. Need to rule out switcher depolarization! It was discovered that the roundhouse was depolarizing due to small patches of exposed stainless steel on some gate valves. 
+Low contrast observed in a flow through mode measurement from the source to previously-proven the single arm detector. (very close to 0 is bad. Asymmetry = $\pm 1$ if everything is polarized) Need to rule out switcher depolarization! It was discovered that the roundhouse was depolarizing due to small patches of exposed stainless steel on some gate valves. 
+
+In discussion with UCNtau collaborators this asymmetry was roughly consistent with measurements they did.
+
+\begin{tiny}
+\begin{verbatim}
+    21:34 Production run #21184: 20s hold, AFP 0ff, RH coil  On; dagger unload: 2,175; RH dump: 267,712, Yield: 0.0081
+*****Spin contrast (on/off) = 2.06 : 1 = 1: 0.48; depolarization = 1/3 = 33%, or the trapping efficiency is 67%. ********** 
+21:45 Production run #21185: 20s hold, AFP 0ff, RH coil  On; dagger unload: 2,041; RH dump: 263,671, Yield: 0.0077 
+21:57 Production run #21186: 20s hold, AFP 0ff, RH coil Off; dagger unload: 2,447; RH dump: 274,794, Yield: 0.0089
+22:09 Production run #21187: 20s hold, AFP  On, RH coil Off; dagger unload: 4,093; RH dump: 258,829, Yield: 0.0158
+*****Spin contrast (on/off), RH coill off = 1.77 : 1 = 1: 0.56; depolarization = 36%, or the trapping efficiency is 64%. **********
+\end{verbatim}
+\end{tiny}
 
  By comparison, a direct flow through mode measurement from the \ucn source to the spin analyzer (Fig.~\ref{fig:spin_flipper_efficiency}) gives $A(0)\approx 0.8$.
+
+ Also note that the peak has shifted to 22 kHz
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -148,32 +165,41 @@ Low contrast observed in a flow through mode measurement from the source to prev
 
 \begin{figure}
 \centering
-\begin{minipage}{.5\textwidth}
+\begin{minipage}{.47\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/single_arm_asymmetry_2021.pdf}
     \caption
-    {Caption}
+    {Spin asymmetry measurement from the single arm analyzer, with UCN in a flow through mode from the source through the roundhouse to the detector (Sec.~\ref{sec:single_arm_flow_through_west_2021}).}
     \label{fig:2021_west_single_arm_asymmetry}
 \end{minipage}%
-\begin{minipage}{.5\textwidth}
+\hspace{7pt}
+\begin{minipage}{.47\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/2021_roundhouse_rf_toggle.pdf}
     \caption
-    {Caption}
+    {Neutron count rate from a fill-and-dump run doublet from the roundhouse on the West beamline with the RF spin flipper toggling.}
     \label{fig:roundhouse_rf_toggle_doublet}
 \end{minipage}
 \end{figure}
 
- To extract performance on the behavior of the spin analyzers, a method similar to the T1 measurement in Chap.~\ref{chap:lanl_ramsey_demonstration}. Roundhouse filling time swept. RH Gate valve was then opened. During the 200 s it took to drain the large volume of the RH, spin flipper was toggling every 10 seconds
+ To extract performance on the behavior of the spin analyzers, a method similar to the T1 measurement in Chap.~\ref{chap:lanl_ramsey_demonstration}. Describe fill and dump with roundhouse. No preload period against WGV. Roundhouse filling time swept. RH Gate valve was then opened. During the 200 s it took to drain the large volume of the RH, spin flipper was toggling every 10 seconds
+
+Observed that as filling time increased, asymmetry decreased. 
+
+Figure~\ref{fig:2021_roundhouse_asymmetry_2} replots the information in Fig.~\ref{fig:2021_roundhouse_asymmetry_1} in a different way. As unload time increases that tells you how many integration periods over the run you sum (20s means you've summed the first two, 30 means you've summed the first 3, etc.). As you allow the unload to continue asymmetry decreases, because UCN get multiple trips back to the roundhouse.
 
  \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/2021_roundhouse_asymmetry_1.pdf}
-    \caption{Caption}\label{fig:2021_roundhouse_asymmetry_1}
-\end{figure}
-
-\begin{figure}
+    \includegraphics[width=0.6\textwidth]{figures/2021_roundhouse_asymmetry_1.pdf}
+    \caption
+    [Spin asymmetry from a fill-and-dump sequence of the roundhouse, where fill time was swept. The measurement was repeated for various orientations of the roundhouse magnetic holding field.]
+    {Spin asymmetry from a fill-and-dump sequence of the roundhouse, where fill time was swept. The measurement was repeated for various configurations of the roundhouse magnetic holding field: nominal ($\vv{B}_\text{roundhouse}$), inverted along $z$ ($-\vv{B}_\text{roundhouse}$), and off ($\vv{B}_\text{roundhouse}=0$). The \legendbox{black} points labeled ``first 40 s of unload'' use the same data as the nominal configuration \legendbox{dark-blue-color}, but consider only the first 4 integration periods of the run doublet.}
+    \label{fig:2021_roundhouse_asymmetry_1}
+% \end{figure}
+    \vspace{\baselineskip}
+% \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/2021_roundhouse_asymmetry_2.pdf}
-    \caption{Caption}\label{fig:2021_roundhouse_asymmetry_2}
+    \includegraphics[width=0.6\textwidth]{figures/2021_roundhouse_asymmetry_2.pdf}
+    \caption[Depicted is the change in the asymmetry as the roundhouse unload progresses. The $x$-axis refers to the number of integration periods of the run doublet used to calculate asymmetry]
+    {Depicted is the change in the asymmetry as the roundhouse unload progresses. The $x$-axis refers to the number of integration periods of the run doublet used to calculate asymmetry (e.g., $\qty{20}{s}=$ first two integration periods,  $\qty{30}{s}=$ first three integration periods...).}\label{fig:2021_roundhouse_asymmetry_2}
 \end{figure}

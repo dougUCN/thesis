@@ -21,11 +21,13 @@
 \usepackage[explicit]{titlesec}  %title control and formatting
 \usepackage[titles]{tocloft}  %table of contents control and formatting
 
-\usepackage{xcolor} % define some colors
+% define colors
+\usepackage[dvipsnames]{xcolor} 
 \definecolor{material-bg}{HTML}{263238}
 \definecolor{HFS-color}{HTML}{219EBC}
 \definecolor{LFS-color}{HTML}{FB8500}
 \definecolor{burnt-orange-color}{HTML}{CA6702}
+\definecolor{dark-blue-color}{HTML}{005F73}
 
 \usepackage{minted} % format code snippets
 % \usemintedstyle{material}
@@ -332,13 +334,6 @@
 %%%%%%%%%%
 % Vitae 
 %%%%%%%%%%
-% \addtocontents{toc}{\cftpagenumbersoff{chapter}}
-% \phantomsection
-% \addtocontents{toc}{
-%  \unexpanded{\unexpanded{\renewcommand{\cftchapdotsep}{\cftnodots}}}%  
-% }
-% \addcontentsline{toc}{chapter}{Curriculum Vitae}
-% \includepdf[pages=-]{CV.pdf}
-% \thispagestyle{empty}
+
 
 \end{document}

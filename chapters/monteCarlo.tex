@@ -10,7 +10,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Arbitrary STL files, define material types based on real and imaginary potentials. Numerical or analytical fields (time dependent) both supported. Specularity can be lambertian or based on micro roughness \ref{sec:diffuse_reflections}. Supports \hg, xenon, electrons, protons, etc. Spin tracking works even at higher velocities due to relativistic spin equations \ref{sec:BMT_equations}. ODE integration method is a 5th order Dortmund Prince from the BOOST cpp library. \cite{schreyer_pentrack}
+Arbitrary STL files, define material types based on real and imaginary potentials. Numerical or analytical fields (time dependent) both supported. Specularity can be lambertian or based on micro roughness \ref{sec:diffuse_reflections}. Supports \hg, xenon, electrons, protons, etc. Spin tracking works even at higher velocities due to relativistic spin equations \ref{sec:BMT_equations}. ODE integration method is a 5th order Dortmund Prince \cite{numerical_recipes} from the BOOST cpp library. \cite{schreyer_pentrack}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -35,6 +35,12 @@ PENTrack seeding/clock cycle system. PENTrack cluster scripts appendix
 \section{Simulation of transport from the UCN source into the apparatus}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Image of PM vector field
+
+Numerical PM vector field + earth's field. Flapper appearing in and out. Pulsed source to emulate beam delivery. Spin depolarization per bounce treated as a fixed percentage and swept. Same for diffusivity
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

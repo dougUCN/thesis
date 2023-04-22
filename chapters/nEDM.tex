@@ -363,23 +363,32 @@ For nEDM measurements that use the measured ratio $|\omega_\text{n}/\omega_\text
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{figures/chupp_msr_data.pdf}
-    \caption
-    {Calculated shielding factor of the LANL nEDM MSR (Tab.~\ref{tb:lanl_msr_shielding_factor}) for various orientations excitation signal directions of an infinitely sized coil. See Sec.~\ref{sec:MSR} for methodology.}
-    \label{fig:MSR-shielding-factor}
-\end{figure}
-
-\begin{figure}
-    \centering
     \includegraphics[width=0.9\textwidth]{figures/completed_msr.jpg}
     \caption
     {The LANL nEDM magnetically shielded room (Sec.~\ref{sec:MSR})}
     \label{fig:MSR}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/chupp_msr_data.pdf}
+    \caption
+    {Calculated shielding factor of the LANL nEDM MSR (Tab.~\ref{tb:lanl_msr_shielding_factor}) for various orientations excitation signal directions of an infinitely sized coil. See Sec.~\ref{sec:MSR} for methodology.}
+    \label{fig:MSR-shielding-factor}
+% \end{figure}
+    \vspace{\baselineskip}
+% \begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/long_term_msr_measurements.pdf}
+    \caption
+    [A magnetic field measurement in the non-degaussed MSR over a 3 day period]
+    {A magnetic field measurement in the non-degaussed MSR over a 3 day period from a QuSpin Zero-Field Magnetometer \legendbox{black} (sensitivity $<\qty{1}{pT\per\sqrt{Hz}}$ for 1--\qty{100}{\hertz}). Temperature is read by MLX90164 IR Temp sensors. The ``Temp Out'' sensor \legendbox{Salmon} is pointed at the outer cladding of the MSR, and the ``Temp In'' sensor \legendbox{red} is pointed through a beamline feedthrough at a PCB panel of the $B_0$ coil. A Honeywell 236PC100GW Wheatstone-bridge pressure sensor \legendbox{blue} monitors the pressure of air line feeding the door bladders. Additional discussion in Sec.~\ref{sec:MSR}.}
+    \label{fig:MSR_long_term_measurements}
+\end{figure}
+
 At LANL, a large magnetically shielded room (\acrshort*{msr}) (Fig.~\ref{fig:MSR}) is used for the attenuation of ambient external background magnetic fields. It has an overall shielding factor of $10^5$ for fields at frequency \qty{0.01}{\hertz} and a residual field of $<\qty{0.5}{nT}$.
 
-The MSR consists of 4 Mumetal\textsuperscript{\textregistered} layers and one copper layer (Tab.~\ref{tb:lanl_msr_layers}). Mumetal\textsuperscript{\textregistered} is a magnetic shielding alloy ($\mu$-metal grade ASTM A753 Alloy 4, UNS N14080, 80NiFe) from the Magnetic Shield Corporation. The MSR utilizes a bolted construction to avoid welds that create magnetic domains. The frame of the MSR is stainless steel, which supports the load of the layers without deflection. The foundation consists of high density aggregate precast blocks, minimizing the transmission of ambient external vibrations.
+The MSR consists of 4 Mumetal\textsuperscript{\textregistered} layers and one copper layer (Tab.~\ref{tb:lanl_msr_layers}). Mumetal\textsuperscript{\textregistered} is a magnetic shielding alloy ($\mu$-metal grade ASTM A753 Alloy 4, UNS N14080, 80NiFe) from the Magnetic Shield Corporation. The MSR utilizes a bolted construction to avoid welds that create magnetic domains. The frame of the MSR is stainless steel, which supports the load of the layers without deflection. The foundation consists of high density aggregate precast blocks, minimizing the transmission of ambient external vibrations. The edges of the MSR door are supported by air bladders. When the door is in the closed and locked position, the air baldders are pressurized to improve continuity of the $\mu$-metal.
 
 For optimized shielding performance, the ferromagnetic layers are degaussed periodically. Degaussing is done by applying an alternating field with large amplitude, which drives the material to saturation, and then slowly decreasing the amplitude to zero. Each $\mu$-metal layer contains multiple L-shaped coil sets, activated sequentially, for complete degaussing coverage (see Fig.~\ref{fig:degaussing-paper-cube} for the layout of coils on the innermost layer). An amplifier designed and built specifically for the LANL nEDM allows application of up to \qty{75}{A} of current for degaussing.
 
@@ -399,9 +408,9 @@ Shielding factor was determined by using the LANL field cage (Sec.~\ref{sec:fiel
 
 To account for the finite size of the excitation coil and the iron floor of the experimental area, finite-element physics simulations in COMSOL were used to obtain a relation between the measured shielding factor and a calculated shielding factor with an ideal infinitely sized coil. This scaling was performed because the proximity of the field cage coils to the outer MSR layer resulted in localized saturation of the $\mu$-metal, artificially lowering the shielding factor. Shielding factors are shown in Fig.~\ref{fig:MSR-shielding-factor} and Tab~\ref{tb:lanl_msr_shielding_factor}. 
 
-In the latter half of 2022, issues with the electrical contacts for the degaussing wires on the innermost MSR layer developed. This has delayed additional characterization of MSR performance.
+In the latter half of 2022, issues with the electrical contacts for the degaussing wires on the innermost MSR layer developed. This has delayed additional characterization of MSR performance. 
 
-\comment{Should I put in MSR temperature stability plots?}
+The magnetic field in the non-degaussed MSR is plotted in Fig.~\ref{fig:MSR_long_term_measurements}. A fluctuation of $\sim\qty{250}{pT}$ (a $\sim \qty{1e-3}{Hz}$ shift in neutron precession frequency) with the periodicity of approximately one day was observed, corresponding to temperature fluctuations in the experimental area. This temperature fluctuation influences both the behavior of the $\mu$-metal and the pressure of the air bladders in the door, potentially altering the quality of $\mu$-metal continuity. Measurements to determine the necessity of external temperature regulation are planned after the degaussing loops are fixed. 
 
 \begin{table}
 \centering
@@ -543,7 +552,7 @@ The LANL nEDM $B_0$ holding coil is a split solenoid consisting of 8 octagonal s
 
 The uniformity of the field is adjusted by tuning the currents in each section of the coil. While initial measurements with fluxgates indicate that the vertical gradient meets specifications $(\partial B_0/\partial dz < \qty{1}{nT \per m})$, further $B_0$ field uniformity measurements have been delayed due to the issue with the degaussing loop contacts (Sec.~\ref{sec:MSR}).
 
-The $B_0$ coil has undergone several prototyping stages. An initial prototype was constructed for the Ramsey demonstration in 2017 (Chap.~\ref{chap:lanl_ramsey_demonstration}). A half scale prototype was also tested at LANL in a 2-layer MSR (Fig.~\ref{fig:b0-half-scale}).
+The $B_0$ coil has undergone several prototyping stages. An initial prototype was constructed for the Ramsey demonstration in 2017 (Chap.~\ref{chap:lanl_ramsey_demonstration}). A half scale prototype was also tested at LANL in a 2-layer MSR (Fig.~\ref{fig:b0-half-scale}), with measurements compared to COMSOL simulations.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -635,7 +644,7 @@ Figure~\ref{fig:spin_flipper_efficiency} shows spin flipper performance (assumin
     \includegraphics[height=3.5in]{figures/spin_flipper_efficiency.pdf}
     \caption
     [Spin flipper efficiency as a function of the RF frequency and amplitude.]
-    {Spin flipper efficiency as a function of the RF frequency and amplitude. The count rate on the y-axis is normalized to a monitor upstream on the beamline (Fig.~\ref{fig:NorthBeamlineLayout}), then divided by the baseline count rate with the spin flipper off. Error bars are smaller than the points on the plot. The minimum at \qty{20}{kHz}, \qty{10}{Vpp} is 0.12.}
+    {Spin flipper efficiency as a function of the RF frequency and amplitude. The count rate on the y-axis is normalized to a monitor upstream on the beamline (c.f. West GV monitor in Chap.~\ref{chap:north_beamline_paper}), then divided by the baseline count rate with the spin flipper off. Error bars are smaller than the points on the plot. The minimum at \qty{20}{kHz}, \qty{10}{Vpp} is 0.12.}
     \label{fig:spin_flipper_efficiency}
 \end{figure}
 
@@ -699,7 +708,7 @@ The two precession cells, responsible for storage of polarized \ucn and \hg atom
 
 Each precession cell has an inner diameter \qty{50}{cm} and a height \qty{10}{cm}. The final nEDM experiment will use electrodes coated in diamond-like carbon (\acrshort*{dlc}), though the measurements presented in this dissertation primarily use \acrshort{nip}-coated prototype electrodes (see discussion in Sec.~\ref{subsec:holdingTimeMeasurement}). The precession cells are enclosed by a custom fiberglass vacuum chamber from Augusta Fiberglass Coating Inc. (Fig.~\ref{fig:vacuum_chamber}). The material was selected to avoid attenuation of the RF $\pi/2$ pulse.
 
-The cell valves (Fig.~\ref{fig:cell_valve}) consist of Nickel Molybdenum (\acrshort*{nimo}) coated parts and NiP-coated guide segments mounted on G-10 fiberglass plates. The actuation system is hydraulic and routed outside the MSR to a piston controlled by STM23Q motor. This limits the production of undesired magnetic fields during cell valve actuation. The moving faces of the cell valve are sealed with PTFE-coated o-rings for maintenance of a separate vacuum from the vacuum chamber.
+The cell valves (Fig.~\ref{fig:cell_valve}) consist of Nickel Molybdenum (\acrshort*{nimo}) coated parts and NiP-coated guide segments mounted on G-10 fiberglass plates. The actuation system uses hydraulic lines filled with propylene glycol that are routed to a piston controlled by STM23Q motor outside of the MSR. This limits the production of undesired magnetic fields during cell valve actuation. The moving faces of the cell valve are sealed with PTFE-coated o-rings for maintenance of a separate vacuum from the vacuum chamber.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
