@@ -283,8 +283,8 @@
 \input{chapters/spinManipulation.tex}
 \input{chapters/nEDM.tex}
 \input{chapters/northbeamline.tex}
-\input{chapters/ssa2020.tex}
 \input{chapters/ramsey2017.tex}
+\input{chapters/ssa2020.tex}
 \input{chapters/fall2021.tex}
 \input{chapters/dec2022.tex}
 \input{chapters/monteCarlo.tex}
@@ -334,6 +334,15 @@
 %%%%%%%%%%
 % Vitae 
 %%%%%%%%%%
+\addtocontents{toc}{\cftpagenumbersoff{chapter}}
+\phantomsection
+\addtocontents{toc}{
+ \unexpanded{\unexpanded{\renewcommand{\cftchapdotsep}{\cftnodots}}}%  
+}
+\addcontentsline{toc}{chapter}{Curriculum Vitae}
+\input{chapters/CV.tex}
 
+% \includepdf[pages=-]{CV.pdf}
+\thispagestyle{empty}
 
 \end{document}

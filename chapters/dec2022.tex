@@ -65,6 +65,40 @@ Load against the closed cell valve to try to see if neutrons get lost there. The
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Guide storage measurement}\label{sec:guide_storage_measurement}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Guide storage measurement. Trying to track down UCN loss source.  Upper switcher kept at steel blank-off. Discuss lifetime change when cell valve is open
+
+\begin{figure}
+\centering
+%subfigure width gets "multiplied" by includegraphics width
+\begin{subfigure}{.5\textwidth} 
+  \centering
+  \includegraphics[width=\textwidth]{figures/store_valve_closed_fit.pdf}
+  \caption{}\label{subfig:2022_guide_storage_cell_closed}
+\end{subfigure}%DO NOT REMOVE THIS '%'
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{figures/store_valve_open_fit.pdf}
+  \caption{}\label{subfig:2022_guide_storage_cell_open}
+\end{subfigure}
+\begin{subfigure}{\textwidth}
+    \vspace{\baselineskip}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/guide_upstream_storage.pdf}
+  \caption{}\label{subfig:2022_guide_storage_schematic}
+\end{subfigure}
+\caption
+    [Storage measurement described in Sec.~\ref{sec:guide_storage_measurement}, where UCN were stored in the guides between the lower switcher and lower cell as depicted in \textbf{(\subref{subfig:2022_guide_storage_schematic})}.]
+    {Storage measurement described in Sec.~\ref{sec:guide_storage_measurement}, where UCN were stored in the guides between the lower switcher and lower cell as depicted in \textbf{(\subref{subfig:2022_guide_storage_schematic})}. \textbf{(\subref{subfig:2022_guide_storage_cell_closed})} UCN were stored in the guide volume between a stainless steel blank-off on the switcher and the closed cell valve. \textbf{(\subref{subfig:2022_guide_storage_cell_open})} The cell valve was open, so UCN were stored in the chamber as well as the guide volume.}
+\label{fig:2022_ucn_guide_storage}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Single arm spin analyzer benchmark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -88,7 +122,7 @@ Load against the closed cell valve to try to see if neutrons get lost there. The
 \label{fig:2022_single_arm_asymmetry}
 \end{figure}
 
-Tuning spin flipper (see Fig.~) in flow through mode. Note the contrast and asymmetry
+Tuning spin flipper (see Fig.~) in flow through mode. Note the contrast and asymmetry. Upper switcher pointed at detector
 
 Comparison of various configurations of holding field coils of single arm vs polarizer in vs out to see how many UCN we are missing. Same procedure each time, with a \qty{100}{s} preload against the NGV, before opening and flowing directly through the lower switcher to spin analyzer. Upper switcher set to beam height detector. Normalized the WGV as usual.
 
@@ -105,6 +139,36 @@ Foil in (holding field coils nominal): \qty{2744(20)}{UCN\per s}. \qty{3825(28)}
 \section{Asymmetry measurements}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+100s preload, 50s fill, 30s storage. RF doublet pairs, toggling every 10 - 15 seconds depending on the run. Second integration period typically shorter, so worse statistics
+
+
+\begin{table}
+\centering
+\caption
+[Measured asymmetry $A_i$ for various configurations of the $B_0$ and transport coils.]
+{Measured asymmetry $A_i$ for various configurations of the $B_0$ and transport coils. $i$ refers to the integration period during the cell dump period for which the asymmetry is calculated. The currents applied to the outer $B_0$ coils (the top 2 and bottom 2 octagons), $B_0$ coils (the middle 4 octagons), and the transport coils are listed. The filling time was \qty{50}{s} and the storage time was \qty{30}{s}.}\label{tb:t1_2022_measurements}
+\begin{tabular}{
+    S[table-format = 2.0]
+    S
+    S
+    c
+    S[table-format = 1.2(2)]
+    S[table-format = 1.2(2)]
+    S[table-format = 1.2(2)]
+}
+\toprule
+{$\sim\vv{B_0}$} 	& {$B_0$ inner}	& {$B_0$ outer} & {Transport coils} & {$A_1$} & {$A_2$} & {$A_3$}\\
+{[\unit{\micro\tesla}]} 	& {[mA]}	& {[mA]} & {out $\triangleright$ in [mA]} & {} & {} & {}\\
+\midrule
+1 & 3.5 & 6.3 & {$91\triangleright 23.4 \triangleright 13.5 \triangleright 10.98$} & 0.02(5) & -0.01(14) & 0.03(14) \\
+18 & 56 & 100 & {$91\triangleright 70\phantom{.0} \triangleright 81\phantom{.0} \triangleright 105\phantom{.0}$} & 0.00(3) & 0.00(13) & 0.01(7) \\
+-1 & -3.5 & -6.3 & {$91\triangleright 23.4 \triangleright 13.5 \triangleright 10.98$} & 0.00(3) & -0.06(11) & 0.02(5) \\
+-10 & -36 & -63 & {$91\triangleright 77.2 \triangleright 89.1 \triangleright 109\phantom{.0}$} & -0.02(3) & -0.02(10) & 0.00(5) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
