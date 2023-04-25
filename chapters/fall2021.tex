@@ -4,7 +4,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In 2021, the ongoing construction of the\acrshort{msr} (Sec.~\ref{sec:MSR}) relegated the commissioning of nEDM components to the West beamline (Fig.~\ref{fig:AreaB_schematic}). A second rotary switcher and a new ``switcher wye'' guide segment for connecting both switchers to the beamline (Fig.~\ref{subfig:switcher_mockup}) were tested. This chapter present
+In 2021, the ongoing construction of the \acrshort{msr} (Sec.~\ref{sec:MSR}) relegated the commissioning of nEDM components to the West beamline (Fig.~\ref{fig:AreaB_schematic}). A second rotary switcher and a new ``switcher wye'' guide segment for connecting both switchers to the beamline (Fig.~\ref{subfig:switcher_mockup}) were tested. We performed measurements to determine the quality of the \ucn and \ucn spin transport in these components.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -12,20 +12,21 @@ In 2021, the ongoing construction of the\acrshort{msr} (Sec.~\ref{sec:MSR}) rele
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-UCN tau roundhouse. A buffer volume called the ``roundhouse'' was introduced in 2018 that  smooths over any temporal fluctuations in the UCN production rate while loading
-
-New Y. NiP coated Vertical separation (center to center of beamline) $\qty{18.85}{in}\approx\qty{0.48}{m}$. Corresponds to a $\sim \qty{25}{neV}$ potential step for upper switcher and a boost to the lower switcher. 
-
-Coils and solenoids (depicted in Fig.~\ref{subfig:west_beamline_switchers}) again keep everything under $\sim \qty{1}{mT}$ field. Describe roundhouse field coil
-
-A second switcher had been constructed for this measurement cycle, was placed on the lower side of the switcher stand. Off this side was the single channel spin analyzer used in Chap.~\ref{chap:north_beamline_paper} and \ref{chap:lanl_ramsey_demonstration}. On the higher switcher was a simultaneous spin analyzer (SSA). Be clear about which switcher is new, which switcher is higher, which switcher has what spin analyzer (maybe use a table?)
-
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/westbeamline_2021.pdf}
     \caption[West beamline configuration for measurements in 2021.]
     {West beamline configuration for measurements in 2021. A single channel spin analyzer was located on the lower switcher, and simultaneous spin analyzer was located on the upper switcher. Beam height detectors were rearranged for different measurements as per Sec.~\ref{sec:2021_ucn_transport_switchers}.}\label{fig:west_beamline_2021}
 \end{figure}
+
+The West beamline hosts the UCN$\tau$ neutron lifetime experiment, which unlike the North beamline contains a buffer volume referred to as the ``roundhouse.'' The roundhouse was introduced in 2018 to smooth temporal fluctations in the UCN production rate during the UCN$\tau$ filling period~\cite{gonzalez_ucn_tau}. When the UCN$\tau$ experiment is collecting production data, the roundhouse contains a neutron absorber located \qty{1}{m} above beam height to precondition the input \ucn energy spectrum. The absorber was removed for the measurement cycle. 
+
+The switcher wye consists of NiP-coated Al guide that branches from a stem (\qty{4}{in} inner-diameter (ID)) into two arms (\qty{3}{in} ID). Arms of the wye were connected to two rotary switchers (Sec.~\ref{sec:lanl_switchers}) mounted on a switcher stand, with dimensions shown in Fig.~\ref{fig:switcher_stand_measurements}. Vertical separation between the switchers was $\qty{19.6}{in}\approx \qty{0.5}{m}$, which provides a $\approx \qty{25}{neV}$ gravitational potential step for \ucn to reach the elevated switcher.
+
+The newly constructed second switcher was placed on the lower side of the switcher stand. As in Fig.~\ref{subfig:west_beamline_switchers}, the single channel spin analyzer (Chaps.~\ref{chap:north_beamline_paper}--\ref{chap:ssa_2020}) was mounted to the second switcher. The previously characterized rotary switcher was mounted on the elevated platform of the switcher stand. Rotary switchers are hereafter designated as ``upper switcher'' and ``lower switcher'' based on their relative positions on the switcher stand.
+
+Depending on the measurement, \BZnS scintillator (\qty{3}{in} diameter) \ucn detectors were mounted to either upper or lower switchers.
+
 
 \begin{figure}
 \centering
@@ -46,13 +47,15 @@ A second switcher had been constructed for this measurement cycle, was placed on
 \label{fig:west_beamline_switchers}
 \end{figure}
 
+\begin{sidewaysfigure}
+    \centering
+    \includegraphics[width=3.5in]{figures/switcher_horizontals.pdf}
+    \includegraphics[width=3.5in]{figures/switcher_verticals.pdf}
+    \caption
+    {Schematics for switcher stand and switcher wye. Dimensions are in inches. Courtesy of Mark Luxnat.}
+    \label{fig:switcher_stand_measurements}
+\end{sidewaysfigure}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{UCN transport measurements}\label{sec:2021_ucn_transport_switchers}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}
 \centering
@@ -74,94 +77,79 @@ A second switcher had been constructed for this measurement cycle, was placed on
 \end{subfigure}
 \caption
 [Peak height spectra from \BZnS scintillator and PMT detectors (additional data acqusition details in Chap.~\ref{chap:daq}).  Data cuts selected as per Ref.~\cite{jeph_multilayer_2015}.]
-{Peak height spectra from \BZnS scintillator and PMT detectors (additional data acqusition details in Chap.~\ref{chap:daq}). Data cuts selected as per Ref.~\cite{jeph_multilayer_2015}. \textbf{(\subref{subfig:beam_det_1_adc})}--\textbf{(\subref{subfig:beam_det_2_adc})} Beam height detectors. \textbf{(\subref{subfig:single_arm_no_foil_adc})} Single arm spin analyzer with polarizing foil removed. The largest bin in the histogram $x$-axis ($2^{14}-1$) includes counts of pulse heights greater than the range of the histogram}
+{Peak height spectra from \BZnS scintillator and PMT detectors (additional data acqusition details in Chap.~\ref{chap:daq}). Data cuts selected as per Ref.~\cite{jeph_multilayer_2015}. \textbf{(\subref{subfig:beam_det_1_adc})}--\textbf{(\subref{subfig:beam_det_2_adc})} Beam height detectors. \textbf{(\subref{subfig:single_arm_no_foil_adc})} Drop detector with polarizing foil removed. The largest bin in the histogram $x$-axis ($2^{14}-1$) includes counts of pulse heights greater than the range of the histogram}
 \label{fig:2021_detector_adc}
 \end{figure}
 
-Show ADC cuts for each detector. Spectrum did not change when detectors were moved. As is typical for the UCN spectrum from BZs we make cuts at the noise peak~\cite{jeph_multilayer_2015}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-2x 3 inch BnZS scintillator (Sec.~\ref{sec:ucn_detectors})  + PMTs at beam height. 
-
-\begin{small}
-\begin{verbatim}
-Both PMTs beam height on switcher 1 (higher switcher)
-======================================================
-SINGLE CHANNEL DET FOIL OUT
-detector rate: 1443.88
-wgv rate: 632.46
-normalized to wgv 650 [Hz]: 1483.9230939506056
-
-BEAM HEIGHT DET: WEST TEST PORT
-detector rate: 1435.18
-wgv rate: 641.26
-normalized to wgv 650 [Hz]: 1454.7406668122135
-
-BEAM HEIGHT DET: STRAIGHT THROUGH
-detector rate: 1498.215
-wgv rate: 635.39
-normalized to wgv 650 [Hz]: 1532.6645839563103
-
-Beam height PMTs on both switchers
-======================================================
-SINGLE CHANNEL DET FOIL OUT
-detector rate: 1465.2666666666667
-wgv rate: 656.6
-normalized to wgv 650 [Hz]: 1450.5381256980404
-
-BEAM HEIGHT DET: SWITCHER 2 (LOWER)
-detector rate: 2244.225
-wgv rate: 650.0416666666666
-normalized to wgv 650 [Hz]: 2244.0811486443176
-
-BEAM HEIGHT DET: SWITCHER 1 (HIGHER)
-detector rate: 1512.1142857142856
-wgv rate: 649.5142857142857
-normalized to wgv 650 [Hz]: 1513.2450622443143
-
-Switcher 2 transmission difference: 1.5425987599300384
-\end{verbatim}
-\end{small}
-
-While a factor of 1.5 is unintuitive, PENTrack simulations indicate this is achievable in the current geometry
+\section{UCN transport measurements}\label{sec:2021_ucn_transport_switchers}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Spin asymmetry measurement with single arm spin analyzer}\label{sec:single_arm_flow_through_west_2021}
+For the first \ucn transport measurement, two beam-height detectors were mounted on the upper switcher. The West GV was opened and the roundhouse was filled with \ucn for \qty{300}{s}, after which the roundhouse GV was opened. \ucn were flowed into the first beam height detector for \qty{80}{s}, to allow the \ucn gas in the guide to reach pseudo-equilibrium, before being counted for \qty{20}{s}. The upper switcher was then rotated to direct \ucn from the wye to the second beam-height detector. A second \qty{20}{s} counting period was then performed. For the entire duration of the measurement the lower switcher directed \ucn from the wye into the single channel spin analyzer. To allow for comparison with the beam height detectors, the polarizing foil in the drop detector was removed (\BZnS scintillator diameter of \qty{3}{in}).
+
+For the second \ucn transport measurement, one beam-height detector was mounted on the upper switcher, and one was mounted on the lower switcher. The lower switcher directed \ucn from the wye to the drop detector. As with the first measurement, the roundhouse was filled for \qty{300}{s}, and the first \qty{20}{s} counting period was started \qty{80}{s} after the opening of the roundhouse GV. After the first counting period, the lower switcher was rotated to direct \ucn from the wye to the attached beam height detector. This was followed by a second \qty{20}{s} counting period.
+
+The peak height spectra for the beam height detectors and the drop detector with foil removed is shown in Fig.~\ref{fig:2021_detector_adc}. For detected \ucn incident on a thick \BZnS scintillator the peak high spectra has an identifiable noise peak~\cite{jeph_multilayer_2015}, and we applied cuts to the data. The peak height spectra and corresponding data cuts did not change between measurement configurations. Counted \ucn were normalized using the West GV monitor rate similar to Chaps.~\ref{chap:north_beamline_paper}--\ref{chap:ssa_2020}. 
+
+The result of the transport measurements is depicted in Tab.~\ref{tb:2021_transport}. When both beam height detectors were on the upper switcher, they exhibited comparable count rates. When beam height detector 1 was moved from the upper switcher to the lower switcher, it observed a factor of $\approx 1.5$ increase in the UCN rate. 
+
+Such a discrepancy in transmission appeared to be too large to attribute solely to the geometry of the wye. For a $v^2\,dv\,(=E^{1/2}\,dE)$ or $v^3\,dv\,(=E\,dE)$ input distribution of UCN (Sec.~\ref{subsec:storageCurves}) and a NiP optical potential of \qty{213}{\nano\eV} (Tab.~\ref{tb:optical_potentials}), the fraction of UCN rejected by the \qty{25}{\eV} gravitational potential step from the elevation of the upper switcher is an insufficient explanation of the discrepancy. Written explicitly,
+%
+\begin{gather}
+    \frac{\int_{\qty{0}{neV}}^{\qty{213}{neV}}E^{1/2}\,dE}{\int_{\qty{25}{neV}}^{\qty{213}{neV}}E^{1/2}\,dE} < 1.5 \label{eq:switcher_transmission_issue}
+\end{gather}
+%
+For Eq.~(\ref{eq:switcher_transmission_issue}) to approach 1.5, the containing optical potential had to be similar to Al (\qty{54}{\nano\eV} in Tab.~\ref{tb:optical_potentials}), which led to the suspicion that there was exposed Al in the wye. However, as demonstrated by Monte Carlo simulations, the geometry of the switcher wye and roundhouse with a NiP optical potential was found to be sufficient to reproduce the discrepancy. This is further elaborated in Sec.~\ref{sec:switcher_height_monte_carlo}.
+
+In summary, the fact that the lower (new) switcher transported a larger number of UCN than the upper (previously characterized) switcher was a validation of UCN transport.
+
+\begin{table}
+    \centering
+    \caption{West beamline UCN transport measurement through the switcher wye and switchers}\label{tb:2021_transport}
+    \begin{tabular}{
+        l  
+        p{2in}
+        p{2in}
+    }
+    \toprule
+        & {\small Beam height 1 on upper switcher, Beam height 2 on upper switcher} & {\small Beam height 1 on lower switcher, Beam height 2 on upper switcher} \\
+    \midrule
+        & {Normalized count rate} & {Normalized count rate} \\
+        & {[\unit{UCN\per \second}]} & {[\unit{UCN\per \second}]} \\
+    \midrule
+        Beam height 1 &  1483(7) & 2283(9)\\
+        Beam height 2 &  1479(9) & 1513(6)\\
+        Drop detector (no foil) & 1532(5) & 1450(10)\\
+    \bottomrule
+    \end{tabular}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Single arm spin analyzer on the lower detector. Upper switcher had the SSA. 
-
-Low contrast observed in a flow through mode measurement from the source to previously-proven the single arm detector. (very close to 0 is bad. Asymmetry = $\pm 1$ if everything is polarized) Need to rule out switcher depolarization! It was discovered that the roundhouse was depolarizing due to small patches of exposed stainless steel on some gate valves. 
-
-In discussion with UCNtau collaborators this asymmetry was roughly consistent with measurements they did.
-
-\begin{tiny}
-\begin{verbatim}
-    21:34 Production run #21184: 20s hold, AFP 0ff, RH coil  On; dagger unload: 2,175; RH dump: 267,712, Yield: 0.0081
-*****Spin contrast (on/off) = 2.06 : 1 = 1: 0.48; depolarization = 1/3 = 33%, or the trapping efficiency is 67%. ********** 
-21:45 Production run #21185: 20s hold, AFP 0ff, RH coil  On; dagger unload: 2,041; RH dump: 263,671, Yield: 0.0077 
-21:57 Production run #21186: 20s hold, AFP 0ff, RH coil Off; dagger unload: 2,447; RH dump: 274,794, Yield: 0.0089
-22:09 Production run #21187: 20s hold, AFP  On, RH coil Off; dagger unload: 4,093; RH dump: 258,829, Yield: 0.0158
-*****Spin contrast (on/off), RH coill off = 1.77 : 1 = 1: 0.56; depolarization = 36%, or the trapping efficiency is 64%. **********
-\end{verbatim}
-\end{tiny}
-
- By comparison, a direct flow through mode measurement from the \ucn source to the spin analyzer (Fig.~\ref{fig:spin_flipper_efficiency}) gives $A(0)\approx 0.8$.
-
- Also note that the peak has shifted to 22 kHz
-
+\section{Spin asymmetry measurements}\label{sec:asymmetry_west_2021}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Roundhouse fill and unload time }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Flow-through spin asymmetry measurement}\label{sec:single_arm_flow_through_west_2021}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+The spin asymmetry flow-through measurement from Sec.~(\ref{sec:ssa_measurements}) was repeated for the drop detector on the lower switcher (polarizer reinstalled). The upper switcher directed \ucn from the wye to a beam height detector. The asymmetry calculated from Eq.~(\ref{eq:spin_asymmetry}) is given in Fig.~\ref{fig:2021_west_single_arm_asymmetry}, with the maximal asymmetry $A\approx 0.15$. By comparison, same drop detector on previous North beamline measurements (Fig.~\ref{fig:spin_flipper_efficiency}) had an asymmetry of $A= 0.79(3)$.
 
-\begin{figure}
+Investigation with the assistance of UCN$\tau$ collaborators revealed the existence of exposed stainless steel components in the roundhouse from modifications prior to the measurements in this chapter. Relative to other UCN friendly surfaces, stainless steel is known to have a higher depolarization per bounce. 
 
-\end{figure}
+A similar asymmetry measurement using the UCN$\tau$ magneto-gravitational trap as a spin-analyzer (production runs \#21184, \#21187) gave $A\approx 0.3$. It is of note that the UCN$\tau$ trap cannot store \ucn of energy $>\qty{100}{neV}$, whereas, assuming there is no issue with the coating, the NiP surfaces in the switcher wye and switchers should be capable of storing UCN up to $\qty{213}{neV}$. Higher energy UCN have shorter polarization lifetimes due to a larger number of bounces in the storage volume. Therefore, comparison of the drop detector asymmetry ($A\approx 0.15$) to the UCN$\tau$ asymmetry was found to be consistent with assumption that the roundhouse was the primary cause of depolarization, and not one of the commissioned nEDM beamline components.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Roundhouse fill and unload asymmetry measurement}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}
 \centering
@@ -169,7 +157,7 @@ In discussion with UCNtau collaborators this asymmetry was roughly consistent wi
     \centering
     \includegraphics[width=\textwidth]{figures/single_arm_asymmetry_2021.pdf}
     \caption
-    {Spin asymmetry measurement from the single arm analyzer, with UCN in a flow through mode from the source through the roundhouse to the detector (Sec.~\ref{sec:single_arm_flow_through_west_2021}).}
+    {Spin asymmetry measurement with the drop detector, with UCN in a flow through mode from the source through the roundhouse to the detector (Sec.~\ref{sec:single_arm_flow_through_west_2021}).}
     \label{fig:2021_west_single_arm_asymmetry}
 \end{minipage}%
 \hspace{7pt}
@@ -182,11 +170,14 @@ In discussion with UCNtau collaborators this asymmetry was roughly consistent wi
 \end{minipage}
 \end{figure}
 
- To extract performance on the behavior of the spin analyzers, a method similar to the T1 measurement in Chap.~\ref{chap:lanl_ramsey_demonstration}. Describe fill and dump with roundhouse. No preload period against WGV. Roundhouse filling time swept. RH Gate valve was then opened. During the 200 s it took to drain the large volume of the RH, spin flipper was toggling every 10 seconds
 
-Observed that as filling time increased, asymmetry decreased. 
+In order to characterize spin transport through the switcher wye and lower (new) switcher, a method similar to the T1 asymmetry measurement in Chap.~\ref{chap:lanl_ramsey_demonstration} was adopted. The motivation behind this series of measurements was twofold. First, it would be meaningful for the LANL UCN program to gain information regarding the depolarizing nature of the roundhouse. Second, the remaining accelerator production schedule 2021 did not allow for the time-consuming removal process of the stainless steel roundhouse components.
 
-Figure~\ref{fig:2021_roundhouse_asymmetry_2} replots the information in Fig.~\ref{fig:2021_roundhouse_asymmetry_1} in a different way. As unload time increases that tells you how many integration periods over the run you sum (20s means you've summed the first two, 30 means you've summed the first 3, etc.). As you allow the unload to continue asymmetry decreases, because UCN get multiple trips back to the roundhouse.
+The roundhouse was filled for some variable period with the roundhouse GV closed, after which the UCN were dumped into the drop detector via switcher wye with the RF spin flipper toggling in \qty{10}{s} intervals. This counting period continued until the roundhouse was emptied ($\sim\qty{200}{s})$. Each fill-and-dump run was performed as a run doublet (Fig.~\ref{fig:roundhouse_rf_toggle_doublet}), where a run would begin with spin flipper off (on) before periodic toggling. Asymmetry was then calculated by comparing integrated counts per toggle in the run doublet, with counts normalized to the West GV monitor. 
+ 
+Fig.~\ref{fig:2021_roundhouse_asymmetry_1} summarizes the results of the measurement. We observed that as the roundhouse filling time increased, asymmetry decreased, consistent with expectations of the roundhouse being depolarizing. In addition, utilizing only the first 4 integration periods of the run doublet to resulted in a higher calculated asymmetry. This led to Fig.~\ref{fig:2021_roundhouse_asymmetry_2}, which plots the asymmetry as a function of unload time (i.e., how many integration periods were used to calculate asymmetry). As unload time increased, asymmetry predictably decreased. Longer unloading periods would allow UCN with more passes through the depolarizing roundhouse region to travel to the drop detector and be counted.
+
+The result of the measurements in this section suggested that the roundhouse depolarization dominated over possible depolarization in the switcher wye or new switcher, and that these components would be acceptable for the 2022 engineering run on the North beamline.
 
  \begin{figure}
     \centering

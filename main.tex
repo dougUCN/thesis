@@ -11,6 +11,7 @@
     bottom=1in,
     % showframe, % display margin boundaries
 ]{geometry}
+
 \usepackage{graphicx}  %for images and plots
 \graphicspath{  
     {figures/northbeamline_paper}
@@ -104,6 +105,7 @@
 \usepackage[labelfont=bf]{caption} % bold the words "figure" and "table"
 \captionsetup[table]{aboveskip=10pt, belowskip=5pt}
 \usepackage{subcaption} % For subfigure environment
+\usepackage{rotating} % For sideways figures
 
 \usepackage{xspace} % decides whether to insert a space or not (useful for shortcuts)
 
@@ -113,7 +115,7 @@
 \usepackage{lineno}
 % \linenumbers
 
-\usepackage{pdfpages} % For importing the CV
+% \usepackage{pdfpages} % For importing the CV from separate pdf
 
 \counterwithout{footnote}{chapter}
 
@@ -313,7 +315,6 @@
 \input{chapters/appendix/linear_ramsey.tex}
 \input{chapters/appendix/gpib_usb.tex}
 \input{chapters/appendix/zmq.tex}
-\input{chapters/appendix/pentrack_cluster.tex}
 \input{chapters/appendix/sis3316.tex}
 
 \end{appendices}
