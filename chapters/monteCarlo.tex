@@ -57,9 +57,9 @@ The probability for a neutron to be lost in the bulk of the aluminum window in a
    P_\text{abs} = 1 - \exp \left( - \frac{\ell_\text{window} }{ \ell_\text{mfp} } \right)
 \end{gather}
 
-where $\ell_\text{window}$ is the thickness of the window (0.003 in. \comment{clearly wrong}), and $\ell_\text{mfp} = 1 / (N\sigma_\text{abs})$ is the mean free path of absorption. $N$ is number density and $\sigma_\text{abs}$ is the velocity-dependent neutron absorption cross section of the material. 
+where $\ell_\text{window}$ is the thickness of the window (\qty{1e-4}{m}), and $\ell_\text{mfp} = 1 / (N\sigma_\text{abs})$ is the mean free path of absorption. $N$ is number density and $\sigma_\text{abs}$ is the velocity-dependent neutron absorption cross section of the material. 
 
-It should be noted that high-field seeking UCN gain approximately 300 neV from the PM field, so neutrons that encounter the window will be in the 300 neV to 515 neV regime. $P_\text{abs}$ can be approximated as 0.03 for this energy range. This single pass loss probability is lower than the observed value of ($10.3\pm 2.8$)\% described in section subsec:windowLoss. However, nonspecularity of the UCN transport pipe can lead UCN to pass through the window region multiple times, increasing transmission loss. 
+It should be noted that high-field seeking UCN gain approximately 300 neV from the PM field, so neutrons that encounter the window will be in the 300 neV to 515 neV regime. $P_\text{abs}$ can be approximated as 0.04 for this energy range. This single pass loss probability is lower than the observed value of ($10.3\pm 2.8$)\% described in section subsec:windowLoss. However, nonspecularity of the UCN transport pipe can lead UCN to pass through the window region multiple times, increasing transmission loss. 
 
 The loss from multiple window passes is estimated using a simple monte carlo simulation, where neutron transmission into the precession chamber is modeled as a 1D random walk. Each step in the random walk corresponds to the distance traveled between non-specular bounces. 
 
