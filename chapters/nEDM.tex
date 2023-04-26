@@ -218,7 +218,7 @@ Due to its higher velocity, \hg experiences a larger geometric phase shift and h
 
 One method to account for the geometric phase effect was utilized by Baker et al.~\cite{BAK06}. The ratio of the measured neutron and \hg frequency $|\omega_\text{n}/\omega_\text{Hg}|$ was compared to the expected value $|\gls{gamma_n}/\gamma_\text{Hg}|$ in order to determine the volume averaged gradient $\langle \partial B_z/\partial z \rangle$ (and consequently the geometric phase shift).
 
-The LANL nEDM has acquired a \qty{254}{\nano\meter} Toptica laser for the development of the comagnetometer system, with the intention of adding external \hg cells to be used for magnetic gradient readout. The \hg cells will be vertically aligned, with one above the top HV electrode, one below the bottom HV electrode, and two between the precession cells.
+The LANL nEDM has acquired a \qty{254}{\nano\meter} Toptica laser for the development of the comagnetometer system, with the intention of adding external \hg cells to be used for magnetic gradient readout. The \hg cells will be vertically aligned, with one above the top HV grounding electrode, one below the bottom HV grounding electrode, and two between the middle high voltage electrodes (Sec.~\ref{sec:precession_cells}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -226,7 +226,8 @@ The LANL nEDM has acquired a \qty{254}{\nano\meter} Toptica laser for the develo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\comment{Contact Tim Chupp}
+An array of external monitors will be used to measure magnetic fields and gradients in close proximity to the precession cells. The LANL nEDM and industry partner Twinleaf are working to develop Cs magnetometers with sufficient stability and sensitivity for application to a nEDM measurement. The required sensitivity is for the magnetometer to measure changes in magnetic field better than \qty{70}{fT} per \qty{180}{s} fill of the cell, and to be stable to \qty{50}{fT} over \qty{480}{s}. Two prototypes have been built and instrumented by Twinleaf, and are being optimized by LANL nEDM collaboration members.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -349,7 +350,7 @@ See Refs.~\cite{baker_apparatus_2014, pendlebury_revised_2015} for examination o
 
 \subsection*{Earth's rotation}
 
-For nEDM measurements that use the measured ratio $|\omega_\text{n}/\omega_\text{Hg}|$ (Sec.~\ref{sec:199hg_comag}), the rotation of the Earth shifts the ratio value down (up) by $\sim\qty{1}{ppm}$ when $\vv{B}_0$ is upwards (downwards). See Refs.~\cite{lamoreaux_earth_rotation_comment, baker_reply_to_lamoreaux, pendlebury_revised_2015}.
+The rotation of the Earth exerts an additional torque on the spin of a particle, which makes it precess about the axis of Earth's rotation. This shift in Larmor precession is approximately \qty{10}{\micro Hz}. An additional complication is that the gyromagnetic ratio for neutrons is negative, but the positive for \hg.  For nEDM measurements that use the measured ratio $|\omega_\text{n}/\omega_\text{Hg}|$ (Sec.~\ref{sec:199hg_comag}), the Earth's rotation shifts the ratio value down (up) by $\sim\qty{1}{ppm}$ when $\vv{B}_0$ is upwards (downwards). See Refs.~\cite{lamoreaux_earth_rotation_comment, baker_reply_to_lamoreaux, pendlebury_revised_2015}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -635,7 +636,7 @@ Neutron spin analyzers in the LANL nEDM are 10 layer polarizers made of iron and
 
 Note that it is not clear if the neutron energy spectrum under which Ref.~\cite{ThorstenThesis} is consistent with the LANL nEDM neutron spectrum. Reference~\cite{afach_device_2015} quotes an analyzing power of 95\% for a different but similar analyzing foil for an energy range of 90~neV to 330~neV, which includes the energy range of the UCN at the analyzing foil for the experiment reported in Sec.~\ref{sec:analysis}. Additional analyzing power characterization measurements are planned.
 
-An adiabatic fast passage (\acrshort{afp}) spin flipper coil, located upstream of the spin analyzer, is used to provide the option of spin flipping UCN (Sec.~\ref{sec:afp}).  Figure~\ref{fig:spin_flipper_efficiency} shows spin flipper performance (assuming perfect spin analyzing power) as a function of RF frequency. The minimum at \qty{20}{kHz}, \qty{10}{Vpp} is 0.12. The RF solenoid has a length of \qty{4}{in} and a diameter of $4\frac{7}{16}\text{ in}$. This corresponds to approximately 220 turns with 25 AWG wire. The inductance is \qty{4}{mH}. The solenoid is driven by a SRS DS345 function generator. 
+An adiabatic fast passage (\acrshort{afp}) spin flipper coil, located upstream of the spin analyzer, is used to provide the option of spin flipping UCN (Sec.~\ref{sec:afp}).  Figure~\ref{fig:spin_flipper_efficiency} shows spin flipper performance (assuming perfect spin analyzing power) as a function of RF frequency. The minimum at \qty{20}{kHz}, \qty{10}{Vpp} is 0.12(1). The RF solenoid has a length of \qty{4}{in} and a diameter of $4\frac{7}{16}\text{ in}$. This corresponds to approximately 220 turns with 25 AWG wire. The inductance is \qty{4}{mH}. The solenoid is driven by a SRS DS345 function generator. 
 
 The \qty{39}{in} vertical \ucn guide located above the spin analyzer is comprised of NiMo-coated glass, to avoid attenuation of the spin flipper amplitude. A schematic of the polarizing, spin analyzing, and detector system is illustrated in Fig.~\ref{fig:SpinAnalyzer}. The combined system is generally referred to as the ``drop detector.''
 
@@ -650,8 +651,8 @@ The \qty{39}{in} vertical \ucn guide located above the spin analyzer is comprise
     \centering
     \includegraphics[height=3.5in]{figures/spin_flipper_efficiency.pdf}
     \caption
-    [Spin flipper efficiency as a function of the RF frequency and amplitude.]
-    {Spin flipper efficiency as a function of the RF frequency and amplitude for the drop detector (Fig.~\ref{fig:SpinAnalyzer}). Measurement methodology and normalization are described in Sec.~\ref{sec:ssa_measurements}. Error bars are smaller than the points on the plot. The minimum at \qty{20}{kHz}, \qty{10}{Vpp} is 0.12.}
+    [Measured UCN rate as a function of the RF spin flipper frequency and amplitude on the drop detector (Fig.~\ref{fig:SpinAnalyzer}).]
+    {Measured UCN rate as a function of the RF spin flipper frequency and amplitude on the drop detector (Fig.~\ref{fig:SpinAnalyzer}). The $y$-axis is normalized using an upstream beamline monitor and then divided by the baseline UCN rate when the UCN spin flipper is off (c.f. Sec.~\ref{sec:ssa_measurements}). The minimum at \qty{20}{kHz}, \qty{10}{Vpp} is \qty{0.125(4)}.}
     \label{fig:spin_flipper_efficiency}
 \end{figure}
 
@@ -693,7 +694,7 @@ The LANL nEDM uses two switchers for neutron transport, one per precession cell.
 \begin{minipage}{.5\textwidth}
     \centering
     \includegraphics[height=4in]{figures/vacuum_chamber.jpg}
-    \caption{Fiberglass vacuum chamber}
+    \caption{Glass-epoxy vacuum chamber}
     \label{fig:vacuum_chamber}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
@@ -707,7 +708,9 @@ The LANL nEDM uses two switchers for neutron transport, one per precession cell.
 
 The two precession cells, responsible for storage of polarized \ucn and \hg atoms, are each formed by parallel-plate electrodes sandwiching a poly(methyl methacrylate) (\acrshort*{pmma}) insulator. The PMMA cell walls are coated with deuterated polystyrene (\acrshort*{dps}) (Sec.~\ref{sec:dPS_coating}). The cells are designed with the ground electrodes on the top and bottom of the apparatus. The HV electrodes are concentrated in the middle, connected to a HV feedthrough. This enables simultaneous measurement of $\vv{B}_0\uparrow\uparrow\vv{E}$ and $\vv{B}_0\uparrow\downarrow\vv{E}$ configurations, cancellation of temporal field drifts to first order, and roughly doubles neutron counting statistics per cycle (see Sec.~\ref{sec:north_beamline_discussion}).
 
-Each precession cell has an inner diameter \qty{50}{cm} and a height \qty{10}{cm}, a total volume of \qty{19.6}{\liter}. The final nEDM experiment will use electrodes coated in diamond-like carbon (\acrshort*{dlc}), though the measurements presented in this dissertation primarily use \acrshort{nip}-coated prototype electrodes (see discussion in Sec.~\ref{subsec:holdingTimeMeasurement}). The precession cells are enclosed by a custom fiberglass vacuum chamber from Augusta Fiberglass Coating Inc. (Fig.~\ref{fig:vacuum_chamber}). The material was selected to avoid attenuation of the RF $\pi/2$ pulse.
+Each precession cell has an inner diameter \qty{50}{cm} and a height \qty{10}{cm}, a total volume of \qty{19.6}{\liter}. The final nEDM experiment will use electrodes coated in diamond-like carbon (\acrshort*{dlc}), though the measurements presented in this dissertation primarily use \acrshort{nip}-coated prototype electrodes (see discussion in Sec.~\ref{subsec:holdingTimeMeasurement}). 
+
+The precession cells are enclosed by a custom glass-epoxy vacuum chamber from Augusta Fiberglass Coating Inc. (Fig.~\ref{fig:vacuum_chamber}). The material was selected to avoid attenuation of the RF $\pi/2$ pulse. Due to the vendor's lack of experience with high vacuum systems, work was required to make the chamber vacuum-tight, such as smoothing sealing surfaces with nonmagnetic sandpaper. 
 
 The cell valves (Fig.~\ref{fig:cell_valve}) consist of Nickel Molybdenum (\acrshort*{nimo}) coated parts and NiP-coated guide segments mounted on G-10 fiberglass plates. The actuation system uses hydraulic lines filled with propylene glycol that are routed to a piston controlled by STM23Q motor outside of the MSR. This limits the production of undesired magnetic fields during cell valve actuation. Moving faces of the cell valve are sealed with PTFE-coated o-rings for maintenance of a separate vacuum from the vacuum chamber.
 

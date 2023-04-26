@@ -47,13 +47,11 @@ Time between bursts & \qty{4.975}{s} \\
 \end{tabular}
 \end{table}
 
-To perform an asymmetry measurement, \ucn were in continuous flow-through mode from the source to the spin analyzer(s), while the RF spin flipper frequency was swept. For the duration of the measurement, the North GV was toggled on and off every 30 seconds, which allowed neutrons in the guide system to fully drain into the detector. The spin flipper frequency was only incremented prior the the opening of the North GV. The integrated counts from the detector for each period were normalized to the West GV monitor as per Sec.~\ref{subsec:dataProcessing}.
+To perform an asymmetry measurement, \ucn were in continuous flow-through mode from the source to the spin analyzer(s), while the RF spin flipper frequency was swept.  The integrated counts from the detector for each period were normalized to the West GV monitor as per Sec.~\ref{subsec:dataProcessing}. As discussed in Sec.~\ref{sec:north_beamline_discussion}, the continuous use of the UCN source alters the input energy spectrum into the experiment~\cite{anghel_solid_2018}. To limit the impact of the flow-through mode measurements on the source, the beam current was reduced by a factor of 10 to $\sim \qty{1}{\micro A}$. Adjusted beam parameters are listed in Tab.~\ref{tb:flow_through_beam_params}.
 
-As discussed in Sec.~\ref{sec:north_beamline_discussion}, the continuous use of the UCN source alters the input energy spectrum into the experiment~\cite{anghel_solid_2018}. To limit the impact of the flow-through mode measurements on the source, the beam current was reduced by a factor of 10 to $\sim \qty{1}{\micro A}$. Adjusted beam parameters are listed in Tab.~\ref{tb:flow_through_beam_params}.
+As a benchmark, the asymmetry measurement was first performed on the drop detector. The RF frequency was incremented every \qty{10}{s}, but to allow the UCN rate to stabilize only the middle \qty{7}{s} of each toggle was considered a counting period. Figure~\ref{fig:spin_flipper_efficiency} depicts the normalized \ucn counts at each frequency step as a fraction of the baseline (RF coil off). 
 
-As a benchmark, the asymmetry measurement was first performed on the drop detector.  Figure~\ref{fig:spin_flipper_efficiency} depicts the normalized \ucn counts at each frequency step as a fraction of the baseline (RF coil off). This measurement was then repeated for each arm of the SSA.
-
-Unlike the drop detector, the SSA did not yet have an impedance matching circuit. To compensate, the RF coils were driven by a SRS DS345 function generator, with an amplifier that gave a factor of 7 to 9 times gain. An input peak-to-peak amplitude of \qty{1}{V} gave an $\sim\qty{7}{V}$ signal after the amplifier, and an input of \qty{1.8}{V} gave an output of $\sim\qty{18}{V}$.
+For the SSA asymmetry measurement, the North GV was toggled on and off every 30 seconds, which allowed neutrons in the guide system to fully drain into the detector. The spin flipper frequency was only incremented prior the the opening of the North GV. This was then repeated for each arm of the SSA. Unlike the drop detector, the SSA did not yet have an impedance matching circuit. To compensate, the RF coils were driven by a SRS DS345 function generator, with an amplifier that gave a factor of 7 to 9 times gain. An input peak-to-peak amplitude of \qty{1}{V} gave an $\sim\qty{7}{V}$ signal after the amplifier, and an input of \qty{1.8}{V} gave an output of $\sim\qty{18}{V}$.
 
 Figures~\ref{fig:Fall2020_SSA_RF_east} and \ref{fig:Fall2020_SSA_RF_west} depict the  normalized \ucn counts at each frequency step as a fraction of the baseline for each SSA arm (arbitrarily named ``East'' and ``West''). The flow-through measurement was also repeated for each arm with the polarizing foil on the opposing arm removed (Fig.~\ref{fig:SSA_asym_one_foil_out}).
 
@@ -92,6 +90,7 @@ Figures~\ref{fig:Fall2020_SSA_RF_east} and \ref{fig:Fall2020_SSA_RF_west} depict
   \caption{West arm asymmetry, no foil on East arm}\label{subfig:SSA_west_arm_no_west_foil}
 \end{subfigure}
 \caption
+    [Spin asymmetry (Eq.~(\ref{eq:spin_asymmetry})) measurement in one arm of the simultaneous spin analyzer, with the polarizing foil on the opposite arm removed.]
     {Spin asymmetry (Eq.~(\ref{eq:spin_asymmetry})) measurement in one arm of the simultaneous spin analyzer, with the polarizing foil on the opposite arm removed. ($V_\text{pp, in}=\qty{1.4}{V}$). As validation, the measurement was repeated with the RF coil on/off in the arm without the polarizer, with the expectation that the asymmetry should be equivalent.}
 \label{fig:SSA_asym_one_foil_out}
 \end{figure}
@@ -102,7 +101,7 @@ Figures~\ref{fig:Fall2020_SSA_RF_east} and \ref{fig:Fall2020_SSA_RF_west} depict
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We first compare asymmetry (calculated with Eq.~(\ref{eq:spin_asymmetry})) between the drop detector and each of the SSA arms. From Fig~\ref{fig:spin_flipper_efficiency}, when the RF coil is at the \qty{20}{kHz} resonant frequency the neutron count drops to 12\% of the baseline. The asymmetry for the drop detector is then $A= 0.79(3)$. For the ``East'' arm (Fig.~\ref{fig:Fall2020_SSA_RF_east}), the input amplitude of \qty{1.4}{V} at the \qty{34}{kHz} resonance reduces neutron counts to 21\% of the baseline ($A=0.65(3)$). For the ``West'' arm (Fig.~\ref{fig:Fall2020_SSA_RF_west}) the same resonance reduces neutron count to 17\% ($A=0.69(3)$). 
+We first compare asymmetry (calculated with Eq.~(\ref{eq:spin_asymmetry})) between the drop detector and each of the SSA arms. From Fig~\ref{fig:spin_flipper_efficiency}, when the RF coil is at the \qty{20}{kHz} resonant frequency the neutron count drops to 12\% of the baseline. The asymmetry for the drop detector is then $A\approx 0.8$. For the ``East'' arm (Fig.~\ref{fig:Fall2020_SSA_RF_east}), the input amplitude of \qty{1.4}{V} at the \qty{34}{kHz} resonance reduces neutron counts to 21\% of the baseline ($A=0.65(3)$). For the ``West'' arm (Fig.~\ref{fig:Fall2020_SSA_RF_west}) the same resonance reduces neutron count to 17\% ($A=0.69(3)$). 
 
 While both SSA arms exhibited comparable spin asymmetry, they were outperformed by the single analyzer system. To rule out the possibility of SSA guide segments being spin-depolarizing, the \qty{90}{\degree} bend was replaced with a spare component, but the asymmetry measurements at resonance were not significantly altered.
 
@@ -112,15 +111,26 @@ Again examining the resonant peak of Fig.~\ref{fig:spin_flipper_efficiency}, the
 
 To confirm the magnetic field gradient, an in-situ magnetic field map was attempted. When mounted on the switcher, however, accessing the spin flipping region in the wye with a Hall probe required the removal of the spin polarizing foil. Without the polarizer completing the magnetic flux ``circuit'' of the iron yoke, the magnetic field gradients from the polarizer ferromagnets could not be decoupled from the ambient gradients. Field mapping was delayed until after the 2020 measurement cycle, when the SSA was dismounted from the switcher for Hall probe access through the stem of the wye. An attempt was also made to slide the RF coils along the arms of the wye farther away from the iron yoke to a region with potentially milder gradients, but it was impeded by the presence of unnecessary aluminum sleeves enclosing the RF coils.
 
-Another observation from the SSA tests was that non-horizontal polarizer foils (seen in Fig.~\ref{fig:ssa_schematic}) could affect measured spin asymmetry. For \ucn with a downward vertical trajectory in the SSA, the kinetic energy component $K_\perp$ perpendicular to the surface of the spin polarizer would be reduced, lowering transmission probability (Sec.~\ref{sec:ucn_reflection_transmission}). While this issue could be mitigated simply by extending the vertical guide segment and using gravity to increase $K_\perp$ (Sec.~\ref{sec:ucn_grav_em}), the SSA mounting frame at the time was unable to accommodate extensions.
+Another observation from the SSA tests was that non-horizontal polarizer foils (seen in Fig.~\ref{fig:ssa_schematic}) could affect measured spin asymmetry. For \ucn with a downward vertical trajectory in the SSA, the kinetic energy component $K_\perp$ perpendicular to the surface of the spin polarizer would be reduced, lowering transmission probability (Sec.~\ref{sec:ucn_reflection_transmission}). While the issue could be mitigated simply by extending the vertical guide segment and using gravity to increase $K_\perp$ (Sec.~\ref{sec:ucn_grav_em}), the SSA mounting frame at the time was unable to accommodate extensions.
 
-Following the 2020 measurement cycle, the following upgrades were performed:
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/matching_box_30kHz.pdf}
+    \caption
+    [Circuit of the impedance matching box for the simultaneous spin analyzer, designed for the nominal RF frequency of \qty{30}{kHz}.]
+    {Circuit of the impedance matching box for the simultaneous spin analyzer, designed for the nominal RF frequency of \qty{30}{kHz}. Figure and matching box courtesy of Gerard Visser.}
+    \label{fig:ssa_matching_box}
+\end{figure}
+
+Following the 2020 measurement cycle, the following upgrades were implemented:
 %
 \begin{enumerate}
     \item The SSA switcher mounting frame was extended and an additional \qty{15}{in} of vertical NiP-coated Al guide was added.
     \item The aluminum sleeves enclosing the RF coils were removed and the RF coils were placed farther from the iron yoke. The RF coils were replaced with new versions wound with thinner-gauge wire for a larger RF amplitude.
-    \item The magnetic field in the region of the spin flipper was mapped with a Hall probe with the polarizer foils inserted in the flux return yoke. From the field map, a nominal RF operating frequency of \qty{30}{kHz} (corresponding to a field $B_\text{stat}=\qty{100}{\micro T}$) was determined. An impedance matching circuit for the RF coils at the nominal operating frequency was then created.\label{enum:ssa_upgrade}
+    \item The magnetic field in the region of the spin flipper was mapped with a Hall probe with the polarizer foils inserted in the flux return yoke. From the field map, a nominal RF operating frequency of \qty{30}{kHz} (corresponding to a field $B_\text{stat}=\qty{100}{\micro T}$) was determined. An impedance matching circuit (Fig.~\ref{fig:ssa_matching_box}) for the RF coils at the nominal operating frequency was then created.\label{enum:ssa_upgrade}
     \item The PMTs on the SSA were replaced with Onsemi \acrshort{sipm} 4-Side Scaleable Arrays (C Series) to avoid potential complications of the PMTs being located too close to the iron yoke ferromagnets. (The light guide on the drop detector was much longer than the the SSA light guides, so it did not share this issue)
 \end{enumerate}
 %
 A second SSA system was also constructed with the above improvements incorporated. As per point (\ref{enum:ssa_upgrade}), future asymmetry measurements with the SSAs will avoid adjusting the nominal RF coil frequency, and instead sweep the strength of the holding field coals in the spin flipper region.
+
+
