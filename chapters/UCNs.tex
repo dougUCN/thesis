@@ -4,7 +4,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Ultracold neutron(s) (\ucn) are neutrons of very low kinetic energy ($\lesssim \qty{300}{\nano\eV}$) that have a number of convenient properties useful in experiments involving fundamental physics. Modern nEDM experiments are performed almost exclusively using UCN \cite{BAK06, SER15, ABE20} (an alternative is proposed in Ref.~\cite{PIE13}). Depending on the optical potential (Sec.~\ref{sec:ucn_matter_int}), \ucn may be contained at all angles of incidence by material bottles. They are also of low enough energies that they may be influenced by gravitational and magnetic potentials (Sec.~\ref{sec:ucn_grav_em}). Due to the ease of manipulation and transport, \ucn can be moved away from the production source, where backgrounds are typically high, into shielded environments where backgrounds may be controlled. \ucn are easy to polarize, and their polarization is easily measured (Sec.~\ref{sec:ucn_polarizers}). Neutrons are also abundantly available (albeit bound in nuclei) and when freed have a long lifetime (Sec.~\ref{sec:weak_interaction}).
+Ultracold neutron(s) (\ucn) are neutrons of very low kinetic energy ($\lesssim \qty{300}{\nano\eV}$) that have a number of convenient properties useful in experiments involving fundamental physics. Modern nEDM experiments are performed almost exclusively using UCN \cite{BAK06, SER15, ABE20} (an alternative is proposed in Ref.~\cite{PIE13}). Depending on the optical potential (Sec.~\ref{sec:ucn_matter_int}), \ucn may be contained at all angles of incidence by material bottles. They are also of low enough energies that they may be influenced by gravitational and magnetic potentials (Sec.~\ref{sec:ucn_grav_em}). Due to the ease of manipulation and transport, \ucn can be moved away from the production source, where backgrounds are typically high, into shielded environments where backgrounds may be controlled. \ucn are easy to spin polarize, and their polarization is easily measured (Sec.~\ref{sec:ucn_polarizers}). (In this dissertation, we use ``polarization'' to denote ``spin polarization'' unless mentioned otherwise.) Neutrons are also abundantly available (albeit bound in nuclei) and when freed have a long lifetime (Sec.~\ref{sec:weak_interaction}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -16,12 +16,33 @@ A population of \ucn may be treated as an ideal gas with a few unique characteri
 %
 \begin{itemize}
     \item \ucn wall collisions are mostly elastic and specular. Inelastic scattering results in a neutron being upscattered (heated) from the \ucn energy range and lost. \ucn gas in a container is in a pseudo equilibrium where the gas velocity is isotropic in the storage volume
-    \item UCN\textendash UCN collisions are negligible, and the mean free path of a \ucn is characterized by the geometry of the storage volume
+    \item UCN\textendash UCN collisions are negligible. The mean free path of a \ucn is characterized by the geometry of the storage volume. Typical UCN gas densities produced by the LANL UCN source (Sec.~\ref{sec:lanl_ucn_source}) are on the order of $\sim\qty{100}{UCN \per cm^3}$.
     \item Due to gravity, \ucn density tends to decrease as height increases within the storage volume.
-    \item \ucn gas density decreases over time as \ucn are lost to $\beta$ decay and wall collisions.
+    \item When stored with no new \ucn added to the system, \ucn gas density decreases over time as \ucn are lost to $\beta$ decay and wall collisions.
 \end{itemize}
 %
 \ucn flow in guide tubes is similar to rarified gas flow in tubes, with the same caveats described above.
+
+
+\begin{table}
+\centering
+\caption{General classification of neutrons based on energy and velocity}\label{tb:neutron_energy_range}
+\begin{tabular}{
+    l
+    l
+    l
+}
+\toprule
+& {Energy \unit{\micro eV}} & {Velocity \unit{m\per s}} \\ 
+\midrule
+thermal & \num{10000} -- \num{50000} & \num{1400} -- \num{2100} \\
+cold & \num{50} -- \num{10000} & \num{100} -- \num{1400} \\
+very cold & \num{0.3} -- \num{50} & \num{8} -- \num{100} \\
+ultracold & $< \num{0.3}$ & $<8$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -29,7 +50,7 @@ A population of \ucn may be treated as an ideal gas with a few unique characteri
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ucn are of sufficiently low energy such that the influence of gravity is non-negligible. For gravitational acceleration $g_0$ acting on a neutron mass \gls{m_n}, the potential energy of at a height $h$ is given by
+\ucn are of sufficiently low kinetic energy such that the influence of gravity is non-negligible. For gravitational acceleration $g_0$ acting on a neutron mass \gls{m_n}, the potential energy of at a height $h$ is given by
 %
 \begin{gather}
     V_g = \gls{mg}h
@@ -71,7 +92,7 @@ Free neutrons undergo $\beta$ decay
     \text{n}\rightarrow \text{p}+ e^-+\bar{\nu}_e
 \end{gather}
 %
-governed by the neutron lifetime (decay time) $\gls{tau_n}=\glsvalue*{tau_n}$ \cite{pdg2022}. The Feynman diagram to leading order for this process is given in Fig.~\ref{fig:beta_decay}. The neutron lifetime designates the amount of helium created during Big Bang nucleosynthesis. The CKM matrix element $V_\text{ud}$ (Eq.~\ref{eq:CKM}) can be determined from measurements of \gls{tau_n} in combination with measurements of $0^+\rightarrow0^+$ decays~\cite{Young2014}.
+governed by the neutron lifetime (decay time) $\gls{tau_n}=\glsvalue*{tau_n}$ \cite{pdg2022}. The Feynman diagram to leading order for this process is given in Fig.~\ref{fig:beta_decay}. The neutron lifetime designates the amount of helium created during Big Bang nucleosynthesis. The CKM matrix element $V_\text{ud}$ (Eq.~\ref{eq:CKM}) can be determined from measurements of \gls{tau_n} in combination with measurements of the axial coupling constant G$_A$~\cite{Young2014}.
 
 The most accurate neutron lifetime experiments to date have been storage experiments with \ucn held by magnetic and gravitational potentials, such as the UCN$\tau$ experiment at \acrshort{lanl} \cite{gonzalez_ucn_tau}. There is an ongoing disagreement between neutron lifetime storage experiments that count surviving \ucn and neutron lifetime cold beam experiments that count the proton decay products~\cite{czarnecki2018}.
 
@@ -122,9 +143,9 @@ Chapter 2 of Ref.~\cite{golubUCN} provides a very thorough description of neutro
     U = V - iW = \frac{2\pi\hbar^2}{\gls{m_n}}\gls*{rho_N} b_\text{c}-i\frac{\hbar}{2}\gls*{rho_N} \sigma_{\text{t}} v \label{eq:optical_potential}
 \end{gather}
 %
-where \gls{m_n} is the neutron mass, $v$ is the velocity of the neutron, $b_\text{c}$ is the coherent neutron scattering length of the material, $\sigma_{\text{t}}$ is the total loss cross section, and $\gls*{rho_N}$ is number density. Number density can be expressed in units~[\unit{\meter^{-3}}] by the relation $\gls*{rho_N}=\rho_\text{mat}N_A/w_\text{at}$, where $\rho_\text{mat}$ [\unit{\g\per\m^3}] is material density, $w_\text{at}$ [\unit{\g\per\mole}] is atomic weight, and $N_A$ [\unit{\mole^{-1}}] is Avogadro's number.
+where \gls{m_n} is the neutron mass, $v$ is the velocity of the neutron, $b_\text{c}$ is the coherent neutron scattering length of the material, $\sigma_{\text{t}}$ is the total loss cross section, and $\gls*{rho_N}$ is number density. Number density can be expressed in units~[\unit{\meter^{-3}}] by the relation $\gls*{rho_N}=\rho_\text{mat}N_A/w_\text{at}$, where $\rho_\text{mat}$ [\unit{\g\per\m^3}] is material density, $w_\text{at}$ [\unit{\g\per\mole}] is atomic weight, and $N_A$ [\unit{\mole^{-1}}] is Avogadro's number. 
 
-The real component of optical potential $V$ describes the critical neutron energy that may be confined by a material, and the imaginary part $W$ describes absorption and upscattering within the material. Table~\ref{tb:optical_potentials} lists the UCN optical potentials of commonly used materials in nEDM experiments.
+The optical potential formalism originates from representing the short range nuclear interaction as delta functions on the atomic scale. The relatively large UCN wavelength interacts with a ``forest'' of delta functions, which is effectively treated as an optical potential. The real part $V$ describes the critical neutron energy that may be confined by a material, and the imaginary part $W$ describes absorption and upscattering within the material. Table~\ref{tb:optical_potentials} lists the UCN optical potentials of commonly used materials in nEDM experiments.
 
 \begin{table}
 \centering
@@ -143,7 +164,7 @@ Aluminum & Al & 54.1 & 0.00281 & \cite{atchison_transmission_2009}\\
 Copper & Cu & 168 & 0.0252 & \cite{golubUCN}\\
 Diamond-like carbon & \acrshort{dlc} & 250 & 0.0875 & \cite{Atchison2006} \\
 Deuterated polystyrene & \acrshort{dps} & 161 & 0.0483 & \cite{bodek_storage_2008} \\
-$\ce{^{58}}\text{Nickel}$ & $\ce{^{58}Ni}$ & 335 & 0.0503 & \cite{golubUCN} \\
+Nickel-58 & $\ce{^{58}Ni}$ & 335 & 0.0503 & \cite{golubUCN} \\
 Nickel Molybdenum & \acrshort{nimo} & 221.5 & 0.027 & \cite{bondar_losses_2017}  \\
 Nickel Phosphorus & \acrshort{nip} & 213 & 2.3e-2 & \cite{pattie_jr_evaluation_2017}  \\
 Stainless Steel & \acrshort{ss} & 183 & 0.055 & \cite{akatsuka_characterization_2023} \\
@@ -159,7 +180,7 @@ Polytetrafluoroethylene & \acrshort{ptfe} & 123 & & \cite{golubUCN} \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Consider a neutron traveling in a material of potential $V$, with kinetic energy $K$. Let the neutron be incident on a second material of potential $V'$ and imaginary potential $W$, with an energy component perpendicular to the surface of the second material $K_\perp$. The incident neutron may be treated as a propagating wave function $\psi = \exp (ikx)$ with wave vector $k=\sqrt{2\gls{m_n}K/\hbar^2}$.
+Consider a neutron traveling in a material of potential $V$, with kinetic energy $K$. Let the neutron be incident on a second material of potential $V'$ and imaginary potential $W$, with an energy component perpendicular to the surface of the second material $K_\perp$. In the initial material, we let the neutron be a propagating wave function $\psi = \exp (ikx)$ with wave vector $k=\sqrt{2\gls{m_n}K/\hbar^2}$. In the second material let the wave vector $k'=\sqrt{2\gls{m_n}(K-(V'-V))/\hbar^2}$.
 
 Reflection probability $R$ arises from continuity requirements at the incidence boundary, and is given by~\cite{golubUCN, schreyer_thesis}
 %
@@ -170,9 +191,9 @@ Reflection probability $R$ arises from continuity requirements at the incidence 
     \end{cases}
 \end{gather}
 %
-Under the condition $K_\perp < (V'-V)$, the neutron cannot be transmitted, only reflected. However, as per Eq.~\ref{eq:loss_on_reflection}, there is a reflection loss probability. The wave function of a reflected \ucn penetrates a small distance into the incidence surface, where it may be lost by the interactions described in Sec.~\ref{sec:ucn_absorption}.
+Under the condition $K_\perp < (V'-V)$, the neutron cannot be transmitted, only reflected. However, there is a reflection loss probability is given by $1-R$. The wave function of a reflected \ucn penetrates a small distance into the incidence surface, where it may be lost by the interactions described in Sec.~\ref{sec:ucn_absorption}.
 
-If $K_\perp > (V'-V)$ and the neutron is not reflected, it undergoes refraction and is transmitted through the surface into the second material. The energy of the neutron within the second material is given by $K'=K-(V'-V)$. The refraction is analogous to Snell's law, where the velocity component in the first material perpendicular to the refraction surface $v_\perp$ is changed and the component parallel to the surface $v_\parallel$ is unaltered. The velocity in the second material $v'$ is given by
+If $K_\perp > (V'-V)$, the probability of reflection is given by $R$ and the probability of transmission into the second material is $1-R$. The energy of the neutron within the second material is given by $K'=K-(V'-V)$. The refraction is analogous to Snell's law, where the velocity component in the first material perpendicular to the refraction surface $v_\perp$ is changed and the component parallel to the surface $v_\parallel$ is unaltered. The velocity in the second material $v'$ is given by
 %
 \begin{align}
     \vv{v}' &= \vv{v}_\parallel+ \vv{v}'_\perp \\
@@ -182,15 +203,15 @@ If $K_\perp > (V'-V)$ and the neutron is not reflected, it undergoes refraction 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Absorption and up-scattering}\label{sec:ucn_absorption}
+\subsection{Absorption and upscattering}\label{sec:ucn_absorption}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The two main loss mechanisms for \ucn within a material are absorption and inelastic up-scattering. Absorption occurs when the neutron is captured by nuclei, and inelastic upscattering occurs when a thermally vibrating nucleus increases the energy of \ucn such that it may no longer be stored. The total loss cross section $\sigma_{\text{t}}$ (from Eq.~\ref{eq:optical_potential}) is the sum of absorption cross section $\sigma_\text{abs}$ and inelastic up-scattering cross section $\sigma_\text{inel}$.
+The two main loss mechanisms for \ucn within a material are absorption and inelastic upscattering. Absorption occurs when the neutron is captured by nuclei, and inelastic upscattering occurs when a thermally vibrating nucleus increases the energy of \ucn such that it may no longer be stored. The total loss cross section $\sigma_{\text{t}}$ (from Eq.~\ref{eq:optical_potential}) is the sum of absorption cross section $\sigma_\text{abs}$ and inelastic upscattering cross section $\sigma_\text{up}$.
 
-Absorption cross sections are well quantified (see Ref.~\cite{nist_neutron_cross_sections}), but up-scattering cross sections are mostly unknown. Among many other factors, surface impurities with large inelastic scattering cross sections (e.g. hydrogen, $\sigma_\text{inel} \sim \qty{80}{\barn}$ \cite{nist_neutron_cross_sections}), will heavily affect up-scattering probabilities. When simulating \ucn material interactions it is often easier to make the assumption $\sigma_{\text{t}} \cong \sigma_\text{abs}$, and to treat up-scattering as a separate effective loss per bounce parameter, as described in Sec.~\ref{sec:loss_per_bounce}.
+Absorption cross sections are well quantified (see Ref.~\cite{nist_neutron_cross_sections}), but upscattering cross sections are mostly unknown. Among many other factors, surface impurities with large upscattering cross sections (e.g. hydrogen, $\sigma_\text{up} \sim \qty{80}{\barn}$ \cite{nist_neutron_cross_sections}), will heavily affect upscattering probabilities. When simulating \ucn material interactions it is often easier to make the assumption $\sigma_{\text{t}} \cong \sigma_\text{abs}$, and to treat upscattering as a separate effective loss per bounce parameter, as described in Sec.~\ref{sec:loss_per_bounce}.
 
-The absorption cross section $\sigma_\text{abs}$ is proportional to $1/v$. From the second term of Eq.~(\ref{eq:optical_potential}) it becomes apparent that $W$ is independent of neutron velocity in the material.
+Absorption $\sigma_\text{abs}$ and upscattering cross sections $\sigma_\text{up}$ are proportional to $1/v$. From the second term of Eq.~(\ref{eq:optical_potential}) it becomes apparent that $W$ is independent of neutron velocity in the material.
 
 Absorption loss probability may be expressed by non-conservation of current density $\vv{j}$ \cite{golubUCN}
 %
@@ -198,7 +219,7 @@ Absorption loss probability may be expressed by non-conservation of current dens
     \vv{j} = \frac{\hbar}{2m} ( \psi^* \vv{\nabla} \psi - \psi \vv{\nabla}\psi^*)
 \end{gather}
 %
-For some neutron wave function propagating through a material $\psi = \exp (ik'x)$ with wave vector $k'=\sqrt{2m(K'+iW)}/\hbar$. This gives
+For some neutron wave function propagating through a material $\psi = \exp (ik'x)$ with wave vector $k'=\sqrt{2m(K'+iW)}/\hbar$, this gives
 %
 \begin{gather}
     j \propto e^{-2\,\text{Im}(k')x}
@@ -224,7 +245,7 @@ The average loss probability per bounce $\bar{\mu}(K)$ for a \ucn of kinetic ene
     \bar{\mu} = 2f \left[ \frac{V}{K} \sin^{-1}\left( \frac{K}{V}\right)^{1/2} -\left( \frac{V}{K} - 1 \right)^{1/2} \right] \label{eq:lossPerBounce_golub}
 \end{gather}
 %
-The loss factor is $f=W/V$, for optical potential terms $V$ and $W$ from Eq.~(\ref{eq:optical_potential}). For a more phenomenological treatment of loss per bounce, Eq.~(\ref{eq:lossPerBounce_golub}) may be modified by replacing $f$ with a free parameter $\mu$, a velocity independent effective loss per bounce. See Secs.~\ref{subsec:storageCurves} and \ref{sec:1D_random_walk} for example applications.
+The loss factor is $f=W/V$, for optical potential terms $V$ and $W$ from Eq.~(\ref{eq:optical_potential}). For a more phenomenological treatment of loss per bounce, Eq.~(\ref{eq:lossPerBounce_golub}) may be modified by treating $f$ was a free parameter, or by replacing the entire right hand side with a velocity independent loss per bounce parameter $\mu$, which applies well to guide systems with gaps. See Secs.~\ref{subsec:storageCurves} and \ref{sec:1D_random_walk} for example applications.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -255,7 +276,7 @@ Where $I_0$ is the beam density intensity at the entrance of the material. Defin
     I(x) = I_0 \exp(-x/\lambda_\text{mfp}) \label{eq:beer_lambert_law}
 \end{gather}
 %
- The Beer-Lambert law applies to neutrons, photons, and rarefied gases. See Appx.~\ref{appx:199hg_pumping} for an example application to the \qty{254}{\nano\meter} laser used for optical pumping of the $\ce{^199Hg}$ comagnetometer. 
+ The Beer-Lambert law applies to neutrons, photons, and rarefied gases. See Sec.~\ref{sec:1D_random_walk} and Appx.~\ref{appx:199hg_pumping} for example applications.
  
  We consider the process of bulk elastic scattering, when the neutron collides with the material and has its trajectory altered according to a Lambertian distribution. The probability $P_\text{elastic}$ after traversing a distance $x$ through a material is given by
 %
@@ -296,8 +317,8 @@ where $\sigma_\text{abs}$ is the absorption cross section for thermal neutrons (
 \end{figure}
 
 
-\ucn incident on a smooth surface are usually reflected specularly, such that the angle of incidence is equal to the angle of reflection. However, there is a small material-dependent chance ($\sim\qtyrange{1}{10}{\percent}$) of diffuse (nonspecular) reflection. Diffusivity also affects the trajectory of refracted 
-\ucn during transmission through a surface. The simplest version of diffuse reflection uses a Lambertian, or $\cos\theta$, distribution to determine the reflected intensity
+\ucn incident on a smooth surface are usually reflected specularly, such that the angle of incidence is equal to the angle of reflection. However, there is a small surface property dependent chance ($\sim\qtyrange{1}{10}{\percent}$) of diffuse (nonspecular) reflection. Diffusivity also affects the trajectory of refracted 
+\ucn during transmission through a surface. The simplest model of diffuse reflection uses a Lambertian, or $\cos\theta$, distribution to determine the reflected intensity
 %
 \begin{gather}
     I_\text{L}(\theta)d\Omega=\frac{P_\text{L}}{\pi}\cos\theta\,d\Omega\label{eq:lambertian_reflection}

@@ -69,6 +69,7 @@
 \usepackage{algorithmic}
 \usepackage{braket}
 \usepackage[h]{esvect} % \vv gives better looking vector than \vec
+\usepackage{enumitem} % allows controlling of spacing within enum environments
 
 % Reduce excessive line spaces before and after math environments
 % "\the\abovedisplayskip{} and \the\belowdisplayskip" prints the values
@@ -104,6 +105,7 @@
 \usepackage{booktabs}
 \usepackage[labelfont=bf]{caption} % bold the words "figure" and "table"
 \captionsetup[table]{aboveskip=10pt, belowskip=5pt}
+\usepackage{makecell} % Allow newlines in table cells with
 \usepackage{subcaption} % For subfigure environment
 \usepackage{rotating} % For sideways figures
 
@@ -341,9 +343,8 @@
  \unexpanded{\unexpanded{\renewcommand{\cftchapdotsep}{\cftnodots}}}%  
 }
 \addcontentsline{toc}{chapter}{Curriculum Vitae}
-\input{chapters/CV.tex}
 
-% \includepdf[pages=-]{CV.pdf}
-\thispagestyle{empty}
+\input{chapters/appendix/CV.tex} 
+
 
 \end{document}

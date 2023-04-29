@@ -1,8 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Monte carlo simulations of UCN transport and spin transport}\label{chap:simulations}
+\chapter{Monte Carlo simulations of UCN transport and spin transport}\label{chap:simulations}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Secs. blah and blah use PENTrack to run ucn transport simulations. The height differential problem... The spin asymmetry problem... Simulations were run on the IU Carbonate cluster... Sec. blah provides a demonstration of modeling transport into the cell with a simple 1D random walk. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -10,19 +12,22 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Arbitrary STL files, define material types based on real and imaginary potentials (\ref{sec:ucn_matter_int}). Numerical or analytical fields (time dependent) both supported. Specularity can be lambertian or based on micro roughness \ref{sec:diffuse_reflections}. Supports \hg, xenon, electrons, protons, etc. Spin tracking works even at higher velocities due to relativistic spin equations \ref{sec:BMT_equations}. ODE integration method is a 5th order Dortmund Prince \cite{numerical_recipes} from the BOOST cpp library. \cite{schreyer_pentrack}
+PENTrack \cite{schreyer_pentrack} is a simulation tool written in C++ for UCN experiments developed by Wolfgang Schreyer. It supports many excellent features, including:
+%
+\begin{itemize}
+    \item Arbitrary experimental geometries defined by STL files
+    \item Arbitrary analytical and numerical electromagnetic fields, with time dependence
+    \item Definition of multiple material types via real and imaginary optical potentials~(Sec.~\ref{sec:ucn_matter_int})
+    \item Diffuse reflection with Lambertian and micro roughness models (Sec.~\ref{sec:diffuse_reflections})
+    \item Relativistic spin tracking with the BMT equation (Sec.~\ref{sec:BMT_equations}). Spin tracking of high speed particles such as electrons, protons, etc. are supported.
+    \item Simulation of neutron decay and the tracking of resulting protons and electrons
+    \item Simulation of xenon, \hg, and additional user-defined particles
+    \item Output to ROOT or HDF binary formats
+\end{itemize}
+%
+The numerical integration method utilized by PENTrack is a 5th-order Dortmund Prince algorithm~\cite{numerical_recipes}. The pseudo-random generator is the 64-bit Mersenne Twister 19937 algorithm. The seed is generated with a nanosecond resolution time stamp or can be provided directly, which makes PENTrack suitable for running in a multi-threaded mode.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection
-{
-    \texorpdfstring{PENTrack on the Carbonate cluster at \acrshort{iu}}
-                    {PENTrack on the Carbonate cluster at IU}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-PENTrack seeding/clock cycle system. PENTrack cluster scripts appendix
+Perhaps most importantly, the PENTrack code base is clearly written and readable, making contributing to it widely accessible. The simulation code is available at [\url{https://github.com/wschreyer/PENTrack}].
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -30,7 +35,7 @@ PENTrack seeding/clock cycle system. PENTrack cluster scripts appendix
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Sweep diffusivity at least or something
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -51,48 +56,74 @@ Upper switcher set to stainless steel blankoff vs set to a perfect detector
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The probability for a neutron to be lost in the bulk of the aluminum window in a single pass can be described by
+The presence of the Al window in the PM region (Sec.~\ref{sec:PM_description}) results in the loss of some high field seekers from the Al total cross section, absorption from thin oxide films~\cite{pokotilovski_effect_2016}, and bulk elastic scattering from structural inhomogenieties. The effect is compounded when nonspecular bounces cause high field seekers to pass through the Al window region multiple times. We use a simple 1D random walk model to estimate the loss factor from an absorption or effective cross section. The C++ code used to produce the estimate in this section is available at [\url{https://github.com/dougUCN/randomWalk}].
 
+The probability for a neutron to be absorbed in the bulk of the Al window in a single pass can be described using the Beer Lambert Law, Eq.~(\ref{eq:beer_lambert_law})
+%
+\begin{gather*}
+   P_\text{abs}(v) = 1 - \exp \left( - \frac{\ell_\text{window} }{ \lambda_\text{mfp} } \right)
+\end{gather*}
+%
+where $\ell_\text{window}$ is the thickness of the window (\qty{1e-4}{m}), and $\lambda_\text{mfp} = 1 / (N\,\sigma_\text{abs}(v))$ is the mean free path of absorption. $N$ is number density and $\sigma_\text{abs}(v)$ is the velocity-dependent neutron absorption cross section of the material. 
+
+High-field seeking UCN gain approximately 300 neV from the PM field. Assuming UCN in the NiP guide have energies in the \qty{0}{n\eV} to \qty{214}{n\eV} range, high field seekers that encounter the PM window will be in the \qty{300}{n\eV} to \qty{513}{n\eV} regime. $P_\text{abs}(v)$ in this regime can be approximated with a flat line, and we estimate $P_\text{abs}\approx 0.03$ for a single pass through the window.
+
+The UCN path from the source to the cell can be modeled as a 1D random walk, where the step size is the distance traveled by a particle before a nonspecular bounce. From Eqs.~(4.79), (4.70), and (4.48) in Ref.~\cite{golubUCN}, we write
+%
 \begin{gather}
-   P_\text{abs} = 1 - \exp \left( - \frac{\ell_\text{window} }{ \ell_\text{mfp} } \right)
+    d = 2 R\sqrt{\frac{2(2-P_\text{nonspec})}{3P_\text{nonspec}} }
 \end{gather}
+%
+where $R=\qty{1.5}{in}=\qty{0.0381}{m}$ is the radius of the cylindrical UCN guide and $P_\text{nonspec}$ is the probability of a Lambertian (Sec.~\ref{sec:diffuse_reflections}) bounce. Nonspecularity for NiP-coated \acrshort{ss} pipes has previously been measured to be $P_\text{nonspec}\approx0.05$~\cite{pattie_jr_evaluation_2017}, but for Cu or NiP-coated Al, nonspecularity may be treated as a free parameter. For this example calculation we let $P_\text{nonspec}\approx0.05$, giving $d\approx \qty{0.389}{m}$.
 
-where $\ell_\text{window}$ is the thickness of the window (\qty{1e-4}{m}), and $\ell_\text{mfp} = 1 / (N\sigma_\text{abs})$ is the mean free path of absorption. $N$ is number density and $\sigma_\text{abs}$ is the velocity-dependent neutron absorption cross section of the material. 
-
-It should be noted that high-field seeking UCN gain approximately 300 neV from the PM field, so neutrons that encounter the window will be in the 300 neV to 515 neV regime. $P_\text{abs}$ can be approximated as 0.04 for this energy range. This single pass loss probability is lower than the observed value of ($10.3\pm 2.8$)\% described in section subsec:windowLoss. However, nonspecularity of the UCN transport pipe can lead UCN to pass through the window region multiple times, increasing transmission loss. 
-
-The loss from multiple window passes is estimated using a simple monte carlo simulation, where neutron transmission into the precession chamber is modeled as a 1D random walk. Each step in the random walk corresponds to the distance traveled between non-specular bounces. 
-
-From eq. 4.79, eq. 4.70, and eq. 4.48 in reference \cite{golubUCN}, we write the step size between non-specular bounces as
-
-\begin{gather}
-    L_\text{spec} = 2 R\sqrt{\frac{2(2-d)}{3d} }
-\end{gather}
-
-
-where $R$ is the radius of the cylinder and $d$ is the chance for a diffuse bounce
-
-Nonspecularity is approximately 0.05 for NiPh pipes (as measured by Ref. \cite{pattie_jr_evaluation_2017}). {\color{blue}Guide is stainless steel coated in NiPh, we know nonspecularity of stainless steel tubing (find manufacturer spec). Maybe Andy's paper. Adding NiPh may increase nonspecularity by a few percent. Basically it's a free parameter} therefore we let $N_\text{specular bounces} = 20$. For a pipe ID of 3 inches and total pipe length of 12 meters, step size = 0.75 meters.
-
-Neutrons that return to the source are considered lost and removed from simulation. We also assume that neutrons which make it to the chamber do not leave
-
-When a neutron reaches the end of the 1D pipe, the odds of it getting into the cell is modeled as
-
+NiP has a loss per bounce of $\sim 10^{-4}$~\cite{pattie_jr_evaluation_2017}. The loss per 1D step is then given by
+%
 \begin{align}
-    \text{cellChance} &= \left(1 - \left( 1 - \frac{ \text{openingArea} } {\text{total inner surface area of last segment}} \right) ^ {N_\text{spec}} \right)^2 \\
-    &= \left(1 - \left( 1 - \frac{ (\text{cellEntranceID}/2)^{2} } {\text{pipeID}\times\text{step size}} \right) ^ {N_\text{spec}} \right) ^2 \\
-    &\approx \left( \frac{ (\text{cellEntranceID}/2)^{2} \times N_\text{spec} } {\text{pipeID}\times\text{step size}} \right)^2
+    \text{loss per step} &= 1 - \left(1 - \text{loss per bounce} \right)^{N_\text{spec}}\\
+    &\approx N_\text{spec} \times \text{loss per bounce}
 \end{align}
 
-There is an extra factor of 2 because a nonspecular ``rejection'' step gives the neutron a second chance to enter the chamber. For a cellEntranceID of 74.5 mm (2.933 in) we estimate that cellChance = 43\%
-
-In our 1D random walk monte carlo, We also include loss per bounce (NiPh = $10^{-4}$) \cite{pattie_jr_evaluation_2017}. The loss per 1D step is then given by
-
+When a neutron reaches the end of the 1D beamline, the probability of it entering the cell is dictated by the ratio of the size of the cell entrance to the ``surface area'' of the last 1D step. We model this as
+%
 \begin{align}
-    \text{lossPerStep} &= 1 - \left(1 - \text{lossPerBounce} \right)^{N_\text{spec}}\\
-    &\approx N_\text{spec} \times \text{lossPerBounce}
+    \text{cell entry chance} &= \left(1 - \left( 1 - \frac{ \text{area of the cell entrance} } {\text{surface area of last 1D step}} \right) ^ {N_\text{spec}} \right)^2 \\
+    &= \left(1 - \left( 1 - \frac{ R_\text{entrance}^{2} } {2 R \, d} \right) ^ {N_\text{spec}} \right) ^2\label{eq:cell_entry_chance}
 \end{align}
+%
+where the average number of specular bounces between a nonspecular bounce is given by $N_\text{spec} = 1/P_\text{nonspec}$. For a cell entrance radius $R_\text{entrance}=\qty{1.47}{in}=\qty{0.0373}{m}$ and $N_\text{spec}=20$ we estimate that the chance of entering the cell  is $\approx 0.38$.
 
-\subsubsection{Results of 1D random walk monte carlo simulation}
+Neutrons that enter the cell have a probability of exiting the cell before the end of the filling period. Assuming cell trajectories are isotropic in the cell, this ``exit lifetime'' can be approximated by
+%
+\begin{gather}
+    \text{cell exit lifetime} = \frac{4V_\text{cell}}{\pi R_\text{entrance}^2 \bar{v}}
+\end{gather}
+%
+derived using Eq.~(\ref{eq:effusion-lifetime}). $V_\text{cell}$ is the volume of the precession cell and $\bar{v}$ is the average of velocity of UCN in the cell. For a $v^2\,dv$ distribution (Sec.~\ref{subsec:storageCurves}) and NiP-coated guides (which store UCN up to $\qty{214}{neV}\approx\qty{6.4}{m\per s}$), 
+%
+\begin{gather}
+    \bar{v}=\frac{\int_0^{6.4}{v^3\,dv}}{\int_0^{6.4}{v^2\,dv}}\approx \qty{4.8}{m\per s}
+\end{gather}
+%
+In this example we let the UCN source be located at \qty{0}{m}, and the Al window at \qty{9}{m}, and the cell entrance at \qty{12}{m}. Assuming a preload procedure (Sec.~\ref{subsec:holdingTimeMeasurement}) was followed we let UCN start at the location of a gate valve on the beamline, located at \qty{6}{m}. For a fill time of \qty{50}{s}, UCN with a velocity $\bar{v}$ undergo the 1D random walk until the filling period is over. UCN that return to the D$_2$ source are considered to be lost. UCN that make it to the cell valve location may enter the cell based on Eq.~(\ref{eq:cell_entry_chance}). Neutrons that enter the cell remain for the duration of the cell exit lifetime and exit unless the fill time is completed.
 
-Of $1\,000\,000$ simulated neutrons, $366\,465$ neutrons make it into the precession chamber, averaging 5.41 window passes per neutron. In comparison, the monte carlo simulation with window loss turned off yields $437\,694$ neutrons that make it into the chamber. Therefore we estimate a 16.3\% loss factor due to the presence of the window (need error propagation)
+Table~\ref{tb:1D_random_walk} illustrates some example results from the random walk for different single-pass window loss probabilities. To obtain more meaningful results, further studies are required, including the varying of diffusivity, beamline configuration, neutron velocity, and other parameters. 
+
+The improvement of the model also requires comparison with experimental data. Due to the lengthy window removal and installation procedures, measurements on the North beamline in its current configuration without the window have been postponed. With regards to the data in Chap.~\ref{chap:north_beamline_paper}, the alterations in the preload procedure and guide configuration between run conditions was minor enough to allow for the comparisons presented in Sec.~\ref{sec:north_beamline_discussion}, but noticeable enough to obscure the window loss factor.
+
+\begin{table}
+\centering
+\caption
+{Example results from the 1D random walk model (Sec.~\ref{sec:1D_random_walk}). Each simulation uses \qty{1e6}{UCN}. Note that the number of window passes for UCN that make it to the cell must be an odd number}\label{tb:1D_random_walk}
+\begin{tabular}{
+    S[table-format = 1.2(2)]
+    S[table-format = 1.2(2)]
+    S[table-format = 1.2(2)]
+    S[table-format = 1.2(2)]
+}
+\toprule
+{\makecell{Single pass \\ loss per bounce}} & {UCN in cell} & {UCN lost on window} & {\makecell{Average window passes\\(for UCN in cell)}} \\
+\midrule
+
+\bottomrule
+\end{tabular}
+\end{table}

@@ -34,7 +34,7 @@ Of course, even the most advanced NMR techniques are useless if neutrons are inf
 \label{fig:polarization_methods}
 \end{figure}
 
-From Sec.~\ref{sec:ucn_grav_em}, neutrons entering a magnetic region experience a potential, where the coupling of the neutron spin with the magnetic field determines the sign of the potential. For positive $\vv{B}$, spin down neutrons (high field seekers) experience a negative potential, and spin up neutrons (low field seekers) experience a positive potential. The process of polarization relies upon this interaction to pass high field seekers and to reject low field seekers in a population of \ucn.
+From Sec.~\ref{sec:ucn_grav_em}, neutrons entering a magnetic region experience a potential, where the coupling of the neutron spin with the magnetic field determines the sign of the potential. High field seekers are defined as neutrons with $-\vv{\gls{mu_n}}\cdot\vv{B}<0$, and low field seekers are neutrons with $-\vv{\gls{mu_n}}\cdot\vv{B}>0$. The process of polarization passes high field seekers and rejects low field seekers in a population of \ucn.
 
 There are two methods used in the LANL nEDM experiment for \ucn polarization: 
 %
@@ -175,7 +175,7 @@ This corresponds to the particle precessing about $\vv{z}$ at the Larmor frequen
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Following Ref.~\cite{may_thesis}, we now consider the case with a field $\vv{B_\text{c}}$ (which we will refer to as a ``circular \acrshort{rf}'') rotating at a frequency $\omega$ in the $x$--$y$ plane with an initial phase $\phi$ relative to $x$. The total field $\vv{B}$ is written as
+Following Ref.~\cite{may_thesis}, we now consider the case with a field $\vv{B_\text{c}}$ (which we will refer to as a ``circular \acrshort{rf}'') rotating at a frequency $\omega$ in the $x$--$y$ plane with an initial phase $\phi$ relative to $x$ in addition to the static field $\vv{B}_0$ considered in Sec.~\ref{sec:larmor}. The total field $\vv{B}$ is written as
 %
 \begin{gather}
     \vv{B}(t)=\vv{B_\text{c}}(t) + \vv{B_0}=B_\text{c}\left[ \cos (\omega t + \phi) \vv{x} + \sin (\omega t + \phi) \vv{y}\right] + B_0 \vv{z}\label{eq:B0_with_circular_rf}
@@ -267,7 +267,7 @@ As before, the probability of measuring spin up along $x$, $y$, and $z$ are dete
 Let us consider the instance where the particle starts spin up along $z$. This gives $\psi_+(t=0)=a_0=1$ and $\psi_-(t=0)=b_0=0$, which reproduces Rabi's result \cite{rabi_1938}
 %
 \begin{gather}
-    \left| \Braket{S_z;+ | \psi(t)} \right|^2 = 1-\left( \frac{\omega_\text{c}}{(\omega -\omega_0)^2+\omega_\text{c}^2} \right) \sin^2\Omega t \label{eq:rabi_probZ}
+    \left| \Braket{S_z;+ | \psi(t)} \right|^2 = 1-\left( \frac{\omega_\text{c}^2}{(\omega -\omega_0)^2+\omega_\text{c}^2} \right) \sin^2\Omega t \label{eq:rabi_probZ}
 \end{gather}
 %
 At the resonance condition, $\omega=\omega_0$ and $\left| \Braket{S_z;+ | \psi(t)} \right|^2=0$. Equation~(\ref{eq:rabi_probZ}) now simplifies into the expression
@@ -313,7 +313,7 @@ Figure~\ref{fig:rabi_circ_pi_pulse} plots Eqs.~(\ref{eq:rabi_circ_z})\textendash
 \end{subfigure}
 \caption
 [Plot of an on-resonance Rabi sequence with a linear RF]
-{Plot of an on-resonance Rabi sequence with a linear \acrshort{rf}. The spinor is solved with the numerical integration of Eqs.~(\ref{eq:rabi_linear_1}) and (\ref{eq:rabi_linear_2}). Parameters: $\omega=\omega_0=\qty{20}{\radian\ \s^{-1}}$, $\omega_\text{c}=\pi/\qty{4}{\radian\ \s^{-1}}$, $\phi=\qty{0}{\radian}$, $t=\qty{8}{\s}$, $\Ket{\psi(t=0)}=\left( \begin{matrix}
+{Plot of an on-resonance Rabi sequence with a linear \acrshort{rf}. The spinor is solved with the numerical integration of Eqs.~(\ref{eq:rabi_linear_1}) and (\ref{eq:rabi_linear_2}). The inset on $P(z)$ shows an oscillating behavior not present in Fig.~\ref{fig:rabi_circ_pi_pulse}. Parameters: $\omega=\omega_0=\qty{20}{\radian\ \s^{-1}}$, $\omega_\text{c}=\pi/\qty{4}{\radian\ \s^{-1}}$, $\phi=\qty{0}{\radian}$, $t=\qty{8}{\s}$, $\Ket{\psi(t=0)}=\left( \begin{matrix}
     1 \\
     0
 \end{matrix}\right)$}
@@ -380,14 +380,16 @@ In 1940, Bloch and Siegert described an effect where using a linear \acrshort*{r
     \Delta\omega_\text{Bloch}= \frac{(\gamma B_\text{cr})^2}{4\omega_0} = \frac{\omega_\ell^2}{16\omega_0}\label{eq:bloch-siegert-prediction}
 \end{gather}
 %
-where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s. Figure~\ref{fig:bloch-siegert-t} plots the numerically calculated $\Delta\omega_\text{Bloch}$ (Appx.~\ref{appx:ramsey_numerical}) as a function of pulse width $t_\pi$.
+where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s. 
+
+Figure~\ref{fig:bloch-siegert-t} plots the numerically calculated $\Delta\omega_\text{Bloch}$ (Appx.~\ref{appx:ramsey_numerical}) as a function of pulse width $t_\pi$, with initial phase $\phi=0$. The numerical solution has the interesting feature of oscillating within bounds defined by Eq.~\ref{eq:bloch-siegert-prediction}, in agreement with the behavior of the numerical results obtained in Ref.~\cite{may_thesis}. As can be seen by Fig.~\ref{fig:bloch-siegert-phase} (albeit in the context of a Ramsey sequence, Sec.~\ref{sec:ramsey-method}), the initial phase $\phi$ also affects $\Delta\omega_\text{Bloch}$.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{figures/bloch-siegert-rabi.pdf}
     \caption
     [Bloch-Siegert shift as a function of pulse width $t_\pi$ for an optimized Rabi $\pi$ pulse. The \legendbox{burnt-orange-color} orange line corresponds to the prediction by Bloch and Siegert, Eq.~(\ref{eq:bloch-siegert-prediction}). The \legendbox{dark-blue-color} points are numerically calculated (Appx.~\ref{appx:ramsey_numerical})]
-    {Bloch-Siegert shift as a function of pulse width $t_\pi$ for an optimized Rabi $\pi$ pulse. The \legendbox{burnt-orange-color} orange line corresponds to the prediction by Bloch and Siegert, Eq.~(\ref{eq:bloch-siegert-prediction}).  The \legendbox{dark-blue-color} points are numerically calculated (Appx.~\ref{appx:ramsey_numerical}). $\omega_0 \approx -183.247\,172 \text{ rad s}^{-1}$, where $\omega_\ell$ is determined by Eqs.~(\ref{eq:rabi_pi_pulse_time}) and (\ref{eq:linear_vs_circular_w})}
+    {Bloch-Siegert shift as a function of pulse width $t_\pi$ for an optimized Rabi $\pi$ pulse. The \legendbox{burnt-orange-color} orange line corresponds to the prediction by Bloch and Siegert, Eq.~(\ref{eq:bloch-siegert-prediction}).  The \legendbox{dark-blue-color} points are numerically calculated (Appx.~\ref{appx:ramsey_numerical}). $\omega_0 \approx -183.247\,172 \text{ rad s}^{-1}$, where $\omega_\ell$ is determined by Eqs.~(\ref{eq:rabi_pi_pulse_time}) and (\ref{eq:linear_vs_circular_w}). Initial phase $\phi=0$. See discussion in Sec.~\ref{sec:bloch-siegert}.}
     \label{fig:bloch-siegert-t}
 \end{figure}
 
@@ -406,7 +408,7 @@ where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s. Fig
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The Ramsey method produces a narrower central peak than the Rabi method and gives higher resolution for determination of the resonant frequency. The procedure for a Ramsey sequence is as follows:
+The Ramsey method produces a narrower central peak than the Rabi method and gives higher resolution for determination of the resonant frequency. As depicted in Fig.~\ref{fig:ramsey-sequence}, the procedure for a Ramsey sequence as applied to an nEDM experiment is as follows:
 %
 \begin{enumerate}
     \item Beginning with a polarized population of \ucn, a magnetic field of the form (\ref{eq:B0_with_circular_rf}) or (\ref{eq:B0_with_linear_rf}) is applied for some time $t_{\pi/2}$ and a chosen RF frequency $\omega$. This is called a ``$\pi/2$ pulse.'' The optimized $\pi/2$ pulse width $t_{\pi/2}$ is determined by obtaining the $\pi$ pulse width $t_\pi$ from Eqs.~(\ref{eq:rabi_pi_pulse_time}) and (\ref{eq:linear_vs_circular_w}), then dividing $t_\pi$ by two.
@@ -414,7 +416,7 @@ The Ramsey method produces a narrower central peak than the Rabi method and give
     \item The magnetic RF field is switched on again for a duration $t_{\pi/2}$. This second $\pi/2$ pulse is in phase with the one described in the first step, such that $\phi = \omega ( t_{\pi/2} + \gls*{T_fp})$.
 \end{enumerate}
 %
-The Ramsey sequence is then repeated for multiple RF frequencies $\omega$ to produce a Ramsey fringe, as portrayed in Fig.~\ref{fig:ramsey-sequence}. 
+The Ramsey sequence is then repeated for multiple RF frequencies $\omega$ to produce a Ramsey fringe.
 
 In practice, it is unnecessary to generate an entire Ramsey fringe for the determination of the resonant frequency. Four evenly-distributed points ($i=1,2,3,4$) along the central fringe are chosen where the slope is maximal, and are fitted with a function of the form~\cite{may_thesis}
 %
@@ -584,7 +586,7 @@ Defining $\omega_\text{e}=-\gamma B_\text{e}$ as the precession frequency about 
     \label{eq:adiab_derivation_4}
 \end{gather}
 %
-We now change to the frame centered about the $\vv{z_2}$ axis, where $\vv{B_\text{e}}(t)$. We use the rotation operator on ket space, $\mathcal{D}_y$, to rotate about the $\vv{y_1}$ axis to reach a reference frame we call $\mathcal{R}_2$. From Ref.~\cite{sakurai_quantum}, Eq.~(3.2.44), we have
+We now change to the frame centered about the $\vv{z_2}$ axis. We use the rotation operator on ket space, $\mathcal{D}_y$, to rotate about the $\vv{y_1}$ axis to reach a reference frame we call $\mathcal{R}_2$. From Ref.~\cite{sakurai_quantum}, Eq.~(3.2.44), we have
 %
 \begin{align}
     \mathcal{D} &= \exp{\frac{-i\vv{\sigma}\hat{n}\phi}{2}}=\cos \, \frac{\phi}{2}
@@ -860,7 +862,7 @@ Reference~\cite{mcgregor_transverse_1990} details the relationship of magnetic f
     \frac{1}{T_1}=\frac{\gls{gamma_n} \bar{v}^2 \tau_\text{c}}{2\omega_0^2(1+\omega_0^2\tau_\text{c}^2)}\left(\frac{\partial B_0}{\partial z}\right)^2 \label{eq:T1_dBdZ_mcgregor}
 \end{gather}
 %
-where $\tau_\text{c}$ is the average time between wall collisions, $\bar{v}$ is the average velocity in the cell, $\omega_0$ is the Larmor precession frequency of the particle in $B_0\vv{z}$, and $\partial B/\partial z$ is the vertical gradient of the magnetic field. We make the assumption in (\ref{eq:T1_dBdZ_mcgregor}) that the $x$ and $y$ gradients are equal, and use $\vv{\nabla}\cdot \vv{B}_0=0$ to rewrite the formalism in terms of vertical gradient.
+where $\tau_\text{c}=4V/(\bar{v} A)$ (from Appx.~\ref{appx:ucn_effusion}) is the average time between wall collisions, $V$ is the cell volume, $A$ is the inner surface area of the cell, $\bar{v}$ is the average velocity in the cell, $\omega_0$ is the Larmor precession frequency of the particle in $B_0\vv{z}$, and $\partial B/\partial z$ is the vertical gradient of the magnetic field. We make the assumption in (\ref{eq:T1_dBdZ_mcgregor}) that the $x$ and $y$ gradients are equal, and use $\vv{\nabla}\cdot \vv{B}_0=0$ to rewrite the formalism in terms of vertical gradient.
 
 Transverse relaxation time for a cylindrical cell of height $H$ and radius $R$ is written as~\cite{mcgregor_transverse_1990}
 %
@@ -875,7 +877,7 @@ for some diffusion constant $D$. For \ucn, Eq.~(4.71) in Ref.~\cite{golubUCN} gi
     D_\text{ucn}=\frac{\bar{v}\bar{l}_0^2}{2\bar{\lambda}}\label{eq:ucn_diffusion_constant}
 \end{gather}
 %
-where $\bar{\lambda}$ is the mean free path for diffuse collisions and $\bar{l}_0$ is the average distance between wall collisions. We note that Eqs.~(\ref{eq:T1_dBdZ_mcgregor}) and (\ref{eq:T2_mcgregor}) assume no depolarization from wall collisions.
+where $\bar{\lambda}$ is the mean free path for diffuse collisions and $\bar{l}_0$ is the average distance between wall collisions. For a cell of volume $V$ and inner surface area $A$, we have $\bar{l}_0=4V/A$~\cite{bate_mfp_1947}. We note that Eqs.~(\ref{eq:T1_dBdZ_mcgregor}) and (\ref{eq:T2_mcgregor}) assume no depolarization from wall collisions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
