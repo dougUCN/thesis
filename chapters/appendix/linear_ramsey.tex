@@ -4,9 +4,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this appendix we include C++ code for numerical generation of a Ramsey fringe, utilized in Chap.~\ref{chap:spinManipulation}. The repository located at [\url{https://github.com/dougUCN/ramseyCPP}] contains additional documentation, a CMake file, examples of Rabi and Ramsey sequences, and Bloch-Siegert shift estimations. Here we summarize numerical evaluation of equations from Chap.~\ref{chap:spinManipulation} for \ucn spin motion in static and time dependent magnetic fields.
+In this appendix we include C++ code for numerical generation of a Ramsey fringe with linear RF, as utilized in Chap.~\ref{chap:spinManipulation}. The repository located at [\url{https://github.com/dougUCN/ramseyCPP}] contains additional documentation, example Rabi sequences and Bloch Siegert shift calculations, and a CMake file. 
 
-The function \mintinline[bgcolor=white, style=sas, fontsize=\small]{cpp}{void neutron::larmorPrecess} is based on the analytical solution for Larmor precession, Eq.~(\ref{eq:larmor_solution}), with the substitution
+First, we summarize numerical evaluation of equations from Chap.~\ref{chap:spinManipulation} for \ucn spin motion in static and time dependent magnetic fields. The function \mintinline[bgcolor=white, style=sas, fontsize=\small]{cpp}{void neutron::larmorPrecess} is based on the analytical solution for Larmor precession, Eq.~(\ref{eq:larmor_solution}), with the substitution
 %
 \begin{align}
     a &= \text{Re}(a)+i\text{Im}(a)\label{eq:a0_Re_Im}\\

@@ -95,15 +95,13 @@ The peak height spectra for the beam height detectors and the drop detector with
 
 The result of the transport measurements is depicted in Tab.~\ref{tb:2021_transport}. When both beam height detectors were on the upper switcher, they exhibited comparable count rates. When beam height detector 1 was moved from the upper switcher to the lower switcher, it observed a factor of $\approx 1.5$ increase in the UCN rate. 
 
-Such a discrepancy in transmission appeared to be too large to attribute solely to the geometry of the wye. For a $v^2\,dv\,(=E^{1/2}\,dE)$ or $v^3\,dv\,(=E\,dE)$ input distribution of UCN (Sec.~\ref{subsec:storageCurves}) and a NiP optical potential of \qty{213}{\nano\eV} (Tab.~\ref{tb:optical_potentials}), the fraction of UCN rejected by the \qty{25}{\eV} gravitational potential step from the elevation of the upper switcher is an insufficient explanation of the discrepancy. Written explicitly,
+Such a discrepancy in transmission appeared to be too large to attribute solely to the geometry of the wye. For a $v^2\,dv\,(=E^{1/2}\,dE)$ or $v^3\,dv\,(=E\,dE)$ input distribution of UCN (Sec.~\ref{subsec:storageCurves}) and a maximum containing optical potential of \qty{188}{\nano\eV} (due to exposed stainless steel, as discovered in Sec.~\ref{sec:single_arm_flow_through_west_2021}), the fraction of UCN rejected by the \qty{25}{\eV} gravitational potential step from the elevation of the upper switcher is
 %
 \begin{gather}
-    \frac{\int_{\qty{0}{neV}}^{\qty{213}{neV}}E^{1/2}\,dE}{\int_{\qty{25}{neV}}^{\qty{213}{neV}}E^{1/2}\,dE} < 1.5 \label{eq:switcher_transmission_issue}
+    \frac{\int_{\qty{0}{neV}}^{\qty{190}{neV}}E^{1/2}\,dE}{\int_{\qty{25}{neV}}^{\qty{190}{neV}}E^{1/2}\,dE} < 1.5 \label{eq:switcher_transmission_issue}
 \end{gather}
 %
-For Eq.~(\ref{eq:switcher_transmission_issue}) to approach 1.5, the containing optical potential had to be similar to Al (\qty{54}{\nano\eV} in Tab.~\ref{tb:optical_potentials}), which led to the suspicion that there was exposed Al in the wye. However, as demonstrated by Monte Carlo simulations, the geometry of the switcher wye and roundhouse with a NiP optical potential was found to be sufficient to reproduce the discrepancy. This is further elaborated in Sec.~\ref{sec:switcher_height_monte_carlo}.
-
-In summary, the fact that the lower (new) switcher transported a larger number of UCN than the upper (previously characterized) switcher was a validation of UCN transport.
+For Eq.~(\ref{eq:switcher_transmission_issue}) to approach 1.5, the containing optical potential had to be similar to Al (\qty{54}{\nano\eV} in Tab.~\ref{tb:optical_potentials}), which led to the suspicion that there was exposed Al in the wye. However, as demonstrated by Monte Carlo simulations, the assumptions made about UCN energy distribution per detector simply do not hold, and the the geometry of the switcher wye and roundhouse alone was found to be sufficient to reproduce the discrepancy. The simulation and results are described in Sec.~\ref{sec:switcher_height_monte_carlo}.
 
 % \begin{table}
 %     \centering

@@ -418,6 +418,18 @@ The Ramsey method produces a narrower central peak than the Rabi method and give
 %
 The Ramsey sequence is then repeated for multiple RF frequencies $\omega$ to produce a Ramsey fringe.
 
+Compared to width of the Rabi resonance, the Ramsey resonance narrows in proportion to the total time elapsed, and is thus reduces the width by a factor of $\sim t_{\pi} / (T+2t_{\pi/2})$. More elaborate calculations of the full width half maximum (\acrshort*{fwhm}) give~\cite{may_thesis, pendlebury_revised_2015}
+%
+\begin{gather}
+    \frac{1}{2 \gls*{T_fp}+8 t_{\pi/2} / \pi} \approx \frac{1}{2\gls*{T_fp}}
+\end{gather}
+
+The Ramsey method is particularly effective because it does not require the static $B_0$ field to be absolutely homogeneous within the spin precession region, because the resonant frequency is determined by the average $B_0$ field sampled by neutron spins during the free precession period. Of course, this assumes that transverse field gradients from the condition$\vv{\nabla}\cdot \vv{B}=0$ are within reason. Specific magnetic field uniformity requirements in the context of the LANL nEDM experiment are described in Sec.~\ref{sec:magnetic_field_req}.
+
+Reference~\cite{ramsey_molecular_1950} provides the analytical solution for a Ramsey sequence using a circular RF magnetic field. As with the Rabi sequence, there are only approximate analytical solutions to the Ramsey sequence with a linear RF magnetic field. A numerical solution for the linear RF is determined by applying Eqs.~(\ref{eq:rabi_linear_1})--(\ref{eq:rabi_linear_2}) for a period $t_{\pi/2}$, allowing the spinor the freely precess using for $\gls*{T_fp}$ with Eq.~(\ref{eq:larmor_solution}), then applying Eqs.~(\ref{eq:rabi_linear_1})--(\ref{eq:rabi_linear_2}) again for a period $t_{\pi/2}$ (implementation in Appx.~\ref{appx:ramsey_numerical}).
+
+For a linear RF magnetic field, the Ramsey method is also subject to the Bloch-Siegert shift (Sec.~\ref{sec:bloch-siegert}). An estimate is provided in Ref.~\cite{code_bloch_siegert_1971}, but as demonstrated in Ref.~\cite{may_thesis} this prediction only provides a bounding envelope to values determined numerically. This is analogous to the case for the Rabi method shown in Fig.~\ref{fig:bloch-siegert-t}. Moreover, the prediction in \cite{code_bloch_siegert_1971} does not account for the Bloch-Siegert shift from initial phase $\phi$. Figure~\ref{fig:bloch-siegert-phase} demonstrates that varying $\phi$ alone will alter $\Delta\omega_\text{Bloch}$. 
+
 In practice, it is unnecessary to generate an entire Ramsey fringe for the determination of the resonant frequency. Four evenly-distributed points ($i=1,2,3,4$) along the central fringe are chosen where the slope is maximal, and are fitted with a function of the form~\cite{may_thesis}
 %
 \begin{gather}
@@ -434,7 +446,6 @@ The spin contrast of a Ramsey fringe \gls*{alpha} is defined as
 %
 The spin contrast should be as close as possible to its maximum allowed value of $1$ to optimize statistical sensitivity (see Sec.~\ref{sec:figure_of_merit}).
 
-A large number of systematic effects, mostly related to magnetic field uniformity and stability, may alter the accuracy of the Ramsey method (Sec.~\ref{sec:magnetic_field_req} and Ref.~\cite{abel_magnetic-field_2019}). For a linear RF magnetic field, the Ramsey method is also subject to the Bloch-Siegert shift (Sec.~\ref{sec:bloch-siegert}). Figure~\ref{fig:bloch-siegert-phase} plots the numerically calculated $\Delta\omega_\text{Bloch}$ (Appx.~\ref{appx:ramsey_numerical}) as a function of initial phase angle $\phi$.
 
 \begin{figure}[htp]
     \centering
@@ -458,14 +469,8 @@ The Ramsey sequence parameters utilized in the LANL nEDM experiment mirror those
     \gls{T_fp} &= 180\text{ s} \\
     t_{\pi/2} &= 4.286\text{ s}
 \end{alignat}
-%
-The full width half maximum (\acrshort*{fwhm}) of the resonant peak is approximated by~\cite{may_thesis, pendlebury_revised_2015}
-%
-\begin{gather}
-    \frac{1}{2 \gls*{T_fp}+8 t_{\pi/2} / \pi} \approx \frac{1}{2\gls*{T_fp}}
-\end{gather}
 
-By convention, the primary uniform holding field along $\vv{z}$ for the Ramsey method is denoted as \gls*{b_0}. The strength of  $B_0$ is largely chosen based on requirements for field uniformity and spin polarization lifetimes (Sec.~\ref{sec:magnetic_field_req}). If the primary contribution non-uniformity comes from the $B_0$ coils, then smaller fields cause smaller gradients. Conversely, a stronger $B_0$ field improves adiabaticity (Sec.~\ref{sec:adiabaticity}), which leads to higher quality transport of \ucn spin into the experimental apparatus.
+By convention, the primary uniform holding field along $\vv{z}$ for the Ramsey method is denoted as \gls*{b_0}. The strength of $B_0$ is largely chosen based on requirements for field uniformity and spin polarization lifetimes. If the primary contribution to non-uniformity comes from the $B_0$ coils, then smaller fields cause smaller gradients. Conversely, a stronger $B_0$ field improves adiabaticity (Sec.~\ref{sec:adiabaticity}), which leads to higher quality transport of \ucn spin into the experimental apparatus but also creates larger gradients.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

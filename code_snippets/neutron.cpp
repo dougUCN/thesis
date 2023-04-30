@@ -21,7 +21,7 @@ vector<double> neutron::getState()
 }
 
 void neutron::larmorPrecess(double precTime, double w0)
-// Based on Eqs. C.3-C.6 in thesis
+// Based on Eqs. D.3-D.6 in thesis
 {
     vector<double> _uEnd(NUM_EQ);
     double x = precTime * w0 / 2;
@@ -99,7 +99,7 @@ vector<double> neutron::derivs(const double t, const vector<double> &u,
 // wRF is the strength of the linear/circular RF field in rad/s
 // INT_ID is either USE_LINEAR_RF (linear RF) or USE_CIRCULAR_RF (circular RF)
 //
-// Modified right hand side of eq C.7 - C.10 in thesis
+// Modified right hand side of eqs D.7 - D.14 in thesis
 // using eq 3.38, 3.39 as a basis
 // u[0] = Re(a), u[1] = Im(a), u[2] = Re(b), u(3) = Im(b)
 {

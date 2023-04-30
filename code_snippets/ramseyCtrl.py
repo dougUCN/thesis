@@ -16,7 +16,8 @@ import devices
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Generates up to two RF pulses with precession time in between. Uses a DS345 and DG535",
+        description=("Generates up to two RF pulses with precession time in between. "
+		      "Uses a DS345 and DG535"),
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument(
