@@ -200,6 +200,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % List of figures and tables
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Left align figures and table lists
+\setlength{\cfttabindent}{0pt}
+\setlength{\cfttabnumwidth}{3em}
+\setlength{\cftfigindent}{0pt}
+\setlength{\cftfignumwidth}{3em} % Prevent large figure numbers like 10.10 from touching the caption
+
+
 % Remove spacing between per chapter figures and tables
 % https://tex.stackexchange.com/questions/784/how-to-change-the-line-spacing-in-my-list-of-figures/793#793
 \newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
