@@ -4,6 +4,33 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+This chapter primarily serves as documentation regarding the experimental control system and data acquisition (\acrshort*{daq}) system for the LANL nEDM experiment. We first describe the devices associated with $\pi/2$ pulse generation in the Ramsey method (Secs.~\ref{sec:pulse_gen_freq_std}). We then describe the system responsible for recording the pulse height spectra and timing of UCN detection events (Sec.~\ref{sec:fast_daq}). Lastly, we describe the current iteration of the experimental control system (Sec.~\ref{sec:slow_control}) and the envisioned final version (Sec.~\ref{sec:web_control}).
+
+The majority of the code implemented this chapter is extremely lengthy. In lieu of an appendix, we provide links to the repositories hosted on GitHub in the table below.
+
+\begin{table}[htp]
+\renewcommand*{\arraystretch}{2}
+\centering
+\caption{Links to code repositories}\label{tb:github}
+\begin{tabular}{
+    l
+    r
+}
+\toprule
+Description & \href{https://github.com/dougUCN/}{github.com/dougUCN} \\
+\midrule
+SIS3316 Digitizer  & \href{https://github.com/dougUCN/SIS3316}{/SIS3316} \\
+\makecell[l]{GPIB device communication\\(DS345, DG535, BNC577)} & \href{https://github.com/dougUCN/gpibUSB}{/gpibUSB} \\
+Cell valve motor control & \href{https://github.com/dougUCN/STM23Q}{/STM23Q} \\
+Switcher motor control &  \\
+\makecell[l]{LANL nEDM Dec. 2023\\experimental control} & \\
+ZeroMQ Communication & \href{https://github.com/dougUCN/zmqLANL}{/zmqLANL} \\
+SIS3316 GUI & \\
+Web-based control system (FE) & \href{https://github.com/dougUCN/LANE-client}{/LANE-client} \\
+Web-based control system (BE) & \href{https://github.com/dougUCN/LANE-server}{/LANE-server} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -20,42 +47,51 @@ A frequency uncertainty specification of $\sim \qty{1}{\micro Hz}$ gives a phase
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{RF pulse and free precession timing}\label{sec:pulse_gates}
+\subsection{RF pulse and free precession timing}\label{sec:pulse_gates}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\cite{dg535_manual,  bnc_577_manual}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{UCN detection signal conditioning}
+Timing of the $\pi/2$ pulses and free precession period has previously been controlled with a DG535 pulse generator. As exemplified by the sequencing in Appx.~\ref{appx:gpib_usb_pulse_sequence}, the DG535 was used to adjust the output amplitude of the DS345 function generator. The DG535 has a delay resolution of \qty{5}{ps}, and a nominal channel-to-channel jitter of \qty{50}{ps}~\cite{dg535_manual}. An 8-channel BNC 577 pulse generator has also been procured in anticipation of other instrumentation that require precision timing, with a delay resolution of \qty{250}{ps} and channel-to-channel jitter of \qty{50}{ps}~\cite{bnc_577_manual}. Both pulse generators may be synchronized to the FS725 time standard, which would further improve their performance.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Ortec 474, integrate to \qty{500}{\nano\second}. Differentiate set to none or \qty{20}{\nano\second}. Aiming for a pulse that decays within 1--\qty{2}{\micro \second}, amplitude between 1--\qty{5}{\volt}. Custom fast-amplifier for \acrshort*{sipm}s (which don't really need the signal shaping) is being designed and built.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Data acquisition}
+\section{Data acquisition}\label{sec:fast_daq}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+The system responsible for recording the pulse height spectra and timing of UCN detection events is referred to as the ``fast DAQ.'' It has been rigorously tested, having been utilized in all nEDM commissioning measurements involving UCN detection since 2020. The signal conditioning chain after the detector is relatively minimal, and is described in Sec.~\ref{sec:signal_conditioning}. The LANL nEDM uses a \qty{250}{MHz} SIS3316 by Struck Innovative Systeme to digitize the conditioned output. A RESTful interface was originally written by Sergey Ryzhikov for the PANDA experiment at the Institute for High Energy Physics, but it was written in Python2 and had lost compatibility with any SIS3316 with firmware later than 2015. An updated version in Python3, compatible with all firmware released to date and with an expanded feature set, is at [\url{https://github.com/dougUCN/SIS3316}]. 
+
+The manuals for the SIS3316~\cite{sis3316_manual, sis3316_udp_addendum} (available on the GitHub repository) provide ample documentation, but we highlight relevant specifications, triggering algorithms, and device communication protocols in Sec.~\ref{sec:sis3316_specs}--\ref{sec:sis3316_pileup}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Struck SIS3316 specifications}
+\subsection{UCN detection signal conditioning}\label{sec:signal_conditioning}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/pmt_scope.png}
+    \caption
+     {UCN signals as viewed on an oscilloscope, after the PMT output is processed by an Ortec 474 timing filter amplifier}
+    \label{fig:scope_image}
+\end{figure}
+
+After UCN are detected as per Sec.~\ref{sec:ucn_detectors}, the signal output from a \gls*{pmt} is to sent to an Ortec 474 timing filter amplifier. The integration time is set to \qty{500}{\nano\second}. Gain is set such that the pulse spectrum heights, when viewed on an oscilloscope, have an amplitude $\sim\qty{1}{\volt}$. The differentiation is nominally in the range of 0--\qty{20}{\nano\second}, set such that the pulse decays within \qty{5}{\micro \second}. An example UCN pulse shape is shown in Fig.~\ref{fig:scope_image}.
+
+Initial tests of UCN with Onsemi \acrshort*{sipm} 4-Side Scaleable Arrays (C Series), used on the simultaneous spin analyzers, have shown that the output does not require the same pulse shaping as the PMTs. A custom fast-amplifier is being designed and built.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Struck SIS3316 specifications}\label{sec:sis3316_specs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Dead time calc
 
 \cite{sis3316_manual, sis3316_udp_addendum}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Network configuration}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -65,9 +101,15 @@ Ortec 474, integrate to \qty{500}{\nano\second}. Differentiate set to none or \q
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{UDP Protocol}
+\subsection{Communication with the sis3316}\label{sec:sis3316_udp_protocol}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+UDP Protocol
+
+Read/ack format
+
+In order to maximize the data transfer rate, reduce the number of packets sent, and reduce the chances of a packet being dropped, we direct the sis3316 to use Jumbo frames, with a maximum transmission unit (MTU) of 9000 bytes. See Appx.~\ref{appx:sis3316_setup} for configuration of the sis3316 ethernet connection.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -77,31 +119,33 @@ Ortec 474, integrate to \qty{500}{\nano\second}. Differentiate set to none or \q
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Pileup flagging}
+\subsection{Pileup flagging}\label{sec:sis3316_pileup}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Experiment control}
+\section{Experiment control}\label{sec:slow_control}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Lab jack u3-lv + PS12DC Power Switching Board. Controlled through 12 digital outputs, the PS12DC can switch power sources ranging from 5 to 28V DC. 
+A LabJack-U3-LV and a PS12DC Power Switching Board attachment are used to communicate with the proton accelerator, beamline gate vales, and other systems that require a transistor-transistor logic (TTL) pulse for control.
 
-Appendix of control sequence code???
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Switchers}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Cell valves}
+\subsection{Switchers}\label{sec:switcher_control}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Cell valves}\label{sec:cell_valve_control}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -111,7 +155,7 @@ Appendix of control sequence code???
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{SIS3316 local GUI}
+\subsection{SIS3316 local GUI}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -119,12 +163,22 @@ Setup git repository. UI build in QT Designer, converted to python. Signals then
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Web-based control system: proof of concept}
+\section{Web-based control system: proof of concept}\label{sec:web_control}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/LANL_nEDM_network.pdf}
+    \caption
+    [The eventual envisioned experiment control system at LANL]
+     {The eventual envisioned experiment control system at LANL, as described in Sec.~\ref{sec:web_control} and demonstrated with a proof of concept [\url{https://github.com/dougUCN/LANE-client}], [\url{https://github.com/dougUCN/LANE-server}]}
+    \label{fig:LANL_nEDM_network}
+\end{figure}
 
 Again point to git repository
 
 Network map of Frontend to backend
 
-Discuss deployment on LANL network. Nginx routing
+Discuss deployment on LANL network. The domain name system (DNS) is straightforward on the internal LANL network --- a web domain is automatically assigned to each computer. It is then a matter of using Nginx, a reverse proxy, to direct an incoming request to either the front end or backend server. 
