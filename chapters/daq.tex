@@ -5,23 +5,36 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Signal conditioning}
+\section{RF signal generators and frequency standard}\label{sec:pulse_gen_freq_std}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The frequency generators for the $\pi/2$ RF coils and other timing systems in the experiment must have smaller uncertainty than the counting statistics from a single measurement cycle. From Sec.~\ref{sec:lanl_nedm_uncertainty}, the nEDM uncertainty per Ramsey sequence measurement for two cells is on the order of $\sim 10^{-25}\,e\text{ cm}$. From Eq.~(\ref{eq:delta_omega_dipole_relation}), for $E=\qty{12}{kV\per cm}$ this gives a frequency uncertainty of $\sigma(f)\sim \qty{1}{\micro Hz}$.
+
+We use SRS DS345 signal generators to drive the $\pi/2$ RF coils. The accuracy is stated to be \qty{5}{ppm}~\cite{ds345_manual}, which for the $\approx\qty{30}{Hz}$ resonance in the LANL nEDM Ramsey sequence (Sec.~\ref{sec:LANL_nEDM_ramsey_params}) corresponds to $\qty{0.15}{mHz}$. This can be improved to at least $\qty{0.1}{\micro Hz}$ per measurement with synchronization to a SRS FS725 rubidium frequency standard, which we have procured. The FS725 has short-term \qty{1}{s} stability (Allan variance) and accuracy to a few parts in $10^{11}$, and long-term \qty{20}{yr} accuracy of \num{5e-9}~\cite{rubidium_standard_fs725_manual}.
+
+A frequency uncertainty specification of $\sim \qty{1}{\micro Hz}$ gives a phase shift uncertainty per Ramsey measurement of $\sigma(\phi)=2\pi\gls{T_fp}\,\sigma(f)\sim \qty{1}{mrad}$. We performed a phase stability test, where a $V_\text{S}=\qty{1}{V}$, $f_\text{S}=\qty{30}{Hz}$ signal from a DS345 was input into a Signal Recovery 7265 lock-in amplifier. A second $V_\text{R}=\qty{1}{V}$, $f_\text{R}=\qty{30}{Hz}$ signal from another DS345, referenced to the FS725, was the reference. The lock in time constant was \qty{200}{ms}. The output phase was $\Phi=2\pi \Delta f\,t-\Delta\phi(t)$ where $\Delta f=f_\text{R}-f_\text{S}$ and $\Delta\phi(t)$ is the phase drift of the signal DS345 relative to the FS725 standard. The output phase increased at a rate of $d\Phi/dt=\qty{1.16e-4}{rad\per s}$, which assuming $\Delta f$ is the dominant contribution implies $\Delta f=\qty{18}{\micro Hz}$ (a true frequency of $f_\text{S}=\qty{29.999982}{Hz}$) and an accuracy of $\qty{18}{\micro Hz}/\qty{30}{Hz}=\qty{0.6}{ppm}$. Setting the input signal frequency to $\qty{30.000018}{Hz}$ resulted in $d\Phi/dt=\qty{5.82}{\micro rad\per s}$, which sets a bound $d\phi(t)/dt<\qty{5.82}{\micro Hz\per s}$. Over the a $\gls*{T_fp}=\qty{180}{s}$ free precession this gives a maximum shift of $\qty{1.05}{mrad}$, matching the phase uncertainty specification for a DS345 that is unsynchronized to the FS725. We anticipate that the DS345 phase drift when synchronized to the time standard is significantly smaller.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{RF pulse and free precession timing}\label{sec:pulse_gates}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\cite{dg535_manual,  bnc_577_manual}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{UCN detection signal conditioning}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Ortec 474, integrate to \qty{500}{\nano\second}. Differentiate set to none or \qty{20}{\nano\second}. Aiming for a pulse that decays within 1--\qty{2}{\micro \second}, amplitude between 1--\qty{5}{\volt}. Custom fast-amplifier for \acrshort*{sipm}s (which don't really need the signal shaping) is being designed and built.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Pulse generator and frequency standard}\label{sec:pulse_gen_freq_std}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\comment{Ito TDR pg 90--91}
-
-\cite{ds345_manual, rubidium_standard_fs725_manual}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

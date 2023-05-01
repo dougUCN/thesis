@@ -4,7 +4,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-At the Los Alamos National Laboratory (LANL), a solid deuterium (SD$_2$) based superthermal UCN source coupled to a spallation target has been providing UCN to experiments for the last 20 years (Fig.~\ref{fig:AreaB_schematic}). The UCN source (Sec.~\ref{sec:lanl_ucn_source}) was upgraded to host a new nEDM experiment that will use Ramsey's method of separated oscillatory fields to search for the nEDM with an uncertainty goal of $\delta \gls*{d_n} = 2.7\times 10^{-27}$~$e\cdot\text{cm}$ (Sec.~\ref{sec:lanl_nedm_uncertainty}).
+At the Los Alamos National Laboratory (LANL), a solid deuterium (SD$_2$) based superthermal UCN source coupled to a spallation target has been providing UCN to experiments for the last 20 years (Fig.~\ref{fig:AreaB_schematic})~\cite{saunders_performance_2013, ito_performance_2018}. The UCN source (Sec.~\ref{sec:lanl_ucn_source}) was upgraded to host a new nEDM experiment that will use Ramsey's method of separated oscillatory fields to search for the nEDM with an uncertainty goal of $\delta \gls*{d_n} = 2.7\times 10^{-27}$~$e\cdot\text{cm}$ (Sec.~\ref{sec:lanl_nedm_uncertainty}).
 
 In this chapter we provide an overview of LANL nEDM instrumentation, and review some of the main systematic effects limiting the sensitivity of nEDM measurements. Section~\ref{sec:principles_nEDM} outlines the general nEDM measurement procedure. Sections~\ref{sec:figure_of_merit}--\ref{sec:lanl_ucn_source} discuss statistical uncertainty and how the UCN source at LANL enables a competitive nEDM measurement. Section~\ref{sec:magnetic_field_req} explains the requirements of the magnetic design and Sec.~\ref{sec:v_cross_E} provides background on the systematic effects that necessitate such specifications. The remainder of the chapter reviews key components in the construction of the LANL nEDM experiment.
 
@@ -78,7 +78,7 @@ Equation~7.28 from Ref.~\cite{golubUCN} gives the number of neutrons counted in 
     N_\text{R}(\Delta \omega) = N \left( 1 - \gls*{alpha} \cos \,\Delta \omega \, \gls*{T_fp} \right)/2 \label{eq:neutrons_in_ramsey_seq}
 \end{gather}
 %
-where \gls*{alpha} is the spin contrast of a Ramsey fringe, defined by Eq.~(\ref{eq:alpha}), and $\gls*{T_fp}$ is the free precession period of the Ramsey method. A nonzero nEDM results in an interaction with $\vv{E}$ that produces a precession frequency shift $\Delta\omega=\omega-\omega_0$, where $\omega$ is the applied RF frequency and $\omega_0$ is the Larmor precession frequency. 
+where \gls*{alpha} is the spin contrast of a Ramsey fringe, defined by Eq.~(\ref{eq:alpha}), $\gls*{T_fp}$ is the free precession period of the Ramsey method, and $\Delta\omega=\omega-\omega_0$, where $\omega$ is the applied RF frequency and $\omega_0$ is the Larmor precession frequency. 
 
 To maximize sensitivity to small shifts in the resonant frequency, we examine where the slope of the central fringe is largest
 %
@@ -117,7 +117,7 @@ This is the figure of merit for an nEDM experiment using the Ramsey method. \gls
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The nominal run parameters for the LANL nEDM relevant to the estimate of uncertainty are $\gls*{T_fp}=180\text{ s and } E=12\text{ kV/cm}$. As will be shown in Chap.~\ref{chap:north_beamline_paper}, we have measured in excess of $N=40\,000\text{ UCN}$ in a prototype cell. We let $\gls*{alpha}=0.8$, as was achieved in Ref.~\cite{ABE20}.
+The nominal run parameters for the LANL nEDM relevant to the estimate of uncertainty are $\gls*{T_fp}=180\text{ s and } E=12\text{ kV/cm}$. As will be shown in Chap.~\ref{chap:north_beamline_paper}, we have measured in excess of $N\simeq 40\,000\text{ UCN}$ in a prototype cell. We let $\gls*{alpha}=0.8$, as was achieved in Ref.~\cite{ABE20}.
 
 Using Eq.~(\ref{eq:figure_of_merit}), the uncertainty per cell per run is $\num{9.5e-25}\,e\,\text{cm}$. For a full day of measurements (assuming a \qty{300}{\s} duty cycle with two precession cells), we have $N_\text{day}=2\times40\,000\times86\,400\text{ (seconds in a day)}/300$ and $\sigma_{\gls*{d_n}}=\num{3.96e-26}\,e\,\text{cm}$. A year of continuous running gives $N_\text{year}=365\times N_\text{day}$ and $\sigma_{\gls*{d_n}}=\num{2.07e-27}\,e\,\text{cm}$. At a 90\% confidence level, the uncertainty is multiplied by an additional factor of $1.6$, giving
 %
@@ -125,7 +125,7 @@ Using Eq.~(\ref{eq:figure_of_merit}), the uncertainty per cell per run is $\num{
     \sigma_{\gls*{d_n}}=\num{3.32e-27}e\,\text{cm (90\% \acrshort{cl})}
 \end{gather}
 %
-With the accelerator production schedule at LANL and an assumed data taking efficiency of 50\% (for experiment down time, calibration and systematic studies), this uncertainty would be reached in 5 calendar years.
+The accelerator production schedule at LANL has about 7 months of accelerator operation from June through December with regular outages due to ion source recycling and other reasons. With an assumed data taking efficiency of 50\% for experiment down time, calibration and systematic studies, this uncertainty would be reached in 5 calendar years.
 
 
 
@@ -147,7 +147,7 @@ With the accelerator production schedule at LANL and an assumed data taking effi
     \label{fig:lanl_ucn_source}
 \end{figure}
 
-At LANL, neutrons are produced by a pulsed \qty{800}{M\eV} proton beam incident on a tungsten target. The spallation neutrons are moderated by room temperature beryllium and graphite, then converted to cold neutrons by polyethylene bead moderators, and finally become UCN by downscattering within an SD$_2$ crystal~\cite{saunders_performance_2013}.
+At LANL, neutrons are produced by a pulsed \qty{800}{M\eV} proton beam incident on a tungsten target. The spallation neutrons are moderated by room temperature beryllium and graphite, then converted to cold neutrons by cold polyethylene bead moderators, and finally become UCN by downscattering within an SD$_2$ crystal~\cite{saunders_performance_2013}.
 
 As in Fig.~\ref{fig:lanl_ucn_source}, UCN leaving the SD$_2$ crystal are directed upwards along a \qty{1}{\meter} vertical guide coated in $\ce{^{58}Ni}$, to account for a Snell's law \qty{100}{\nano\eV} boost (Sec.~\ref{sec:ucn_reflection_transmission}). The UCN are then transported \qty{6}{\meter} along a horizontal NiP coated stainless steel guide to the exit of the biological shield~\cite{ito_performance_2018}.
 
@@ -177,7 +177,7 @@ Stability requirements are based on the reasoning that noise from magnetic field
 %
 The constraint imposed by Eq.~(\ref{eq:magnetic_stability}) is harsher than necessary because the Ramsey method is relatively insensitive to fluctuations on time scales $\ll \gls*{T_fp}$ and because the \hg comagnetometer provides corrections. However, the nEDM measurement performed by Baker et al.~\cite{BAK06} had a comparable magnetic environment to the LANL nEDM and satisfied $|dB_0/dt|<\qty{8}{fT\per s}$ for most measurement cycles~\cite{baker_apparatus_2014}.
 
-Homogeneity requirements are derived by estimating the phase difference accumulated during the free precession period by \ucn with divergent paths in a field gradient. The absolute homogeneity requirement is ~\cite{baker_apparatus_2014}
+Homogeneity requirements from $T_2$ are derived by estimating the phase difference accumulated during the free precession period by \ucn with divergent paths in a field gradient. The absolute homogeneity requirement is ~\cite{baker_apparatus_2014}
 %
 \begin{gather}
     \Delta B_0 < \frac{1}{\gls*{gamma_n}}\sqrt{\frac{\bar{v}}{\bar{l}_0 \gls*{T_fp}}}
@@ -186,8 +186,9 @@ Homogeneity requirements are derived by estimating the phase difference accumula
 where $\bar{l}_0$ is the average distance between wall collisions and $\bar{v}$ is the average \ucn velocity. The relative homogeneity is expressed as $\Delta B_0/B_0$.
 
 \begin{table}
+\renewcommand*{\arraystretch}{2} % increase vertical spacing just for this table
 \centering
-\caption{Design requirements of the magnetic environment for the LANL nEDM experiment and corresponding physical considerations}\label{tb:lanl_magnetic_design}
+\caption{Design requirements of the magnetic environment for the LANL nEDM experiment and physical considerations from which they arise}\label{tb:lanl_magnetic_design}
 \begin{tabular}{
     lll
 }
@@ -198,6 +199,7 @@ Field gradient $(\partial B/\partial z)/B_0$	& $10^{-4}/\text{cm or } <\qty{10}{
 Field gradient  & $3\times 10^{-6}/\text{cm or }<\qty{0.3}{nT\per m}$ & $|d_\text{false}|<10^{-27}\,e\text{ cm}$ \\
 Residual field & $<\qty{5}{nT}$ & $\vv{E}$ and $\vv{B}$ alignment $\theta_{EB}<\qty{0.5}{\degree}$ \\
 Shielding factor & $>10^4$ for $f>\qty{0.01}{Hz}$ & Temporal drift \\
+\makecell[l]{Difference in $\langle B_0 \rangle$\\between precession cells} & $<\qty{10}{pT}$ & \makecell[l]{Flip \ucn with the same $\pi/2$\\pulse after \gls*{T_fp}} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -216,11 +218,11 @@ A comagnetometer is a polarized population of atoms occupying the same precessio
 
 \hg offers several advantages: it can be optically pumped, the precession frequency can be extracted optically, and has been used successfully in previous nEDM measurements (Refs.~\cite{BAK06, ABE20}). However, it suffers from the drawback of sensitivity to high voltage (\acrshort*{hv}), which can reduce the spin relaxation time. This limits the magnitude of $E$ that may be applied across the electrodes. (Depolarization-inducing hydrogen is released in micro-discharges with the application of high voltage, which must be cleaned by flowing oxygen through the precession cell~\cite{baker_apparatus_2014}.)
 
-Due to its higher velocity, \hg experiences a larger geometric phase shift and has a slightly higher center of mass compared to \ucn in the precession cell. As per Ref.~\cite{pendlebury_revised_2015} the geometric-phase false EDM contribution from \hg is $\sim 50$ times larger than the contribution from \ucn. 
+Due to its higher velocity, \hg experiences a larger geometric phase shift and has a slightly higher center of mass compared to \ucn in the precession cell. As per Ref.~\cite{pendlebury_revised_2015} the geometric phase false EDM contribution from \hg is $\sim 50$ times larger than the contribution from \ucn. 
 
-One method to account for the geometric phase effect was utilized by Baker et al.~\cite{BAK06}. The ratio of the measured neutron and \hg frequency $|\omega_\text{n}/\omega_\text{Hg}|$ was compared to the expected value $|\gls{gamma_n}/\gamma_\text{Hg}|$ in order to determine the volume averaged gradient $\langle \partial B_z/\partial z \rangle$ (and consequently the geometric phase shift).
+One method to account for the geometric phase effect was utilized by Baker et al.~\cite{BAK06}. In the absence of the geometric phase effect, the measured ratio $|\omega_\text{n}/\omega_\text{Hg}|$ may be compared to the expected value of $|\gls{gamma_n}/\gamma_\text{Hg}|$. However, in reality $\omega_\text{Hg}$ contains a contribution from the geometric phase effect. To account for the effect, the measurement is repeated for different applied magnetic field gradients. The ratio $|\omega_\text{n}/\omega_\text{Hg}|/|\gls{gamma_n}/\gamma_\text{Hg}|$ is then extrapolated to the limit where the field gradient is zero and the Hg geometric phase vanishes.
 
-The LANL nEDM has acquired a \qty{254}{\nano\meter} Toptica laser for the development of the comagnetometer system, with the intention of adding external \hg cells to be used for magnetic gradient readout. The \hg cells will be vertically aligned, with one above the top HV grounding electrode, one below the bottom HV grounding electrode, and two between the middle high voltage electrodes (Sec.~\ref{sec:precession_cells}).
+The LANL nEDM has acquired a \qty{254}{\nano\meter} Toptica laser for the development of the comagnetometer system, with the intention of adding external \hg cells to be used for magnetic gradient readout. The \hg cells will be vertically aligned and placed between the two precession cells (Sec.~\ref{sec:precession_cells}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -289,11 +291,11 @@ The right hand side of Eq.~(\ref{eq:vxE_motional_shift}) also contains a term qu
     \Delta\omega_\text{false} = -\gls{gamma_n} \frac{v^2}{2c^2}\frac{E^2}{B_0} 
 \end{gather}
 %
-As discussed in Ref.~\cite{lamoreaux_experimental_2009}, even if $\langle v \rangle=0$ for stored particles, the quadratric term does not necessarily go to zero due to the $v^2$ factor. At current sensitivities the false EDM contribution from the quadratic term is still negligible.
+where a change in $|E|$ between $\vv{B}_0\uparrow\uparrow\vv{E}$ and $\vv{B}_0\uparrow\downarrow\vv{E}$ modes produces a correlated frequency shift. As discussed in Ref.~\cite{lamoreaux_experimental_2009}, even if $\langle v \rangle=0$ for stored particles, the quadratric term does not necessarily go to zero due to the $v^2$ factor. At current sensitivities the false EDM contribution from the quadratic term is still negligible.
 
 \subsection*{Geometric phase}
 
-Inhomogenous magnetic fields transverse to $\vv{B}_0$ in combination with the $v\times E$ effect gives rise to the geometric phase effect, a large false EDM signal at current sensitivities. 
+Mangetic field components transverse to $\vv{B}_0$ due to field inhomogeneity in combination with the $v\times E$ effect gives rise to the geometric phase effect, a large false EDM signal at current sensitivities. 
 
 Pendlebury et al.~\cite{pendlebury_geometric-phase-induced_2004} considered the often-cited example of a  magnetic ``barrel'' gradient with cylindrical symmetry and particles in roughly circular orbits about a precession cell.
 %
@@ -346,13 +348,15 @@ With the application of \acrshort{hv} through the electrodes, small leakage curr
     | d_\text{false} | = 0.1\frac{\gls*{mu_n}}{E}\frac{\mu_0 I}{2r}f \sim \num{1e-28}\,e\text{ cm}
 \end{gather}
 %
-where $r$ is insulator radius and $f$ is the fraction of a complete loop about the insulator that the current $I$ takes. The factor of $0.1$ is present because the \hg comagnetometer is approximated to compensate for the leakage current frequency shift at a 90\% level.
+where $r$ is insulator radius and $f$ is the fraction of a complete loop about the insulator that the current $I$ takes. The factor of $0.1$ is present because the \hg comagnetometer is approximated to compensate for the leakage current frequency shift at a 90\% level. The nEDM measurement performed without a comagnetometer in Ref.~\cite{serebrov_leakage_current_2015} uses a broad range of possible leakage current paths and simulated UCNs to estimate a false nEDM $<10^{-26}\,e\text{ cm}$.
 
-See Refs.~\cite{baker_apparatus_2014, pendlebury_revised_2015} for examination of higher order effects caused by high voltage, such as sparking or induced RF fields from ripples.
+See Refs.~\cite{baker_apparatus_2014, pendlebury_revised_2015} for examination of higher order effects caused by high voltage, such as sparking or induced RF fields from ripples. 
 
 \subsection*{Earth's rotation}
 
-The rotation of the Earth exerts an additional torque on the spin of a particle, which makes it precess about the axis of Earth's rotation. This shift in Larmor precession is approximately \qty{10}{\micro Hz}. An additional complication is that the gyromagnetic ratio for neutrons is negative, but the positive for \hg.  For nEDM measurements that use the measured ratio $|\omega_\text{n}/\omega_\text{Hg}|$ (Sec.~\ref{sec:199hg_comag}), the Earth's rotation shifts the ratio value down (up) by $\sim\qty{1}{ppm}$ when $\vv{B}_0$ is upwards (downwards). See Refs.~\cite{lamoreaux_earth_rotation_comment, baker_reply_to_lamoreaux, pendlebury_revised_2015}.
+The laboratory frame is affected by Earth's rotation, and the rotation of the Earth adds to or subtracts from the measured \ucn precession frequency, depending on the relative direction of Earth's rotation and the precession. The simplest example is an experiment taking place at the North pole with vertical $\vv{E}$ and $\vv{B}$ fields, which directly follows the rotation of the Earth and sees a corresponding shift in measured precession frequency.
+
+This shift in Larmor precession at the location of the LANL nEDM experiment is approximately \qty{10}{\micro Hz}. An additional complication is that the gyromagnetic ratio for neutrons is negative, but the positive for \hg.  For nEDM measurements that use the measured ratio $|\omega_\text{n}/\omega_\text{Hg}|$ (Sec.~\ref{sec:199hg_comag}), the Earth's rotation shifts the ratio value down (up) by $\sim\qty{1}{ppm}$ when $\vv{B}_0$ is upwards (downwards). See Refs.~\cite{lamoreaux_earth_rotation_comment, baker_reply_to_lamoreaux, pendlebury_revised_2015}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -376,7 +380,7 @@ The rotation of the Earth exerts an additional torque on the spin of a particle,
     \centering
     \includegraphics[width=0.9\textwidth]{figures/chupp_msr_data.pdf}
     \caption
-    {Calculated shielding factor of the LANL nEDM MSR (Tab.~\ref{tb:lanl_msr_shielding_factor}) for various orientations excitation signal directions of an infinitely sized coil. See Sec.~\ref{sec:MSR} for methodology.}
+    {Calculated shielding factors and measured values, corrected for the calculated geometrical factor, of the LANL nEDM MSR (Tab.~\ref{tb:lanl_msr_shielding_factor}). See Sec.~\ref{sec:MSR} for methodology.}
     \label{fig:MSR-shielding-factor}
 % \end{figure}
     \vspace{\baselineskip}
@@ -389,11 +393,11 @@ The rotation of the Earth exerts an additional torque on the spin of a particle,
     \label{fig:MSR_long_term_measurements}
 \end{figure}
 
-At LANL, a large magnetically shielded room (\acrshort*{msr}) (Fig.~\ref{fig:MSR}) is used for the attenuation of ambient external background magnetic fields. It has an overall shielding factor of $10^5$ for fields at frequency \qty{0.01}{\hertz} and a residual field of $<\qty{0.5}{nT}$.
+At LANL, a large magnetically shielded room (\acrshort*{msr}) (Fig.~\ref{fig:MSR}) is used for the attenuation of ambient external background magnetic fields. It has an overall shielding factor of $10^5$ for fields at frequency \qty{0.01}{\hertz} and a residual field of $<\qty{0.5}{nT}$. The design of the MSR heavily draws from recent advancements of the technology~\cite{altarev_msr_1, altarev_msr_2, altarev_msr_3}, where the placement of degaussing coil locations in combination with a rectangular MSR geometry results in optimized performance.
 
-The MSR consists of 4 Mumetal\textsuperscript{\textregistered} layers and one copper layer (Tab.~\ref{tb:lanl_msr_layers}). Mumetal\textsuperscript{\textregistered} is a magnetic shielding alloy ($\mu$-metal grade ASTM A753 Alloy 4, UNS N14080, 80NiFe) from the Magnetic Shield Corporation. The MSR utilizes a bolted construction to avoid welds that create magnetic domains. The frame of the MSR is stainless steel, which supports the load of the layers without deflection. The foundation consists of high density aggregate precast blocks, minimizing the transmission of ambient external vibrations. The edges of the MSR door are supported by air bladders. When the door is in the closed and locked position, the air baldders are pressurized to improve continuity of the $\mu$-metal.
+The MSR consists of 4 Mumetal\textsuperscript{\textregistered} layers and one copper layer (Tab.~\ref{tb:lanl_msr_layers}). Mumetal\textsuperscript{\textregistered} is a magnetic shielding alloy ($\mu$-metal grade ASTM A753 Alloy 4, UNS N14080, 80NiFe) from the Magnetic Shield Corporation. The MSR utilizes a bolted construction to avoid welds that create magnetic domains. The frame of the MSR is aluminum, which supports the load of the layers without deflection, and a support structure underneath is made of stainless steel. A foundation that consists of high density aggregate precast blocks minimizes the transmission of ambient external vibrations. The edges of the MSR door are supported by air bladders. When the door is in the closed and locked position, the air baldders are pressurized to improve continuity of the $\mu$-metal.
 
-For optimized shielding performance, the ferromagnetic layers are degaussed periodically. Degaussing is done by applying an alternating field with large amplitude, which drives the material to saturation, and then slowly decreasing the amplitude to zero. Each $\mu$-metal layer contains multiple L-shaped coil sets, activated sequentially, for complete degaussing coverage (see Fig.~\ref{fig:degaussing-paper-cube} for the layout of coils on the innermost layer). An amplifier designed and built specifically for the LANL nEDM allows application of up to \qty{75}{A} of current for degaussing.
+For improved shielding performance, the ferromagnetic layers are degaussed periodically. Degaussing is done by applying an alternating field with large amplitude, which drives the material to saturation, and then slowly decreasing the amplitude to zero. Each $\mu$-metal layer contains multiple L-shaped coil sets, activated sequentially, for complete degaussing coverage (see Fig.~\ref{fig:degaussing-paper-cube} for the layout of coils on the innermost layer). An amplifier designed and built specifically for the LANL nEDM allows application of up to \qty{75}{A} of current for degaussing.
 
 Residual magnetic fields in the degaussed \acrshort*{msr} were measured with a low noise 3-axis Bartington fluxgate probe (Tab.~\ref{tb:lanl_msr_dc_residuals}). The fluxgate was mounted on a fiber glass structure, and was inserted through the large neutron guide access tubes of the MSR. At each position, a \qty{10}{\second} measurement per fluxgate axis was taken in addition to a corresponding measurement where the fluxgate was rotated by \qty{180}{\degree}.
 
@@ -411,9 +415,9 @@ Shielding factor was determined by using the LANL field cage (Sec.~\ref{sec:fiel
 
 To account for the finite size of the excitation coil and the iron floor of the experimental area, finite-element physics simulations in COMSOL were used to obtain a relation between the measured shielding factor and a calculated shielding factor with an ideal infinitely sized coil. This scaling was performed because the proximity of the field cage coils to the outer MSR layer resulted in localized saturation of the $\mu$-metal, artificially lowering the shielding factor. Measured and calculated shielding factors are shown in Fig.~\ref{fig:MSR-shielding-factor} and Tab~\ref{tb:lanl_msr_shielding_factor}. 
 
-In the latter half of 2022, issues with the electrical contacts for the degaussing wires on the innermost MSR layer developed. This has delayed additional characterization of MSR performance. 
+In the latter half of 2022, issues with the electrical contacts at the door for the degaussing wires on the innermost MSR layer developed. This has delayed additional characterization of MSR performance. 
 
-The magnetic field in the non-degaussed MSR is plotted in Fig.~\ref{fig:MSR_long_term_measurements}. A fluctuation of $\sim\qty{250}{pT}$ (a $\sim \qty{1e-3}{Hz}$ shift in neutron precession frequency) with the periodicity of approximately one day was observed, corresponding to ambient temperature fluctuations. This temperature fluctuation influences both the behavior of the $\mu$-metal and the pressure of the air bladders in the door, potentially altering the quality of $\mu$-metal continuity. Measurements to determine the necessity of external temperature regulation are planned after the degaussing loops are fixed. 
+The magnetic field in the non-degaussed MSR is plotted in Fig.~\ref{fig:MSR_long_term_measurements}. A fluctuation of $\sim\qty{250}{pT}$ (a $\sim \qty{1e-3}{Hz}$ shift in neutron precession frequency) with the periodicity of approximately one day was observed, correlated with ambient temperature fluctuations. This temperature fluctuation influences both the behavior of the $\mu$-metal and the pressure of the air bladders in the door, potentially altering the quality of $\mu$-metal continuity. Measurements to determine the necessity of external temperature regulation are planned after the degaussing loops are fixed. 
 
 \begin{table}
 \centering
@@ -551,7 +555,7 @@ The external compensation coils, or ``field cage,'' (Fig.~\ref{fig:lanl-field-ca
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The LANL nEDM $B_0$ holding coil is a split solenoid consisting of 8 octagonal sections (Figs.~\ref{fig:lanl-b0-coil}, \ref{fig:b0-coil-model}). Each section comprises of printed circuit boards (PCBs) and custom 3D-printed connections. The gaps between each section serve the purpose of accomodating neutron guides, comagnetometer lasers, \acrshort*{hv} cables, vacuum pump lines, etc. The modularized $B_0$ design allows removal of PCB segments from the octagon for access to the experiment. The $B_0$ coil is coupled to the innermost layer of the MSR for purposes of flux return. 
+The LANL nEDM $B_0$ holding coil is a split solenoid consisting of 8 octagonal sections (Figs.~\ref{fig:lanl-b0-coil}, \ref{fig:b0-coil-model}). The design was inspired by the ``gapped solenoid'' described in Ref.~\cite{gosling_gapped_solenoid_1974}. Each section comprises of printed circuit boards (PCBs) and custom 3D-printed connections. The gaps between each section serve the purpose of accomodating neutron guides, comagnetometer lasers, \acrshort*{hv} cables, vacuum pump lines, etc. The modularized $B_0$ design allows removal of PCB segments from the octagon for access to the experiment. The $B_0$ coil is coupled to the innermost layer of the MSR for purposes of flux return. 
 
 Field uniformity is adjusted by tuning the currents in each section of the coil. While initial measurements with fluxgates indicate that the vertical gradient meets specifications $(\partial B_0/\partial z < \qty{1}{nT \per m})$, further $B_0$ field uniformity measurements have been delayed due to the issue with the degaussing loop contacts (Sec.~\ref{sec:MSR}).
 
