@@ -89,7 +89,7 @@ The neutron charge limit is effectively zero~\cite{baumann_neutron_charge}
 Free neutrons undergo $\beta$ decay
 %
 \begin{gather}
-    \text{n}\rightarrow \text{p}+ e^-+\bar{\nu}_e
+    \text{n}\rightarrow \text{p}+ e^-+\overline{\nu}_e
 \end{gather}
 %
 governed by the neutron lifetime (decay time) $\gls{tau_n}=\glsvalue*{tau_n}$ \cite{pdg2022}. The Feynman diagram to leading order for this process is given in Fig.~\ref{fig:beta_decay}. The neutron lifetime designates the amount of helium created during Big Bang nucleosynthesis. The CKM matrix element $V_\text{ud}$ (Eq.~\ref{eq:CKM}) can be determined from measurements of \gls{tau_n} in combination with measurements of the axial coupling constant G$_A$~\cite{Young2014}.
@@ -99,14 +99,14 @@ The most accurate neutron lifetime experiments to date have been storage experim
 The neutron beta decay directional distribution and total decay rate can be very generally written in terms of the neutron spin and lepton momenta by the expression~\cite{Young2014}
 %
 \begin{align}
-    d\Gamma(\vv{p}_e, \vv{p}_{\bar{\nu}}) &= dE_e\,d\Omega_e \,d\Omega_{\bar{\nu}} \frac{F(E_e)\,p_e E_e (E_o-E_e)^2}{(2\pi)^5} \xi \nonumber \\
-    &\quad\quad \times \left[1 + a\frac{\vv{p}_e \cdot \vv{p}_{\bar{\nu}}}{E_e E_{\bar{\nu}}}
+    d\Gamma(\vv{p}_e, \vv{p}_{\overline{\nu}}) &= dE_e\,d\Omega_e \,d\Omega_{\overline{\nu}} \frac{F(E_e)\,p_e E_e (E_o-E_e)^2}{(2\pi)^5} \xi \nonumber \\
+    &\quad\quad \times \left[1 + a\frac{\vv{p}_e \cdot \vv{p}_{\overline{\nu}}}{E_e E_{\overline{\nu}}}
     +b\frac{m_e}{E_e} + \langle \vv{S}_\text{n} \rangle \cdot
-    \left( A\frac{\vv{p}_e}{E_e} + B \frac{\vv{p}_{\bar{\nu}}}{E_e} + D\frac{\vv{p}_e\times \vv{p}_{\bar{\nu}}}{E_e E_{\bar{\nu}}}
+    \left( A\frac{\vv{p}_e}{E_e} + B \frac{\vv{p}_{\overline{\nu}}}{E_e} + D\frac{\vv{p}_e\times \vv{p}_{\overline{\nu}}}{E_e E_{\overline{\nu}}}
     \right) \right]
 \end{align}
 %
-$\vv{S}_\text{n}$ is neutron spin, $F(E_e)$ is the Fermi function for final state interactions, $E_o$ is the endpoint energy, $E_e$ and $\vv{p}_e$ are electron energy and momentum, and $E_{\bar{\nu}}$ and $\vv{p}_{\bar{\nu}}$ are anti-neutrino energy and momentum.
+$\vv{S}_\text{n}$ is neutron spin, $F(E_e)$ is the Fermi function for final state interactions, $E_o$ is the endpoint energy, $E_e$ and $\vv{p}_e$ are electron energy and momentum, and $E_{\overline{\nu}}$ and $\vv{p}_{\overline{\nu}}$ are anti-neutrino energy and momentum.
 
 Of interest are correlation coefficients $a$, $b$, $A$, $B$, and $D$, which are experimental observables. Measurements of these coefficients are a probe of the V\textendash A structure of the \acrshort{sm}. 
 %
@@ -239,10 +239,10 @@ Equation~\ref{eq:pentrack_absorption} is the absorption probability calculation 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The average loss probability per bounce $\bar{\mu}(K)$ for a \ucn of kinetic energy $K$ is obtained by assuming ideal gas conditions and averaging loss per bounce over all angles of incidence. Equation~(2.70) in Ref.~\cite{golubUCN} gives
+The average loss probability per bounce $\overline{\mu}(K)$ for a \ucn of kinetic energy $K$ is obtained by assuming ideal gas conditions and averaging loss per bounce over all angles of incidence. Equation~(2.70) in Ref.~\cite{golubUCN} gives
 %
 \begin{gather}
-    \bar{\mu} = 2f \left[ \frac{V}{K} \sin^{-1}\left( \frac{K}{V}\right)^{1/2} -\left( \frac{V}{K} - 1 \right)^{1/2} \right] \label{eq:lossPerBounce_golub}
+    \overline{\mu} = 2f \left[ \frac{V}{K} \sin^{-1}\left( \frac{K}{V}\right)^{1/2} -\left( \frac{V}{K} - 1 \right)^{1/2} \right] \label{eq:lossPerBounce_golub}
 \end{gather}
 %
 The loss factor is $f=W/V$, for optical potential terms $V$ and $W$ from Eq.~(\ref{eq:optical_potential}). For a more phenomenological treatment of loss per bounce, Eq.~(\ref{eq:lossPerBounce_golub}) may be modified by treating $f$ was a free parameter, or by replacing the entire right hand side with a velocity independent loss per bounce parameter $\mu$, which applies well to guide systems with gaps. See Secs.~\ref{subsec:storageCurves} and \ref{sec:1D_random_walk} for example applications.

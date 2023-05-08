@@ -6,7 +6,7 @@
 
 Monte Carlo methods are a broad class of algorithms based on the repeated sampling of appropriate random distributions. They can be used for a wide variety of applications, from calculating $\pi$ to modelling ferromagnetism with the Ising model. For the LANL nEDM the primary application of Monte Carlo algorithms is for simulating UCN transport and UCN spin transport in the experiment, where UCN are sampled from an initial velocity and spatial distribution and allowed to propagate freely. Monte Carlo methods lend themselves well to parallelization, so long as the distribution sampling is sufficiently randomized (i.e. not correlated or periodic). Adding computing power, namely more threads, to a Monte Carlo simulation reduces runtime and adds statistical accuracy. For this reason, many of the simulations presented in this chapter were run with the supercomputing clusters at \acrshort{iu}. Ultimately, a Monte Carlo simulation is only as accurate as the physics entered into the model, and requires both careful benchmarking and validation with experimental data in order to obtain a physically meaningful result.
 
-Section~\ref{sec:pentrack} describes \pentrack, a powerful simulation tool for UCN experiments. In Sec. \ref{sec:switcher_wye_transport_monte_carlo}, we use it to model the UCN transport measurements on the West beamline (Chap.~\ref{chap:fall2021}) to better understand the discrepancy in counted UCN by beam height detectors on the switchers. Section~\ref{sec:switcher_wye_transport_monte_carlo} demonstrates UCN transport from the UCN source to the LANL nEDM apparatus on the North beamline. We examine the effects of depolarization and diffusivity in the switcher wye on spin asymmetry of stored UCN. Section~\ref{sec:1D_random_walk} introduces an alternative to comprehensive UCN transport simulations --- a 1D random walk model for UCN transport into a precession cell, which has the benefit a smaller parameter space.
+Section~\ref{sec:pentrack} describes \pentrack, a powerful simulation tool for UCN experiments. In Sec. \ref{sec:switcher_wye_transport_monte_carlo}, we use it to model the UCN transport measurements on the West beamline (Chap.~\ref{chap:fall2021}) to better understand the discrepancy in counted UCN by beam height detectors on the switchers. Section~\ref{sec:switcher_wye_transport_monte_carlo} demonstrates UCN transport from the UCN source to the LANL nEDM apparatus on the North beamline. We examine the effects of depolarization and diffusivity in the switcher wye on spin asymmetry of stored UCN. Section~\ref{sec:1D_random_walk} introduces an alternative to comprehensive UCN transport simulations --- a 1D random walk model for UCN transport into a precession cell, which has the benefit of a smaller parameter space.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -316,16 +316,16 @@ where the average number of specular bounces between a nonspecular bounce is giv
 Neutrons that enter the cell have a probability of exiting the cell before the end of the filling period. Assuming cell trajectories are isotropic in the cell, this ``exit lifetime'' can be approximated by
 %
 \begin{gather}
-    \text{cell exit lifetime} = \frac{4V_\text{cell}}{\pi R_\text{entrance}^2 \bar{v}}
+    \text{cell exit lifetime} = \frac{4V_\text{cell}}{\pi R_\text{entrance}^2 \overline{v}}
 \end{gather}
 %
-derived using Eq.~(\ref{eq:effusion-lifetime}). $V_\text{cell}$ is the volume of the precession cell and $\bar{v}$ is the average of velocity of UCN in the cell. For a $v^2\,dv$ distribution (Sec.~\ref{subsec:storageCurves}) and NiP-coated guides (which store UCN up to $\qty{214}{neV}\approx\qty{6.4}{m\per s}$), 
+derived using Eq.~(\ref{eq:effusion-lifetime}). $V_\text{cell}$ is the volume of the precession cell and $\overline{v}$ is the average of velocity of UCN in the cell. For a $v^2\,dv$ distribution (Sec.~\ref{subsec:storageCurves}) and NiP-coated guides (which store UCN up to $\qty{214}{neV}\approx\qty{6.4}{m\per s}$), 
 %
 \begin{gather}
-    \bar{v}=\frac{\int_0^{6.4}{v^3\,dv}}{\int_0^{6.4}{v^2\,dv}}\approx \qty{4.8}{m\per s}
+    \overline{v}=\frac{\int_0^{6.4}{v^3\,dv}}{\int_0^{6.4}{v^2\,dv}}\approx \qty{4.8}{m\per s}
 \end{gather}
 %
-In this example we let the UCN source be located at \qty{0}{m}, and the Al window at \qty{9}{m}, and the cell entrance at \qty{12}{m}. Assuming a preload procedure (Sec.~\ref{subsec:holdingTimeMeasurement}) was followed we let UCN start at the location of a gate valve on the beamline, located at \qty{6}{m}. For a fill time of \qty{50}{s}, UCN with a velocity $\bar{v}$ undergo the 1D random walk until the filling period is over. UCN that return to the D$_2$ source are considered to be lost. UCN that make it to the cell valve location may enter the cell based on Eq.~(\ref{eq:cell_entry_chance}). Neutrons that enter the cell remain for the duration of the cell exit lifetime and exit unless the fill time is completed.
+In this example we let the UCN source be located at \qty{0}{m}, and the Al window at \qty{9}{m}, and the cell entrance at \qty{12}{m}. Assuming a preload procedure (Sec.~\ref{subsec:holdingTimeMeasurement}) was followed we let UCN start at the location of a gate valve on the beamline, located at \qty{6}{m}. For a fill time of \qty{50}{s}, UCN with a velocity $\overline{v}$ undergo the 1D random walk until the filling period is over. UCN that return to the D$_2$ source are considered to be lost. UCN that make it to the cell valve location may enter the cell based on Eq.~(\ref{eq:cell_entry_chance}). Neutrons that enter the cell remain for the duration of the cell exit lifetime and exit unless the fill time is completed.
 
 Table~\ref{tb:1D_random_walk} illustrates some example results from the random walk for different single-pass window loss probabilities. To obtain more meaningful results, further studies are required, including the varying of diffusivity, beamline configuration, neutron velocity, and other parameters. 
 

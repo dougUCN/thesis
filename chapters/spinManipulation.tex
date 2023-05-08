@@ -408,6 +408,14 @@ Figure~\ref{fig:bloch-siegert-t} plots the numerically calculated $\Delta\omega_
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/ramsey_sequence.pdf}
+    \caption[Illustration of two Ramsey sequences used in the production of the Ramsey fringe. The procedure is described in Sec.~\ref{sec:ramsey-method}]
+    {Illustration of two Ramsey sequences used in the production of the Ramsey fringe. The procedure is described in Sec.~\ref{sec:ramsey-method}. $\omega_0$ is the circular RF frequency in the on-resonance sequence. $\omega_1$--$\omega_4$ are evenly distributed along the central fringe, used for fitting the resonance. $N_\text{min}$ is the number of spin up neutrons counted at resonance. $N_\text{max}$ is the number counted at a point far from resonance.}
+    \label{fig:ramsey-sequence}
+\end{figure}
+
 The Ramsey method produces a narrower central peak than the Rabi method and gives higher resolution for determination of the resonant frequency. As depicted in Fig.~\ref{fig:ramsey-sequence}, the procedure for a Ramsey sequence as applied to an nEDM experiment is as follows:
 %
 \begin{enumerate}
@@ -418,17 +426,86 @@ The Ramsey method produces a narrower central peak than the Rabi method and give
 %
 The Ramsey sequence is then repeated for multiple RF frequencies $\omega$ to produce a Ramsey fringe.
 
-Compared to width of the Rabi resonance, the Ramsey resonance narrows in proportion to the total time elapsed, and is thus reduces the width by a factor of $\sim t_{\pi} / (T+2t_{\pi/2})$. More elaborate calculations of the full width half maximum (\acrshort*{fwhm}) give~\cite{may_thesis, pendlebury_revised_2015}
+Compared to width of the Rabi resonance, the Ramsey resonance narrows in proportion to the total time elapsed, and thus reduces the width by a factor of $\sim t_{\pi} / (T+2t_{\pi/2})$. More elaborate calculations of the full width half maximum (\acrshort*{fwhm}) give~\cite{may_thesis, pendlebury_revised_2015}
 %
 \begin{gather}
     \frac{1}{2 \gls*{T_fp}+8 t_{\pi/2} / \pi} \approx \frac{1}{2\gls*{T_fp}}
 \end{gather}
 
-The Ramsey method is particularly effective because it does not require the static $B_0$ field to be absolutely homogeneous within the spin precession region, because the resonant frequency is determined by the average $B_0$ field sampled by neutron spins during the free precession period. Of course, this assumes that transverse field gradients from the condition$\vv{\nabla}\cdot \vv{B}=0$ are within reason. Specific magnetic field uniformity requirements in the context of the LANL nEDM experiment are described in Sec.~\ref{sec:magnetic_field_req}.
+The Ramsey method is particularly effective because it does not require the static $B_0$ field to be absolutely homogeneous within the spin precession region, because the resonant frequency is determined by the average $B_0$ field sampled by neutron spins during the free precession period. Of course, this assumes that transverse field gradients from the condition $\vv{\nabla}\cdot \vv{B}=0$ are within reason. Specific magnetic field uniformity requirements in the context of the LANL nEDM experiment are described in Sec.~\ref{sec:magnetic_field_req}.
 
-Reference~\cite{ramsey_molecular_1950} provides the analytical solution for a Ramsey sequence using a circular RF magnetic field. As with the Rabi sequence, there are only approximate analytical solutions to the Ramsey sequence with a linear RF magnetic field. A numerical solution for the linear RF is determined by applying Eqs.~(\ref{eq:rabi_linear_1})--(\ref{eq:rabi_linear_2}) for a period $t_{\pi/2}$, allowing the spinor the freely precess using for $\gls*{T_fp}$ with Eq.~(\ref{eq:larmor_solution}), then applying Eqs.~(\ref{eq:rabi_linear_1})--(\ref{eq:rabi_linear_2}) again for a period $t_{\pi/2}$ (implementation in Appx.~\ref{appx:ramsey_numerical}).
+Reference~\cite{ramsey_molecular_1950} provides the analytical solution for a Ramsey sequence using a circular RF magnetic field. The probability for a transition from a spin up state to spin down state is given by
+%
+\begin{gather}
+    P_{\uparrow,\downarrow} = 4\sin^2\theta \sin^2\frac{at_{\pi/2}}{2}\left( \cos \frac{(\omega_0 - \omega)\gls*{T_fp}}{2}\cos\frac{at_{\pi/2}}{2}-\cos\theta \sin\frac{(\omega_0 - \omega)\gls*{T_fp}}{2}\sin\frac{at_{\pi/2}}{2} \right)^2 \label{eq:ramsey_1950_fringe_solution}
+\end{gather}
+%
+where
+%
+\begin{align}
+    \sin\theta &= \frac{\omega_\text{c}}{a} \\
+    \cos\theta &= \frac{\omega_0 - \omega}{a} \\
+    a &= \sqrt{(\omega_0-\omega)^2+\omega_\text{c}}
+\end{align}
 
-For a linear RF magnetic field, the Ramsey method is also subject to the Bloch-Siegert shift (Sec.~\ref{sec:bloch-siegert}). An estimate is provided in Ref.~\cite{code_bloch_siegert_1971}, but as demonstrated in Ref.~\cite{may_thesis} this prediction only provides a bounding envelope to values determined numerically. This is analogous to the case for the Rabi method shown in Fig.~\ref{fig:bloch-siegert-t}. Moreover, the prediction in \cite{code_bloch_siegert_1971} does not account for the Bloch-Siegert shift from initial phase $\phi$. Figure~\ref{fig:bloch-siegert-phase} demonstrates that varying $\phi$ alone will alter $\Delta\omega_\text{Bloch}$. 
+In the limit that $\omega_\text{c} \gg \omega_0 - \omega$ (the RF is close to resonance) and for $\omega_\text{c}t=\pi/2$ (resonant $\pi/2$ pulses), we have $a= \omega_\text{c}$, $\sin\theta= 1$, $\cos\theta=(\omega_0 - \omega)/\omega_\text{c}$, and $at_{\pi/2}/2=\pi/4$. This gives the simplified expression
+%
+\begin{gather}
+    P_{\uparrow,\downarrow} \approx \cos^2\frac{(\omega - \omega_0)\gls*{T_fp}}{2} \label{eq:ramsey_1950_solution_simplified}
+\end{gather}
+%
+To match more common notation we have changed $(\omega_0 - \omega)$ to $(\omega - \omega_0)$, which is mathematically equivalent in Eq.~(\ref{eq:ramsey_1950_solution_simplified}).
+
+As with the Rabi sequence, there are only approximate analytical solutions to the Ramsey sequence with a linear RF magnetic field. A numerical solution for the linear RF is determined by applying Eqs.~(\ref{eq:rabi_linear_1})--(\ref{eq:rabi_linear_2}) for a period $t_{\pi/2}$, allowing the spinor the freely precess using for $\gls*{T_fp}$ with Eq.~(\ref{eq:larmor_solution}), then applying Eqs.~(\ref{eq:rabi_linear_1})--(\ref{eq:rabi_linear_2}) again for a period $t_{\pi/2}$ (implementation in Appx.~\ref{appx:ramsey_numerical}).
+
+For a linear RF magnetic field, the Ramsey fringe is also subject to the Bloch-Siegert shift (Sec.~\ref{sec:bloch-siegert}). An estimate is provided in Ref.~\cite{code_bloch_siegert_1971}, but as demonstrated in Ref.~\cite{may_thesis} this prediction only provides a bounding envelope to values determined numerically. This is analogous to the case for the Rabi method shown in Fig.~\ref{fig:bloch-siegert-t}. Moreover, the prediction in \cite{code_bloch_siegert_1971} does not account for the Bloch-Siegert shift from initial phase $\phi$. Figure~\ref{fig:bloch-siegert-phase} demonstrates that varying $\phi$ alone will alter $\Delta\omega_\text{Bloch}$. 
+
+We now consider a UCN spin polarizer (analyzer) with a finite efficiency $\epsilon$ for high field seekers to be transmitted to the detector. The number of neutrons counted at the end of the Ramsey sequence is
+%
+\begin{gather}
+    N(\omega)= \epsilon N_\downarrow + (1 - \epsilon) N_\uparrow \label{eq:ramsey_finite_spin_analyzer}
+\end{gather}
+%
+The quantities $N_\uparrow$ and $N_\downarrow$ change depending on the applied RF, as given by
+%
+\begin{align}
+    N_\downarrow &= N_0 (1- P_{\uparrow,\downarrow} ) = N_0 \sin^2\frac{(\omega - \omega_0)\gls*{T_fp}}{2} \\
+    N_\uparrow &= N_0 P_{\uparrow,\downarrow} = N_0 \cos^2\frac{(\omega - \omega_0)\gls*{T_fp}}{2}
+\end{align}
+%
+where, $N_0$ is the number of stored polarized neutrons. In the fringe pattern, the maximum possible and minimum possible number of transmitted neutrons are
+%
+\begin{align}
+    N_\text{max} &= \epsilon N_0\\
+    N_\text{min} &= (1-\epsilon) N_0
+\end{align}
+%
+As in Fig.~\ref{fig:ramsey-sequence}, $N_\text{max}$ is the number of neutrons measured at an \acrshort*{rf} frequency far from the resonance, and $N_\text{min}$ is the number measured at the resonance (which can be taken from a previous measurement cycle). 
+
+We define the spin contrast of a Ramsey fringe \gls*{alpha} as
+%
+\begin{gather}
+    \gls*{alpha} = \frac{N_\text{max} - N_\text{min}} {N_\text{max} + N_\text{min}} = 2\epsilon - 1 \label{eq:alpha}
+\end{gather}
+%
+The spin contrast should be as close as possible to its maximum allowed value of $1$ to optimize statistical sensitivity of the experiment (see Sec.~\ref{sec:figure_of_merit}).
+
+Equation~(\ref{eq:ramsey_finite_spin_analyzer}) can now be rewritten as
+%
+\begin{align}
+    N(\omega) &= \epsilon N_0\sin^2 \frac{(\omega - \omega_0)\gls*{T_fp}}{2} + (1-\epsilon) N_0 \cos^2 \frac{(\omega - \omega_0)\gls*{T_fp}}{2} \\
+    &= \epsilon N_0 - (2\epsilon - 1)N_0 \cos^2 \frac{(\omega - \omega_0)\gls*{T_fp}}{2} \\
+    &= N_\text{max} - \gls*{alpha} N_0 \cos^2 \frac{(\omega - \omega_0)\gls*{T_fp}}{2}
+\end{align}
+%
+and using $N_\text{max}=(\alpha + 1)N_0/2$, we have
+%
+\begin{align}
+    N(\omega) &= \frac{N_0}{2}(\alpha + 1) - N_0\cos^2 \frac{(\omega - \omega_0)\gls*{T_fp}}{2} \\
+    &= \frac{N_0}{2} - \frac{\alpha N_0}{2}\left( 2\cos^2 \frac{(\omega - \omega_0)\gls*{T_fp}}{2}-1\right) \\
+    &= \frac{N_0}{2} \left( 1 - \alpha \cos\,(\omega - \omega_0)\gls*{T_fp} \right) \label{eq:ramsey_fringe_modulation_N_cos}
+\end{align}
+
 
 In practice, it is unnecessary to generate an entire Ramsey fringe for the determination of the resonant frequency. Four evenly-distributed points ($i=1,2,3,4$) along the central fringe are chosen where the slope is maximal, and are fitted with a function of the form~\cite{may_thesis}
 %
@@ -436,24 +513,10 @@ In practice, it is unnecessary to generate an entire Ramsey fringe for the deter
     N(\omega_i)=N_\text{min} + (N_\text{max}-N_\text{min})\sin^2\left(\frac{\pi}{2\Gamma_\text{r}}(\omega_i-\omega_\text{r}) \right) \label{eq:four_point_ramsey_fringe_fit}
 \end{gather}
 %
-where $\omega_\text{r}$ and $\Gamma_\text{r}$ are free parameters of the fit. As in Fig.~\ref{fig:ramsey-sequence}, $N_\text{max}$ is the number of neutrons measured at an \acrshort*{rf} frequency far from the resonance, and $N_\text{min}$ is the number measured at the resonance (which can be taken from a previous measurement cycle).
-
-The spin contrast of a Ramsey fringe \gls*{alpha} is defined as
-%
-\begin{gather}
-    \alpha = \frac{N_\text{max} - N_\text{min}} {N_\text{max} + N_\text{min}} \label{eq:alpha}
-\end{gather}
-%
-The spin contrast should be as close as possible to its maximum allowed value of $1$ to optimize statistical sensitivity (see Sec.~\ref{sec:figure_of_merit}).
+where $\omega_\text{r}$ and $\Gamma_\text{r}$ are free parameters of the fit.
 
 
-\begin{figure}[htp]
-    \centering
-    \includegraphics[width=\textwidth]{figures/ramsey_sequence.pdf}
-    \caption[Illustration of two Ramsey sequences used in the production of the Ramsey fringe. The procedure is described in Sec.~\ref{sec:ramsey-method}]
-    {Illustration of two Ramsey sequences used in the production of the Ramsey fringe. The procedure is described in Sec.~\ref{sec:ramsey-method}. $\omega_0$ is the circular RF frequency in the on-resonance sequence. $\omega_1$--$\omega_4$ are evenly distributed along the central fringe, used for fitting the resonance. $N_\text{min}$ is the number of spin up neutrons counted at resonance. $N_\text{max}$ is the number counted at a point far from resonance.}
-    \label{fig:ramsey-sequence}
-\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -833,7 +896,7 @@ Eq.~(\ref{eq:adiab_derivation_16}) gives the chance of measuring a different spi
     P=1-\frac{1}{1+\gls*{adiab}^{2}}\sin^{2}\left(\frac{\pi}{2}\sqrt{1+\gls*{adiab}^{2}}\right)
 \end{gather}
 
-As can be inferred from see Eq.~(\ref{eq:adiab_derivation_1}), the resonant frequency for optimized spin flipping is given by $\gls{gamma_n} B_\text{stat}(\ell_0/2)$, where $B_\text{stat}(\ell_0/2)$ is the static field at the center of the RF coil and $\gls{gamma_n} \approx \qty{30}{MHz \per T}$.
+As can be inferred from Eq.~(\ref{eq:adiab_derivation_1}), the resonant frequency for optimized spin flipping is given by $\gls{gamma_n} B_\text{stat}(\ell_0/2)$, where $B_\text{stat}(\ell_0/2)$ is the static field at the center of the RF coil and $\gls{gamma_n} \approx \qty{30}{MHz \per T}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -868,10 +931,10 @@ where $S_0$ is the spin along axis $z$ at $t=0$.
 Reference~\cite{mcgregor_transverse_1990} details the relationship of magnetic field gradients to spin relaxation. The formalism can be adapted to describe longitudinal relaxation time as a function of the vertical field gradient in a precession cell
 %
 \begin{gather}
-    \frac{1}{T_1}=\frac{\gls{gamma_n} \bar{v}^2 \tau_\text{c}}{2\omega_0^2(1+\omega_0^2\tau_\text{c}^2)}\left(\frac{\partial B_0}{\partial z}\right)^2 \label{eq:T1_dBdZ_mcgregor}
+    \frac{1}{T_1}=\frac{\gls{gamma_n} \overline{v}^2 \tau_\text{c}}{2\omega_0^2(1+\omega_0^2\tau_\text{c}^2)}\left(\frac{\partial B_0}{\partial z}\right)^2 \label{eq:T1_dBdZ_mcgregor}
 \end{gather}
 %
-where $\tau_\text{c}=4V/(\bar{v} A)$ (from Appx.~\ref{appx:ucn_effusion}) is the average time between wall collisions, $V$ is the cell volume, $A$ is the inner surface area of the cell, $\bar{v}$ is the average velocity in the cell, $\omega_0$ is the Larmor precession frequency of the particle in $B_0\vv{z}$, and $\partial B/\partial z$ is the vertical gradient of the magnetic field. We make the assumption in (\ref{eq:T1_dBdZ_mcgregor}) that the $x$ and $y$ gradients are equal, and use $\vv{\nabla}\cdot \vv{B}_0=0$ to rewrite the formalism in terms of vertical gradient.
+where $\tau_\text{c}=4V/(\overline{v} A)$ (from Appx.~\ref{appx:ucn_effusion}) is the average time between wall collisions, $V$ is the cell volume, $A$ is the inner surface area of the cell, $\overline{v}$ is the average velocity in the cell, $\omega_0$ is the Larmor precession frequency of the particle in $B_0\vv{z}$, and $\partial B/\partial z$ is the vertical gradient of the magnetic field. We make the assumption in (\ref{eq:T1_dBdZ_mcgregor}) that the $x$ and $y$ gradients are equal, and use $\vv{\nabla}\cdot \vv{B}_0=0$ to rewrite the formalism in terms of vertical gradient.
 
 Transverse relaxation time for a cylindrical cell of height $H$ and radius $R$ is written as~\cite{mcgregor_transverse_1990}
 %
@@ -883,10 +946,10 @@ Transverse relaxation time for a cylindrical cell of height $H$ and radius $R$ i
 for some diffusion constant $D$. For \ucn, Eq.~(4.71) in Ref.~\cite{golubUCN} gives the estimate
 %
 \begin{gather}
-    D_\text{ucn}=\frac{\bar{v}\bar{l}_0^2}{2\bar{\lambda}}\label{eq:ucn_diffusion_constant}
+    D_\text{ucn}=\frac{\overline{v}\overline{l}_0^2}{2\overline{\lambda}}\label{eq:ucn_diffusion_constant}
 \end{gather}
 %
-where $\bar{\lambda}$ is the mean free path for diffuse collisions and $\bar{l}_0$ is the average distance between wall collisions. For a cell of volume $V$ and inner surface area $A$, we have $\bar{l}_0=4V/A$~\cite{bate_mfp_1947}. We note that Eqs.~(\ref{eq:T1_dBdZ_mcgregor}) and (\ref{eq:T2_mcgregor}) assume no depolarization from wall collisions.
+where $\overline{\lambda}$ is the mean free path for diffuse collisions and $\overline{l}_0$ is the average distance between wall collisions. For a cell of volume $V$ and inner surface area $A$, we have $\overline{l}_0=4V/A$~\cite{bate_mfp_1947}. We note that Eqs.~(\ref{eq:T1_dBdZ_mcgregor}) and (\ref{eq:T2_mcgregor}) assume no depolarization from wall collisions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -902,6 +965,6 @@ The Bloch equations hold in the rest frame of the neutron, but transforming to t
     \vv{\omega_\text{T}}&=\frac{\gls*{lorentz}^2}{c^2(1+\gls*{lorentz})}\frac{d^2\vv{x}}{dt^2}\times\frac{d\vv{x}}{dt}
 \end{align}
 %
-where $\omega_\text{T}$ is the Thomas precession frequency, $B'$ is the magnetic field in the rest frame of the particle, $\gamma$ is the gyromagnetic ratio, and the Lorentz factor $\gls*{lorentz}=\glsvalue*{lorentz}$. The transverse and longitudinal magnetic field components in the laboratory frame $B_\parallel$ and $B_\perp$ are defined with respect to the particle traveling along $x$.
+where $\omega_\text{T}$ is the Thomas precession frequency, $B'$ is the magnetic field in the rest frame of the particle, $\gamma$ is the gyromagnetic ratio, and the Lorentz factor is $\gls*{lorentz}=\glsvalue*{lorentz}$. The transverse and longitudinal magnetic field components in the laboratory frame $B_\parallel$ and $B_\perp$ are defined with respect to the particle traveling along $x$.
 
 Relativistic corrections are not necessary for spin tracking simulations of \ucn, but \pentrack (Chap.~\ref{chap:simulations}) implements this formulation to support particles such as electrons and protons.

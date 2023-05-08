@@ -19,7 +19,7 @@ With the \ucn source upgrade at LANL (Sec.~\ref{sec:lanl_ucn_source}), a new UCN
     \sigma_{\gls*{d_n}} = \frac{\hbar}{2\gls*{alpha} E \gls*{T_fp} \sqrt{N}}
 \end{gather*}
 %
-where $\hbar$ is Planck’s constant, \gls*{alpha} is a factor describing the spin contrast of a Ramsey fringe (\ref{eq:alpha}), $N$ is the number of the detected UCN, and $E$ is the strength of the applied electric field. $N$ is affected by UCN density at the location of the experiment, a result of UCN source performance and UCN transport. Both $N$ and \gls*{T_fp} depend on the UCN storage property of the precession cell (i.e., how the number of stored UCN depends on the time over which UCN are stored in the precession cell), which is in turn affected by the input UCN energy spectrum as well as the wall loss properties of the cell. The operating condition (i.e., how long to load the cell, how long to store the UCN, and how long to unload the cell, etc) is optimized to minimize the uncertainty of the experiment. Therefore, the measurements described in this chapter were focused on characterizing the UCN density and energy spectrum at the location of the experiment, as well as the UCN storage property of the precession cell. 
+where $\hbar$ is Planck’s constant, \gls*{alpha} is a factor describing the spin contrast of a Ramsey fringe (\ref{eq:alpha}), $N$ is the number of detected UCN, and $E$ is the strength of the applied electric field. $N$ is affected by UCN density at the location of the experiment, a result of UCN source performance and UCN transport. Both $N$ and \gls*{T_fp} depend on the UCN storage property of the precession cell (i.e., how the number of stored UCN depends on the time over which UCN are stored in the precession cell), which is in turn affected by the input UCN energy spectrum as well as the wall loss properties of the cell. The operating condition (i.e., how long to load the cell, how long to store the UCN, and how long to unload the cell, etc) is optimized to minimize the uncertainty of the experiment. Therefore, the measurements described in this chapter were focused on characterizing the UCN density and energy spectrum at the location of the experiment, as well as the UCN storage property of the precession cell. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -27,7 +27,7 @@ where $\hbar$ is Planck’s constant, \gls*{alpha} is a factor describing the sp
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The schematic diagram of the experimental setup mounted on the North Beamline (2019 and 2020) is shown in Fig.~\ref{fig:NorthBeamlineLayout}. There were two gate valves (\acrshort*{gv}) located on the beamline, with a \qty{6.35}{\mm}-diameter ``monitor port'' located in between. The rate of UCN through the monitor port is proportional to the UCN density in the guides. For an isotropic distribution the rate $R$ through the monitor port hole with an area $A$ and the UCN density $\rho$ are related via  $R = \frac{1}{4} \bar{v} \rho A$ (Appx.~\ref{appx:ucn_effusion}), where $\bar{v}$ is the average UCN speed, i.e. $\bar{v} = \int vf(v)dv$, with $f$ describing the UCN velocity distribution). Hence, the rate of the monitor detector gives the approximate density of the UCN in the guide.
+The schematic diagram of the experimental setup mounted on the North Beamline (2019 and 2020) is shown in Fig.~\ref{fig:NorthBeamlineLayout}. There were two gate valves (\acrshort*{gv}) located on the beamline, with a \qty{6.35}{\mm}-diameter ``monitor port'' located in between. The rate of UCN through the monitor port is proportional to the UCN density in the guides. For an isotropic distribution the rate $R$ through the monitor port hole with an area $A$ and the UCN density $\rho$ are related via  $R = \frac{1}{4} \overline{v} \rho A$ (Appx.~\ref{appx:ucn_effusion}), where $\overline{v}$ is the average UCN speed, i.e. $\overline{v} = \int vf(v)dv$, with $f$ describing the UCN velocity distribution). Hence, the rate of the monitor detector gives the approximate density of the UCN in the guide.
 
 Refer to Sec.~\ref{sec:PM_description} for a description of the superconducting polarizing magnet (\acrshort*{pm}) and PM window. For the measurements in this chapter, we varied the strength of the PM field $ |\gls*{bField} |$ for the purpose of obtaining information on the UCN spectrum.
 
@@ -230,9 +230,9 @@ where as $k$ approaches 0, the UCN velocity distribution becomes forward directe
 We now describe a set of equations that can be used to fit UCN storage curves in a precession cell
 %
 \begin{align}
-    N(t) &= \int_{v_\text{low}}^{v_\text{high}} dv \frac{dN_1}{dv}\exp{\left(-\frac{t}{\tau(v',\bar{\mu})}\right)}\label{eq:holdingCurve_noWindowStart} \\
-    \frac{1}{\tau(v',\bar{\mu})} &=\frac{1}{\tau_\beta}+\frac{Av'}{4\text{ Vol}}\bar{\mu} \label{eq:1overTau}\\
-     \bar{\mu} &= 2\mu \left[ \frac{V_\text{cell}}{K(v')} \sin^{-1}\left( \frac{K(v')}{V_\text{cell}}\right)^{1/2} -\left( \frac{V_\text{cell}}{K(v')} - 1 \right)^{1/2} \right]\label{eq:lossPerBounce}\\
+    N(t) &= \int_{v_\text{low}}^{v_\text{high}} dv \frac{dN_1}{dv}\exp{\left(-\frac{t}{\tau(v',\overline{\mu})}\right)}\label{eq:holdingCurve_noWindowStart} \\
+    \frac{1}{\tau(v',\overline{\mu})} &=\frac{1}{\tau_\beta}+\frac{Av'}{4\text{ Vol}}\overline{\mu} \label{eq:1overTau}\\
+     \overline{\mu} &= 2\mu \left[ \frac{V_\text{cell}}{K(v')} \sin^{-1}\left( \frac{K(v')}{V_\text{cell}}\right)^{1/2} -\left( \frac{V_\text{cell}}{K(v')} - 1 \right)^{1/2} \right]\label{eq:lossPerBounce}\\
     \frac{dN_1}{dv} &= \frac{C}{2} v^{\gls*{vspec}} \left[ \frac{1}{2} + f_\ell + \beta \left( \frac{1}{2} - f_\ell \right)  \right] \label{eq:dN1dv_no_window}\\
     f_\ell &=\begin{cases}
         \frac{1}{2} \left( 1 - k\left(\frac{v_{\text{c}\parallel}}{v}\right) \right) \text{ for } v>v_{\text{c}\parallel} \text{ where } v_{\text{c}\parallel} = \sqrt{2 \gls*{mu_n} B/ \gls*{m_n}} \\

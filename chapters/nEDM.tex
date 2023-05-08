@@ -72,40 +72,40 @@ In the case where $B_0$ and $E$ differ between configurations,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Equation~7.28 from Ref.~\cite{golubUCN} gives the number of neutrons counted in a single Ramsey sequence as
+Equation~(\ref{eq:ramsey_fringe_modulation_N_cos}) gives the number of neutrons counted in a single Ramsey sequence as
 %
 \begin{gather}
-    N_\text{R}(\Delta \omega) = N \left( 1 - \gls*{alpha} \cos \,\Delta \omega \, \gls*{T_fp} \right)/2 \label{eq:neutrons_in_ramsey_seq}
+    N(\Delta \omega) = N_0 \left( 1 - \gls*{alpha} \cos \,\Delta \omega \, \gls*{T_fp} \right)/2 \nonumber
 \end{gather}
 %
-where \gls*{alpha} is the spin contrast of a Ramsey fringe, defined by Eq.~(\ref{eq:alpha}), $\gls*{T_fp}$ is the free precession period of the Ramsey method, and $\Delta\omega=\omega-\omega_0$, where $\omega$ is the applied RF frequency and $\omega_0$ is the Larmor precession frequency. 
+where \gls*{alpha} is the spin contrast of a Ramsey fringe, defined by Eq.~(\ref{eq:alpha}), $\gls*{T_fp}$ is the free precession period of the Ramsey method, and $\Delta\omega=\omega-\omega_0$, where $\omega$ is the applied RF frequency and $\omega_0$ is the Larmor precession frequency.
 
 To maximize sensitivity to small shifts in the resonant frequency, we examine where the slope of the central fringe is largest
 %
 \begin{gather}
-    \frac{\partial N_\text{R}(\Delta \omega)}{\partial \, \Delta \omega} = N \frac{\alpha}{2} \gls*{T_fp} \sin \, \Delta \omega \, \gls*{T_fp} \label{eq:slope_ramsey}
+    \frac{\partial N(\Delta \omega)}{\partial \, \Delta \omega} = N_0 \frac{\alpha}{2} \gls*{T_fp} \sin \, \Delta \omega \, \gls*{T_fp} \label{eq:slope_ramsey}
 \end{gather}
 %
 The error of $\Delta \omega$ is given by
 %
 \begin{gather}
-    \sigma(\Delta \omega) = \frac{\partial \, \Delta \omega}{\partial N_\text{R}(\Delta \omega)}\delta N_\text{R}(\Delta \omega) = \frac{\partial \, \Delta \omega}{\partial N_\text{R}(\Delta \omega)} \sqrt{N}
+    \sigma(\Delta \omega) = \frac{\partial \, \Delta \omega}{\partial N(\Delta \omega)}\delta N(\Delta \omega) = \frac{\partial \, \Delta \omega}{\partial N(\Delta \omega)} \sqrt{N_0}
     \label{eq:sigma_delta_omega}
 \end{gather}
 %
 Using Eq.~(\ref{eq:slope_ramsey}) where $\Delta \omega \, \gls*{T_fp} = \pi/2$ (for the largest slope), Eq.~(\ref{eq:sigma_delta_omega}) becomes
 %
 \begin{gather}
-    \sigma(\Delta \omega) = \frac{2}{\gls*{alpha} \gls*{T_fp} \sqrt{N}}
+    \sigma(\Delta \omega) = \frac{2}{\gls*{alpha} \gls*{T_fp} \sqrt{N_0}}
 \end{gather}
 %
 From reversal of the electric field, Eq.~(\ref{eq:delta_omega_dipole_relation}), we remove the dependence on $\Delta\omega$ to obtain
 %
 \begin{gather}
-    \sigma_{\gls*{d_n}} = \frac{\hbar}{2\gls*{alpha} E \gls*{T_fp} \sqrt{N}}\label{eq:figure_of_merit}
+    \sigma_{\gls*{d_n}} = \frac{\hbar}{2\gls*{alpha} E \gls*{T_fp} \sqrt{N_0}}\label{eq:figure_of_merit}
 \end{gather}
 %
-This is the figure of merit for an nEDM experiment using the Ramsey method. \gls{hbar} is Planck’s constant, \gls{alpha} is a factor describing the spin contrast of a Ramsey fringe, $N$ is the number of the detected UCN, and $E$ is the strength of the applied electric field.
+This is the figure of merit for an nEDM experiment using the Ramsey method. \gls{hbar} is Planck’s constant, $N_0$ (hereon notated as simply $N$) is the number of detected UCN, \gls{alpha} (Eq.~(\ref{eq:alpha})) is the spin contrast of the Ramsey fringe, and $E$ is the strength of the applied electric field. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -180,10 +180,10 @@ The constraint imposed by Eq.~(\ref{eq:magnetic_stability}) is harsher than nece
 Homogeneity requirements from $T_2$ are derived by estimating the phase difference accumulated during the free precession period by \ucn with divergent paths in a field gradient. The absolute homogeneity requirement is ~\cite{baker_apparatus_2014}
 %
 \begin{gather}
-    \Delta B_0 < \frac{1}{\gls*{gamma_n}}\sqrt{\frac{\bar{v}}{\bar{l}_0 \gls*{T_fp}}}
+    \Delta B_0 < \frac{1}{\gls*{gamma_n}}\sqrt{\frac{\overline{v}}{\overline{l}_0 \gls*{T_fp}}}
 \end{gather}
 %
-where $\bar{l}_0$ is the average distance between wall collisions and $\bar{v}$ is the average \ucn velocity. The relative homogeneity is expressed as $\Delta B_0/B_0$.
+where $\overline{l}_0$ is the average distance between wall collisions and $\overline{v}$ is the average \ucn velocity. The relative homogeneity is expressed as $\Delta B_0/B_0$.
 
 \begin{table}
 \renewcommand*{\arraystretch}{2} % increase vertical spacing just for this table
@@ -395,11 +395,11 @@ This shift in Larmor precession at the location of the LANL nEDM experiment is a
 
 At LANL, a large magnetically shielded room (\acrshort*{msr}) (Fig.~\ref{fig:MSR}) is used for the attenuation of ambient external background magnetic fields. It has an overall shielding factor of $10^5$ for fields at frequency \qty{0.01}{\hertz} and a residual field of $<\qty{0.5}{nT}$. The design of the MSR heavily draws from recent advancements of the technology~\cite{altarev_msr_1, altarev_msr_2, altarev_msr_3}, where the placement of degaussing coil locations in combination with a rectangular MSR geometry results in optimized performance.
 
-The MSR consists of 4 Mumetal\textsuperscript{\textregistered} layers and one copper layer (Tab.~\ref{tb:lanl_msr_layers}). Mumetal\textsuperscript{\textregistered} is a magnetic shielding alloy ($\mu$-metal grade ASTM A753 Alloy 4, UNS N14080, 80NiFe) from the Magnetic Shield Corporation. The MSR utilizes a bolted construction to avoid welds that create magnetic domains. The frame of the MSR is aluminum, which supports the load of the layers without deflection, and a support structure underneath is made of stainless steel. A foundation that consists of high density aggregate precast blocks minimizes the transmission of ambient external vibrations. The edges of the MSR door are supported by air bladders. When the door is in the closed and locked position, the air baldders are pressurized to improve continuity of the $\mu$-metal.
+The MSR consists of 4 Mumetal\textsuperscript{\textregistered} layers and one copper layer (Tab.~\ref{tb:lanl_msr_layers}). Mumetal\textsuperscript{\textregistered} is a magnetic shielding alloy ($\mu$-metal grade ASTM A753 Alloy 4, UNS N14080, 80NiFe) from the Magnetic Shield Corporation. The MSR utilizes a bolted construction to avoid welds that create magnetic domains. The frame of the MSR is aluminum, which supports the load of the layers without deflection, and a support structure underneath is made of stainless steel. A foundation that consists of high density aggregate precast blocks minimizes the transmission of ambient external vibrations. The edges of the MSR door are supported by air bladders. When the door is in the closed and locked position, the air bladders are pressurized to improve continuity of the $\mu$-metal.
 
 For improved shielding performance, the ferromagnetic layers are degaussed periodically. Degaussing is done by applying an alternating field with large amplitude, which drives the material to saturation, and then slowly decreasing the amplitude to zero. Each $\mu$-metal layer contains multiple L-shaped coil sets, activated sequentially, for complete degaussing coverage (see Fig.~\ref{fig:degaussing-paper-cube} for the layout of coils on the innermost layer). An amplifier designed and built specifically for the LANL nEDM allows application of up to \qty{75}{A} of current for degaussing.
 
-Residual magnetic fields in the degaussed \acrshort*{msr} were measured with a low noise 3-axis Bartington fluxgate probe (Tab.~\ref{tb:lanl_msr_dc_residuals}). The fluxgate was mounted on a fiber glass structure, and was inserted through the large neutron guide access tubes of the MSR. At each position, a \qty{10}{\second} measurement per fluxgate axis was taken in addition to a corresponding measurement where the fluxgate was rotated by \qty{180}{\degree}.
+Residual magnetic fields in the degaussed \acrshort*{msr} were measured with a low noise 3-axis Bartington fluxgate probe (Tab.~\ref{tb:lanl_msr_dc_residuals}). The fluxgate was mounted on a fiberglass structure, and was inserted through the large neutron guide access tubes of the MSR. At each position, a \qty{10}{\second} measurement per fluxgate axis was taken in addition to a corresponding measurement where the fluxgate was rotated by \qty{180}{\degree}.
 
 The absolute magnetic field values for an axis ($i=x,y,z$) were then calculated using the relations
 %
