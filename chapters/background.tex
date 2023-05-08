@@ -20,16 +20,6 @@ A nonzero EDM has yet to be measured~\cite{CHU19}. The existing bound on the neu
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A physical law, process, or quantity is symmetric under a certain operation if it remains unchanged by the operation. Three discrete symmetries play a critical role in fundamental physics: charge conjugation $C$, parity inversion $P$, and time reversal $T$.
-
-Charge conjugation transforms all charge quantum numbers of a particle. This includes electrical charge, color charge, lepton or baryon number, etc. $C$ converts a particle into its anti-particle. A process is symmetric under $C$ if one cannot distinguish the difference between anti-particles or particles with the corresponding conjugated fields in participation. For example, an electron in an electric field is indistinguishable from a positron in an electric field of equal magnitude and opposite direction.
-
-Parity, or spatial inversion, changes the sign of all spatial Cartesian coordinates. A quantity such as classical linear momentum transforms as $\vv{p}\xrightarrow{P} -\vv{p}$. The transformation $P$ in 3 dimensions cannot be imitated by a set of rotations, which gives rise to the terms ``right-handed'' and ``left-handed'' symmetry. An example of a quantity invariant under $P$ is spin $1/2$. To provide intuition as to why this is true, consider the classical angular momentum definition $\vv{r} \times \vv{p}$. The cross product of two polar vectors is an axial vector (or pseudovector) that does not change under $P$ (as seen by $(-\vv{r}) \times (-\vv{p}) = \vv{r} \times \vv{p}$).
-
-Parity violation in the weak interaction was proposed by Lee and Yang in 1956 \cite{lee_yang_1956} to explain the $\theta$\textendash$\tau$ problem and subsequently observed by Wu et al.~\cite{wu_1956}. Wu and his collaborators polarized nuclear spins of $\ce{^{60}Co}$ with a magnetic field and measured the angular distribution of the electrons from $\beta$ decay. They found that electrons were preferentially emitted in the direction opposite to the polarization of the spin, violating parity. Written mathematically, the quantity $\vv{S}\cdot\vv{p}_e$, which describes the angular distribution of emission, transforms as $\vv{S}\cdot\vv{p}_e \xrightarrow{P} \vv{S}\cdot(-\vv{p}_e) \neq \vv{S}\cdot\vv{p}_e$. We define a pseudoscalar as a quantity that behaves as a scalar but changes under $P$, such as $\vv{S}\cdot\vv{p}_e$.
-
-Time reversal modifies a time-dependent Hamiltonian $H(t)$ with the transformation $H(t)\xrightarrow{T} H(-t)$. An example of a process invariant under $T$ is a classical elastic collision of billiard balls, where watching a video of the process played backwards would be identical to the video in normal time. A quantity such as spin, however, changes sign under $T$ similar to how the angular momentum vector of a gyroscope changes when the direction of rotation changes.
-
 \begin{table}
 \centering
 \caption[Transformations of relevant physical observables under $C$, $P$, and $T$ operations]{\label{tb:cpt_transform}Transformations under $C$, $P$, and $T$ operations}
@@ -49,7 +39,26 @@ $\vv{E}$ & Electric field & $-$ & $-$ & $+$ \\
 \end{tabular}
 \end{table}
 
+
+A physical law, process, or quantity is symmetric under a certain operation if it remains unchanged by the operation. Three discrete symmetries play a critical role in fundamental physics: charge conjugation $C$, parity inversion $P$, and time reversal $T$.
+
 Tab.~\ref{tb:cpt_transform} contains a summary of transformations under $C$, $P$, and $T$. Here, ``$+$'' denotes that the quantity is even (invariant) under the transformation, and ``$-$'' denotes that the quantity is odd under the transformation.
+
+Charge conjugation transforms all charge quantum numbers of a particle. This includes electrical charge, color charge, lepton or baryon number, etc. $C$ converts a particle into its anti-particle. Classical electrodynamics is invariant under $C$. The potentials and fields all change signs, leaving the forces unaffected.
+
+Parity, or spatial inversion, changes the sign of all spatial Cartesian coordinates. It is equivalent to reflection in a plane (mirror symmetry). A quantity such as classical linear momentum transforms as $\vv{p}\xrightarrow{P} -\vv{p}$. An example of a quantity invariant under $P$ is spin $1/2$. To provide intuition as to why this is true, consider the classical angular momentum definition $\vv{r} \times \vv{p}$. The cross product of two polar vectors is an axial vector (or pseudovector) that does not change under $P$ (as seen by $(-\vv{r}) \times (-\vv{p}) = \vv{r} \times \vv{p}$).
+
+Parity violation in the weak interaction was proposed by Lee and Yang in 1956 \cite{lee_yang_1956} to explain the $\theta$\textendash$\tau$ problem and subsequently observed by Wu et al.~\cite{wu_1956}. Wu and his collaborators polarized nuclear spins of $\ce{^{60}Co}$ with a magnetic field and measured the angular distribution of the electrons from $\beta$ decay. They found that electrons were preferentially emitted in the direction opposite to the polarization of the spin, violating parity. Written mathematically, the quantity $\vv{S}\cdot\vv{p}_e$, which describes the angular distribution of emission, transforms as $\vv{S}\cdot\vv{p}_e \xrightarrow{P} \vv{S}\cdot(-\vv{p}_e) \neq \vv{S}\cdot\vv{p}_e$. We define a pseudoscalar as a quantity that behaves as a scalar but changes under $P$, such as $\vv{S}\cdot\vv{p}_e$.
+
+Time reversal performs the transformation $t \xrightarrow{T} -t$. An example of a process invariant under $T$ is a classical elastic collision of billiard balls, where watching a video of the process played backwards would be identical to the video in normal time. A quantity such as spin, however, changes sign under $T$ similar to how the angular momentum vector of a gyroscope changes when the direction of rotation changes.
+
+In quantum mechanics the the time reversal operator performs both time reversal and complex conjugation. To demonstrate, we consider the \schrodinger equation for a spin 0 system in an external scalar potential
+%
+\begin{gather}
+    i\hbar\frac{\partial \psi}{\partial t} = \left(-\frac{\hbar^2}{2m}\nabla^2 + V \right) \psi
+\end{gather}
+%
+Let $\psi(\vv{x}, t)=u_n(\vv{x})\exp(-iE_nt/\hbar)$ be a solution. If we desire the system to be symmetric under $T$, $\psi(\vv{x}, -t)$ cannot be a solution due to the time derivative on the left hand side of the equation. However, $\psi^*(\vv{x}, -t)=u_n^*(\vv{x})\exp(-iE_nt/\hbar)$ is viable.
 
 Let us examine the behavior of a particle with both electric $(\vv{d})$ and magnetic $(\vv{\mu})$ dipole moments in the presence of external magnetic $(\vv{B})$ and electric $(\vv{E})$ fields under transformations $P$ and $T$. In the nonrelativistic limit, the interaction Hamiltonian is 
 %
@@ -120,7 +129,7 @@ There are two known sources of $CP$ violation in the Standard Model (\acrshort*{
 %
 where $c_{ij}=\cos\theta_{ij}$, $s_{ij}=\sin\theta_{ij}$, and $\delta\approx1.2\text{ rad}$ is the $CP$ violating phase.
 
-As far as we know, $V_\text{CKM}$ is unitary $(V_\text{CKM}V_\text{CKM}^\dag=I)$. For a $3 \times 3$ unitary matrix, the nine unknown complex elements of $V_{ij}$ may be reduced to three real numbers (rotation angle $\theta_{ij}$) and one phase ($\delta$), where the phase accounts for $CP$ violation.
+As far as we know, $V_\text{CKM}$ is unitary $(V_\text{CKM}V_\text{CKM}^\dag=I)$. For a $3 \times 3$ unitary matrix, the nine unknown complex elements of $V_{ij}$ may be reduced to three real numbers (rotation angle $\theta_{ij}$) and one complex phase factor ($e^{i\delta}$), where the complex phase accounts for $CP$ violation.
 
 We now examine contributions to the nEDM in the SM, beginning with quark EDMs. The neutron is a composite object consisting of three valence quarks ($udd$) and a sea of gluons and mesons. At tree level, there is no diagram generating a $CP$-violating EDM interaction of one quark of the neutron with an electric field. At one loop, each CKM matrix element comes with a complex conjugate, thus negating any $CP$ violating phase. At the two loop level, the sum over all quark flavors in intermediate states still leads to a vanishing EDM \cite{schmidt-wellenburg_quest_2017, czarnecki_valence_model_1997}.
 
@@ -188,7 +197,7 @@ In the SM, there is an insufficient departure from thermal equilibrium and too l
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.75 \textwidth]{figures/Pospelov_BSM_CPV.pdf}
+    \includegraphics[height=3in]{figures/Pospelov_BSM_CPV.pdf}
     \caption[A hierarchy of scales between BSM $CP$ violating sources and 3 general types of EDM observables.]
     {A hierarchy of scales between BSM $CP$ violating sources and 3 general types of EDM observables. Dashed lines depict weaker dependencies. Image from Ref. \cite{POS05}.}
     \label{fig:bsm_cp_violation}
@@ -214,7 +223,7 @@ The current upper limit on the nEDM has been set by an experiment performed at t
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.85 \textwidth]{figures/nEDM-history.pdf}
+    \includegraphics[height=3.5in]{figures/nEDM-history.pdf}
     \caption[History of published nEDM measurements and the institutions involved.]{History of published nEDM measurements and the institutions involved. See Refs.~\cite{ramsey_nedm_1950, ramsey_nedm_1957, miller_nedm_1967, shull_nedm_1967, dress_nedm_1968, cohen_nedm_1969, dress_nedm_1973, dress_nedm_1977, altarev_nedm_1980, altarev_nedm_1981, pendlebury_nedm_1984,
     altarev_nedm_1986, smith_nedm_1990, altarev_nedm_1992, altarev_nedm_1996, harris_nedm_1999, BAK06, ABE20, pnpi_nedm_2015}. The vertical dotted line refers to the measurement of $CP$ violation in $K^0$ decay~\cite{christenson_1964}.}
     \label{fig:nEDM-history}

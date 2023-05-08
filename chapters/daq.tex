@@ -158,7 +158,7 @@ A pileup event occurs if a second ADC event occurs during the same trigger gate 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The binary data output format streamed from the SIS3316 to the client is as indicated in Fig.~\ref{fig:sis3316_raw_data}. The configuration of the header changes depending on the format setting instruction applied to the SIS3316 (optional fields colored green, yelow, orange, and blue). After a completed run, the LANL nEDM experiment rewrites the data to HDF5, a format well suited for analysis due to the ease of applying data cuts. For production data, a blinding factor will be applied during this rewriting, or ``replay,'' phase. 
+The binary data output format streamed from the SIS3316 to the client is as indicated in Fig.~\ref{fig:sis3316_raw_data}. The configuration of the header changes depending on the format setting instruction applied to the SIS3316 (optional fields colored green, yelow, orange, and blue). After a completed run, the LANL nEDM experiment rewrites the data to HDF5. For production data, a blinding factor will be applied during this rewriting, or ``replay,'' phase. 
 
 
 \begin{figure}
