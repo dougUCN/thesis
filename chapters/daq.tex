@@ -76,7 +76,7 @@ The manuals for the SIS3316~\cite{sis3316_manual, sis3316_udp_addendum} (availab
     \label{fig:scope_image}
 \end{figure}
 
-After UCN are detected as per Sec.~\ref{sec:ucn_detectors}, the signal output from a \gls*{pmt} is to sent to an Ortec 474 timing filter amplifier. The integration time is set to \qty{500}{\nano\second}. Gain is set such that the pulse spectrum heights, when viewed on an oscilloscope, have an amplitude $\sim\qty{1}{\volt}$. The differentiation time is nominally in the range of 0--\qty{20}{\nano\second}, set such that the pulse decays within \qty{5}{\micro \second}. An example UCN pulse shape as viewed on an oscilloscope after signal conditioning is shown in Fig.~\ref{fig:scope_image}.
+After UCN are detected as per Sec.~\ref{sec:ucn_detectors}, the signal output from a \gls*{pmt} is sent to an Ortec 474 timing filter amplifier. The integration time is set to \qty{500}{\nano\second}. Gain is set such that the pulse spectrum heights, when viewed on an oscilloscope, have an amplitude $\sim\qty{1}{\volt}$. The differentiation time is nominally in the range of 0--\qty{20}{\nano\second}, set such that the pulse decays within \qty{5}{\micro \second}. An example UCN pulse shape as viewed on an oscilloscope after signal conditioning is shown in Fig.~\ref{fig:scope_image}.
 
 Initial tests of UCN with Onsemi \acrshort*{sipm} 4-Side Scaleable Arrays (C Series), used on the simultaneous spin analyzers (Chap.~\ref{chap:ssa_2020}), have shown that \acrshort*{sipm} the output only needs a multiplicative gain for improved peak height sprectra resolution, and does not require the same pulse shaping as the PMTs. A custom fast-amplifier is being designed and built.
 
@@ -90,7 +90,7 @@ The SIS3316 used in the LANL nEDM for ADC is the 16-channel SIS3316-250-14, whic
 
 The SIS3316 supports complete logging of the ADC waveform, though this is not recommended due to exorbitant file size. As an alternative, the user may define up to 8 ``accumulation periods,'' where after a trigger, the SIS3316 provides an integrated sum over the waveform for the defined periods.
 
-Dead time, when the SIS3316 is unable to act after an event trigger, is typically on the order of $\sim\qty{100}{ns}$ for nominal configurations, unless the SIS3316 has been instructed to log the entire waveform (resulting in $\sim\qty{1}{\micro s}$ dead time).
+Dead time, when the SIS3316 is unable to act after an event trigger, is typically on the order of $\sim\qty{100}{ns}$ for nominal configurations. If the SIS3316 has been instructed to log the entire waveform the dead time approaches $\sim\qty{1}{\micro s}$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -99,9 +99,9 @@ Dead time, when the SIS3316 is unable to act after an event trigger, is typicall
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this section we provide an introduction to the user datagram protocol (UDP) for communication with the SIS3316. We refer to the initiator of the command as the ``client'' and the recipient (the SIS3316) as the server.
+In this section we provide an introduction to the user datagram protocol (UDP) for communication with the SIS3316. We refer to the initiator of the command as the ``client'' and the recipient (the SIS3316) as the ``server.''
 
-VME FPGA refers to a system that uses Versa Module Europa (VME) as the bus standard for interconnecting modules and Field Programmable Gate Arrays (FPGA) for implementing custom logic. The SIS3316 VME FPGA communication protocol is as depicted in Fig.~\ref{fig:sis3316_read_write_ack}. It is primarily used for reading and writing settings to the relevant registers. The client sends a command, consisting of a header (0x10 for a read request, 0x11 for a write command) to the SIS3316. The client's command contains an arbitrary packet identifier, which can be used for client-side validation when the server acknowledges the command in a read request reply. The client command also contains an address. For a read request, this elicits a response from the SIS3316, where the returned data is from the specified address. A write command from the client includes both an address and the data to write to the address, which receives no acknowledgement from the server.
+VME FPGA refers to a system that uses Versa Module Europa (VME) as the bus standard for interconnecting modules and Field Programmable Gate Arrays (FPGA) for implementing custom logic. The SIS3316 VME FPGA communication protocol is as depicted in Fig.~\ref{fig:sis3316_read_write_ack}. It is primarily used for reading and writing settings to the ADC. The client sends a command, consisting of a header (0x10 for a read request, 0x11 for a write command) to the SIS3316. The client's command contains an arbitrary packet identifier, which can be used for client-side validation when the server acknowledges the command in a read request reply. The client command also contains an address. For a read request, this elicits a response from the SIS3316, where the returned data is from the specified address. A write command from the client includes both an address and the data to write to the address, which receives no acknowledgement from the server.
 
 \begin{figure}
     \centering
@@ -124,7 +124,7 @@ The first in first out (FIFO) space readout communication protocol is depicted i
 \end{figure}
 
 
-The LANL nEDM fast DAQ uses an Ethernet interface with the SIS3316. Configuration instructions with regards to IP address assignment is located in the code repository. Ethernet offers the benefit of a very large bandwidth. In order to maximize the data transfer rate, reduce the total number of packets sent, and reduce the chances of a packet being dropped, we direct the sis3316 to use Jumbo frames, with a maximum transmission unit (MTU) of 9000 bytes. This essentially maximizes the per-envelope data transfer.
+The LANL nEDM fast DAQ uses an Ethernet interface with the SIS3316. Configuration instructions with regards to IP address assignment is located in the code repository. Ethernet offers the benefit of a very large bandwidth. In order to maximize the data transfer rate, reduce the total number of packets sent, and reduce the chances of a packet being dropped, we direct the SIS3316 to use Jumbo frames, with a maximum transmission unit (MTU) of 9000 bytes. This essentially maximizes the per-envelope data transfer.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -178,7 +178,7 @@ The binary data output format streamed from the SIS3316 to the client is as indi
 
 We conclude the overview of the ADC system with a brief discussion regarding the data blinding procedure and its close ties to ADC performance. Data blinding is an important procedure that occurs during collection of production data, designed to remove psychological bias during the analysis. For nEDM experiments, one such procedure has been to shift the minimum of the Ramsey fringe with a fake nEDM signal, as in Ref.~\cite{Ayres_psi_data_blinding_2021}. This is accomplished with a small, coordinated shift in the number of counted UCN in the quadruplet of runs along the central peak ($\omega_1$--$\omega_4$ in Fig.~\ref{fig:ramsey-sequence}). For a blinded nEDM shift of $\num{1e-25}\,e\text{ cm}$, this results in an alteration of $\approx 3$ UCN counts per run~\cite{Ayres_psi_data_blinding_2021}.
 
-Special care must be taken towards pileup events, which can easily asymmetrically alter counts per individual run (as opposed to, for example, trigger thresholds, which would affect all runs in the quadruplet equally). For the SIS3316, the accumulator gates, pileup, and repileup settings can be used to provide insight into pileup events, but will need to be further refined in coming UCN measurement cycles.
+Special care must be taken towards pileup events, which can easily asymmetrically alter counts per individual run (as opposed to, for example, trigger thresholds, which would affect all runs in the quadruplet equally). For the SIS3316, the accumulator gates, pileup, and repileup settings can be used to provide insight into pileup events, but will need to be further refined in coming UCN measurement cycles. Other blinding options that do not involve UCN count shifts of the same magnitude as pileup uncertainty should also be explored.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -186,7 +186,7 @@ Special care must be taken towards pileup events, which can easily asymmetricall
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section describes the ``slow control,'' in reference to systems in the experiment that are not particularly high-bandwidth or timing-dependent. A LabJack-U3-LV with a PS12DC Power Switching Board attachment is used to communicate with the proton accelerator, beamline gate valves, and other systems that require a transistor-transistor logic (TTL) pulse for control. The UCN switchers (Sec.~\ref{sec:lanl_switchers}) are actuated by Dynamixel H54-200-S500-R motors, controlled via USB serial interface. The UCN cell valves are actuated by STM23Q motors from Applied Motion Products over a direct Ethernet interface, with a Netgear GS308 Switcher used to support the control of multiple motors with limited ethernet ports. A general user interface (GUI) written using PyQt sends start/stop signals to the SIS3316, supports loading of configuration files into the SIS3316, and provides live histograms of pulse height spectra and UCN detector rate during measurements. 
+This section describes the ``slow control,'' in reference to systems in the experiment that are not particularly high-bandwidth. A LabJack-U3-LV with a PS12DC Power Switching Board attachment is used to communicate with the proton accelerator, beamline gate valves, and other systems that require a transistor-transistor logic (TTL) pulse for control. The UCN switchers (Sec.~\ref{sec:lanl_switchers}) are actuated by Dynamixel H54-200-S500-R motors, controlled via USB serial interface. The UCN cell valves are actuated by STM23Q motors from Applied Motion Products over a direct Ethernet interface, with a Netgear GS308 Switcher used to support the control of multiple motors with limited ethernet ports. A general user interface (GUI) written using PyQt sends start/stop signals to the SIS3316, supports loading of configuration files into the SIS3316, and provides live histograms of pulse height spectra and UCN detector rate during measurements. 
 
 For more timing-dependent devices, the slow control sends a series of commands to an intermediary BNC577 or DG535 pulse generator, to which the timing-dependent device is attached. The pulse generator programmed with the desired pulse sequence, and is set to externally trigger on a TTL pulse from the LabJack. The pulse generator then applies the programmed pulse sequence to the timing dependent device.
 
@@ -204,7 +204,7 @@ For the LANL nEDM control layout, we have multiple worker servers, such threads 
 
 The worker servers, upon receiving commands, will perform tasks and send outbound response messages via a ZMQ push action. The responses are added to a ZMQ queue that is hosted on the main control system. The main control system can then check the queue messages via a ZMQ pull action at its leisure.
 
-Code of a wrapper library that simplifies ZMQ configuration is provided in the repository listed in Tab.~\ref{tb:github}. In tests on the LANL network it has been shown that the robustness of the communication protocol will be greatly improved with additional acknowledge replies from worker servers.
+Code of a wrapper library that simplifies ZMQ configuration is provided in the repository listed in Tab.~\ref{tb:github}. In tests on the LANL network it has been shown that the robustness of the communication protocol will be greatly improved if the main control system issues redundant commands to the worker servers.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -223,9 +223,9 @@ Code of a wrapper library that simplifies ZMQ configuration is provided in the r
 
 An upgraded, web-based version of the LANL nEDM experiment control is being developed, and a proof-of-concept has been completed. The web based version allows multiple users on the LANL internal network to access experiment control and environmental monitoring systems. Once issues with the LANL proxy web portal are resolved, off-site users will also be able to the view the experiment. The envisioned experiment control system network is depicted in Fig.~\ref{fig:LANL_nEDM_network}.
 
-A front end server written in Typescript displays plots of past and current experimental measurements, and enables creation and editing of customized run configuration files that control the experiment. A back end server written in python Django interfaces with an SQLite database and forwards run configuration files to the slow control thread to run. The back end has an application programming interfaces (API) implemented using GraphQL. It offers several advantages over REST APIs: it is strongly typed, supports flexible querying, and is self-documenting with an introspection system. The front end server interacts with the back end using the URQL library to generate GraphQL posts.
+A front end server written in Typescript displays plots of past and current experimental measurements, and enables creation and editing of customized run configuration files that control the experiment. A back end server written in python Django interfaces with an SQLite database and forwards run configuration files to the slow control thread to run. The back end has an application programming interface (API) implemented using GraphQL. It offers several advantages over REST APIs: it is strongly typed, supports flexible querying, and is self-documenting with an introspection system. The front end server interacts with the back end using the URQL library to generate GraphQL posts.
 
-When the slow control thread gets or fetches a run configuration from the back end, it sends out appropriate commands over ZMQ, LabJack, GPIB, and USB serial to the devices and threads involved in running the experiment. This includes communicating with pulse generator intermediaries for the timing dependent sequencing. Data collected by the SIS3316 ADC and other monitoring systems can be reported back to the back end over GraphQL for display on the front end.
+When the slow control thread gets or fetches a run configuration from the back end, it sends out appropriate commands over ZMQ, LabJack, GPIB, and USB serial to the devices and threads involved in running the experiment. This includes communicating with pulse generator intermediaries for the timing dependent sequencing. Data collected by the SIS3316 ADC and other monitoring systems can be reported to the back end over GraphQL for display on the front end.
 
 A proof-of-concept has been deployed on the internal LANL network, and is ready for testing in a measurement cycle. Nginx, a reverse proxy, is used to appropriately direct an incoming request to either the front end or back end server. Process managers ensure that the web service restarts upon crashes or server reboots. The front end server is monitored by the PM2 and the back end is monitored by Supervisor.
 

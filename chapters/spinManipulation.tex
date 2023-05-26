@@ -382,7 +382,7 @@ In 1940, Bloch and Siegert described an effect where using a linear \acrshort*{r
 %
 where $B_\text{cr}$ is one of the counter-rotating circular \acrshort*{rf}s. 
 
-Figure~\ref{fig:bloch-siegert-t} plots the numerically calculated $\Delta\omega_\text{Bloch}$ (Appx.~\ref{appx:ramsey_numerical}) as a function of pulse width $t_\pi$, with initial phase $\phi=0$. The numerical solution has the interesting feature of oscillating within bounds defined by Eq.~\ref{eq:bloch-siegert-prediction}, in agreement with the behavior of the numerical results obtained in Ref.~\cite{may_thesis}. As can be seen by Fig.~\ref{fig:bloch-siegert-phase} (albeit in the context of a Ramsey sequence, Sec.~\ref{sec:ramsey-method}), the initial phase $\phi$ also affects $\Delta\omega_\text{Bloch}$.
+Figure~\ref{fig:bloch-siegert-t} plots the numerically calculated $\Delta\omega_\text{Bloch}$ (Appx.~\ref{appx:ramsey_numerical}) as a function of pulse width $t_\pi$, with initial phase $\phi=0$. The numerical solution has the interesting feature of oscillating within bounds defined by Eq.~(\ref{eq:bloch-siegert-prediction}), in agreement with the behavior of the numerical results obtained in Ref.~\cite{may_thesis}. As can be seen by Fig.~\ref{fig:bloch-siegert-phase} (albeit in the context of a Ramsey sequence, Sec.~\ref{sec:ramsey-method}), the initial phase $\phi$ also affects $\Delta\omega_\text{Bloch}$.
 
 \begin{figure}
     \centering
@@ -473,7 +473,7 @@ The quantities $N_\uparrow$ and $N_\downarrow$ change depending on the applied R
     N_\uparrow &= N_0 P_{\uparrow,\downarrow} = N_0 \cos^2\frac{(\omega - \omega_0)\gls*{T_fp}}{2}
 \end{align}
 %
-where, $N_0$ is the number of stored polarized neutrons. In the fringe pattern, the maximum possible and minimum possible number of transmitted neutrons are
+where $N_0$ is the number of stored polarized neutrons. In the fringe pattern, the maximum possible and minimum possible number of transmitted neutrons are
 %
 \begin{align}
     N_\text{max} &= \epsilon N_0\\
@@ -553,7 +553,7 @@ Spin (when considered as a semiclassical vector) tends to ``follow'' the orienta
 %
 When $\gls*{adiab}\gg 1$, the the field changes slowly compared to the Larmor precession rate and the spin is able to adiabatically follow the field. When the adiabatic condition is not fulfilled ($\gls*{adiab}\not\gg 1$), the spin has increased difficulty staying aligned with the magnetic field and may be depolarized. For reference, the neutron gyromagnetic ratio \gls{gamma_n} (related to $\omega_0$ via Eq.~(\ref{eq:larmor_freq})) is roughly \qty{30}{\hertz.\micro\tesla^{-1}} \cite{codata_2018}.
 
-The probability of depolarization is proportional $\exp(-\pi\eta)$ \cite{golubUCN}. Neutrons will also be depolarized by regions when the magnetic field is zero \cite{Majorana1932}. In the limit that the field changes drastically and quickly ($\gls*{adiab}\ll 1$), the spin vector of the neutron tends keep its direction fixed in space via the sudden approximation \cite{rabi_1936_space_quant}.
+The probability of depolarization is proportional to $\exp(-\pi\eta)$ \cite{golubUCN}. Neutrons will also be depolarized by regions when the magnetic field is zero \cite{Majorana1932}. In the limit that the field changes drastically and quickly ($\gls*{adiab}\ll 1$), the spin vector of the neutron tends keep its direction fixed in space via the sudden approximation \cite{rabi_1936_space_quant}.
 
 For a neutron with velocity $v$ traveling along $\vv{x}$, we can rewrite Eq.~(\ref{eq:adiab}) as
 %
@@ -586,14 +586,14 @@ where we let the fractional rate of change of the field be $1/\tau = 1/ |\vv{B}|
 \begin{figure}[htp]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/adiabatic_spin_flip.pdf}
-    \caption[{Magnetic fields viewed in the frame of the neutron $\mathcal{R}_1$, which rotates at frequency $\omega_\text{RF}$ about $\vec{z}$}]
+    \caption[{Magnetic fields viewed in the frame of the neutron $\mathcal{R}_1$, which rotates at frequency $\omega_\text{RF}$ about $\glsvv{z}$}]
             {Magnetic fields viewed in the frame of the neutron $\mathcal{R}_1$, which rotates at frequency $\omega_\text{RF}$ about $\vv{z}$. $\vv{z}=\vv{z_1}$ and $\vv{y_1}=\vv{y_2}$}
     \label{fig:adiabatic_spin_flip}
 \end{figure}
 
 A fast adiabatic spin flipper (\acrshort{afp}) is used in the \acrshort*{lanl} \acrshort*{nedm} to provide the option of spin flipping \ucn before the spin analyzer and detector \cite{holley_afp_2012}. The \acrshort*{afp} spin flipper offers the benefit of spin flipping \ucn over a wide velocity range when adiabaticity conditions are satisfied. In this section, we reproduce the spin flip probability derivation from Refs.~\cite{robiscoe_spin_flip, grigoriev_neutron_2001, rogel_thesis}.
 
-An \acrshort*{afp} spin flip requires two magnetic fields: (1)~A static field $\vv{B_\text{stat}}$ in the $\vv{z}$ direction with decreasing strength along $\vv{x}$, and (2)~an oscillating \acrshort{rf} field $\vv{B_\text{RF}}$ with frequency $\omega_\text{RF}$ perpendicular to $\vv{B_\text{stat}}$. Let $\vv{z}$ be the vertical direction, let $\vv{x}$ be the direction the neutron moves through the \acrshort*{afp} region at a velocity $v$, and let time $t=x/v$.
+An \acrshort*{afp} spin flip requires two magnetic fields: (1)~a static field $\vv{B}_\text{stat}$ in the $\vv{z}$ direction with decreasing strength along $\vv{x}$, and (2)~an oscillating \acrshort{rf} field $\vv{B}_\text{RF}$ with frequency $\omega_\text{RF}$ perpendicular to $\vv{B}_\text{stat}$. Let $\vv{z}$ be the vertical direction, let $\vv{x}$ be the direction the neutron moves through the \acrshort*{afp} region at a velocity $v$, and let time $t=x/v$.
 
 We first change from the lab frame $\mathcal{R}_0(\vv{x},\vv{y}, \vv{z})$ to a frame $\mathcal{R}_1(\vv{x_1},\vv{y_1}, \vv{z_1})$ moving with the neutron while also rotating about $\vv{z}$ at frequency $\omega_\text{RF}$ (see Fig.~\ref{fig:adiabatic_spin_flip}). In $\mathcal{R}_1$, the effective field $\vv{B_\text{e}}(t)$ seen by the neutron is given by
 %
@@ -601,11 +601,11 @@ We first change from the lab frame $\mathcal{R}_0(\vv{x},\vv{y}, \vv{z})$ to a f
     \vv{B_\text{e}}(t)=\left(B_\text{stat}(t)-\frac{\omega_\text{RF}}{\gls{gamma_n}}\right)\vv{z}+B_\text{RF}(t)\vv{x} \label{eq:adiab_derivation_1}
 \end{gather}
 %
-where in $\mathcal{R}_1$ we write $\vv{B_\text{RF}}=B_\text{RF}(t)\vv{x_1}$. The frame $\mathcal{R}_1$ is chosen such that:
+where in $\mathcal{R}_1$ we write $\vv{B}_\text{RF}=B_\text{RF}(t)\vv{x_1}$. The frame $\mathcal{R}_1$ is chosen such that:
 %
 \begin{enumerate}
-    \item The static field term $\vv{B_\text{stat}}(t)$ gains a ficticious field term, $-\omega_\text{RF}/\gls{gamma_n}$ that arises from acceleration due to the rotation of the coordinate frame. At the resonance condition, $\vv{B_\text{stat}} = \vv{B_\text{RF}}$, the first two terms of Eq.~(\ref{eq:adiab_derivation_1}) cancel
-    \item The neutron spin $\vv{S}(t)$ begins precession about $\vv{B_\text{RF}}$ (and effectively begins to follow $\vv{B_\text{e}}$ adiabatically)
+    \item The static field term $\vv{B}_\text{stat}(t)$ gains a fictitious field term, $-\omega_\text{RF}/\gls{gamma_n}$ that arises from acceleration due to the rotation of the coordinate frame. At the resonance condition, $\vv{B}_\text{stat} = \vv{B}_\text{RF}$, the first two terms of Eq.~(\ref{eq:adiab_derivation_1}) cancel
+    \item The neutron spin $\vv{S}(t)$ begins precession about $\vv{B}_\text{RF}$ (and effectively begins to follow $\vv{B_\text{e}}$ adiabatically)
 \end{enumerate}
 %
 In the $\mathcal{R}_1$ frame, the Hamiltonian operator $\hat{H}$ with neutron magnetic moment operator $\hat{\gls{mu_n}}$ is

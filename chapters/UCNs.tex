@@ -149,7 +149,7 @@ The optical potential formalism originates from representing the short range nuc
 
 \begin{table}
 \centering
-\caption[UCN optical potentials of selected UCN materials. V is the real component and W is the imaginary component]{\label{tb:optical_potentials}UCN optical potentials of selected materials. $V$ is the real component and $W$ is the imaginary component.}
+\caption{\label{tb:optical_potentials}UCN optical potentials of selected materials. $V$ is the real component and $W$ is the imaginary component.}
 \begin{tabular}{
     l
     l
@@ -186,12 +186,12 @@ Reflection probability $R$ arises from continuity requirements at the incidence 
 %
 \begin{gather}
     R = \begin{cases}
-        \left| \frac{\sqrt{K_\perp}-\sqrt{K_\perp - (V'-V)}}{\sqrt{K_\perp} + \sqrt{K_\perp - (V'-V)}}\right|^2 \quad \text{for } K_\perp > (V'-V) \\
+        \left| \frac{\sqrt{K_\perp}-\sqrt{K_\perp - (V'-V)}}{\sqrt{K_\perp} + \sqrt{K_\perp - (V'-V)}}\right|^2 \hspace{30pt} \text{for } K_\perp > (V'-V) \\
         \left| \frac{\sqrt{K_\perp}-\sqrt{K_\perp - (V'-V) + iW}}{\sqrt{K_\perp} + \sqrt{K_\perp - (V'-V) + iW}} \right|^2 \quad \text{for } K_\perp < (V'-V) \label{eq:loss_on_reflection}
     \end{cases}
 \end{gather}
 %
-Under the condition $K_\perp < (V'-V)$, the neutron cannot be transmitted, only reflected. However, there is a reflection loss probability is given by $1-R$. The wave function of a reflected \ucn penetrates a small distance into the incidence surface, where it may be lost by the interactions described in Sec.~\ref{sec:ucn_absorption}.
+Under the condition $K_\perp < (V'-V)$, the neutron cannot be transmitted, only reflected. However, there is a reflection loss probability given by $1-R$. The wave function of a reflected \ucn penetrates a small distance into the incidence surface, where it may be lost by the interactions described in Sec.~\ref{sec:ucn_absorption}.
 
 If $K_\perp > (V'-V)$, the probability of reflection is given by $R$ and the probability of transmission into the second material is $1-R$. The energy of the neutron within the second material is given by $K'=K-(V'-V)$. The refraction is analogous to Snell's law, where the velocity component in the first material perpendicular to the refraction surface $v_\perp$ is changed and the component parallel to the surface $v_\parallel$ is unaltered. The velocity in the second material $v'$ is given by
 %
@@ -245,7 +245,7 @@ The average loss probability per bounce $\overline{\mu}(K)$ for a \ucn of kineti
     \overline{\mu} = 2f \left[ \frac{V}{K} \sin^{-1}\left( \frac{K}{V}\right)^{1/2} -\left( \frac{V}{K} - 1 \right)^{1/2} \right] \label{eq:lossPerBounce_golub}
 \end{gather}
 %
-The loss factor is $f=W/V$, for optical potential terms $V$ and $W$ from Eq.~(\ref{eq:optical_potential}). For a more phenomenological treatment of loss per bounce, Eq.~(\ref{eq:lossPerBounce_golub}) may be modified by treating $f$ was a free parameter, or by replacing the entire right hand side with a velocity independent loss per bounce parameter $\mu$, which applies well to guide systems with gaps. See Secs.~\ref{subsec:storageCurves} and \ref{sec:1D_random_walk} for example applications.
+The loss factor is $f=W/V$, for optical potential terms $V$ and $W$ from Eq.~(\ref{eq:optical_potential}). For a more phenomenological treatment of loss per bounce, Eq.~(\ref{eq:lossPerBounce_golub}) may be modified by treating $f$ as a free parameter, or by replacing the entire right hand side with a velocity independent loss per bounce parameter $\mu$, which applies well to guide systems with gaps. See Secs.~\ref{subsec:storageCurves} and \ref{sec:1D_random_walk} for example applications.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -278,7 +278,7 @@ Where $I_0$ is the beam density intensity at the entrance of the material. Defin
 %
  The Beer-Lambert law applies to neutrons, photons, and rarefied gases. See Sec.~\ref{sec:1D_random_walk} and Appx.~\ref{appx:199hg_pumping} for example applications.
  
- We consider the process of bulk elastic scattering, when the neutron collides with the material and has its trajectory altered according to a Lambertian distribution. The probability $P_\text{elastic}$ after traversing a distance $x$ through a material is given by
+ We consider the process of bulk elastic scattering, when the neutron collides with the material and has its trajectory altered according to a Lambertian distribution (Sec.~\ref{sec:diffuse_reflections}). The probability $P_\text{elastic}$ after traversing a distance $x$ through a material is given by
 %
 \begin{gather}
     P_\text{elastic}=1-\exp(-x \gls*{rho_N} \sigma_\text{inc})

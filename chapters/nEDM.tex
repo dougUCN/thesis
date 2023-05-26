@@ -6,7 +6,7 @@
 
 At the Los Alamos National Laboratory (LANL), a solid deuterium (SD$_2$) based superthermal UCN source coupled to a spallation target has been providing UCN to experiments for the last 20 years (Fig.~\ref{fig:AreaB_schematic})~\cite{saunders_performance_2013, ito_performance_2018}. The UCN source (Sec.~\ref{sec:lanl_ucn_source}) was upgraded to host a new nEDM experiment that will use Ramsey's method of separated oscillatory fields to search for the nEDM with an uncertainty goal of $\delta \gls*{d_n} = 2.7\times 10^{-27}$~$e\cdot\text{cm}$ (Sec.~\ref{sec:lanl_nedm_uncertainty}).
 
-In this chapter we provide an overview of LANL nEDM instrumentation, and review some of the main systematic effects limiting the sensitivity of nEDM measurements. Section~\ref{sec:principles_nEDM} outlines the general nEDM measurement procedure. Sections~\ref{sec:figure_of_merit}--\ref{sec:lanl_ucn_source} discuss statistical uncertainty and how the UCN source at LANL enables a competitive nEDM measurement. Section~\ref{sec:magnetic_field_req} explains the requirements of the magnetic design and Sec.~\ref{sec:v_cross_E} provides background on the systematic effects that necessitate such specifications. The remainder of the chapter reviews key components in the construction of the LANL nEDM experiment.
+In this chapter we provide an overview of LANL nEDM instrumentation, and review some of the main systematic effects limiting the sensitivity of nEDM measurements. Section~\ref{sec:principles_nEDM} outlines the general nEDM measurement procedure. Sections~\ref{sec:figure_of_merit}--\ref{sec:lanl_ucn_source} discuss statistical uncertainty and how the UCN source at LANL enables a competitive nEDM measurement. Section~\ref{sec:magnetic_field_req} explains the requirements of the magnetic design and Sec.~\ref{sec:v_cross_E} provides background on the systematic effects that necessitate such specifications. The remainder of the chapter reviews key components in the construction of the experiment.
 
 The envisioned LANL nEDM experiment (Fig.~\ref{fig:envisioned_lanl_nedm}) will include features such as:
 %
@@ -111,8 +111,8 @@ This is the figure of merit for an nEDM experiment using the Ramsey method. \gls
 
 \subsection
 {
-    \texorpdfstring{Statistical Uncertainty of the \acrshort{lanl} \acrshort{nedm} experiment}
-                    {Statistical Uncertainty of the LANL nEDM experiment}\label{sec:lanl_nedm_uncertainty}
+    \texorpdfstring{Statistical uncertainty of the \acrshort{lanl} \acrshort{nedm} experiment}
+                    {Statistical uncertainty of the LANL nEDM experiment}\label{sec:lanl_nedm_uncertainty}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -149,7 +149,7 @@ The accelerator production schedule at LANL has about 7 months of accelerator op
 
 At LANL, neutrons are produced by a pulsed \qty{800}{M\eV} proton beam incident on a tungsten target. The spallation neutrons are moderated by room temperature beryllium and graphite, then converted to cold neutrons by cold polyethylene bead moderators, and finally become UCN by downscattering within an SD$_2$ crystal~\cite{saunders_performance_2013}.
 
-As in Fig.~\ref{fig:lanl_ucn_source}, UCN leaving the SD$_2$ crystal are directed upwards along a \qty{1}{\meter} vertical guide coated in $\ce{^{58}Ni}$, to account for a Snell's law \qty{100}{\nano\eV} boost (Sec.~\ref{sec:ucn_reflection_transmission}). The UCN are then transported \qty{6}{\meter} along a horizontal NiP coated stainless steel guide to the exit of the biological shield~\cite{ito_performance_2018}.
+As in Fig.~\ref{fig:lanl_ucn_source}, UCN leaving the SD$_2$ crystal are directed upwards along a \qty{1}{\meter} vertical guide coated in $\ce{^{58}Ni}$, to account for a Snell's law $\approx\qty{100}{\nano\eV}$ boost (Sec.~\ref{sec:ucn_reflection_transmission}). The UCN are then transported \qty{6}{\meter} along a horizontal NiP coated stainless steel guide to the exit of the biological shield~\cite{ito_performance_2018}.
 
 A butterfly valve near the bottom of the vertical guide reduces the probability of UCN returning to the SD$_2$, in which \ucn has a short lifetime. The valve is open while proton beam pulses are delivered to the spallation target and closed otherwise. The proton current from the accelerator is delivered in packets of 10 pulses, of pulse width \qty{625}{\micro\s} at \qty{20}{\hertz}, with a gap between packets of \qty{5}{\s}. The average current delivered to the target is $\sim\qty{9}{\micro A}$.
 
@@ -208,15 +208,15 @@ Shielding factor & $>10^4$ for $f>\qty{0.01}{Hz}$ & Temporal drift \\
 
 \subsection
 {
-    \texorpdfstring{\hg Comagnetometer}
-                    {199Hg Comagnetometer}\label{sec:199hg_comag}
+    \texorpdfstring{\hg comagnetometer}
+                    {199Hg comagnetometer}\label{sec:199hg_comag}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A comagnetometer is a polarized population of atoms occupying the same precession cell as \ucn. It provides information regarding the volume averaged magnetic field $\langle B_0 \rangle$ over the course of the free precession period. Comagnetometers must have a low \ucn absorption cross section, sufficiently long spin polarization lifetimes, a small EDM that does not mask the nEDM, and compatability with \ucn-friendly surfaces~\cite{golubUCN}.
 
-\hg offers several advantages: it can be optically pumped, the precession frequency can be extracted optically, and has been used successfully in previous nEDM measurements (Refs.~\cite{BAK06, ABE20}). However, it suffers from the drawback of sensitivity to high voltage (\acrshort*{hv}), which can reduce the spin relaxation time. This limits the magnitude of $E$ that may be applied across the electrodes. (Depolarization-inducing hydrogen is released in micro-discharges with the application of high voltage, which must be cleaned by flowing oxygen through the precession cell~\cite{baker_apparatus_2014}.)
+\hg offers several advantages: it can be optically pumped, its precession frequency can be extracted optically, and it has been used successfully in previous nEDM measurements (Refs.~\cite{BAK06, ABE20}). However, it suffers from the drawback of sensitivity to high voltage (\acrshort*{hv}), which can reduce the spin relaxation time. This limits the magnitude of $E$ that may be applied across the electrodes. (Depolarization-inducing hydrogen is released in micro-discharges with the application of high voltage, which must be cleaned by flowing oxygen through the precession cell~\cite{baker_apparatus_2014}.)
 
 Due to its higher velocity, \hg experiences a larger geometric phase shift and has a slightly higher center of mass compared to \ucn in the precession cell. As per Ref.~\cite{pendlebury_revised_2015} the geometric phase false EDM contribution from \hg is $\sim 50$ times larger than the contribution from \ucn. 
 
@@ -230,7 +230,7 @@ The LANL nEDM has acquired a \qty{254}{\nano\meter} Toptica laser for the develo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-An array of external monitors will be used to measure magnetic fields and gradients in close proximity to the precession cells. The LANL nEDM and industry partner Twinleaf are working to develop Cs magnetometers with sufficient stability and sensitivity for application to a nEDM measurement. The required sensitivity is for the magnetometer to measure changes in magnetic field better than \qty{70}{fT} per \qty{180}{s} fill of the cell, and to be stable to \qty{50}{fT} over \qty{480}{s}. Two prototypes have been built and instrumented by Twinleaf, and are being optimized by LANL nEDM collaboration members.
+An array of external monitors will be used to measure magnetic fields and gradients in close proximity to the precession cells. The LANL nEDM collaboration and industry partner Twinleaf are working to develop Cs magnetometers with sufficient stability and sensitivity for application to a nEDM measurement. The required sensitivity is that the magnetometer should measure changes in magnetic field better than \qty{70}{fT} per \qty{180}{s} fill of the cell, and be stable to within \qty{50}{fT} over \qty{480}{s}. Two prototypes have been built and instrumented by Twinleaf, and are being optimized by LANL nEDM collaboration members.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -362,8 +362,8 @@ This shift in Larmor precession at the location of the LANL nEDM experiment is a
 
 \section
 {
-    \texorpdfstring{Magnetically Shielded Room}
-                    {Magnetically Shielded Room}\label{sec:MSR}
+    \texorpdfstring{Magnetically shielded room}
+                    {Magnetically shielded room}\label{sec:MSR}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -393,7 +393,7 @@ This shift in Larmor precession at the location of the LANL nEDM experiment is a
     \label{fig:MSR_long_term_measurements}
 \end{figure}
 
-At LANL, a large magnetically shielded room (\acrshort*{msr}) (Fig.~\ref{fig:MSR}) is used for the attenuation of ambient external background magnetic fields. It has an overall shielding factor of $10^5$ for fields at frequency \qty{0.01}{\hertz} and a residual field of $<\qty{0.5}{nT}$. The design of the MSR heavily draws from recent advancements of the technology~\cite{altarev_msr_1, altarev_msr_2, altarev_msr_3}, where the placement of degaussing coil locations in combination with a rectangular MSR geometry results in optimized performance.
+At LANL, a large magnetically shielded room (\acrshort*{msr}) (Fig.~\ref{fig:MSR}) is used for the attenuation of ambient external background magnetic fields. It has an overall shielding factor of $10^5$ for fields at frequency \qty{0.01}{\hertz} and a residual field of $<\qty{1}{nT}$. The design of the MSR heavily draws from recent advancements of the technology~\cite{altarev_msr_1, altarev_msr_2, altarev_msr_3}, where the placement of degaussing coil locations in combination with a rectangular MSR geometry results in optimized performance.
 
 The MSR consists of 4 Mumetal\textsuperscript{\textregistered} layers and one copper layer (Tab.~\ref{tb:lanl_msr_layers}). Mumetal\textsuperscript{\textregistered} is a magnetic shielding alloy ($\mu$-metal grade ASTM A753 Alloy 4, UNS N14080, 80NiFe) from the Magnetic Shield Corporation. The MSR utilizes a bolted construction to avoid welds that create magnetic domains. The frame of the MSR is aluminum, which supports the load of the layers without deflection, and a support structure underneath is made of stainless steel. A foundation that consists of high density aggregate precast blocks minimizes the transmission of ambient external vibrations. The edges of the MSR door are supported by air bladders. When the door is in the closed and locked position, the air bladders are pressurized to improve continuity of the $\mu$-metal.
 
@@ -587,7 +587,7 @@ A set of spin transport coils are used to adiabatically transport UCNs from the 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Magnetic Impurity Scanner}\label{sec:magnetic_impurity_scanner}
+\section{Magnetic impurity scanner}\label{sec:magnetic_impurity_scanner}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
